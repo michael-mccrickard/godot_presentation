@@ -1,0 +1,263 @@
+# Presentation Player
+
+A Godot 4 tool for building and playing back still-image presentations with camera
+moves (zoom and pan), transitions, and audio sync. The picture is drawn in real time
+from the original image pixels, so there is no video compression or rescaling of your
+stills. Everything you author is stored in one file, `presentation.json`, and the
+player is generic: the presentation is data.
+
+Developed and tested with Godot 4.7 using the Compatibility renderer (set in
+`project.godot`).
+
+## Project layout
+
+| Path | What it is |
+| --- | --- |
+| `images/` | Your still images (png, jpg, jpeg, webp, bmp, tga). Shots are created in file-name order. |
+| `audio/track.wav` | Optional soundtrack, used when a new presentation is first created. |
+| `presentation.json` | The saved presentation: shot order, timings, camera framing, transitions. |
+| `scripts/` | The code. `shot.gd` is the data for one shot; `presentation_player.gd` plays it back. |
+| `shaders/transition.gdshader` | The transition shader. |
+
+## The window
+
+The window is 1280 x 1024:
+
+- **Black bar (top, 72 px):** status text, plus the **Rewind** and **End** buttons.
+- **Presentation view (1280 x 720):** exactly what the audience sees. Letterbox bars
+  inside it are black.
+- **Timeline strip (bottom):** the audio waveform (when available), a time ruler,
+  your shot markers (yellow, numbered), and the red playhead.
+
+`Tab` hides the status text, buttons, and timeline.
+
+## Authoring workflow
+
+1. **Add images.** Put them in `images/`. On first run, one shot is created per image,
+   in file-name order. Shot 1 starts at 0:00; the rest are waiting to be marked.
+2. **Add audio (optional).** Put a WAV at `audio/track.wav` *before the first run*
+   (see "Audio" below). With no audio you can still author against a free-running clock.
+3. **Mark the cuts.** Press `Space` to start playback and press `M` at the moment each
+   next image should appear. Each tap assigns the next unmarked shot. The status line
+   shows which shot is next.
+4. **Fine-tune.** Drag a marker on the timeline to retime it. Drag it as far as you
+   like; it stops just short of its neighbours so shots stay in order.
+5. **Frame the camera.** Move the playhead onto a shot and press `C` (see "Camera and
+   fit modes").
+6. **Choose transitions.** See "Transitions" below.
+7. **Preview.** Press `Home` (or the Rewind button), then `Space`.
+
+Every edit is saved automatically (see "Saving").
+
+## Controls
+
+### Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Space` | Play / pause |
+| `M` | Mark: start the next unmarked shot at the playhead |
+| `C` | Open the camera editor for the shot under the playhead |
+| `Home` | Rewind to the beginning |
+| `End` | Jump to the end |
+| `Left` / `Right` | Seek 1 second (hold `Shift` for 5 seconds) |
+| `R`, `R` | Clear all marks. Press `R` twice within 3 seconds; the status line asks you to confirm. |
+| `S` | Save immediately (not normally needed) |
+| `Tab` | Show / hide the authoring UI |
+
+### Buttons (top right)
+
+- **|< Rewind** – back to 0:00 (same as `Home`).
+- **End >|** – jump to the end of the content (same as `End`). With audio this is the
+  end of the audio; without audio it is the last marked shot plus 4 seconds.
+
+### Timeline strip
+
+| Mouse | Action |
+| --- | --- |
+| Click / drag on empty space | Move the playhead (scrub) |
+| Drag a yellow marker | Retime that shot |
+| Mouse wheel | Zoom in / out around the cursor |
+| `Shift` + wheel | Pan left / right |
+
+## Timing model
+
+- A shot begins at its **marker time** (`start`) and stays on screen until the next
+  marked shot begins.
+- A shot's **camera move** runs from its start framing to its end framing over the
+  shot's whole duration (until the next marker), with the easing you chose.
+  Set `move_duration` in the JSON to make the move shorter; the camera then holds its
+  end framing for the rest of the shot.
+- The master clock is the audio. Every frame is computed from the audio playback
+  position (corrected for output latency), so scrubbing and seeking are exact and
+  video and sound cannot drift apart.
+- If you are late or early when tapping `M`, change `TAP_OFFSET` in `scripts/main.gd`
+  (seconds; negative means earlier), or just drag the marker afterwards.
+
+## Camera and fit modes
+
+Each shot has a **start** and an **end** framing. If they are the same, the shot is
+static; if they differ, the camera glides between them (a Ken Burns move). Zoom is
+interpolated evenly in log space so zooms feel smooth at any scale.
+
+A shot you have not framed is set to **Full**: the whole image is visible. Press `C`
+to change that.
+
+### Camera editor
+
+`C` pauses playback and shows the whole image with two rectangles: **START** (green)
+and **END** (red). The rectangle is exactly the part of the image the audience will see.
+
+| Key / mouse | Action |
+| --- | --- |
+| `1` / `2` | Choose the START or END rectangle to edit |
+| Drag | Move the rectangle (click anywhere to jump it there) |
+| Mouse wheel | Zoom the rectangle (`Shift` for fine steps) |
+| `F` | **Full** – the whole image is visible (bars on whichever sides are short) |
+| `V` | **Full vertical** – the image height fills the frame (bars at the sides, or the sides are clipped) |
+| `W` | **Full horizontal** – the image width fills the frame (bars top and bottom, or the top and bottom are clipped) |
+| `H` | Hold – make END equal START (no move) |
+| `0` | Reset both rectangles to Full |
+| `[` / `]` | Previous / next shot |
+| `Enter` | Apply and preview: replays the shot from its start |
+| `Esc` | Cancel the changes made to the shot you are editing |
+
+`F`, `V`, and `W` set the rectangle you are editing, so a move can travel from one fit
+to another (for example, from Full to Full vertical). The zoom labels (`1.00x`,
+`2.32x`) are relative to the image width filling the frame.
+
+## Transitions
+
+A transition controls how the **previous shot changes into this one**. It is stored on
+the *incoming* shot. It starts at that shot's marker time and lasts
+`transition_duration` seconds. The first shot has nothing to transition from, so its
+setting does nothing.
+
+| `transition` value | Name | What it looks like |
+| --- | --- | --- |
+| `0` | `CUT` | Instant cut. |
+| `1` | `CROSSFADE` | The old image fades into the new one. |
+| `2` | `WIPE` | A soft-edged wipe from left to right. |
+| `3` | `IRIS` | The new image opens outward from the center of the frame. |
+| `4` | `MASK_DISSOLVE` | A dissolve through a cloud-like noise pattern. |
+
+A new presentation gives shot 2 onward a rotating sequence (crossfade, wipe, iris,
+mask dissolve, repeating) with a duration of `1.0` second, so you can see each one.
+
+Transitions are currently edited in `presentation.json` (there is no on-screen control
+for them yet):
+
+1. Close the player first. The player rewrites the file on every edit, so changes made
+   while it is running will be overwritten.
+2. Open `presentation.json`, find the shot (the list is in shot order, and the
+   `image_path` shows which image it is), and edit its two fields:
+
+   ```json
+   "transition": 1,
+   "transition_duration": 1.5
+   ```
+
+3. Save the file, reopen the project, and preview by seeking to a few seconds before
+   the shot's marker and pressing `Space`.
+
+Things to know:
+
+- `CUT` or a duration of `0` both give a hard cut.
+- While a transition runs, both images are on screen. The outgoing shot holds its end
+  framing; the incoming shot's camera move is already underway.
+- Keep markers at least as far apart as the transition lasts. If the next marker
+  arrives before a transition finishes, the transition is cut short.
+- The shader is `shaders/transition.gdshader`; adding a new style means adding a mode
+  there and a matching entry in the `Transition` enum in `scripts/shot.gd`.
+
+## Easing
+
+`easing` controls how a camera move accelerates:
+
+| Value | Name | Feel |
+| --- | --- | --- |
+| `0` | `LINEAR` | Constant speed |
+| `1` | `SMOOTH` | Eases in and out (the default) |
+| `2` | `EASE_IN` | Starts slowly, speeds up |
+| `3` | `EASE_OUT` | Starts quickly, slows down |
+
+Like transitions, easing is set in `presentation.json` for now.
+
+## Saving
+
+Every edit is written to `presentation.json` automatically about 0.4 seconds after you
+make it: marking a shot, dragging a marker, any change in the camera editor, and clearing
+marks. The status line shows `unsaved` while a save is pending and `saved HH:MM:SS`
+afterwards. A pending save is also written when you close the window.
+
+- Running from the Godot editor, the file is `res://presentation.json` (the project
+  folder), so it can be committed to git.
+- In an exported build the player reads and writes `user://presentation.json`. On macOS
+  that is `~/Library/Application Support/Godot/app_userdata/PresentationPlayer/`. If
+  that file does not exist, it falls back to a `presentation.json` packed into the
+  export (add `*.json` to the export's resource filters to include it).
+- Because saving is automatic, `R` (clear all marks) cannot be undone from the app. It
+  asks for a second press for that reason. Committing `presentation.json` to git gives
+  you an undo.
+
+## `presentation.json` reference
+
+```json
+{
+  "audio_path": "res://audio/track.wav",
+  "shots": [
+    {
+      "image_path": "res://images/p1_f1.png",
+      "auto_fit": true,
+      "start": 0.0,
+      "move_duration": 0.0,
+      "cam_start": [0.0, 0.0, 1.0, 1.0],
+      "cam_end": [0.0, 0.0, 1.0, 1.0],
+      "easing": 1,
+      "transition": 0,
+      "transition_duration": 1.0
+    }
+  ]
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `audio_path` | Soundtrack. Empty for none. |
+| `image_path` | The image. `res://...` paths use Godot's import; other paths are loaded directly. |
+| `auto_fit` | `true`: the shot is simply Full and the two rectangles are ignored. Becomes `false` as soon as you change the framing in the camera editor. |
+| `start` | Marker time in seconds. `-1` means not marked yet. |
+| `move_duration` | Camera move length in seconds. `0` means "until the next marker". |
+| `cam_start`, `cam_end` | Framing as `[x, y, width, height]`, fractions of the image. Only the center and the width are used: `width` is the fraction of the image width that is visible (`1.0` = the whole width, `0.5` = 2x zoom). |
+| `easing` | See "Easing". |
+| `transition`, `transition_duration` | See "Transitions". |
+
+## Audio
+
+- **Waveform:** shown only for uncompressed WAV files. In Godot's Import tab, leave the
+  WAV's compress mode set to Disabled. MP3 and Ogg files still play but show no
+  waveform; convert them to WAV for authoring.
+- **Choosing the file:** a new presentation uses `audio/track.wav` if it exists. Once
+  `presentation.json` exists, edit its `audio_path` to change the soundtrack (with the
+  player closed).
+- **No audio:** the timeline runs on a free-running clock and keeps extending as you
+  play, so you can keep tapping marks. Timings are plain seconds, so they remain valid
+  when you add audio later (they will only line up if the audio is timed the same way).
+- **Markers from another tool:** `start` values are seconds, so cut times exported from
+  a DAW or Audacity can be pasted into the JSON.
+
+## Known limitations
+
+- Transitions, easing, and `move_duration` have no on-screen controls yet; edit the JSON.
+- Once `presentation.json` exists, new images added to `images/` are **not** picked up
+  automatically. Add a shot to the JSON by hand, or delete `presentation.json` to start
+  over (this loses your marks and framing).
+- Shot order is the order in the JSON; there is no on-screen way to reorder shots yet.
+- The waveform needs an uncompressed WAV.
+
+## Image quality
+
+For the sharpest result, keep the image imports on Lossless (not VRAM-compressed) with
+mipmaps enabled, and keep each image under the GPU texture size limit (about 16384 px
+per side). The picture is rendered at 1920 x 1080 internally and shown in the
+1280 x 720 view.

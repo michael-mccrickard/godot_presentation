@@ -1,8 +1,10 @@
 extends Control
 ## Glue: builds the player + authoring overlay and handles keys.
 ##   Space play/pause   M mark next shot   Tab show/hide authoring UI
-##   Left/Right seek 1s (Shift = 5s)   Home rewind   S save   R reset all marks
+##   Left/Right seek 1s (Shift = 5s)   Home rewind   End jump to end
+##   R (twice) clear all marks   S save now (every edit is also saved automatically)
 ##   C frame the camera move for the current shot (see camera_editor.gd)
+## Every edit is written to presentation.json shortly after it is made.
 
 const SAVE_RES := "res://presentation.json"    # written when running from the editor
 const SAVE_USER := "user://presentation.json"  # written from an exported build
@@ -19,7 +21,13 @@ var player: PresentationPlayer
 var wave: WaveformView
 var info: Label
 var cam_editor: CameraEditor
+var buttons: HBoxContainer
 var next_idx := 0
+
+var _save_timer: Timer
+var _dirty := false
+var _save_status := ""
+var _clear_armed_until := 0.0  # R must be pressed twice (autosave makes it permanent)
 
 
 func _ready() -> void:
@@ -52,6 +60,7 @@ func _ready() -> void:
 	wave.offset_bottom = 0.0
 	wave.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	wave.rebuild()
+	wave.changed.connect(_queue_save)
 
 	# Camera editor covers the picture area (not the waveform strip).
 	cam_editor = CameraEditor.new()
@@ -60,6 +69,27 @@ func _ready() -> void:
 	cam_editor.anchor_bottom = 1.0
 	cam_editor.offset_bottom = -WAVE_H
 	cam_editor.closed.connect(_on_camera_closed)
+	cam_editor.changed.connect(_queue_save)
+
+	# Transport buttons, top right of the black bar.
+	buttons = HBoxContainer.new()
+	buttons.add_theme_constant_override("separation", 8)
+	add_child(buttons)
+	buttons.anchor_left = 1.0
+	buttons.anchor_right = 1.0
+	buttons.offset_left = -260.0
+	buttons.offset_right = -12.0
+	buttons.offset_top = 8.0
+	buttons.offset_bottom = 40.0
+	buttons.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	buttons.add_child(_make_button("|<  Rewind", "Rewind to the beginning (Home)", _rewind))
+	buttons.add_child(_make_button("End  >|", "Jump to the end (End)", _to_end))
+
+	_save_timer = Timer.new()
+	_save_timer.one_shot = true
+	_save_timer.wait_time = 0.4
+	_save_timer.timeout.connect(_flush_save)
+	add_child(_save_timer)
 
 	info = Label.new()
 	info.position = Vector2(12, 6)
@@ -89,12 +119,38 @@ func _sync_next_idx() -> void:
 			break
 
 
+func _make_button(label: String, tip: String, handler: Callable) -> Button:
+	var b := Button.new()
+	b.text = label
+	b.tooltip_text = tip
+	b.focus_mode = Control.FOCUS_NONE  # so Space keeps meaning play/pause
+	b.custom_minimum_size = Vector2(118, 32)
+	b.pressed.connect(handler)
+	return b
+
+
+func _rewind() -> void:
+	player.seek(0.0)
+	wave.reveal(0.0)
+
+
+func _to_end() -> void:
+	var t := player.content_length()
+	player.seek(t)
+	wave.reveal(t)
+
+
 func _process(_delta: float) -> void:
-	info.modulate.a = 0.0 if cam_editor.visible else 1.0  # editor draws its own help line
+	var editing := cam_editor.visible
+	info.modulate.a = 0.0 if editing else 1.0  # editor draws its own help line
+	buttons.visible = not editing and info.visible
 	if info.visible:
-		info.text = "%s  t=%.2f   next mark: shot %d/%d\nSpace play  M mark  C camera  S save  R reset  Tab hide  |  wheel zoom, drag markers" % [
+		var line1 := "%s  t=%.2f   next mark: shot %d/%d   %s" % [
 			"PLAY" if player.is_playing else "PAUSE", player.get_time(),
-			mini(next_idx + 1, player.data.shots.size()), player.data.shots.size()]
+			mini(next_idx + 1, player.data.shots.size()), player.data.shots.size(), _save_status]
+		if Time.get_ticks_msec() / 1000.0 < _clear_armed_until:
+			line1 += "   PRESS R AGAIN TO CLEAR ALL MARKS"
+		info.text = line1 + "\nSpace play  M mark  C camera  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
 		if player.last_error != "":
 			info.text += "\n" + player.last_error
 
@@ -128,17 +184,28 @@ func _unhandled_key_input(e: InputEvent) -> void:
 			wave.visible = not wave.visible
 			info.visible = wave.visible
 		KEY_S:
-			_save()
+			_dirty = true
+			_flush_save()
 		KEY_R:
-			for s in player.data.shots:
-				s.start = -1.0
-			next_idx = 0
+			var now := Time.get_ticks_msec() / 1000.0
+			if now < _clear_armed_until:
+				_clear_armed_until = 0.0
+				for s in player.data.shots:
+					s.start = -1.0
+				next_idx = 0
+				_queue_save()
+			else:
+				_clear_armed_until = now + 3.0
 		KEY_LEFT:
 			player.seek(player.get_time() - step)
+			wave.reveal(player.get_time())
 		KEY_RIGHT:
 			player.seek(player.get_time() + step)
+			wave.reveal(player.get_time())
 		KEY_HOME:
-			player.seek(0.0)
+			_rewind()
+		KEY_END:
+			_to_end()
 	get_viewport().set_input_as_handled()
 
 
@@ -147,9 +214,28 @@ func _tap() -> void:
 		return
 	player.data.shots[next_idx].start = maxf(player.get_time() + TAP_OFFSET, 0.0)
 	next_idx += 1
+	_queue_save()
 
 
-func _save() -> void:
+## Autosave: every edit calls this; the file is written 0.4s after the last edit.
+func _queue_save() -> void:
+	_dirty = true
+	_save_status = "unsaved"
+	_save_timer.start()
+
+
+func _flush_save() -> void:
+	if not _dirty:
+		return
+	_dirty = false
 	var path := SAVE_RES if OS.has_feature("editor") else SAVE_USER
 	if player.data.save_json(path):
+		_save_status = "saved " + Time.get_time_string_from_system()
 		print("Saved ", ProjectSettings.globalize_path(path))
+	else:
+		_save_status = "SAVE FAILED"
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_flush_save()  # don't lose an edit made in the last 0.4s

@@ -11,6 +11,8 @@ extends Control
 ## F / V / W set the rect you are editing, so a move can go from one fit to another.
 
 signal closed(shot_index: int, preview: bool)
+## Emitted after any edit (so the presentation can be saved).
+signal changed
 
 const MIN_WIDTH := 0.05
 const COL_START := Color(0.3, 1.0, 0.4)
@@ -171,6 +173,7 @@ func handle_key(k: InputEventKey) -> void:
 			_shot().cam_end = _backup_end
 			_shot().auto_fit = _backup_auto
 			_close(false)
+	changed.emit()
 	queue_redraw()
 
 
@@ -188,6 +191,7 @@ func _gui_input(e: InputEvent) -> void:
 				_set_active(_make_rect(m + _grab, r.size.x))
 			else:
 				_dragging = false
+				changed.emit()
 		elif mb.pressed and (mb.button_index == MOUSE_BUTTON_WHEEL_UP or mb.button_index == MOUSE_BUTTON_WHEEL_DOWN):
 			var factor := 0.97 if mb.shift_pressed else 0.9
 			if mb.button_index == MOUSE_BUTTON_WHEEL_DOWN:
@@ -197,6 +201,7 @@ func _gui_input(e: InputEvent) -> void:
 			var w := clampf(r.size.x * factor, MIN_WIDTH, _max_width())
 			# Zoom about the cursor so the point under it stays put.
 			_set_active(_make_rect(m + (r.get_center() - m) * (w / r.size.x), w))
+			changed.emit()
 	elif e is InputEventMouseMotion and _dragging:
 		var r := _active()
 		_set_active(_make_rect(_to_norm((e as InputEventMouseMotion).position) + _grab, r.size.x))

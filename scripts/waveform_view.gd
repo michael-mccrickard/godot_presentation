@@ -3,6 +3,9 @@ extends Control
 ## Zoomable waveform + shot markers. Wheel = zoom at cursor, Shift+wheel = pan,
 ## click = seek (drag to scrub), drag a marker to retime that shot.
 
+## Emitted when a marker was moved (so the presentation can be saved).
+signal changed
+
 const PEAKS_PER_SEC := 100
 const GRAB_PX := 8.0
 
@@ -24,6 +27,13 @@ func rebuild() -> void:
 	peaks = _build_peaks(player.audio.stream)
 	view_start = 0.0
 	view_len = 30.0 if player.audio.stream == null else clampf(player.total_length(), 1.0, 30.0)
+
+
+## Scroll the view (if needed) so time t is visible, e.g. after a rewind or jump to end.
+func reveal(t: float) -> void:
+	if t < view_start or t > view_start + view_len:
+		view_start = t - view_len * 0.1
+	_clamp_view()
 
 
 ## Only uncompressed AudioStreamWAV exposes raw samples. Import WAVs with
@@ -176,6 +186,8 @@ func _gui_input(e: InputEvent) -> void:
 					_scrubbing = true
 					player.seek(x_to_time(mb.position.x))
 			else:
+				if _drag_idx >= 0:
+					changed.emit()
 				_drag_idx = -1
 				_scrubbing = false
 	elif e is InputEventMouseMotion:
