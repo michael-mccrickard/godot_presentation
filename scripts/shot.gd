@@ -78,12 +78,14 @@ func to_dict() -> Dictionary:
 static func from_dict(d: Dictionary) -> Shot:
 	var s := Shot.new()
 	s.image_path = d.get("image_path", "")
-	# Files saved before auto_fit existed hold explicit framing; keep it.
-	s.auto_fit = bool(d.get("auto_fit", false))
 	s.start = float(d.get("start", -1.0))
 	s.move_duration = float(d.get("move_duration", 0.0))
 	s.cam_start = _rect(d.get("cam_start", [0, 0, 1, 1]))
 	s.cam_end = _rect(d.get("cam_end", [0, 0, 1, 1]))
+	# Files saved before auto_fit existed: keep real framing, but a shot still at the
+	# untouched default rect was never framed, so treat it as "Full".
+	var untouched := s.cam_start == Rect2(0, 0, 1, 1) and s.cam_end == Rect2(0, 0, 1, 1)
+	s.auto_fit = bool(d.get("auto_fit", untouched))
 	s.easing = int(d.get("easing", Easing.SMOOTH))
 	s.transition = int(d.get("transition", Transition.CROSSFADE))
 	s.transition_duration = float(d.get("transition_duration", 1.0))
