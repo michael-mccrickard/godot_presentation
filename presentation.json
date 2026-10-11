@@ -1,0 +1,425 @@
+{
+	"audio_path": "",
+	"shots": [
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f1.png",
+			"move_duration": 0.0,
+			"start": 0.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f2.png",
+			"move_duration": 0.0,
+			"start": 2.20312476158142,
+			"transition": 1,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f3.png",
+			"move_duration": 0.0,
+			"start": 4.10266742824807,
+			"transition": 2,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f4.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 3,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f5.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 4,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f6.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 1,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f7.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 2,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f8.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 3,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f1.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 4,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f2.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 1,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f3.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 2,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f4.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 3,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f5.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 4,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f6.jpg",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 1,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f7.jpg",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 2,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f8.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 3,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p2_f9.jpg",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 4,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p3_f1.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 1,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p3_f2.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 2,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p3_f3.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 3,
+			"transition_duration": 1.0
+		},
+		{
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p3_f4.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 4,
+			"transition_duration": 1.0
+		}
+	]
+}
