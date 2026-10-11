@@ -202,6 +202,11 @@ func _move_end(idx: int) -> float:
 ## Camera state is a pure function of t: center lerps linearly, zoom (width) in log space.
 func camera_at(idx: int, t: float) -> Dictionary:
 	var s := data.shots[idx]
+	if s.auto_fit:
+		var tex := _get_texture(s.image_path)
+		var isz := tex.get_size() if tex else Vector2(OUT_SIZE)
+		return {"center": Vector2(0.5, 0.5),
+				"width": Shot.fit_width(Shot.Fit.FULL, isz, float(OUT_SIZE.x) / OUT_SIZE.y)}
 	var span := maxf(_move_end(idx) - s.start, 0.001)
 	var p := Shot.ease_value((t - s.start) / span, s.easing)
 	var w0 := maxf(s.cam_start.size.x, 0.0001)

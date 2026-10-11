@@ -72,6 +72,7 @@ static func make_demo() -> PresentationData:
 		# Your own images start as a static full frame (frame moves with C in the player).
 		# Only the generated demo gets sample camera moves, to show what they look like.
 		if paths[0].begins_with("demo://"):
+			s.auto_fit = false
 			if i % 2 == 0:  # push in toward a corner
 				s.cam_start = Shot.rect_from_center(Vector2(0.5, 0.5), 1.0)
 				s.cam_end = Shot.rect_from_center(Vector2(0.65, 0.4), 0.45)

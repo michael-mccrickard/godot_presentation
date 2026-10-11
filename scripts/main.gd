@@ -9,6 +9,12 @@ const SAVE_USER := "user://presentation.json"  # written from an exported build
 ## Seconds added to a tap to compensate for your own reaction lag (negative = earlier).
 const TAP_OFFSET := 0.0
 
+# Window layout (must add up to the window height in project.godot): a black bar for
+# the info text, the 1280x720 presentation view, then the waveform strip.
+const TOP_BAR := 72.0
+const VIEW_SIZE := Vector2(1280, 720)
+const WAVE_H := 232.0
+
 var player: PresentationPlayer
 var wave: WaveformView
 var info: Label
@@ -17,9 +23,19 @@ var next_idx := 0
 
 
 func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color.BLACK)  # bars around images are black
+	var bg := ColorRect.new()  # the black bar above the view (and any letterboxing)
+	bg.color = Color.BLACK
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(bg)
+
 	player = PresentationPlayer.new()
-	player.set_anchors_preset(Control.PRESET_FULL_RECT)
+	player.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	player.clip_contents = true
 	add_child(player)
+	player.position = Vector2(0, TOP_BAR)
+	player.size = VIEW_SIZE
 	player.set_data(_load_or_demo())
 	_sync_next_idx()
 
@@ -32,7 +48,7 @@ func _ready() -> void:
 	wave.anchor_bottom = 1.0
 	wave.offset_left = 0.0
 	wave.offset_right = 0.0
-	wave.offset_top = -200.0
+	wave.offset_top = -WAVE_H
 	wave.offset_bottom = 0.0
 	wave.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	wave.rebuild()
@@ -42,11 +58,12 @@ func _ready() -> void:
 	add_child(cam_editor)
 	cam_editor.anchor_right = 1.0
 	cam_editor.anchor_bottom = 1.0
-	cam_editor.offset_bottom = -200.0
+	cam_editor.offset_bottom = -WAVE_H
 	cam_editor.closed.connect(_on_camera_closed)
 
 	info = Label.new()
-	info.position = Vector2(12, 8)
+	info.position = Vector2(12, 6)
+	info.add_theme_font_size_override("font_size", 14)
 	info.add_theme_color_override("font_shadow_color", Color.BLACK)
 	info.add_theme_constant_override("shadow_offset_x", 1)
 	info.add_theme_constant_override("shadow_offset_y", 1)
