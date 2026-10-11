@@ -8,6 +8,7 @@ const OUT_SIZE := Vector2i(1920, 1080)
 var data: PresentationData
 var audio: AudioStreamPlayer
 var is_playing := false
+var last_error := ""
 
 var _vp: Array[SubViewport] = []
 var _spr: Array[Sprite2D] = []
@@ -63,13 +64,22 @@ func set_data(d: PresentationData) -> void:
 
 # ---------------------------------------------------------------- clock
 
-func total_length() -> float:
+## End of the authored content: audio length, or last shot start + 4s with no audio.
+func content_length() -> float:
 	if audio.stream:
 		return audio.stream.get_length()
 	var last := 0.0
 	for s in data.shots:
 		last = maxf(last, s.start)
 	return last + 4.0
+
+
+## With no audio the timeline keeps growing ahead of the clock, so you can keep
+## tapping marks past the last shot without the "show" ending.
+func total_length() -> float:
+	if audio.stream:
+		return audio.stream.get_length()
+	return maxf(content_length(), maxf(_free_clock, _paused_time) + 5.0)
 
 
 func get_time() -> float:
@@ -132,15 +142,13 @@ func _process(delta: float) -> void:
 		_hold -= 1
 	if is_playing and audio.stream == null:
 		_free_clock += delta
-		if _free_clock >= total_length():
-			_paused_time = total_length()
-			is_playing = false
 	render(get_time())
 
 
 # ---------------------------------------------------------------- rendering
 
 func render(t: float) -> void:
+	last_error = ""
 	var idx := shot_index_at(t)
 	if idx < 0:
 		_spr[0].visible = false
@@ -188,7 +196,7 @@ func _move_end(idx: int) -> float:
 	for j in range(idx + 1, data.shots.size()):
 		if data.shots[j].is_assigned():
 			return data.shots[j].start
-	return total_length()
+	return content_length()
 
 
 ## Camera state is a pure function of t: center lerps linearly, zoom (width) in log space.
@@ -209,6 +217,7 @@ func _apply(layer: int, idx: int, t: float) -> void:
 	var tex := _get_texture(data.shots[idx].image_path)
 	if tex == null:
 		spr.visible = false
+		last_error = "Could not load image: " + data.shots[idx].image_path
 		return
 	var cam := camera_at(idx, t)
 	var img_size := tex.get_size()
@@ -234,6 +243,8 @@ func _get_texture(path: String) -> Texture2D:
 		if img:
 			img.generate_mipmaps()
 			tex = ImageTexture.create_from_image(img)
+	if tex == null:
+		push_warning("Could not load image: " + path)
 	_tex_cache[path] = tex
 	return tex
 

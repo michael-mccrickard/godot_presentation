@@ -23,7 +23,7 @@ func _ready() -> void:
 func rebuild() -> void:
 	peaks = _build_peaks(player.audio.stream)
 	view_start = 0.0
-	view_len = clampf(player.total_length(), 1.0, 30.0)
+	view_len = 30.0 if player.audio.stream == null else clampf(player.total_length(), 1.0, 30.0)
 
 
 ## Only uncompressed AudioStreamWAV exposes raw samples. Import WAVs with
@@ -86,7 +86,7 @@ func _process(_delta: float) -> void:
 
 func _clamp_view() -> void:
 	var total := maxf(player.total_length(), 1.0)
-	view_len = clampf(view_len, 1.0, total)
+	view_len = clampf(view_len, 1.0, maxf(total, 30.0))
 	view_start = clampf(view_start, 0.0, maxf(total - view_len, 0.0))
 
 
@@ -96,8 +96,22 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), Color(0.07, 0.07, 0.09))
 	var mid := size.y * 0.5
 
+	# Time ruler: pick a tick spacing that is at least ~80px apart.
+	var tick := 1.0
+	for cand in [1.0, 2.0, 5.0, 10.0, 15.0, 30.0, 60.0, 120.0, 300.0]:
+		tick = cand
+		if cand / view_len * size.x >= 80.0:
+			break
+	var t_tick := ceilf(view_start / tick) * tick
+	while t_tick < view_start + view_len:
+		var tx := time_to_x(t_tick)
+		draw_line(Vector2(tx, 0), Vector2(tx, size.y), Color(1, 1, 1, 0.08))
+		draw_string(ThemeDB.fallback_font, Vector2(tx + 3, size.y - 6), "%d:%02d" % [int(t_tick) / 60, int(t_tick) % 60],
+				HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color(0.6, 0.6, 0.65))
+		t_tick += tick
+
 	if peaks.is_empty():
-		draw_string(ThemeDB.fallback_font, Vector2(12, mid), "No waveform (needs an uncompressed .wav imported as AudioStreamWAV)",
+		draw_string(ThemeDB.fallback_font, Vector2(12, mid), "No audio waveform - timeline only. Play (Space) and tap M to mark each shot.",
 				HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color(0.6, 0.6, 0.65))
 	else:
 		for x in int(size.x):
@@ -152,7 +166,7 @@ func _gui_input(e: InputEvent) -> void:
 			else:
 				var t_at := x_to_time(mb.position.x)
 				view_len *= 0.8 if mb.button_index == MOUSE_BUTTON_WHEEL_UP else 1.25
-				view_len = clampf(view_len, 1.0, maxf(player.total_length(), 1.0))
+				view_len = clampf(view_len, 1.0, maxf(player.total_length(), 30.0))
 				view_start = t_at - mb.position.x / size.x * view_len
 			_clamp_view()
 		elif mb.button_index == MOUSE_BUTTON_LEFT:

@@ -24,7 +24,15 @@ func _ready() -> void:
 	wave = WaveformView.new()
 	wave.player = player
 	add_child(wave)
-	wave.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE, Control.PRESET_MODE_MINSIZE)
+	wave.anchor_left = 0.0
+	wave.anchor_right = 1.0
+	wave.anchor_top = 1.0
+	wave.anchor_bottom = 1.0
+	wave.offset_left = 0.0
+	wave.offset_right = 0.0
+	wave.offset_top = -200.0
+	wave.offset_bottom = 0.0
+	wave.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	wave.rebuild()
 
 	info = Label.new()
@@ -56,9 +64,11 @@ func _sync_next_idx() -> void:
 
 func _process(_delta: float) -> void:
 	if info.visible:
-		info.text = "%s  t=%.2f / %.2f   next mark: shot %d/%d\nSpace play  M mark  S save  R reset  Tab hide  |  wheel zoom, drag markers" % [
-			"PLAY" if player.is_playing else "PAUSE", player.get_time(), player.total_length(),
+		info.text = "%s  t=%.2f   next mark: shot %d/%d\nSpace play  M mark  S save  R reset  Tab hide  |  wheel zoom, drag markers" % [
+			"PLAY" if player.is_playing else "PAUSE", player.get_time(),
 			mini(next_idx + 1, player.data.shots.size()), player.data.shots.size()]
+		if player.last_error != "":
+			info.text += "\n" + player.last_error
 
 
 func _unhandled_key_input(e: InputEvent) -> void:
