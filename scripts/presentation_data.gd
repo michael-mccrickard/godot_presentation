@@ -69,12 +69,15 @@ static func make_demo() -> PresentationData:
 			s.start = 0.0 if i == 0 else -1.0
 		s.transition = Shot.Transition.CUT if i == 0 else transitions[(i - 1) % transitions.size()]
 		s.transition_duration = 1.0
-		if i % 2 == 0:  # push in toward a corner
-			s.cam_start = Shot.rect_from_center(Vector2(0.5, 0.5), 1.0)
-			s.cam_end = Shot.rect_from_center(Vector2(0.65, 0.4), 0.45)
-		else:  # pull out
-			s.cam_start = Shot.rect_from_center(Vector2(0.35, 0.6), 0.4)
-			s.cam_end = Shot.rect_from_center(Vector2(0.5, 0.5), 1.0)
+		# Your own images start as a static full frame (frame moves with C in the player).
+		# Only the generated demo gets sample camera moves, to show what they look like.
+		if paths[0].begins_with("demo://"):
+			if i % 2 == 0:  # push in toward a corner
+				s.cam_start = Shot.rect_from_center(Vector2(0.5, 0.5), 1.0)
+				s.cam_end = Shot.rect_from_center(Vector2(0.65, 0.4), 0.45)
+			else:  # pull out
+				s.cam_start = Shot.rect_from_center(Vector2(0.35, 0.6), 0.4)
+				s.cam_end = Shot.rect_from_center(Vector2(0.5, 0.5), 1.0)
 		d.shots.append(s)
 	return d
 

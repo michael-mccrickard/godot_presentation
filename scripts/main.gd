@@ -2,6 +2,7 @@ extends Control
 ## Glue: builds the player + authoring overlay and handles keys.
 ##   Space play/pause   M mark next shot   Tab show/hide authoring UI
 ##   Left/Right seek 1s (Shift = 5s)   Home rewind   S save   R reset all marks
+##   C frame the camera move for the current shot (see camera_editor.gd)
 
 const SAVE_RES := "res://presentation.json"    # written when running from the editor
 const SAVE_USER := "user://presentation.json"  # written from an exported build
@@ -11,6 +12,7 @@ const TAP_OFFSET := 0.0
 var player: PresentationPlayer
 var wave: WaveformView
 var info: Label
+var cam_editor: CameraEditor
 var next_idx := 0
 
 
@@ -34,6 +36,14 @@ func _ready() -> void:
 	wave.offset_bottom = 0.0
 	wave.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	wave.rebuild()
+
+	# Camera editor covers the picture area (not the waveform strip).
+	cam_editor = CameraEditor.new()
+	add_child(cam_editor)
+	cam_editor.anchor_right = 1.0
+	cam_editor.anchor_bottom = 1.0
+	cam_editor.offset_bottom = -200.0
+	cam_editor.closed.connect(_on_camera_closed)
 
 	info = Label.new()
 	info.position = Vector2(12, 8)
@@ -63,20 +73,36 @@ func _sync_next_idx() -> void:
 
 
 func _process(_delta: float) -> void:
+	info.modulate.a = 0.0 if cam_editor.visible else 1.0  # editor draws its own help line
 	if info.visible:
-		info.text = "%s  t=%.2f   next mark: shot %d/%d\nSpace play  M mark  S save  R reset  Tab hide  |  wheel zoom, drag markers" % [
+		info.text = "%s  t=%.2f   next mark: shot %d/%d\nSpace play  M mark  C camera  S save  R reset  Tab hide  |  wheel zoom, drag markers" % [
 			"PLAY" if player.is_playing else "PAUSE", player.get_time(),
 			mini(next_idx + 1, player.data.shots.size()), player.data.shots.size()]
 		if player.last_error != "":
 			info.text += "\n" + player.last_error
 
 
+func _on_camera_closed(shot_index: int, preview: bool) -> void:
+	var s := player.data.shots[shot_index]
+	if preview and s.is_assigned():
+		player.seek(s.start)
+		player.play()
+
+
 func _unhandled_key_input(e: InputEvent) -> void:
 	var k := e as InputEventKey
 	if k == null or not k.pressed or k.echo:
 		return
+	if cam_editor.visible:  # camera editor owns the keyboard while it is open
+		cam_editor.handle_key(k)
+		get_viewport().set_input_as_handled()
+		return
 	var step := 5.0 if k.shift_pressed else 1.0
 	match k.keycode:
+		KEY_C:
+			var i := player.shot_index_at(player.get_time())
+			player.pause()
+			cam_editor.open(player, maxi(i, 0))
 		KEY_SPACE:
 			player.toggle()
 		KEY_M:
