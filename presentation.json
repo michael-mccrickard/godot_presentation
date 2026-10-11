@@ -2,6 +2,7 @@
 	"audio_path": "",
 	"shots": [
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -22,6 +23,7 @@
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -42,6 +44,7 @@
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -62,6 +65,7 @@
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -77,11 +81,12 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f4.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 5.96354198455811,
 			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -97,11 +102,12 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f5.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 8.22977765122478,
 			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -117,11 +123,12 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f6.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 10.3294836512249,
 			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -137,11 +144,12 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f7.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 12.2292603178916,
 			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -157,11 +165,12 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f8.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 14.2291256512251,
 			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -177,11 +186,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f1.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 16.2288789845585,
 			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -197,11 +207,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f2.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 18.0953683178917,
 			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -217,11 +228,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f3.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 19.9739599227905,
 			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -237,11 +249,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f4.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 21.9404142561238,
 			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -257,11 +270,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f5.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 23.9583349227905,
 			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -277,11 +291,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f6.jpg",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 25.9581652561238,
 			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -297,11 +312,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f7.jpg",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 27.941498589457,
 			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -317,11 +333,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f8.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 30.0081671634722,
 			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -337,11 +354,12 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f9.jpg",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 31.9352492252397,
 			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -357,11 +375,12 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f1.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 33.9665011325884,
 			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -377,11 +396,12 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f2.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 36.0581280244951,
 			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -397,11 +417,12 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f3.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 38.0893770708208,
 			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
+			"auto_fit": true,
 			"cam_end": [
 				0.0,
 				0.0,
@@ -417,7 +438,7 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f4.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 39.9808224531453,
 			"transition": 4,
 			"transition_duration": 1.0
 		}
