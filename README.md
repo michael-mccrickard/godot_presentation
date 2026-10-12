@@ -206,17 +206,17 @@ afterwards. A pending save is also written when you close the window.
 {
   "audio_path": "res://audio/track.wav",
   "shots": [
-    {
-      "image_path": "res://images/p1_f1.png",
-      "auto_fit": true,
-      "start": 0.0,
-      "move_duration": 0.0,
-      "cam_start": [0.0, 0.0, 1.0, 1.0],
-      "cam_end": [0.0, 0.0, 1.0, 1.0],
-      "easing": 1,
-      "transition": 0,
-      "transition_duration": 1.0
-    }
+	{
+	  "image_path": "res://images/p1_f1.png",
+	  "auto_fit": true,
+	  "start": 0.0,
+	  "move_duration": 0.0,
+	  "cam_start": [0.0, 0.0, 1.0, 1.0],
+	  "cam_end": [0.0, 0.0, 1.0, 1.0],
+	  "easing": 1,
+	  "transition": 0,
+	  "transition_duration": 1.0
+	}
   ]
 }
 ```
