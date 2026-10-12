@@ -83,6 +83,26 @@ static func make_demo() -> PresentationData:
 	return d
 
 
+## Adds a new, unmarked shot (at the end) for every image in `dir` that no shot uses yet.
+## Returns how many were added. Existing shots are never touched or reordered.
+func add_new_images(dir: String) -> int:
+	var known := {}
+	for s in shots:
+		known[s.image_path] = true
+	var added := 0
+	for p in _scan_images(dir):
+		if known.has(p):
+			continue
+		var s := Shot.new()
+		s.image_path = p
+		s.start = -1.0
+		s.transition = Shot.Transition.CROSSFADE
+		s.transition_duration = 1.0
+		shots.append(s)
+		added += 1
+	return added
+
+
 static func _scan_images(dir: String) -> Array[String]:
 	var out: Array[String] = []
 	for f in DirAccess.get_files_at(dir):

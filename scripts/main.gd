@@ -28,6 +28,7 @@ var _save_timer: Timer
 var _dirty := false
 var _save_status := ""
 var _clear_armed_until := 0.0  # R must be pressed twice (autosave makes it permanent)
+var _new_images := 0           # images picked up from the folder when loading
 
 
 func _ready() -> void:
@@ -90,6 +91,9 @@ func _ready() -> void:
 	_save_timer.wait_time = 0.4
 	_save_timer.timeout.connect(_flush_save)
 	add_child(_save_timer)
+	if _new_images > 0:
+		print("Added %d new image(s) from res://images as unmarked shots." % _new_images)
+		_queue_save()
 
 	info = Label.new()
 	info.position = Vector2(12, 6)
@@ -106,6 +110,8 @@ func _load_or_demo() -> PresentationData:
 		if FileAccess.file_exists(p):
 			var d := PresentationData.load_json(p)
 			if d:
+				# Images added to the folder since the file was saved join at the end, unmarked.
+				_new_images = d.add_new_images("res://images")
 				return d
 	return PresentationData.make_demo()
 
@@ -148,6 +154,8 @@ func _process(_delta: float) -> void:
 		var line1 := "%s  t=%.2f   next mark: shot %d/%d   %s" % [
 			"PLAY" if player.is_playing else "PAUSE", player.get_time(),
 			mini(next_idx + 1, player.data.shots.size()), player.data.shots.size(), _save_status]
+		if _new_images > 0 and Time.get_ticks_msec() < 15000:
+			line1 += "   +%d new image(s) added at the end" % _new_images
 		if Time.get_ticks_msec() / 1000.0 < _clear_armed_until:
 			line1 += "   PRESS R AGAIN TO CLEAR ALL MARKS"
 		info.text = line1 + "\nSpace play  M mark  C camera  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"

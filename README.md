@@ -35,6 +35,8 @@ The window is 1280 x 1024:
 
 1. **Add images.** Put them in `images/`. On first run, one shot is created per image,
    in file-name order. Shot 1 starts at 0:00; the rest are waiting to be marked.
+   Images you add later are picked up the next time the project starts (see
+   "Adding or replacing images").
 2. **Add audio (optional).** Put a WAV at `audio/track.wav` *before the first run*
    (see "Audio" below). With no audio you can still author against a free-running clock.
 3. **Mark the cuts.** Press `Space` to start playback and press `M` at the moment each
@@ -93,6 +95,24 @@ Every edit is saved automatically (see "Saving").
   video and sound cannot drift apart.
 - If you are late or early when tapping `M`, change `TAP_OFFSET` in `scripts/main.gd`
   (seconds; negative means earlier), or just drag the marker afterwards.
+
+## Adding or replacing images
+
+- **New images.** Drop them into `images/`, let Godot import them (it does this when
+  the editor window regains focus), and start the project. Any image that no shot uses
+  yet is added as a new shot **at the end**, unmarked, with a crossfade. The status line
+  says how many were added, and the change is saved automatically. Press `M` to mark
+  them like any other shot. New images always go to the end, in file-name order, never
+  into the middle of the existing shots.
+- **Replaced images.** If you overwrite an existing file (same name), the shot keeps its
+  timing and transition and shows the new picture. A shot that was framed in the camera
+  editor keeps its old framing, which may not suit a different shape; press `C` on it
+  and `0` (or `F`) to reset it to Full.
+- **Removed or renamed images.** A shot whose file is gone stays in the list and shows
+  `Could not load image: ...` in the status line. Edit that shot's `image_path` in
+  `presentation.json`. A renamed file counts as a new image and is added at the end.
+- **Order.** Shot order is the order in the JSON. There is no on-screen way to reorder
+  shots yet.
 
 ## Camera and fit modes
 
@@ -249,9 +269,8 @@ afterwards. A pending save is also written when you close the window.
 ## Known limitations
 
 - Transitions, easing, and `move_duration` have no on-screen controls yet; edit the JSON.
-- Once `presentation.json` exists, new images added to `images/` are **not** picked up
-  automatically. Add a shot to the JSON by hand, or delete `presentation.json` to start
-  over (this loses your marks and framing).
+- New images always join at the end of the shot list; to place one elsewhere, edit the
+  order in `presentation.json`.
 - Shot order is the order in the JSON; there is no on-screen way to reorder shots yet.
 - The waveform needs an uncompressed WAV.
 
