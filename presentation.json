@@ -396,7 +396,7 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f2.png",
 			"move_duration": 0.0,
-			"start": 36.0581280244951,
+			"start": 35.9860314222615,
 			"transition": 2,
 			"transition_duration": 1.0
 		},
@@ -417,7 +417,7 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f3.png",
 			"move_duration": 0.0,
-			"start": 38.0893770708208,
+			"start": 38.0954068990987,
 			"transition": 3,
 			"transition_duration": 1.0
 		},
