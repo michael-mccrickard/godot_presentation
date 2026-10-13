@@ -2,7 +2,8 @@ extends Control
 ## Glue: builds the player + authoring overlay and handles keys.
 ##   Space play/pause   M mark next shot   Tab show/hide authoring UI
 ##   Left/Right seek 1s (Shift = 5s)   Home rewind   End jump to end
-##   R (twice) clear all marks   S save now (every edit is also saved automatically)
+##   O (twice) re-sort the unmarked shots by name   R (twice) clear all marks
+##   S save now (every edit is also saved automatically)
 ##   C frame the camera move for the current shot (see camera_editor.gd)
 ## Every edit is written to presentation.json shortly after it is made.
 
@@ -22,13 +23,16 @@ var wave: WaveformView
 var info: Label
 var cam_editor: CameraEditor
 var buttons: HBoxContainer
-var next_idx := 0
 
 var _save_timer: Timer
 var _dirty := false
 var _save_status := ""
-var _clear_armed_until := 0.0  # R must be pressed twice (autosave makes it permanent)
+var _armed_key := 0            # destructive keys (R, O) must be pressed twice
+var _armed_until := 0.0
 var _new_images := 0           # images picked up from the folder when loading
+var _relinked_images := 0      # shots re-pointed at a renamed file
+var _notice := ""              # short message shown in the status line
+var _notice_until := 0.0
 
 
 func _ready() -> void:
@@ -46,7 +50,6 @@ func _ready() -> void:
 	player.position = Vector2(0, TOP_BAR)
 	player.size = VIEW_SIZE
 	player.set_data(_load_or_demo())
-	_sync_next_idx()
 
 	wave = WaveformView.new()
 	wave.player = player
@@ -91,8 +94,14 @@ func _ready() -> void:
 	_save_timer.wait_time = 0.4
 	_save_timer.timeout.connect(_flush_save)
 	add_child(_save_timer)
-	if _new_images > 0:
-		print("Added %d new image(s) from res://images as unmarked shots." % _new_images)
+	if _new_images > 0 or _relinked_images > 0:
+		var parts: Array[String] = []
+		if _new_images > 0:
+			parts.append("%d new image(s) added by name, unmarked" % _new_images)
+		if _relinked_images > 0:
+			parts.append("%d renamed image(s) relinked" % _relinked_images)
+		_show_notice(", ".join(parts), 20.0)
+		print(_notice)
 		_queue_save()
 
 	info = Label.new()
@@ -110,19 +119,38 @@ func _load_or_demo() -> PresentationData:
 		if FileAccess.file_exists(p):
 			var d := PresentationData.load_json(p)
 			if d:
-				# Images added to the folder since the file was saved join at the end, unmarked.
-				_new_images = d.add_new_images("res://images")
+				# Images added to / renamed in the folder since the file was saved.
+				var r := d.add_new_images("res://images")
+				_new_images = r.added
+				_relinked_images = r.relinked
 				return d
 	return PresentationData.make_demo()
 
 
-func _sync_next_idx() -> void:
-	next_idx = 0
-	for s in player.data.shots:
-		if s.is_assigned():
-			next_idx += 1
-		else:
-			break
+## Index of the first shot with no marker yet (the one `M` will mark), or the shot
+## count when every shot is marked.
+func _next_unmarked() -> int:
+	var shots := player.data.shots
+	for i in shots.size():
+		if not shots[i].is_assigned():
+			return i
+	return shots.size()
+
+
+func _show_notice(text: String, seconds: float) -> void:
+	_notice = text
+	_notice_until = Time.get_ticks_msec() / 1000.0 + seconds
+
+
+## True on the second press of the same key within 3 seconds.
+func _confirm(keycode: int) -> bool:
+	var now := Time.get_ticks_msec() / 1000.0
+	if _armed_key == keycode and now < _armed_until:
+		_armed_key = 0
+		return true
+	_armed_key = keycode
+	_armed_until = now + 3.0
+	return false
 
 
 func _make_button(label: String, tip: String, handler: Callable) -> Button:
@@ -151,14 +179,21 @@ func _process(_delta: float) -> void:
 	info.modulate.a = 0.0 if editing else 1.0  # editor draws its own help line
 	buttons.visible = not editing and info.visible
 	if info.visible:
-		var line1 := "%s  t=%.2f   next mark: shot %d/%d   %s" % [
+		var nxt := _next_unmarked()
+		var nxt_name := "-"
+		if nxt < player.data.shots.size():
+			nxt_name = player.data.shots[nxt].image_path.get_file().get_basename()
+		var line1 := "%s  t=%.2f   next mark: %s (%d/%d)   %s" % [
 			"PLAY" if player.is_playing else "PAUSE", player.get_time(),
-			mini(next_idx + 1, player.data.shots.size()), player.data.shots.size(), _save_status]
-		if _new_images > 0 and Time.get_ticks_msec() < 15000:
-			line1 += "   +%d new image(s) added at the end" % _new_images
-		if Time.get_ticks_msec() / 1000.0 < _clear_armed_until:
-			line1 += "   PRESS R AGAIN TO CLEAR ALL MARKS"
-		info.text = line1 + "\nSpace play  M mark  C camera  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
+			nxt_name, mini(nxt + 1, player.data.shots.size()), player.data.shots.size(), _save_status]
+		var now := Time.get_ticks_msec() / 1000.0
+		if now < _notice_until:
+			line1 += "   " + _notice
+		if now < _armed_until:
+			line1 += "   PRESS %s AGAIN TO %s" % [
+				OS.get_keycode_string(_armed_key),
+				"CLEAR ALL MARKS" if _armed_key == KEY_R else "RE-SORT UNMARKED SHOTS BY NAME"]
+		info.text = line1 + "\nSpace play  M mark  C camera  O sort  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
 		if player.last_error != "":
 			info.text += "\n" + player.last_error
 
@@ -195,15 +230,17 @@ func _unhandled_key_input(e: InputEvent) -> void:
 			_dirty = true
 			_flush_save()
 		KEY_R:
-			var now := Time.get_ticks_msec() / 1000.0
-			if now < _clear_armed_until:
-				_clear_armed_until = 0.0
+			if _confirm(KEY_R):
 				for s in player.data.shots:
 					s.start = -1.0
-				next_idx = 0
 				_queue_save()
-			else:
-				_clear_armed_until = now + 3.0
+		KEY_O:
+			if _confirm(KEY_O):
+				var moved := player.data.sort_unmarked_by_name()
+				_show_notice("re-sorted: %d unmarked shot(s) moved" % moved if moved > 0
+						else "unmarked shots were already in name order", 8.0)
+				if moved > 0:
+					_queue_save()
 		KEY_LEFT:
 			player.seek(player.get_time() - step)
 			wave.reveal(player.get_time())
@@ -218,10 +255,10 @@ func _unhandled_key_input(e: InputEvent) -> void:
 
 
 func _tap() -> void:
-	if next_idx >= player.data.shots.size():
+	var i := _next_unmarked()
+	if i >= player.data.shots.size():
 		return
-	player.data.shots[next_idx].start = maxf(player.get_time() + TAP_OFFSET, 0.0)
-	next_idx += 1
+	player.data.shots[i].start = maxf(player.get_time() + TAP_OFFSET, 0.0)
 	_queue_save()
 
 
