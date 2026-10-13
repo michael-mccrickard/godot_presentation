@@ -33,6 +33,8 @@ func _ready() -> void:
 	info.add_theme_constant_override("shadow_offset_x", 1)
 	info.add_theme_constant_override("shadow_offset_y", 1)
 	add_child(info)
+	# 50% larger than the theme's default font size.
+	info.add_theme_font_size_override("font_size", roundi(info.get_theme_font_size("font_size") * 1.5))
 
 
 func _load_or_demo() -> PresentationData:
@@ -56,8 +58,10 @@ func _sync_next_idx() -> void:
 
 func _process(_delta: float) -> void:
 	if info.visible:
-		info.text = "%s  t=%.2f / %.2f   next mark: shot %d/%d\nSpace play  M mark  S save  R reset  Tab hide  |  wheel zoom, drag markers" % [
-			"PLAY" if player.is_playing else "PAUSE", player.get_time(), player.total_length(),
+		var t := player.get_time()
+		info.text = "%s\n%s  t=%.2f / %.2f   next mark: shot %d/%d\nSpace play  M mark  S save  R reset  Tab hide  |  wheel zoom, drag markers" % [
+			player.image_label_at(t),
+			"PLAY" if player.is_playing else "PAUSE", t, player.total_length(),
 			mini(next_idx + 1, player.data.shots.size()), player.data.shots.size()]
 
 
