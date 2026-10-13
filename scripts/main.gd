@@ -14,7 +14,7 @@ const TAP_OFFSET := 0.0
 
 # Window layout (must add up to the window height in project.godot): a black bar for
 # the info text, the 1280x720 presentation view, then the waveform strip.
-const TOP_BAR := 72.0
+const TOP_BAR := 100.0
 const VIEW_SIZE := Vector2(1280, 720)
 const WAVE_H := 232.0
 
@@ -108,7 +108,7 @@ func _ready() -> void:
 
 	info = Label.new()
 	info.position = Vector2(12, 6)
-	info.add_theme_font_size_override("font_size", 14)
+	info.add_theme_font_size_override("font_size", 21)
 	info.add_theme_color_override("font_shadow_color", Color.BLACK)
 	info.add_theme_constant_override("shadow_offset_x", 1)
 	info.add_theme_constant_override("shadow_offset_y", 1)
@@ -295,7 +295,7 @@ func _process(_delta: float) -> void:
 			line1 += "   PRESS %s AGAIN TO %s" % [
 				OS.get_keycode_string(_armed_key),
 				"CLEAR ALL MARKS" if _armed_key == KEY_R else "RE-SORT UNMARKED SHOTS BY NAME"]
-		info.text = line1 + "\nSpace play  M mark  C camera  O sort  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
+		info.text = player.image_label_at(player.get_time()) + "\n" + line1 + "\nSpace play  M mark  C camera  O sort  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
 		if player.last_error != "":
 			info.text += "\n" + player.last_error
 
