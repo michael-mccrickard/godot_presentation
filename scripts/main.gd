@@ -33,6 +33,8 @@ var _new_images := 0           # images picked up from the folder when loading
 var _relinked_images := 0      # shots re-pointed at a renamed file
 var _notice := ""              # short message shown in the status line
 var _notice_until := 0.0
+var _scaffold_images := 0      # > 0 when there was no presentation: offer to scaffold
+var _offer: Control
 
 
 func _ready() -> void:
@@ -112,19 +114,119 @@ func _ready() -> void:
 	info.add_theme_constant_override("shadow_offset_y", 1)
 	add_child(info)
 
+	if _scaffold_images > 0:
+		_build_offer()  # last, so it sits on top of everything
+
 
 func _load_or_demo() -> PresentationData:
 	var paths := [SAVE_RES, SAVE_USER] if OS.has_feature("editor") else [SAVE_USER, SAVE_RES]
 	for p in paths:
-		if FileAccess.file_exists(p):
-			var d := PresentationData.load_json(p)
-			if d:
-				# Images added to / renamed in the folder since the file was saved.
-				var r := d.add_new_images("res://images")
-				_new_images = r.added
-				_relinked_images = r.relinked
-				return d
+		if not FileAccess.file_exists(p):
+			continue
+		var text := FileAccess.get_file_as_string(p)
+		if text.strip_edges() == "":
+			continue  # an empty file counts as no file
+		var d := PresentationData.from_json(text)
+		if d:
+			# Images added to / renamed in the folder since the file was saved.
+			var r := d.add_new_images("res://images")
+			_new_images = r.added
+			_relinked_images = r.relinked
+			return d
+		# Not valid JSON. Autosave would overwrite it, so keep a copy first.
+		var bak := FileAccess.open(p + ".broken", FileAccess.WRITE)
+		if bak:
+			bak.store_string(text)
+			_show_notice("%s was not valid JSON; kept a copy as %s.broken" % [p.get_file(), p.get_file()], 30.0)
+			push_warning(_notice)
+	# No usable presentation: start from the images, and offer to scaffold them.
+	_scaffold_images = PresentationData.image_count("res://images")
 	return PresentationData.make_demo()
+
+
+# ---------------------------------------------------------------- scaffold offer
+
+## Modal question shown when there was no saved presentation but there are images.
+func _build_offer() -> void:
+	_offer = Control.new()
+	_offer.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_offer.mouse_filter = Control.MOUSE_FILTER_STOP  # blocks the UI underneath
+	add_child(_offer)
+
+	var dim := ColorRect.new()
+	dim.color = Color(0, 0, 0, 0.8)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_offer.add_child(dim)
+
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_offer.add_child(center)
+
+	var panel := PanelContainer.new()
+	panel.custom_minimum_size = Vector2(640, 0)
+	var style := StyleBoxFlat.new()  # opaque, so the text is readable over any image
+	style.bg_color = Color(0.11, 0.11, 0.13)
+	style.border_color = Color(0.45, 0.45, 0.5)
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(6)
+	panel.add_theme_stylebox_override("panel", style)
+	center.add_child(panel)
+
+	var margin := MarginContainer.new()
+	for side in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 22)
+	panel.add_child(margin)
+
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 14)
+	margin.add_child(box)
+
+	var title := Label.new()
+	title.text = "New presentation"
+	title.add_theme_font_size_override("font_size", 22)
+	box.add_child(title)
+
+	var body := Label.new()
+	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	body.custom_minimum_size = Vector2(596, 0)
+	body.text = ("No saved presentation was found, and images/ has %d images.\n\n"
+			+ "Scaffold a presentation from them? Every image becomes a shot, in name order, "
+			+ "%s seconds each, joined by cuts. You can retime shots afterwards by dragging "
+			+ "their markers.\n\n"
+			+ "Or start empty: the first shot is placed at 0:00 and you tap M to mark the rest.") % [
+			_scaffold_images, _fmt_seconds(PresentationData.SCAFFOLD_SECONDS)]
+	box.add_child(body)
+
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 10)
+	row.alignment = BoxContainer.ALIGNMENT_END
+	box.add_child(row)
+	var skip := _make_button("Start empty  (Esc)", "Keep the shots unmarked", _decline_scaffold)
+	skip.custom_minimum_size = Vector2(170, 36)
+	row.add_child(skip)
+	var yes := _make_button("Scaffold  (Enter)", "Create all shots, 2 seconds each, with cuts", _accept_scaffold)
+	yes.custom_minimum_size = Vector2(170, 36)
+	row.add_child(yes)
+
+
+func _accept_scaffold() -> void:
+	_offer.hide()
+	player.set_data(PresentationData.make_scaffold())
+	wave.rebuild()
+	player.seek(0.0)
+	_show_notice("scaffolded %d shots, %s s each, cuts" % [
+			player.data.shots.size(), _fmt_seconds(PresentationData.SCAFFOLD_SECONDS)], 15.0)
+	_queue_save()
+
+
+func _fmt_seconds(x: float) -> String:
+	return str(int(x)) if is_equal_approx(x, roundf(x)) else str(x)
+
+
+func _decline_scaffold() -> void:
+	_offer.hide()
 
 
 ## Index of the first shot with no marker yet (the one `M` will mark), or the shot
@@ -208,6 +310,13 @@ func _on_camera_closed(shot_index: int, preview: bool) -> void:
 func _unhandled_key_input(e: InputEvent) -> void:
 	var k := e as InputEventKey
 	if k == null or not k.pressed or k.echo:
+		return
+	if _offer and _offer.visible:  # the scaffold question owns the keyboard
+		if k.keycode == KEY_ENTER or k.keycode == KEY_KP_ENTER:
+			_accept_scaffold()
+		elif k.keycode == KEY_ESCAPE:
+			_decline_scaffold()
+		get_viewport().set_input_as_handled()
 		return
 	if cam_editor.visible:  # camera editor owns the keyboard while it is open
 		cam_editor.handle_key(k)

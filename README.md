@@ -31,6 +31,27 @@ The window is 1280 x 1024:
 
 `Tab` hides the status text, buttons, and timeline.
 
+## Starting a new presentation
+
+When the project starts and there is **no `presentation.json`** (or it is empty, or
+cannot be read) and `images/` has images, a dialog offers to **scaffold** one:
+
+- **Scaffold (Enter):** every image becomes a shot, in name order, **2 seconds each**,
+  joined by **cuts** (no transitions), each framed Full. For 76 images that is a
+  152-second presentation with a marker every 2 seconds. It is saved immediately.
+  From there you adjust: drag markers to retime, press `C` to frame moves, and edit
+  `transition` in the JSON where you want something other than a cut.
+- **Start empty (Esc):** the old behaviour. Shot 1 is placed at 0:00 and the other
+  shots wait for you to tap `M`. Nothing is saved until you make an edit, so the dialog
+  appears again next time until you do.
+
+The length and transition of a scaffold are set in `scripts/presentation_data.gd`
+(`SCAFFOLD_SECONDS`, and `make_scaffold`).
+
+If a `presentation.json` exists but is not valid JSON (for example a typo from editing
+it by hand), a copy is saved next to it as `presentation.json.broken` before anything
+can overwrite it, and the status line says so.
+
 ## Authoring workflow
 
 1. **Add images.** Put them in `images/`. On first run, one shot is created per image,
@@ -72,7 +93,8 @@ Every edit is saved automatically (see "Saving").
 
 - **|< Rewind** – back to 0:00 (same as `Home`).
 - **End >|** – jump to the end of the content (same as `End`). With audio this is the
-  end of the audio; without audio it is the last marked shot plus 4 seconds.
+  end of the audio; without audio it is the end of the last marked shot, which is
+  assumed to last as long as the shot before it (4 seconds if there is only one).
 
 ### Timeline strip
 

@@ -68,10 +68,21 @@ func set_data(d: PresentationData) -> void:
 func content_length() -> float:
 	if audio.stream:
 		return audio.stream.get_length()
-	var last := 0.0
+	# No audio: the last shot lasts as long as the one before it (4s if it is the only one).
+	var last := -1.0  # latest marker time
+	var prev := -1.0  # the one before it
 	for s in data.shots:
-		last = maxf(last, s.start)
-	return last + 4.0
+		if not s.is_assigned():
+			continue
+		if s.start > last:
+			prev = last
+			last = s.start
+		elif s.start > prev and s.start < last:
+			prev = s.start
+	var tail := 4.0
+	if prev >= 0.0:
+		tail = maxf(last - prev, 1.0)
+	return maxf(last, 0.0) + tail
 
 
 ## With no audio the timeline keeps growing ahead of the clock, so you can keep

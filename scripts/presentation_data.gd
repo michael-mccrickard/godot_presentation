@@ -107,6 +107,32 @@ static func name_key(path: String) -> String:
 	return out.strip_edges()
 
 
+## Seconds each shot lasts in a scaffolded presentation.
+const SCAFFOLD_SECONDS := 2.0
+
+
+## How many images `dir` holds.
+static func image_count(dir: String) -> int:
+	return _scan_images(dir).size()
+
+
+## A complete starting point: every image in `dir`, in name order, one shot each,
+## SCAFFOLD_SECONDS long, joined by hard cuts, framed Full. Retime by dragging markers.
+static func make_scaffold(dir: String = "res://images", seconds: float = SCAFFOLD_SECONDS) -> PresentationData:
+	var d := PresentationData.new()
+	if ResourceLoader.exists("res://audio/track.wav"):
+		d.audio_path = "res://audio/track.wav"
+	var i := 0
+	for p in _scan_images(dir):
+		var s := Shot.new()
+		s.image_path = p
+		s.start = i * seconds
+		s.transition = Shot.Transition.CUT
+		d.shots.append(s)
+		i += 1
+	return d
+
+
 ## Brings the shot list up to date with the images in `dir`. Returns
 ## {"added": n, "relinked": n}.
 ##  - An image no shot uses becomes a new, unmarked shot, placed by name: right after
