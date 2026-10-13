@@ -150,43 +150,18 @@ func render(t: float) -> void:
 		return
 
 	var shot := data.shots[idx]
-	var a_idx := transition_from_index(idx, t)
+	var prev := _prev_assigned(idx)
 	var prog := 1.0
-	if a_idx >= 0:
+	var a_idx := idx
+	if prev >= 0 and shot.transition != Shot.Transition.CUT \
+			and shot.transition_duration > 0.0 and t < shot.start + shot.transition_duration:
+		a_idx = prev
 		prog = clampf((t - shot.start) / shot.transition_duration, 0.0, 1.0)
-	else:
-		a_idx = idx
 
 	_apply(0, a_idx, t)
 	_apply(1, idx, t)
 	_mat.set_shader_parameter("mode", shot.transition)
 	_mat.set_shader_parameter("progress", prog)
-
-
-## Index of the outgoing shot if shot `idx` is mid-transition at time t, else -1.
-func transition_from_index(idx: int, t: float) -> int:
-	var shot := data.shots[idx]
-	var prev := _prev_assigned(idx)
-	if prev >= 0 and shot.transition != Shot.Transition.CUT \
-			and shot.transition_duration > 0.0 and t < shot.start + shot.transition_duration:
-		return prev
-	return -1
-
-
-## Filename(s) on screen at time t: "img.png", or "out.png / in.png" during a transition.
-func image_label_at(t: float) -> String:
-	var idx := shot_index_at(t)
-	if idx < 0:
-		return "(no image)"
-	var cur := _display_name(data.shots[idx].image_path)
-	var prev := transition_from_index(idx, t)
-	if prev >= 0:
-		return "%s / %s" % [_display_name(data.shots[prev].image_path), cur]
-	return cur
-
-
-static func _display_name(path: String) -> String:
-	return path if path.begins_with("demo://") else path.get_file()
 
 
 func shot_index_at(t: float) -> int:
