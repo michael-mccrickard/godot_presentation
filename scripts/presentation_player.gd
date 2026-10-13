@@ -8,6 +8,7 @@ const OUT_SIZE := Vector2i(1920, 1080)
 var data: PresentationData
 var audio: AudioStreamPlayer
 var is_playing := false
+var last_error := ""
 
 var _vp: Array[SubViewport] = []
 var _spr: Array[Sprite2D] = []
@@ -63,13 +64,33 @@ func set_data(d: PresentationData) -> void:
 
 # ---------------------------------------------------------------- clock
 
+## End of the authored content: audio length, or last shot start + 4s with no audio.
+func content_length() -> float:
+	if audio.stream:
+		return audio.stream.get_length()
+	# No audio: the last shot lasts as long as the one before it (4s if it is the only one).
+	var last := -1.0  # latest marker time
+	var prev := -1.0  # the one before it
+	for s in data.shots:
+		if not s.is_assigned():
+			continue
+		if s.start > last:
+			prev = last
+			last = s.start
+		elif s.start > prev and s.start < last:
+			prev = s.start
+	var tail := 4.0
+	if prev >= 0.0:
+		tail = maxf(last - prev, 1.0)
+	return maxf(last, 0.0) + tail
+
+
+## With no audio the timeline keeps growing ahead of the clock, so you can keep
+## tapping marks past the last shot without the "show" ending.
 func total_length() -> float:
 	if audio.stream:
 		return audio.stream.get_length()
-	var last := 0.0
-	for s in data.shots:
-		last = maxf(last, s.start)
-	return last + 4.0
+	return maxf(content_length(), maxf(_free_clock, _paused_time) + 5.0)
 
 
 func get_time() -> float:
@@ -132,15 +153,13 @@ func _process(delta: float) -> void:
 		_hold -= 1
 	if is_playing and audio.stream == null:
 		_free_clock += delta
-		if _free_clock >= total_length():
-			_paused_time = total_length()
-			is_playing = false
 	render(get_time())
 
 
 # ---------------------------------------------------------------- rendering
 
 func render(t: float) -> void:
+	last_error = ""
 	var idx := shot_index_at(t)
 	if idx < 0:
 		_spr[0].visible = false
@@ -150,18 +169,39 @@ func render(t: float) -> void:
 		return
 
 	var shot := data.shots[idx]
-	var prev := _prev_assigned(idx)
+	var a_idx := transition_from_index(idx, t)
 	var prog := 1.0
-	var a_idx := idx
-	if prev >= 0 and shot.transition != Shot.Transition.CUT \
-			and shot.transition_duration > 0.0 and t < shot.start + shot.transition_duration:
-		a_idx = prev
+	if a_idx >= 0:
 		prog = clampf((t - shot.start) / shot.transition_duration, 0.0, 1.0)
+	else:
+		a_idx = idx
 
 	_apply(0, a_idx, t)
 	_apply(1, idx, t)
 	_mat.set_shader_parameter("mode", shot.transition)
 	_mat.set_shader_parameter("progress", prog)
+
+
+## Index of the outgoing shot if shot `idx` is mid-transition at time t, else -1.
+func transition_from_index(idx: int, t: float) -> int:
+	var shot := data.shots[idx]
+	var prev := _prev_assigned(idx)
+	if prev >= 0 and shot.transition != Shot.Transition.CUT \
+			and shot.transition_duration > 0.0 and t < shot.start + shot.transition_duration:
+		return prev
+	return -1
+
+
+## Filename(s) on screen at time t: "img.png", or "out.png / in.png" during a transition.
+func image_label_at(t: float) -> String:
+	var idx := shot_index_at(t)
+	if idx < 0:
+		return "(no image)"
+	var cur := data.shots[idx].image_path.get_file()
+	var prev := transition_from_index(idx, t)
+	if prev >= 0:
+		return "%s / %s" % [data.shots[prev].image_path.get_file(), cur]
+	return cur
 
 
 func shot_index_at(t: float) -> int:
@@ -188,12 +228,17 @@ func _move_end(idx: int) -> float:
 	for j in range(idx + 1, data.shots.size()):
 		if data.shots[j].is_assigned():
 			return data.shots[j].start
-	return total_length()
+	return content_length()
 
 
 ## Camera state is a pure function of t: center lerps linearly, zoom (width) in log space.
 func camera_at(idx: int, t: float) -> Dictionary:
 	var s := data.shots[idx]
+	if s.auto_fit:
+		var tex := _get_texture(s.image_path)
+		var isz := tex.get_size() if tex else Vector2(OUT_SIZE)
+		return {"center": Vector2(0.5, 0.5),
+				"width": Shot.fit_width(Shot.Fit.FULL, isz, float(OUT_SIZE.x) / OUT_SIZE.y)}
 	var span := maxf(_move_end(idx) - s.start, 0.001)
 	var p := Shot.ease_value((t - s.start) / span, s.easing)
 	var w0 := maxf(s.cam_start.size.x, 0.0001)
@@ -209,6 +254,7 @@ func _apply(layer: int, idx: int, t: float) -> void:
 	var tex := _get_texture(data.shots[idx].image_path)
 	if tex == null:
 		spr.visible = false
+		last_error = "Could not load image: " + data.shots[idx].image_path
 		return
 	var cam := camera_at(idx, t)
 	var img_size := tex.get_size()
@@ -234,6 +280,8 @@ func _get_texture(path: String) -> Texture2D:
 		if img:
 			img.generate_mipmaps()
 			tex = ImageTexture.create_from_image(img)
+	if tex == null:
+		push_warning("Could not load image: " + path)
 	_tex_cache[path] = tex
 	return tex
 

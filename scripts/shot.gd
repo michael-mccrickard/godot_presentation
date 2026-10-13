@@ -6,8 +6,16 @@ extends Resource
 
 enum Easing { LINEAR, SMOOTH, EASE_IN, EASE_OUT }
 enum Transition { CUT, CROSSFADE, WIPE, IRIS, MASK_DISSOLVE }
+## How an image sits in the frame:
+##   FULL        whole image visible (bars on the short axis)
+##   VERTICAL    image height fills the frame (bars at the sides, or sides clipped)
+##   HORIZONTAL  image width fills the frame (bars top/bottom, or top/bottom clipped)
+enum Fit { FULL, VERTICAL, HORIZONTAL }
 
 @export var image_path := ""
+## While true the shot is simply "Fit.FULL" and its rects below are ignored.
+## The camera editor turns this off as soon as you change the framing.
+@export var auto_fit := true
 ## Seconds on the audio clock. Negative = not yet assigned (tap-to-mark fills these in).
 @export var start := -1.0
 ## Camera move length. 0 = run until the next assigned shot starts.
@@ -36,6 +44,18 @@ static func ease_value(p: float, e: int) -> float:
 	return p
 
 
+## Camera width (fraction of image width visible) for a fit mode.
+static func fit_width(mode: int, img_size: Vector2, out_aspect: float) -> float:
+	var horizontal := 1.0
+	var vertical := img_size.y * out_aspect / maxf(img_size.x, 1.0)
+	match mode:
+		Fit.VERTICAL:
+			return vertical
+		Fit.HORIZONTAL:
+			return horizontal
+	return maxf(horizontal, vertical)
+
+
 static func rect_from_center(center: Vector2, width: float) -> Rect2:
 	# Assumes image aspect == output aspect, so normalized height == width.
 	return Rect2(center - Vector2(width, width) * 0.5, Vector2(width, width))
@@ -44,6 +64,7 @@ static func rect_from_center(center: Vector2, width: float) -> Rect2:
 func to_dict() -> Dictionary:
 	return {
 		"image_path": image_path,
+		"auto_fit": auto_fit,
 		"start": start,
 		"move_duration": move_duration,
 		"cam_start": [cam_start.position.x, cam_start.position.y, cam_start.size.x, cam_start.size.y],
@@ -61,6 +82,10 @@ static func from_dict(d: Dictionary) -> Shot:
 	s.move_duration = float(d.get("move_duration", 0.0))
 	s.cam_start = _rect(d.get("cam_start", [0, 0, 1, 1]))
 	s.cam_end = _rect(d.get("cam_end", [0, 0, 1, 1]))
+	# Files saved before auto_fit existed: keep real framing, but a shot still at the
+	# untouched default rect was never framed, so treat it as "Full".
+	var untouched := s.cam_start == Rect2(0, 0, 1, 1) and s.cam_end == Rect2(0, 0, 1, 1)
+	s.auto_fit = bool(d.get("auto_fit", untouched))
 	s.easing = int(d.get("easing", Easing.SMOOTH))
 	s.transition = int(d.get("transition", Transition.CROSSFADE))
 	s.transition_duration = float(d.get("transition_duration", 1.0))
