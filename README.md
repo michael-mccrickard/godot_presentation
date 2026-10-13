@@ -13,7 +13,7 @@ Developed and tested with Godot 4.7 using the Compatibility renderer (set in
 
 | Path | What it is |
 | --- | --- |
-| `images/` | Your still images (png, jpg, jpeg, webp, bmp, tga). Shots are created in file-name order. |
+| `images/` | Your still images (png, jpg, jpeg, webp, bmp, tga). Shots are created in file-name order, with numbers compared as numbers (see "Naming and order"). |
 | `audio/track.wav` | Optional soundtrack, used when a new presentation is first created. |
 | `presentation.json` | The saved presentation: shot order, timings, camera framing, transitions. |
 | `scripts/` | The code. `shot.gd` is the data for one shot; `presentation_player.gd` plays it back. |
@@ -31,12 +31,33 @@ The window is 1280 x 1024:
 
 `Tab` hides the status text, buttons, and timeline.
 
+## Starting a new presentation
+
+When the project starts and there is **no `presentation.json`** (or it is empty, or
+cannot be read) and `images/` has images, a dialog offers to **scaffold** one:
+
+- **Scaffold (Enter):** every image becomes a shot, in name order, **2 seconds each**,
+  joined by **cuts** (no transitions), each framed Full. For 76 images that is a
+  152-second presentation with a marker every 2 seconds. It is saved immediately.
+  From there you adjust: drag markers to retime, press `C` to frame moves, and edit
+  `transition` in the JSON where you want something other than a cut.
+- **Start empty (Esc):** the old behaviour. Shot 1 is placed at 0:00 and the other
+  shots wait for you to tap `M`. Nothing is saved until you make an edit, so the dialog
+  appears again next time until you do.
+
+The length and transition of a scaffold are set in `scripts/presentation_data.gd`
+(`SCAFFOLD_SECONDS`, and `make_scaffold`).
+
+If a `presentation.json` exists but is not valid JSON (for example a typo from editing
+it by hand), a copy is saved next to it as `presentation.json.broken` before anything
+can overwrite it, and the status line says so.
+
 ## Authoring workflow
 
 1. **Add images.** Put them in `images/`. On first run, one shot is created per image,
    in file-name order. Shot 1 starts at 0:00; the rest are waiting to be marked.
-   Images you add later are picked up the next time the project starts (see
-   "Adding or replacing images").
+   Images you add later are picked up the next time the project starts and placed by
+   name (see "Naming and order" and "Adding or replacing images").
 2. **Add audio (optional).** Put a WAV at `audio/track.wav` *before the first run*
    (see "Audio" below). With no audio you can still author against a free-running clock.
 3. **Mark the cuts.** Press `Space` to start playback and press `M` at the moment each
@@ -58,7 +79,8 @@ Every edit is saved automatically (see "Saving").
 | Key | Action |
 | --- | --- |
 | `Space` | Play / pause |
-| `M` | Mark: start the next unmarked shot at the playhead |
+| `M` | Mark: start the first unmarked shot at the playhead (the status line names it) |
+| `O`, `O` | Re-sort the **unmarked** shots by name. Press twice within 3 seconds to confirm. Marked shots never move. |
 | `C` | Open the camera editor for the shot under the playhead |
 | `Home` | Rewind to the beginning |
 | `End` | Jump to the end |
@@ -71,7 +93,8 @@ Every edit is saved automatically (see "Saving").
 
 - **|< Rewind** – back to 0:00 (same as `Home`).
 - **End >|** – jump to the end of the content (same as `End`). With audio this is the
-  end of the audio; without audio it is the last marked shot plus 4 seconds.
+  end of the audio; without audio it is the end of the last marked shot, which is
+  assumed to last as long as the shot before it (4 seconds if there is only one).
 
 ### Timeline strip
 
@@ -96,23 +119,52 @@ Every edit is saved automatically (see "Saving").
 - If you are late or early when tapping `M`, change `TAP_OFFSET` in `scripts/main.gd`
   (seconds; negative means earlier), or just drag the marker afterwards.
 
+## Naming and order
+
+Shots are ordered by image file name, and **numbers inside names are compared as
+numbers**, so `p1_f2` comes before `p1_f10`, and `p2_f1` before `p10_f1`. You do **not**
+need zero-padded names (`p1_f02`). Zero-padded names also work, so use whichever you
+prefer. Capital letters are ignored; the folder name and extension do not affect order.
+
+Two things decide where a shot sits in the list:
+
+- **Marked shots are the timeline.** A shot that has a marker keeps its place in the
+  list; its time is what matters, and the program never reorders it. Using the same
+  image more than once (a repeat later in the show) is fine, because those shots are
+  marked in place.
+- **Unmarked shots follow name order.** They are the ones still waiting for `M`. If
+  they are out of name order (for example a list built before the numbers were
+  compared properly), press `O` twice. Only unmarked shots trade places with each
+  other, so no marker, framing, or transition is lost. If you repeat an image among
+  the unmarked shots, mark the repeat before pressing `O`, or `O` will group the
+  copies together.
+
+To re-sort *everything* by name, clear the marks first (`R`, `R`), then press `O`,
+`O`. This throws away all marker times, so only do it deliberately.
+
 ## Adding or replacing images
 
 - **New images.** Drop them into `images/`, let Godot import them (it does this when
   the editor window regains focus), and start the project. Any image that no shot uses
-  yet is added as a new shot **at the end**, unmarked, with a crossfade. The status line
-  says how many were added, and the change is saved automatically. Press `M` to mark
-  them like any other shot. New images always go to the end, in file-name order, never
-  into the middle of the existing shots.
+  yet becomes a new, unmarked shot **placed by name**: right after the last shot whose
+  name sorts at or before it. For example, a new `p3_f10` lands after `p3_f9`, and a new
+  `p1_f05` lands between `p1_f4` and `p1_f6`. The status line says how many were added,
+  and the change is saved automatically. A new shot between two marked shots is
+  marked by moving the playhead to a time between them and pressing `M`; `M` always
+  marks the first unmarked shot in the list, so it never overwrites a marked one.
 - **Replaced images.** If you overwrite an existing file (same name), the shot keeps its
   timing and transition and shows the new picture. A shot that was framed in the camera
   editor keeps its old framing, which may not suit a different shape; press `C` on it
   and `0` (or `F`) to reset it to Full.
-- **Removed or renamed images.** A shot whose file is gone stays in the list and shows
+- **Renamed images.** If you rename a file only in its zero padding or extension
+  (`p1_f1.png` to `p1_f01.png`, or `.png` to `.jpg`), the shot is relinked to the new
+  name and keeps its marker, framing, and transition. The status line reports it. Any
+  other rename looks like a new image, and the shot with the old name stays behind.
+- **Removed images.** A shot whose file is gone stays in the list and shows
   `Could not load image: ...` in the status line. Edit that shot's `image_path` in
-  `presentation.json`. A renamed file counts as a new image and is added at the end.
-- **Order.** Shot order is the order in the JSON. There is no on-screen way to reorder
-  shots yet.
+  `presentation.json`.
+- **Changing the order by hand.** Shot order is the order in the JSON. There is no
+  on-screen way to move a marked shot.
 
 ## Camera and fit modes
 
@@ -269,9 +321,8 @@ afterwards. A pending save is also written when you close the window.
 ## Known limitations
 
 - Transitions, easing, and `move_duration` have no on-screen controls yet; edit the JSON.
-- New images always join at the end of the shot list; to place one elsewhere, edit the
-  order in `presentation.json`.
-- Shot order is the order in the JSON; there is no on-screen way to reorder shots yet.
+- There is no on-screen way to move a marked shot or to drag shots into a custom order;
+  edit the order in `presentation.json` if you need that.
 - The waveform needs an uncompressed WAV.
 
 ## Image quality

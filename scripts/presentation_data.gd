@@ -83,24 +83,134 @@ static func make_demo() -> PresentationData:
 	return d
 
 
-## Adds a new, unmarked shot (at the end) for every image in `dir` that no shot uses yet.
-## Returns how many were added. Existing shots are never touched or reordered.
-func add_new_images(dir: String) -> int:
+## Name order that understands numbers: p1_f2 < p1_f10 and p2_f1 < p10_f1, so files
+## do not need zero-padded names. Ties (e.g. p1_f1 vs p1_f01) fall back to the full path.
+static func natural_less(a: String, b: String) -> bool:
+	var c := a.get_file().get_basename().naturalnocasecmp_to(b.get_file().get_basename())
+	return c < 0 if c != 0 else a < b
+
+
+## Name with every number reduced to its value, ignoring folder case and extension, so
+## "p1_f01.png" and "p1_f1.jpg" have the same key. Used to recognise a renamed file.
+static func name_key(path: String) -> String:
+	var base := path.get_file().get_basename().to_lower()
+	var out := ""
+	var run := ""
+	for ch in base + " ":
+		if ch >= "0" and ch <= "9":
+			run += ch
+		else:
+			if run != "":
+				out += str(int(run))
+				run = ""
+			out += ch
+	return out.strip_edges()
+
+
+## Seconds each shot lasts in a scaffolded presentation.
+const SCAFFOLD_SECONDS := 2.0
+
+
+## How many images `dir` holds.
+static func image_count(dir: String) -> int:
+	return _scan_images(dir).size()
+
+
+## A complete starting point: every image in `dir`, in name order, one shot each,
+## SCAFFOLD_SECONDS long, joined by hard cuts, framed Full. Retime by dragging markers.
+static func make_scaffold(dir: String = "res://images", seconds: float = SCAFFOLD_SECONDS) -> PresentationData:
+	var d := PresentationData.new()
+	if ResourceLoader.exists("res://audio/track.wav"):
+		d.audio_path = "res://audio/track.wav"
+	var i := 0
+	for p in _scan_images(dir):
+		var s := Shot.new()
+		s.image_path = p
+		s.start = i * seconds
+		s.transition = Shot.Transition.CUT
+		d.shots.append(s)
+		i += 1
+	return d
+
+
+## Brings the shot list up to date with the images in `dir`. Returns
+## {"added": n, "relinked": n}.
+##  - An image no shot uses becomes a new, unmarked shot, placed by name: right after
+##    the last shot whose name sorts at or before it.
+##  - A shot whose file is gone, but whose name matches a new file apart from zero
+##    padding or extension (p1_f1.png -> p1_f01.png), is pointed at the new file instead
+##    of creating a duplicate, so its marks and framing are kept.
+## Existing shots are never reordered or removed.
+func add_new_images(dir: String) -> Dictionary:
+	var on_disk := _scan_images(dir)
+	var on_disk_set := {}
+	for p in on_disk:
+		on_disk_set[p] = true
 	var known := {}
 	for s in shots:
 		known[s.image_path] = true
+
 	var added := 0
-	for p in _scan_images(dir):
+	var relinked := 0
+	for p in on_disk:
 		if known.has(p):
 			continue
-		var s := Shot.new()
-		s.image_path = p
-		s.start = -1.0
-		s.transition = Shot.Transition.CROSSFADE
-		s.transition_duration = 1.0
-		shots.append(s)
+		# Renamed file? Reuse the shot whose old file is missing and whose name matches.
+		var key := name_key(p)
+		var adopted := false
+		for s in shots:
+			if s.image_path.begins_with(dir) and not on_disk_set.has(s.image_path) \
+					and name_key(s.image_path) == key:
+				s.image_path = p
+				known[p] = true
+				relinked += 1
+				adopted = true
+				break
+		if adopted:
+			continue
+		var n := Shot.new()
+		n.image_path = p
+		n.start = -1.0
+		n.transition = Shot.Transition.CROSSFADE
+		n.transition_duration = 1.0
+		var at := 0
+		for i in shots.size():
+			if not natural_less(p, shots[i].image_path):  # shot sorts at or before p
+				at = i + 1
+		shots.insert(at, n)
+		known[p] = true
 		added += 1
-	return added
+	return {"added": added, "relinked": relinked}
+
+
+## Re-sorts the shots that have no marker yet by name (numbers compared as numbers).
+## Marked shots never move: their order is the timeline. Unmarked shots only trade
+## places with each other, so an unmarked shot sitting between two marked ones keeps
+## that slot. Returns how many shots changed position.
+func sort_unmarked_by_name() -> int:
+	var slots: Array[int] = []
+	var pool: Array[Shot] = []
+	for i in shots.size():
+		if not shots[i].is_assigned():
+			slots.append(i)
+			pool.append(shots[i])
+	var order: Array[int] = []
+	for i in pool.size():
+		order.append(i)
+	# Not a stable sort by itself, so break ties by the original position.
+	order.sort_custom(func(a: int, b: int) -> bool:
+		var pa := pool[a].image_path
+		var pb := pool[b].image_path
+		if pa == pb:
+			return a < b
+		return natural_less(pa, pb))
+	var moved := 0
+	for k in slots.size():
+		var s := pool[order[k]]
+		if shots[slots[k]] != s:
+			moved += 1
+		shots[slots[k]] = s
+	return moved
 
 
 static func _scan_images(dir: String) -> Array[String]:
@@ -110,5 +220,5 @@ static func _scan_images(dir: String) -> Array[String]:
 		var name := f.trim_suffix(".import")
 		if name.get_extension().to_lower() in IMAGE_EXTS and not (dir + "/" + name) in out:
 			out.append(dir + "/" + name)
-	out.sort()
+	out.sort_custom(natural_less)
 	return out
