@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bu2l42ib25oq7"
-path="res://.godot/imported/Midnight Pursuit.mp3-b71f7dcaa030e476851bc2b64ed46f03.mp3str"
+path="res://.godot/imported/Midnight Pursuit.mp3-af200fa1a9cd9ea3be292f2f78d2dde1.mp3str"
 
 [deps]
 
-source_file="res://audio/Midnight Pursuit.mp3"
-dest_files=["res://.godot/imported/Midnight Pursuit.mp3-b71f7dcaa030e476851bc2b64ed46f03.mp3str"]
+source_file="res://audio/music/Midnight Pursuit.mp3"
+dest_files=["res://.godot/imported/Midnight Pursuit.mp3-af200fa1a9cd9ea3be292f2f78d2dde1.mp3str"]
 
 [params]
 

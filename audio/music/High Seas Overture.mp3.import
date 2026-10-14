@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://rjlundxmixxp"
-path="res://.godot/imported/High Seas Overture.mp3-84492ec9154b4237931ea0df9da71d5c.mp3str"
+path="res://.godot/imported/High Seas Overture.mp3-430c5d4e53fadf02006dc882b269adbc.mp3str"
 
 [deps]
 
-source_file="res://audio/High Seas Overture.mp3"
-dest_files=["res://.godot/imported/High Seas Overture.mp3-84492ec9154b4237931ea0df9da71d5c.mp3str"]
+source_file="res://audio/music/High Seas Overture.mp3"
+dest_files=["res://.godot/imported/High Seas Overture.mp3-430c5d4e53fadf02006dc882b269adbc.mp3str"]
 
 [params]
 

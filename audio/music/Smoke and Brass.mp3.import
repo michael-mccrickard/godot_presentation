@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://nhp3dwfbrgdn"
-path="res://.godot/imported/Smoke and Brass.mp3-c3d577e15ba3fa90f844c251f3c6acbb.mp3str"
+path="res://.godot/imported/Smoke and Brass.mp3-1e3c8a24a842b275373dcae93dc17f62.mp3str"
 
 [deps]
 
-source_file="res://audio/Smoke and Brass.mp3"
-dest_files=["res://.godot/imported/Smoke and Brass.mp3-c3d577e15ba3fa90f844c251f3c6acbb.mp3str"]
+source_file="res://audio/music/Smoke and Brass.mp3"
+dest_files=["res://.godot/imported/Smoke and Brass.mp3-1e3c8a24a842b275373dcae93dc17f62.mp3str"]
 
 [params]
 

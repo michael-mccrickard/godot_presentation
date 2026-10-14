@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bn66erd8rbefe"
-path="res://.godot/imported/Uncharted Waters.mp3-a03cc7ae10850489661b6ee18fc9f154.mp3str"
+path="res://.godot/imported/Uncharted Waters.mp3-d204884c9a2aededa9fd60b4abbd0335.mp3str"
 
 [deps]
 
-source_file="res://audio/Uncharted Waters.mp3"
-dest_files=["res://.godot/imported/Uncharted Waters.mp3-a03cc7ae10850489661b6ee18fc9f154.mp3str"]
+source_file="res://audio/music/Uncharted Waters.mp3"
+dest_files=["res://.godot/imported/Uncharted Waters.mp3-d204884c9a2aededa9fd60b4abbd0335.mp3str"]
 
 [params]
 

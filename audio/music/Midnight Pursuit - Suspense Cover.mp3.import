@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c0vihejegvwnr"
-path="res://.godot/imported/Midnight Pursuit - Suspense Cover.mp3-a05800ac8d10016631094e0f06972e17.mp3str"
+path="res://.godot/imported/Midnight Pursuit - Suspense Cover.mp3-a99d1beb09c8cfa7da42d355a3bf427f.mp3str"
 
 [deps]
 
-source_file="res://audio/Midnight Pursuit - Suspense Cover.mp3"
-dest_files=["res://.godot/imported/Midnight Pursuit - Suspense Cover.mp3-a05800ac8d10016631094e0f06972e17.mp3str"]
+source_file="res://audio/music/Midnight Pursuit - Suspense Cover.mp3"
+dest_files=["res://.godot/imported/Midnight Pursuit - Suspense Cover.mp3-a99d1beb09c8cfa7da42d355a3bf427f.mp3str"]
 
 [params]
 
