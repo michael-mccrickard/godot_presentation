@@ -21,9 +21,9 @@ Developed and tested with Godot 4.7 using the Compatibility renderer (set in
 
 ## The window
 
-The window is 1280 x 1052:
+The window is 1280 x 1032:
 
-- **Top bar (216 px):**
+- **Top bar (196 px):**
   - **Status line:** play/pause, time, the next shot `M` will mark, save status, and
 	notices. The **Rewind** and **End** buttons sit to its right.
   - **Shot info box:** the shot on screen at the playhead: its number, file name and

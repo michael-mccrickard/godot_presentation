@@ -17,7 +17,12 @@ signal changed
 const MIN_WIDTH := 0.05
 const COL_START := Color(0.3, 1.0, 0.4)
 const COL_END := Color(1.0, 0.35, 0.3)
-const MARGIN_TOP := 62.0
+const MARGIN_TOP := 118.0  # room for the header and help lines
+const HELP_LINES := [
+	"1 - edit start  |  2 - edit end  |  drag - move  |  wheel - zoom (Shift = fine)  |  [ / ] - prev/next shot",
+	"F - full  |  V - full vertical  |  W - full horizontal  |  0 - reset both  |  H - hold (end = start)",
+	"Enter - apply + preview  |  Esc - cancel",
+]
 const MARGIN := 10.0
 
 var player: PresentationPlayer
@@ -250,14 +255,11 @@ func _draw() -> void:
 	draw_string(font, le, "END %.2fx" % (1.0 / s.cam_end.size.x), HORIZONTAL_ALIGNMENT_LEFT, -1, 14, COL_END)
 
 	var mark := "at %.2fs" % s.start if s.is_assigned() else "not marked yet"
-	draw_string(font, Vector2(12, 20),
+	draw_string(font, Vector2(12, 27),
 			"CAMERA  shot %d/%d (%s)   editing %s%s" % [
 				idx + 1, player.data.shots.size(), mark, "END" if editing_end else "START",
 				"   [whole image, no move]" if s.auto_fit else ""],
-			HORIZONTAL_ALIGNMENT_LEFT, -1, 14, act_col)
-	draw_string(font, Vector2(12, 38),
-			"1 start  2 end  drag move  wheel zoom  |  F full  V full vertical  W full horizontal  0 reset  H hold",
-			HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color(0.8, 0.8, 0.85))
-	draw_string(font, Vector2(12, 55),
-			"[ ] prev/next shot  |  Enter apply + preview  Esc cancel",
-			HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color(0.8, 0.8, 0.85))
+			HORIZONTAL_ALIGNMENT_LEFT, -1, 21, act_col)
+	var help := Color(0.8, 0.8, 0.85)
+	for i in HELP_LINES.size():
+		draw_string(font, Vector2(12, 55 + i * 26), HELP_LINES[i], HORIZONTAL_ALIGNMENT_LEFT, -1, 20, help)

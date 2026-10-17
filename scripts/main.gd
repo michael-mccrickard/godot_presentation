@@ -16,14 +16,14 @@ const TAP_OFFSET := 0.0
 # Window layout (must add up to the window height in project.godot): a black bar for
 # the status line, shot info box and key hints, the 1280x720 presentation view, then
 # the waveform strip.
-const TOP_BAR := 216.0
+const TOP_BAR := 196.0
 const VIEW_SIZE := Vector2(1280, 720)
 const WAVE_H := 116.0
 
 const TRANSITION_NAMES := ["Cut", "Crossfade", "Wipe", "Iris", "Mask Dissolve"]
 const DUR_STEP := 0.25
 const DUR_MAX := 10.0
-const HINTS := "Space - play/pause  |  M - mark next shot  |  C - camera  |  R R - clear marks  |  Home/End - rewind/end  |  Tab - hide/show  |  wheel zoom - zoom timeline"
+const HINTS := "Space - play/pause  |  M - mark next shot  |  C - camera  |  R R - clear marks  |  Tab - hide/show  |  wheel zoom - zoom timeline"
 
 var player: PresentationPlayer
 var wave: WaveformView
@@ -133,7 +133,7 @@ func _ready() -> void:
 	_build_shot_box()
 
 	hints = Label.new()
-	hints.position = Vector2(12, TOP_BAR - 30.0)
+	hints.position = Vector2(12, shot_box.position.y + shot_box.get_combined_minimum_size().y + 4.0)
 	hints.add_theme_font_size_override("font_size", 16)
 	hints.add_theme_color_override("font_color", Color(0.65, 0.65, 0.7))
 	hints.text = HINTS
@@ -176,7 +176,7 @@ func _load_or_demo() -> PresentationData:
 func _build_shot_box() -> void:
 	shot_box = PanelContainer.new()
 	shot_box.position = Vector2(12, 40)
-	shot_box.size = Vector2(VIEW_SIZE.x - 24.0, TOP_BAR - 80.0)
+	shot_box.size = Vector2(VIEW_SIZE.x - 24.0, 0.0)  # height follows the content
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.08, 0.08, 0.1)
 	style.border_color = Color(0.45, 0.45, 0.5)
