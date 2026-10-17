@@ -25,11 +25,11 @@ The window is 1280 x 1052:
 
 - **Top bar (216 px):**
   - **Status line:** play/pause, time, the next shot `M` will mark, save status, and
-    notices. The **Rewind** and **End** buttons sit to its right.
+	notices. The **Rewind** and **End** buttons sit to its right.
   - **Shot info box:** the shot on screen at the playhead: its number, file name and
-    marker time, whether it has a camera move (`Full frame`, `Framed, no move`, or
-    `Move`), and the **transition into it**, which you can change here (see
-    "Transitions").
+	marker time, whether it has a camera move (`Full frame`, `Framed, no move`, or
+	`Move`), and the **transition into it**, which you can change here (see
+	"Transitions").
   - **Key hints:** the main shortcuts.
 - **Presentation view (1280 x 720):** exactly what the audience sees. Letterbox bars
   inside it are black.
