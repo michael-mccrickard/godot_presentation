@@ -474,7 +474,7 @@ func _build_offer() -> void:
 			+ "Scaffold a presentation from them? Every image becomes a shot, in name order, "
 			+ "%s seconds each, joined by cuts. You can retime shots afterwards by dragging "
 			+ "their markers.\n\n"
-			+ "Or start empty: the first shot is placed at 0:00 and you tap M to mark the rest.") % [
+			+ "Or start empty: every shot is unmarked, and you tap M to mark each one, starting with the first.") % [
 			_scaffold_images, _fmt_seconds(PresentationData.SCAFFOLD_SECONDS)])
 	var row := _modal_row(box)
 	var skip := _make_button("Start empty  (Esc)", "Keep the shots unmarked", _decline_scaffold)
