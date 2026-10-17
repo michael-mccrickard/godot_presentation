@@ -26,13 +26,13 @@ window/size/window_width_override=1280
 window/size/window_height_override=1032
 window/stretch/mode="canvas_items"
 
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-
 [importer_defaults]
 
 wav={
 "compress/mode": 0
 }
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
