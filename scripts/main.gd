@@ -44,6 +44,7 @@ var _notice := ""              # short message shown in the status line
 var _notice_until := 0.0
 var _scaffold_images := 0      # > 0 when there was no presentation: offer to scaffold
 var _offer: Control
+var _trash_confirm: Control
 var _ui_visible := true
 
 # Shot info box widgets.
@@ -101,13 +102,17 @@ func _ready() -> void:
 	add_child(buttons)
 	buttons.anchor_left = 1.0
 	buttons.anchor_right = 1.0
-	buttons.offset_left = -260.0
+	buttons.offset_left = -390.0
 	buttons.offset_right = -12.0
 	buttons.offset_top = 4.0
 	buttons.offset_bottom = 34.0
 	buttons.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	buttons.add_child(_make_button("|<  Rewind", "Rewind to the beginning (Home)", _rewind))
 	buttons.add_child(_make_button("End  >|", "Jump to the end (End)", _to_end))
+	var trash := _make_button("Trash", "Delete the whole presentation and start over (asks first)", _ask_trash)
+	trash.add_theme_color_override("font_color", Color(1, 0.5, 0.45))
+	trash.add_theme_color_override("font_hover_color", Color(1, 0.6, 0.55))
+	buttons.add_child(trash)
 
 	_save_timer = Timer.new()
 	_save_timer.one_shot = true
@@ -336,31 +341,32 @@ func _update_shot_box() -> void:
 	_box_note.modulate = Color(1, 0.75, 0.3) if warn else Color(0.7, 0.7, 0.75)
 
 
-# ---------------------------------------------------------------- scaffold offer
+# ---------------------------------------------------------------- modal dialogs
 
-## Modal question shown when there was no saved presentation but there are images.
-func _build_offer() -> void:
-	_offer = Control.new()
-	_offer.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_offer.mouse_filter = Control.MOUSE_FILTER_STOP  # blocks the UI underneath
-	add_child(_offer)
+## Dimmed full-window overlay with a centred panel. Returns [overlay, content box];
+## the caller adds a body and a button row to the box.
+func _make_modal(title_text: String, border: Color) -> Array:
+	var overlay := Control.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	overlay.mouse_filter = Control.MOUSE_FILTER_STOP  # blocks the UI underneath
+	add_child(overlay)
 
 	var dim := ColorRect.new()
 	dim.color = Color(0, 0, 0, 0.8)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	dim.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_offer.add_child(dim)
+	overlay.add_child(dim)
 
 	var center := CenterContainer.new()
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
 	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_offer.add_child(center)
+	overlay.add_child(center)
 
 	var panel := PanelContainer.new()
 	panel.custom_minimum_size = Vector2(640, 0)
 	var style := StyleBoxFlat.new()  # opaque, so the text is readable over any image
 	style.bg_color = Color(0.11, 0.11, 0.13)
-	style.border_color = Color(0.45, 0.45, 0.5)
+	style.border_color = border
 	style.set_border_width_all(2)
 	style.set_corner_radius_all(6)
 	panel.add_theme_stylebox_override("panel", style)
@@ -376,25 +382,101 @@ func _build_offer() -> void:
 	margin.add_child(box)
 
 	var title := Label.new()
-	title.text = "New presentation"
+	title.text = title_text
 	title.add_theme_font_size_override("font_size", 22)
 	box.add_child(title)
+	return [overlay, box]
 
+
+func _modal_body(box: VBoxContainer, text: String) -> void:
 	var body := Label.new()
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	body.custom_minimum_size = Vector2(596, 0)
-	body.text = ("No saved presentation was found, and images/ has %d images.\n\n"
-			+ "Scaffold a presentation from them? Every image becomes a shot, in name order, "
-			+ "%s seconds each, joined by cuts. You can retime shots afterwards by dragging "
-			+ "their markers.\n\n"
-			+ "Or start empty: the first shot is placed at 0:00 and you tap M to mark the rest.") % [
-			_scaffold_images, _fmt_seconds(PresentationData.SCAFFOLD_SECONDS)]
+	body.text = text
 	box.add_child(body)
 
+
+func _modal_row(box: VBoxContainer) -> HBoxContainer:
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 10)
 	row.alignment = BoxContainer.ALIGNMENT_END
 	box.add_child(row)
+	return row
+
+
+# ---------------------------------------------------------------- trash
+
+func _ask_trash() -> void:
+	if _trash_confirm:
+		_trash_confirm.queue_free()
+	var m := _make_modal("Trash this presentation?", Color(0.85, 0.35, 0.3))
+	_trash_confirm = m[0]
+	var box: VBoxContainer = m[1]
+	_modal_body(box, "This deletes every marker, camera framing and transition, and starts over "
+			+ "from the images in images/, exactly as on first run.\n\n"
+			+ "A copy of the current file is kept as presentation.json.bak.")
+	var row := _modal_row(box)
+	var no := _make_button("Cancel  (Esc)", "Keep the presentation", _cancel_trash)
+	no.custom_minimum_size = Vector2(170, 36)
+	row.add_child(no)
+	var yes := _make_button("Delete and start over", "Cannot be undone (except from the .bak copy)", _do_trash)
+	yes.custom_minimum_size = Vector2(210, 36)
+	yes.add_theme_color_override("font_color", Color(1, 0.5, 0.45))
+	row.add_child(yes)
+	player.pause()
+
+
+func _cancel_trash() -> void:
+	_trash_confirm.queue_free()
+	_trash_confirm = null
+
+
+func _do_trash() -> void:
+	_cancel_trash()
+	# Drop any pending autosave of the old presentation.
+	_save_timer.stop()
+	_dirty = false
+	var path := SAVE_RES if OS.has_feature("editor") else SAVE_USER
+	if FileAccess.file_exists(path):
+		var old := FileAccess.get_file_as_string(path)
+		if old.strip_edges() != "":
+			var bak := FileAccess.open(path + ".bak", FileAccess.WRITE)
+			if bak:
+				bak.store_string(old)
+	# An empty file counts as no presentation, so a restart also starts fresh.
+	var f := FileAccess.open(path, FileAccess.WRITE)
+	if f:
+		f.store_string("")
+	f = null
+	_save_status = ""
+	# Re-run the first-run sequence.
+	player.set_data(PresentationData.make_demo())
+	wave.rebuild()
+	player.seek(0.0)
+	wave.reveal(0.0)
+	_scaffold_images = PresentationData.image_count("res://images")
+	if _offer:
+		_offer.queue_free()
+		_offer = null
+	if _scaffold_images > 0:
+		_build_offer()
+	_show_notice("presentation trashed (old copy in %s.bak)" % path.get_file(), 15.0)
+
+
+# ---------------------------------------------------------------- scaffold offer
+
+## Modal question shown when there was no saved presentation but there are images.
+func _build_offer() -> void:
+	var m := _make_modal("New presentation", Color(0.45, 0.45, 0.5))
+	_offer = m[0]
+	var box: VBoxContainer = m[1]
+	_modal_body(box, ("No saved presentation was found, and images/ has %d images.\n\n"
+			+ "Scaffold a presentation from them? Every image becomes a shot, in name order, "
+			+ "%s seconds each, joined by cuts. You can retime shots afterwards by dragging "
+			+ "their markers.\n\n"
+			+ "Or start empty: the first shot is placed at 0:00 and you tap M to mark the rest.") % [
+			_scaffold_images, _fmt_seconds(PresentationData.SCAFFOLD_SECONDS)])
+	var row := _modal_row(box)
 	var skip := _make_button("Start empty  (Esc)", "Keep the shots unmarked", _decline_scaffold)
 	skip.custom_minimum_size = Vector2(170, 36)
 	row.add_child(skip)
@@ -506,7 +588,15 @@ func _on_camera_closed(shot_index: int, preview: bool) -> void:
 
 func _unhandled_key_input(e: InputEvent) -> void:
 	var k := e as InputEventKey
-	if k == null or not k.pressed or k.echo:
+	if k == null or not k.pressed:
+		return
+	if _trash_confirm:  # the trash question owns the keyboard; only Esc does anything
+		if k.keycode == KEY_ESCAPE and not k.echo:
+			_cancel_trash()
+		get_viewport().set_input_as_handled()
+		return
+	# Held arrow keys repeat in the camera editor (fine crop); nothing else repeats.
+	if k.echo and not (cam_editor.visible and k.keycode in [KEY_UP, KEY_DOWN]):
 		return
 	if _offer and _offer.visible:  # the scaffold question owns the keyboard
 		if k.keycode == KEY_ENTER or k.keycode == KEY_KP_ENTER:

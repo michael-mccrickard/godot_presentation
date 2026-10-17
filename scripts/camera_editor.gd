@@ -21,7 +21,7 @@ const MARGIN_TOP := 118.0  # room for the header and help lines
 const HELP_LINES := [
 	"1 - edit start  |  2 - edit end  |  drag - move  |  wheel - zoom (Shift = fine)  |  [ / ] - prev/next shot",
 	"F - full  |  V - full vertical  |  W - full horizontal  |  0 - reset both  |  H - hold (end = start)",
-	"Enter - apply + preview  |  Esc - cancel",
+	"Up/Down - crop in/out (Shift = bigger steps)  |  Enter - apply + preview  |  Esc - cancel",
 ]
 const MARGIN := 10.0
 
@@ -167,6 +167,12 @@ func handle_key(k: InputEventKey) -> void:
 		KEY_H:
 			_shot().auto_fit = false
 			_shot().cam_end = _shot().cam_start
+		KEY_UP, KEY_DOWN:
+			# Fine crop: shrink (Up) or grow (Down) the frame about its centre.
+			var step := 0.02 if k.shift_pressed else 0.005
+			var r := _active()
+			var w := r.size.x * ((1.0 - step) if k.keycode == KEY_UP else 1.0 / (1.0 - step))
+			_set_active(_make_rect(r.get_center(), w))
 		KEY_BRACKETLEFT:
 			_select(idx - 1)
 		KEY_BRACKETRIGHT:
@@ -263,6 +269,10 @@ func _draw() -> void:
 	# A frame wider or taller than the image cannot move along that axis; say so,
 	# and say how far to zoom in before it can.
 	var ar := _active()
+	# How much of the image the frame trims on each side, per axis.
+	var trim := "   trim L %.1f  R %.1f  T %.1f  B %.1f %%" % [
+		maxf(0.0, ar.position.x) * 100.0, maxf(0.0, 1.0 - ar.end.x) * 100.0,
+		maxf(0.0, ar.position.y) * 100.0, maxf(0.0, 1.0 - ar.end.y) * 100.0]
 	var lock := ""
 	if ar.size.y >= 1.0 - 0.0001:
 		lock = "   [up/down locked until zoomed past %.2fx]" % (_img_size().x / (_img_size().y * _out_aspect()))
@@ -271,7 +281,7 @@ func _draw() -> void:
 	draw_string(font, Vector2(12, 27),
 			"CAMERA  shot %d/%d (%s)   editing %s%s" % [
 				idx + 1, player.data.shots.size(), mark, "END" if editing_end else "START",
-				("   [whole image, no move]" if s.auto_fit else "") + lock],
+				("   [whole image, no move]" if s.auto_fit else trim) + lock],
 			HORIZONTAL_ALIGNMENT_LEFT, -1, 21, act_col)
 	var help := Color(0.8, 0.8, 0.85)
 	for i in HELP_LINES.size():
