@@ -1,5 +1,5 @@
 {
-	"audio_path": "",
+	"audio_path": "res://audio/audio.wav",
 	"shots": [
 		{
 			"auto_fit": true,
