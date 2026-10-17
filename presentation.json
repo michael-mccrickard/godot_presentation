@@ -18,7 +18,7 @@
 			"easing": 1,
 			"image_path": "res://images/p0_f1.jpg",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 0.0,
 			"transition": 0,
 			"transition_duration": 1.0
 		},
@@ -39,7 +39,7 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f1.jpeg",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 1.26671133333333,
 			"transition": 1,
 			"transition_duration": 1.0
 		},
@@ -60,7 +60,7 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f2.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 4.16671133333332,
 			"transition": 2,
 			"transition_duration": 1.0
 		},
@@ -81,7 +81,7 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f3.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 5.86083841323853,
 			"transition": 3,
 			"transition_duration": 1.0
 		},
@@ -102,7 +102,7 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f4.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 7.76092743873596,
 			"transition": 4,
 			"transition_duration": 1.0
 		},
@@ -123,7 +123,7 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f5.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 10.8652975559235,
 			"transition": 1,
 			"transition_duration": 1.0
 		},
@@ -144,7 +144,7 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f6.png",
 			"move_duration": 0.0,
-			"start": -1.0,
+			"start": 13.5414805412292,
 			"transition": 2,
 			"transition_duration": 1.0
 		},
