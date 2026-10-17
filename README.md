@@ -80,7 +80,6 @@ Every edit is saved automatically (see "Saving").
 | --- | --- |
 | `Space` | Play / pause |
 | `M` | Mark: start the first unmarked shot at the playhead (the status line names it) |
-| `O`, `O` | Re-sort the **unmarked** shots by name. Press twice within 3 seconds to confirm. Marked shots never move. |
 | `C` | Open the camera editor for the shot under the playhead |
 | `Home` | Rewind to the beginning |
 | `End` | Jump to the end |
@@ -132,15 +131,9 @@ Two things decide where a shot sits in the list:
   list; its time is what matters, and the program never reorders it. Using the same
   image more than once (a repeat later in the show) is fine, because those shots are
   marked in place.
-- **Unmarked shots follow name order.** They are the ones still waiting for `M`. If
-  they are out of name order (for example a list built before the numbers were
-  compared properly), press `O` twice. Only unmarked shots trade places with each
-  other, so no marker, framing, or transition is lost. If you repeat an image among
-  the unmarked shots, mark the repeat before pressing `O`, or `O` will group the
-  copies together.
-
-To re-sort *everything* by name, clear the marks first (`R`, `R`), then press `O`,
-`O`. This throws away all marker times, so only do it deliberately.
+- **Unmarked shots follow name order.** They are the ones still waiting for `M`. New
+  images are slotted in by name when the program starts (see below), so a file such as
+  `p2_f3a.png` lands between `p2_f3` and `p2_f4`.
 
 ## Adding or replacing images
 

@@ -2,7 +2,7 @@ extends Control
 ## Glue: builds the player + authoring overlay and handles keys.
 ##   Space play/pause   M mark next shot   Tab show/hide authoring UI
 ##   Left/Right seek 1s (Shift = 5s)   Home rewind   End jump to end
-##   O (twice) re-sort the unmarked shots by name   R (twice) clear all marks
+##   R (twice) clear all marks
 ##   S save now (every edit is also saved automatically)
 ##   C frame the camera move for the current shot (see camera_editor.gd)
 ## Every edit is written to presentation.json shortly after it is made.
@@ -27,7 +27,7 @@ var buttons: HBoxContainer
 var _save_timer: Timer
 var _dirty := false
 var _save_status := ""
-var _armed_key := 0            # destructive keys (R, O) must be pressed twice
+var _armed_key := 0            # destructive keys (R) must be pressed twice
 var _armed_until := 0.0
 var _new_images := 0           # images picked up from the folder when loading
 var _relinked_images := 0      # shots re-pointed at a renamed file
@@ -294,8 +294,8 @@ func _process(_delta: float) -> void:
 		if now < _armed_until:
 			line1 += "   PRESS %s AGAIN TO %s" % [
 				OS.get_keycode_string(_armed_key),
-				"CLEAR ALL MARKS" if _armed_key == KEY_R else "RE-SORT UNMARKED SHOTS BY NAME"]
-		info.text = player.image_label_at(player.get_time()) + "\n" + line1 + "\nSpace play  M mark  C camera  O sort  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
+				"CLEAR ALL MARKS"]
+		info.text = player.image_label_at(player.get_time()) + "\n" + line1 + "\nSpace play  M mark  C camera  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
 		if player.last_error != "":
 			info.text += "\n" + player.last_error
 
@@ -343,13 +343,6 @@ func _unhandled_key_input(e: InputEvent) -> void:
 				for s in player.data.shots:
 					s.start = -1.0
 				_queue_save()
-		KEY_O:
-			if _confirm(KEY_O):
-				var moved := player.data.sort_unmarked_by_name()
-				_show_notice("re-sorted: %d unmarked shot(s) moved" % moved if moved > 0
-						else "unmarked shots were already in name order", 8.0)
-				if moved > 0:
-					_queue_save()
 		KEY_LEFT:
 			player.seek(player.get_time() - step)
 			wave.reveal(player.get_time())

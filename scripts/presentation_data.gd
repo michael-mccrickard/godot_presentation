@@ -183,36 +183,6 @@ func add_new_images(dir: String) -> Dictionary:
 	return {"added": added, "relinked": relinked}
 
 
-## Re-sorts the shots that have no marker yet by name (numbers compared as numbers).
-## Marked shots never move: their order is the timeline. Unmarked shots only trade
-## places with each other, so an unmarked shot sitting between two marked ones keeps
-## that slot. Returns how many shots changed position.
-func sort_unmarked_by_name() -> int:
-	var slots: Array[int] = []
-	var pool: Array[Shot] = []
-	for i in shots.size():
-		if not shots[i].is_assigned():
-			slots.append(i)
-			pool.append(shots[i])
-	var order: Array[int] = []
-	for i in pool.size():
-		order.append(i)
-	# Not a stable sort by itself, so break ties by the original position.
-	order.sort_custom(func(a: int, b: int) -> bool:
-		var pa := pool[a].image_path
-		var pb := pool[b].image_path
-		if pa == pb:
-			return a < b
-		return natural_less(pa, pb))
-	var moved := 0
-	for k in slots.size():
-		var s := pool[order[k]]
-		if shots[slots[k]] != s:
-			moved += 1
-		shots[slots[k]] = s
-	return moved
-
-
 static func _scan_images(dir: String) -> Array[String]:
 	var out: Array[String] = []
 	for f in DirAccess.get_files_at(dir):
