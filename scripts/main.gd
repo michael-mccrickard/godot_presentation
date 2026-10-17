@@ -4,9 +4,11 @@ extends Control
 ##   The boxed shot info panel edits the transition into the shot at the playhead.
 ##   Left/Right seek 1s (Shift = 5s)   Home rewind   End jump to end
 ##   R (twice) clear all marks
-##   S save now (every edit is also saved automatically)
+##   S save now (the Save button does the same)
 ##   C frame the camera move for the current shot (see camera_editor.gd)
-## Every edit is written to presentation.json shortly after it is made.
+## Edits are written to presentation.json with S / the Save button. With the Autosave
+## box ticked, every edit is also written shortly after it is made. Autosave is off by
+## default: run from the editor, each write makes Godot ask to reload the file.
 
 const SAVE_RES := "res://presentation.json"    # written when running from the editor
 const SAVE_USER := "user://presentation.json"  # written from an exported build
@@ -23,6 +25,7 @@ const WAVE_H := 116.0
 const TRANSITION_NAMES := ["Cut", "Crossfade", "Wipe", "Iris", "Mask Dissolve"]
 const DUR_STEP := 0.25
 const DUR_MAX := 10.0
+const SAVE_COL_W := 140.0      # Save button + Autosave box, right of the shot box
 const HINTS := "Space - play/pause  |  M - mark next shot  |  C - camera  |  R R - clear marks  |  Tab - hide/show  |  wheel zoom - zoom timeline"
 
 var player: PresentationPlayer
@@ -35,6 +38,9 @@ var buttons: HBoxContainer
 
 var _save_timer: Timer
 var _dirty := false
+var _autosave := false         # off by default; ticked with the Autosave box
+var _save_panel: VBoxContainer
+var _quit_confirm: Control
 var _save_status := ""
 var _armed_key := 0            # destructive keys (R) must be pressed twice
 var _armed_until := 0.0
@@ -114,6 +120,8 @@ func _ready() -> void:
 	trash.add_theme_color_override("font_hover_color", Color(1, 0.6, 0.55))
 	buttons.add_child(trash)
 
+	_build_save_panel()
+
 	_save_timer = Timer.new()
 	_save_timer.one_shot = true
 	_save_timer.wait_time = 0.4
@@ -143,8 +151,42 @@ func _ready() -> void:
 	hints.text = HINTS
 	add_child(hints)
 
+	# Closing the window with unsaved edits asks first (see _notification).
+	get_tree().set_auto_accept_quit(false)
+
 	if _scaffold_images > 0:
 		_build_offer()  # last, so it sits on top of everything
+
+
+## Save button with the Autosave box under it, top right below the transport buttons.
+func _build_save_panel() -> void:
+	_save_panel = VBoxContainer.new()
+	_save_panel.add_theme_constant_override("separation", 6)
+	_save_panel.position = Vector2(VIEW_SIZE.x - 12.0 - SAVE_COL_W, 40.0)
+	_save_panel.custom_minimum_size = Vector2(SAVE_COL_W, 0)
+	add_child(_save_panel)
+	var save := _make_button("Save  (S)", "Write presentation.json now", _save_now)
+	save.custom_minimum_size = Vector2(SAVE_COL_W, 32)
+	_save_panel.add_child(save)
+	var auto := CheckBox.new()
+	auto.text = "Autosave"
+	auto.tooltip_text = ("Save every edit automatically. Leave off when running from the editor, "
+			+ "or Godot asks to reload presentation.json each time you switch back to it.")
+	auto.focus_mode = Control.FOCUS_NONE  # so Space keeps meaning play/pause
+	auto.button_pressed = _autosave
+	auto.toggled.connect(_set_autosave)
+	_save_panel.add_child(auto)
+
+
+func _set_autosave(on: bool) -> void:
+	_autosave = on
+	if on and _dirty:
+		_save_timer.start()  # catch up on edits made while it was off
+
+
+func _save_now() -> void:
+	_dirty = true  # write even if nothing changed
+	_flush_save()
 
 
 func _load_or_demo() -> PresentationData:
@@ -180,7 +222,7 @@ func _load_or_demo() -> PresentationData:
 func _build_shot_box() -> void:
 	shot_box = PanelContainer.new()
 	shot_box.position = Vector2(12, 40)
-	shot_box.size = Vector2(VIEW_SIZE.x - 24.0, 0.0)  # height follows the content
+	shot_box.size = Vector2(VIEW_SIZE.x - 24.0 - SAVE_COL_W - 10.0, 0.0)  # height follows the content
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.08, 0.08, 0.1)
 	style.border_color = Color(0.45, 0.45, 0.5)
@@ -557,6 +599,7 @@ func _process(_delta: float) -> void:
 	hints.visible = ui_on
 	shot_box.visible = ui_on
 	buttons.visible = ui_on
+	_save_panel.visible = ui_on
 	wave.visible = _ui_visible and not cam_editor.visible
 	if ui_on:
 		_update_shot_box()
@@ -595,6 +638,14 @@ func _unhandled_key_input(e: InputEvent) -> void:
 			_cancel_trash()
 		get_viewport().set_input_as_handled()
 		return
+	if _quit_confirm:  # the unsaved-changes question owns the keyboard
+		if not k.echo:
+			if k.keycode == KEY_ESCAPE:
+				_cancel_quit()
+			elif k.keycode == KEY_ENTER or k.keycode == KEY_KP_ENTER:
+				_save_and_quit()
+		get_viewport().set_input_as_handled()
+		return
 	# Held arrow keys repeat in the camera editor (fine crop); nothing else repeats.
 	if k.echo and not (cam_editor.visible and k.keycode in [KEY_UP, KEY_DOWN]):
 		return
@@ -622,8 +673,7 @@ func _unhandled_key_input(e: InputEvent) -> void:
 		KEY_TAB:
 			_ui_visible = not _ui_visible
 		KEY_S:
-			_dirty = true
-			_flush_save()
+			_save_now()
 		KEY_R:
 			if _confirm(KEY_R):
 				for s in player.data.shots:
@@ -650,11 +700,13 @@ func _tap() -> void:
 	_queue_save()
 
 
-## Autosave: every edit calls this; the file is written 0.4s after the last edit.
+## Every edit calls this. With Autosave on, the file is written 0.4s after the last
+## edit; otherwise it waits for S / the Save button.
 func _queue_save() -> void:
 	_dirty = true
 	_save_status = "unsaved"
-	_save_timer.start()
+	if _autosave:
+		_save_timer.start()
 
 
 func _flush_save() -> void:
@@ -671,4 +723,45 @@ func _flush_save() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		_flush_save()  # don't lose an edit made in the last 0.4s
+		if _autosave or not _dirty:
+			_flush_save()  # don't lose an edit made in the last 0.4s
+			get_tree().quit()
+		else:
+			_ask_quit()
+
+
+# ---------------------------------------------------------------- unsaved on quit
+
+func _ask_quit() -> void:
+	if _quit_confirm:
+		return
+	var m := _make_modal("Save changes before quitting?", Color(0.85, 0.7, 0.3))
+	_quit_confirm = m[0]
+	var box: VBoxContainer = m[1]
+	_modal_body(box, "This presentation has edits that have not been saved to presentation.json.")
+	var row := _modal_row(box)
+	var cancel := _make_button("Cancel  (Esc)", "Keep working", _cancel_quit)
+	cancel.custom_minimum_size = Vector2(150, 36)
+	row.add_child(cancel)
+	var discard := _make_button("Quit without saving", "Lose the unsaved edits", get_tree().quit)
+	discard.custom_minimum_size = Vector2(190, 36)
+	discard.add_theme_color_override("font_color", Color(1, 0.5, 0.45))
+	row.add_child(discard)
+	var save := _make_button("Save and quit  (Enter)", "Write presentation.json, then quit", _save_and_quit)
+	save.custom_minimum_size = Vector2(200, 36)
+	row.add_child(save)
+	player.pause()
+
+
+func _cancel_quit() -> void:
+	_quit_confirm.queue_free()
+	_quit_confirm = null
+
+
+func _save_and_quit() -> void:
+	_flush_save()
+	if _save_status == "SAVE FAILED":
+		_cancel_quit()
+		_show_notice("save failed - not quitting", 15.0)
+		return
+	get_tree().quit()
