@@ -1,5 +1,5 @@
 {
-	"audio_path": "res://audio/audio.wav",
+	"audio_path": "",
 	"shots": [
 		{
 			"auto_fit": true,
@@ -16,10 +16,31 @@
 				1.0
 			],
 			"easing": 1,
-			"image_path": "res://images/p1_f1.png",
+			"image_path": "res://images/p0_f1.jpg",
 			"move_duration": 0.0,
-			"start": 0.0,
+			"start": -1.0,
 			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "res://images/p1_f1.jpeg",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -39,8 +60,8 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f2.png",
 			"move_duration": 0.0,
-			"start": 16.1370720863342,
-			"transition": 1,
+			"start": -1.0,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -60,8 +81,8 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f3.png",
 			"move_duration": 0.0,
-			"start": 25.1713399887085,
-			"transition": 2,
+			"start": -1.0,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -81,8 +102,8 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f4.png",
 			"move_duration": 0.0,
-			"start": 42.3643930766907,
-			"transition": 3,
+			"start": -1.0,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -102,8 +123,8 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f5.png",
 			"move_duration": 0.0,
-			"start": 50.2918145937195,
-			"transition": 4,
+			"start": -1.0,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -123,8 +144,8 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f6.png",
 			"move_duration": 0.0,
-			"start": 58.4510892863388,
-			"transition": 1,
+			"start": -1.0,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -144,8 +165,8 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f7.png",
 			"move_duration": 0.0,
-			"start": 61.6263931031342,
-			"transition": 2,
+			"start": -1.0,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -165,8 +186,8 @@
 			"easing": 1,
 			"image_path": "res://images/p1_f8.png",
 			"move_duration": 0.0,
-			"start": 67.3523638248444,
-			"transition": 3,
+			"start": -1.0,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -186,8 +207,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f1.png",
 			"move_duration": 0.0,
-			"start": 74.8136780577698,
-			"transition": 4,
+			"start": -1.0,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -207,8 +228,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f2.png",
 			"move_duration": 0.0,
-			"start": 81.5628895759583,
-			"transition": 1,
+			"start": -1.0,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -228,8 +249,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f3.png",
 			"move_duration": 0.0,
-			"start": 86.7524095608826,
-			"transition": 2,
+			"start": -1.0,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -249,8 +270,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f4.png",
 			"move_duration": 0.0,
-			"start": 94.618651969635,
-			"transition": 3,
+			"start": -1.0,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -268,10 +289,10 @@
 				1.0
 			],
 			"easing": 1,
-			"image_path": "res://images/p2_f5.png",
+			"image_path": "res://images/p2_f5.jpeg",
 			"move_duration": 0.0,
-			"start": 105.980253208862,
-			"transition": 4,
+			"start": -1.0,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -291,8 +312,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f6.png",
 			"move_duration": 0.0,
-			"start": 108.763482083069,
-			"transition": 1,
+			"start": -1.0,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -312,8 +333,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f7.png",
 			"move_duration": 0.0,
-			"start": 112.470285970665,
-			"transition": 2,
+			"start": -1.0,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -333,8 +354,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f8.png",
 			"move_duration": 0.0,
-			"start": 122.679236777405,
-			"transition": 3,
+			"start": -1.0,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -354,8 +375,8 @@
 			"easing": 1,
 			"image_path": "res://images/p2_f9.png",
 			"move_duration": 0.0,
-			"start": 130.012933408203,
-			"transition": 4,
+			"start": -1.0,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -375,8 +396,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f1.png",
 			"move_duration": 0.0,
-			"start": 136.82351909082,
-			"transition": 1,
+			"start": -1.0,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -396,8 +417,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f2.png",
 			"move_duration": 0.0,
-			"start": 141.963418229187,
-			"transition": 2,
+			"start": -1.0,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -417,8 +438,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f3.png",
 			"move_duration": 0.0,
-			"start": 151.921099755859,
-			"transition": 3,
+			"start": -1.0,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -438,8 +459,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f4.png",
 			"move_duration": 0.0,
-			"start": 161.052352997314,
-			"transition": 4,
+			"start": -1.0,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -459,8 +480,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f5.png",
 			"move_duration": 0.0,
-			"start": 177.000137747711,
-			"transition": 1,
+			"start": -1.0,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -480,8 +501,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f6.png",
 			"move_duration": 0.0,
-			"start": 214.645718139221,
-			"transition": 2,
+			"start": -1.0,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -501,8 +522,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f7.png",
 			"move_duration": 0.0,
-			"start": 214.655718139221,
-			"transition": 3,
+			"start": -1.0,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -522,8 +543,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f8.png",
 			"move_duration": 0.0,
-			"start": 200.706934842247,
-			"transition": 4,
+			"start": -1.0,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -543,8 +564,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f9.png",
 			"move_duration": 0.0,
-			"start": 200.716934842247,
-			"transition": 1,
+			"start": -1.0,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -564,8 +585,8 @@
 			"easing": 1,
 			"image_path": "res://images/p3_f10.png",
 			"move_duration": 0.0,
-			"start": 200.726934842247,
-			"transition": 2,
+			"start": -1.0,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -586,7 +607,7 @@
 			"image_path": "res://images/p4_f1.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -607,7 +628,7 @@
 			"image_path": "res://images/p4_f2.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -628,7 +649,7 @@
 			"image_path": "res://images/p4_f3.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -649,7 +670,7 @@
 			"image_path": "res://images/p4_f4.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -670,7 +691,7 @@
 			"image_path": "res://images/p4_f5.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -691,7 +712,7 @@
 			"image_path": "res://images/p4_f6.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -712,7 +733,7 @@
 			"image_path": "res://images/p4_f7.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -733,7 +754,7 @@
 			"image_path": "res://images/p4_f8.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -754,7 +775,7 @@
 			"image_path": "res://images/p4_f9.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -775,7 +796,7 @@
 			"image_path": "res://images/p4_f10.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -796,7 +817,7 @@
 			"image_path": "res://images/p5_f1.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -817,7 +838,7 @@
 			"image_path": "res://images/p5_f2.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -838,7 +859,7 @@
 			"image_path": "res://images/p5_f3.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -859,7 +880,7 @@
 			"image_path": "res://images/p5_f4.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -880,7 +901,7 @@
 			"image_path": "res://images/p5_f5.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -901,7 +922,7 @@
 			"image_path": "res://images/p5_f6.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -922,7 +943,7 @@
 			"image_path": "res://images/p5_f7.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -943,7 +964,7 @@
 			"image_path": "res://images/p5_f8.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -964,7 +985,7 @@
 			"image_path": "res://images/p5_f9.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -985,7 +1006,7 @@
 			"image_path": "res://images/p5_f10.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1006,7 +1027,7 @@
 			"image_path": "res://images/p6_f1.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -1027,7 +1048,7 @@
 			"image_path": "res://images/p6_f2.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -1048,7 +1069,7 @@
 			"image_path": "res://images/p6_f3.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -1069,7 +1090,7 @@
 			"image_path": "res://images/p6_f4.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1090,7 +1111,7 @@
 			"image_path": "res://images/p6_f5.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -1111,7 +1132,7 @@
 			"image_path": "res://images/p6_f6.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -1132,7 +1153,7 @@
 			"image_path": "res://images/p6_f7.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -1153,7 +1174,7 @@
 			"image_path": "res://images/p6_f8.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1174,7 +1195,7 @@
 			"image_path": "res://images/p6_f9.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -1195,7 +1216,7 @@
 			"image_path": "res://images/p6_f10.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -1216,7 +1237,7 @@
 			"image_path": "res://images/p7_f1.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -1237,7 +1258,7 @@
 			"image_path": "res://images/p7_f2.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1258,7 +1279,7 @@
 			"image_path": "res://images/p7_f3.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -1279,7 +1300,7 @@
 			"image_path": "res://images/p7_f4.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -1300,7 +1321,7 @@
 			"image_path": "res://images/p7_f5.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -1321,7 +1342,7 @@
 			"image_path": "res://images/p7_f6.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1342,7 +1363,7 @@
 			"image_path": "res://images/p7_f7.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -1363,7 +1384,7 @@
 			"image_path": "res://images/p7_f8.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -1384,7 +1405,7 @@
 			"image_path": "res://images/p7_f9.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -1405,7 +1426,7 @@
 			"image_path": "res://images/p7_f10.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1426,7 +1447,7 @@
 			"image_path": "res://images/p8_f1.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -1447,7 +1468,7 @@
 			"image_path": "res://images/p8_f2.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -1468,7 +1489,7 @@
 			"image_path": "res://images/p8_f3.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -1489,7 +1510,7 @@
 			"image_path": "res://images/p8_f4.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1510,7 +1531,7 @@
 			"image_path": "res://images/p8_f5.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		},
 		{
@@ -1531,7 +1552,7 @@
 			"image_path": "res://images/p8_f6.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 4,
+			"transition": 1,
 			"transition_duration": 1.0
 		},
 		{
@@ -1552,7 +1573,7 @@
 			"image_path": "res://images/p8_f7.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 1,
+			"transition": 2,
 			"transition_duration": 1.0
 		},
 		{
@@ -1573,7 +1594,7 @@
 			"image_path": "res://images/p8_f8.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 2,
+			"transition": 3,
 			"transition_duration": 1.0
 		},
 		{
@@ -1594,7 +1615,7 @@
 			"image_path": "res://images/p8_f9.png",
 			"move_duration": 0.0,
 			"start": -1.0,
-			"transition": 3,
+			"transition": 4,
 			"transition_duration": 1.0
 		}
 	]
