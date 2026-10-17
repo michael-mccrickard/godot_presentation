@@ -121,7 +121,10 @@ func _draw() -> void:
 		t_tick += tick
 
 	if peaks.is_empty():
-		draw_string(ThemeDB.fallback_font, Vector2(12, mid), "No audio waveform - timeline only. Play (Space) and tap M to mark each shot.",
+		var msg := "No audio waveform - timeline only. Play (Space) and tap M to mark each shot."
+		if player.audio.stream:
+			msg = "Audio loaded, but no waveform: the WAV is imported compressed. Select it in the FileSystem dock, set Import > Compress Mode to Disabled, and click Reimport."
+		draw_string(ThemeDB.fallback_font, Vector2(12, mid), msg,
 				HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color(0.6, 0.6, 0.65))
 	else:
 		for x in int(size.x):
