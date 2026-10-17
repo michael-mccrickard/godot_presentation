@@ -65,8 +65,8 @@ static func make_demo() -> PresentationData:
 		if paths[0].begins_with("demo://"):
 			s.start = i * 4.0  # generated demo plays by itself
 		else:
-			# Your own images: shot 1 at 0, the rest wait for you to tap M.
-			s.start = 0.0 if i == 0 else -1.0
+			# Your own images: every shot waits for you to tap M, the first one included.
+			s.start = -1.0
 		# Your own images start with cuts; the generated demo shows off the transitions.
 		if paths[0].begins_with("demo://") and i > 0:
 			s.transition = transitions[(i - 1) % transitions.size()]
