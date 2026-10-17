@@ -87,12 +87,11 @@ func _ready() -> void:
 	wave.rebuild()
 	wave.changed.connect(_queue_save)
 
-	# Camera editor covers the picture area (not the waveform strip).
+	# Camera editor covers the whole window; the timeline is hidden while it is open.
 	cam_editor = CameraEditor.new()
 	add_child(cam_editor)
 	cam_editor.anchor_right = 1.0
 	cam_editor.anchor_bottom = 1.0
-	cam_editor.offset_bottom = -WAVE_H
 	cam_editor.closed.connect(_on_camera_closed)
 	cam_editor.changed.connect(_queue_save)
 
@@ -476,6 +475,7 @@ func _process(_delta: float) -> void:
 	hints.visible = ui_on
 	shot_box.visible = ui_on
 	buttons.visible = ui_on
+	wave.visible = _ui_visible and not cam_editor.visible
 	if ui_on:
 		_update_shot_box()
 		var nxt := _next_unmarked()
@@ -531,7 +531,6 @@ func _unhandled_key_input(e: InputEvent) -> void:
 			_tap()
 		KEY_TAB:
 			_ui_visible = not _ui_visible
-			wave.visible = _ui_visible
 		KEY_S:
 			_dirty = true
 			_flush_save()

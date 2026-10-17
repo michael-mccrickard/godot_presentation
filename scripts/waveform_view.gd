@@ -168,11 +168,15 @@ func _gui_input(e: InputEvent) -> void:
 		return
 	if e is InputEventMouseButton:
 		var mb := e as InputEventMouseButton
-		if mb.button_index == MOUSE_BUTTON_WHEEL_UP or mb.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		if mb.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN,
+				MOUSE_BUTTON_WHEEL_LEFT, MOUSE_BUTTON_WHEEL_RIGHT]:
 			if not mb.pressed:
 				return
-			if mb.shift_pressed:
-				view_start += (-1 if mb.button_index == MOUSE_BUTTON_WHEEL_UP else 1) * view_len * 0.1
+			# macOS sends Shift + wheel (and trackpad sideways swipes) as left/right.
+			var sideways := mb.button_index in [MOUSE_BUTTON_WHEEL_LEFT, MOUSE_BUTTON_WHEEL_RIGHT]
+			if sideways or mb.shift_pressed:
+				var back := mb.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_LEFT]
+				view_start += (-1 if back else 1) * view_len * 0.1
 			else:
 				var t_at := x_to_time(mb.position.x)
 				view_len *= 0.8 if mb.button_index == MOUSE_BUTTON_WHEEL_UP else 1.25

@@ -194,6 +194,15 @@ and **END** (red). The rectangle is exactly the part of the image the audience w
 | `Enter` | Apply and preview: replays the shot from its start |
 | `Esc` | Cancel the changes made to the shot you are editing |
 
+The timeline is hidden while the camera editor is open.
+
+**Very wide or very tall images:** the frame is always 16:9. On an image much wider
+than that (a 2.4:1 panel, say), a frame showing most of the width is taller than the
+image, so it stays centered vertically and you can only drag it left and right. The
+header shows how far to zoom in before up/down movement unlocks (for example
+`[up/down locked until zoomed past 1.37x]`). Very tall images lock left/right the same
+way.
+
 `F`, `V`, and `W` set the rectangle you are editing, so a move can travel from one fit
 to another (for example, from Full to Full vertical). The zoom labels (`1.00x`,
 `2.32x`) are relative to the image width filling the frame.

@@ -197,9 +197,14 @@ func _gui_input(e: InputEvent) -> void:
 			else:
 				_dragging = false
 				changed.emit()
-		elif mb.pressed and (mb.button_index == MOUSE_BUTTON_WHEEL_UP or mb.button_index == MOUSE_BUTTON_WHEEL_DOWN):
-			var factor := 0.97 if mb.shift_pressed else 0.9
-			if mb.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		elif mb.pressed and mb.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN,
+				MOUSE_BUTTON_WHEEL_LEFT, MOUSE_BUTTON_WHEEL_RIGHT]:
+			# macOS turns Shift + wheel into horizontal scrolling, so left/right wheel
+			# events are the fine steps too.
+			var sideways := mb.button_index in [MOUSE_BUTTON_WHEEL_LEFT, MOUSE_BUTTON_WHEEL_RIGHT]
+			var fine := sideways or mb.shift_pressed or Input.is_key_pressed(KEY_SHIFT)
+			var factor := 0.97 if fine else 0.9
+			if mb.button_index in [MOUSE_BUTTON_WHEEL_DOWN, MOUSE_BUTTON_WHEEL_RIGHT]:
 				factor = 1.0 / factor
 			var r := _active()
 			var m := _to_norm(mb.position)
@@ -255,10 +260,18 @@ func _draw() -> void:
 	draw_string(font, le, "END %.2fx" % (1.0 / s.cam_end.size.x), HORIZONTAL_ALIGNMENT_LEFT, -1, 14, COL_END)
 
 	var mark := "at %.2fs" % s.start if s.is_assigned() else "not marked yet"
+	# A frame wider or taller than the image cannot move along that axis; say so,
+	# and say how far to zoom in before it can.
+	var ar := _active()
+	var lock := ""
+	if ar.size.y >= 1.0 - 0.0001:
+		lock = "   [up/down locked until zoomed past %.2fx]" % (_img_size().x / (_img_size().y * _out_aspect()))
+	elif ar.size.x >= 1.0 - 0.0001:
+		lock = "   [left/right locked until zoomed past 1.00x]"
 	draw_string(font, Vector2(12, 27),
 			"CAMERA  shot %d/%d (%s)   editing %s%s" % [
 				idx + 1, player.data.shots.size(), mark, "END" if editing_end else "START",
-				"   [whole image, no move]" if s.auto_fit else ""],
+				("   [whole image, no move]" if s.auto_fit else "") + lock],
 			HORIZONTAL_ALIGNMENT_LEFT, -1, 21, act_col)
 	var help := Color(0.8, 0.8, 0.85)
 	for i in HELP_LINES.size():
