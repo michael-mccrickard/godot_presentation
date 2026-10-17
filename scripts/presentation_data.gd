@@ -67,7 +67,11 @@ static func make_demo() -> PresentationData:
 		else:
 			# Your own images: shot 1 at 0, the rest wait for you to tap M.
 			s.start = 0.0 if i == 0 else -1.0
-		s.transition = Shot.Transition.CUT if i == 0 else transitions[(i - 1) % transitions.size()]
+		# Your own images start with cuts; the generated demo shows off the transitions.
+		if paths[0].begins_with("demo://") and i > 0:
+			s.transition = transitions[(i - 1) % transitions.size()]
+		else:
+			s.transition = Shot.Transition.CUT
 		s.transition_duration = 1.0
 		# Your own images start as a static full frame (frame moves with C in the player).
 		# Only the generated demo gets sample camera moves, to show what they look like.
@@ -171,7 +175,7 @@ func add_new_images(dir: String) -> Dictionary:
 		var n := Shot.new()
 		n.image_path = p
 		n.start = -1.0
-		n.transition = Shot.Transition.CROSSFADE
+		n.transition = Shot.Transition.CUT
 		n.transition_duration = 1.0
 		var at := 0
 		for i in shots.size():

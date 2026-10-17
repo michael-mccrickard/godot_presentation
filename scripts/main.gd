@@ -1,6 +1,7 @@
 extends Control
 ## Glue: builds the player + authoring overlay and handles keys.
 ##   Space play/pause   M mark next shot   Tab show/hide authoring UI
+##   The boxed shot info panel edits the transition into the shot at the playhead.
 ##   Left/Right seek 1s (Shift = 5s)   Home rewind   End jump to end
 ##   R (twice) clear all marks
 ##   S save now (every edit is also saved automatically)
@@ -13,14 +14,22 @@ const SAVE_USER := "user://presentation.json"  # written from an exported build
 const TAP_OFFSET := 0.0
 
 # Window layout (must add up to the window height in project.godot): a black bar for
-# the info text, the 1280x720 presentation view, then the waveform strip.
-const TOP_BAR := 100.0
+# the status line, shot info box and key hints, the 1280x720 presentation view, then
+# the waveform strip.
+const TOP_BAR := 216.0
 const VIEW_SIZE := Vector2(1280, 720)
-const WAVE_H := 232.0
+const WAVE_H := 116.0
+
+const TRANSITION_NAMES := ["Cut", "Crossfade", "Wipe", "Iris", "Mask Dissolve"]
+const DUR_STEP := 0.25
+const DUR_MAX := 10.0
+const HINTS := "Space - play/pause  |  M - mark next shot  |  C - camera  |  R R - clear marks  |  Home/End - rewind/end  |  Tab - hide/show  |  wheel zoom - zoom timeline"
 
 var player: PresentationPlayer
 var wave: WaveformView
-var info: Label
+var info: Label                # status line
+var hints: Label
+var shot_box: PanelContainer
 var cam_editor: CameraEditor
 var buttons: HBoxContainer
 
@@ -35,6 +44,16 @@ var _notice := ""              # short message shown in the status line
 var _notice_until := 0.0
 var _scaffold_images := 0      # > 0 when there was no presentation: offer to scaffold
 var _offer: Control
+var _ui_visible := true
+
+# Shot info box widgets.
+var _box_title: Label
+var _box_camera: Label
+var _box_note: Label
+var _trans_buttons: Array[Button] = []
+var _dur_label: Label
+var _dur_minus: Button
+var _dur_plus: Button
 
 
 func _ready() -> void:
@@ -85,8 +104,8 @@ func _ready() -> void:
 	buttons.anchor_right = 1.0
 	buttons.offset_left = -260.0
 	buttons.offset_right = -12.0
-	buttons.offset_top = 8.0
-	buttons.offset_bottom = 40.0
+	buttons.offset_top = 4.0
+	buttons.offset_bottom = 34.0
 	buttons.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	buttons.add_child(_make_button("|<  Rewind", "Rewind to the beginning (Home)", _rewind))
 	buttons.add_child(_make_button("End  >|", "Jump to the end (End)", _to_end))
@@ -108,11 +127,17 @@ func _ready() -> void:
 
 	info = Label.new()
 	info.position = Vector2(12, 6)
-	info.add_theme_font_size_override("font_size", 21)
-	info.add_theme_color_override("font_shadow_color", Color.BLACK)
-	info.add_theme_constant_override("shadow_offset_x", 1)
-	info.add_theme_constant_override("shadow_offset_y", 1)
+	info.add_theme_font_size_override("font_size", 18)
 	add_child(info)
+
+	_build_shot_box()
+
+	hints = Label.new()
+	hints.position = Vector2(12, TOP_BAR - 30.0)
+	hints.add_theme_font_size_override("font_size", 16)
+	hints.add_theme_color_override("font_color", Color(0.65, 0.65, 0.7))
+	hints.text = HINTS
+	add_child(hints)
 
 	if _scaffold_images > 0:
 		_build_offer()  # last, so it sits on top of everything
@@ -142,6 +167,174 @@ func _load_or_demo() -> PresentationData:
 	# No usable presentation: start from the images, and offer to scaffold them.
 	_scaffold_images = PresentationData.image_count("res://images")
 	return PresentationData.make_demo()
+
+
+# ---------------------------------------------------------------- shot info box
+
+## Boxed panel in the top bar showing the shot at the playhead. Editable: the
+## transition into the shot and its duration.
+func _build_shot_box() -> void:
+	shot_box = PanelContainer.new()
+	shot_box.position = Vector2(12, 40)
+	shot_box.size = Vector2(VIEW_SIZE.x - 24.0, TOP_BAR - 80.0)
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.08, 0.08, 0.1)
+	style.border_color = Color(0.45, 0.45, 0.5)
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(4)
+	style.set_content_margin_all(10)
+	shot_box.add_theme_stylebox_override("panel", style)
+	add_child(shot_box)
+
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 8)
+	shot_box.add_child(col)
+
+	var top := HBoxContainer.new()
+	col.add_child(top)
+	_box_title = Label.new()
+	_box_title.add_theme_font_size_override("font_size", 20)
+	_box_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_box_title.clip_text = true
+	top.add_child(_box_title)
+	_box_camera = Label.new()
+	_box_camera.add_theme_font_size_override("font_size", 18)
+	top.add_child(_box_camera)
+
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	col.add_child(row)
+	var lead := Label.new()
+	lead.text = "Transition in:"
+	lead.add_theme_font_size_override("font_size", 18)
+	row.add_child(lead)
+	var group := ButtonGroup.new()
+	var on := StyleBoxFlat.new()  # the selected transition must stand out clearly
+	on.bg_color = Color(0.2, 0.42, 0.75)
+	on.set_corner_radius_all(3)
+	on.set_content_margin_all(4)
+	for i in TRANSITION_NAMES.size():
+		var b := _make_button(TRANSITION_NAMES[i], "Transition into this shot", _set_transition.bind(i))
+		b.toggle_mode = true
+		b.button_group = group
+		b.custom_minimum_size = Vector2(110, 32)
+		b.add_theme_stylebox_override("pressed", on)
+		b.add_theme_stylebox_override("hover_pressed", on)
+		b.add_theme_color_override("font_pressed_color", Color.WHITE)
+		b.add_theme_color_override("font_hover_pressed_color", Color.WHITE)
+		row.add_child(b)
+		_trans_buttons.append(b)
+	var gap := Control.new()
+	gap.custom_minimum_size = Vector2(30, 0)
+	row.add_child(gap)
+	var dl := Label.new()
+	dl.text = "Duration:"
+	dl.add_theme_font_size_override("font_size", 18)
+	row.add_child(dl)
+	_dur_minus = _make_button("-", "Shorter by %s s" % DUR_STEP, _nudge_duration.bind(-DUR_STEP))
+	_dur_minus.custom_minimum_size = Vector2(36, 32)
+	row.add_child(_dur_minus)
+	_dur_label = Label.new()
+	_dur_label.custom_minimum_size = Vector2(72, 0)
+	_dur_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_dur_label.add_theme_font_size_override("font_size", 18)
+	row.add_child(_dur_label)
+	_dur_plus = _make_button("+", "Longer by %s s" % DUR_STEP, _nudge_duration.bind(DUR_STEP))
+	_dur_plus.custom_minimum_size = Vector2(36, 32)
+	row.add_child(_dur_plus)
+
+	_box_note = Label.new()
+	_box_note.add_theme_font_size_override("font_size", 16)
+	col.add_child(_box_note)
+
+
+## The shot the box shows and edits: the one on screen at the playhead, or -1.
+func _box_shot() -> int:
+	return player.shot_index_at(player.get_time())
+
+
+## True when the shot has an earlier marked shot to transition from.
+func _has_transition(idx: int) -> bool:
+	return idx >= 0 and player._prev_assigned(idx) >= 0
+
+
+func _set_transition(kind: int) -> void:
+	var idx := _box_shot()
+	if not _has_transition(idx):
+		return
+	var s := player.data.shots[idx]
+	s.transition = kind
+	if kind != Shot.Transition.CUT and s.transition_duration <= 0.0:
+		s.transition_duration = 1.0
+	_queue_save()
+
+
+func _nudge_duration(delta: float) -> void:
+	var idx := _box_shot()
+	if not _has_transition(idx):
+		return
+	var s := player.data.shots[idx]
+	s.transition_duration = clampf(snappedf(s.transition_duration + delta, DUR_STEP), DUR_STEP, DUR_MAX)
+	_queue_save()
+
+
+func _fmt_time(t: float) -> String:
+	return "%d:%05.2f" % [int(t) / 60, fmod(t, 60.0)]
+
+
+func _update_shot_box() -> void:
+	var idx := _box_shot()
+	var shots := player.data.shots
+	if idx < 0:
+		_box_title.text = "No shot at the playhead"
+		_box_camera.text = ""
+		_box_note.text = "Nothing is marked before this time yet."
+		_box_note.modulate = Color(0.7, 0.7, 0.75)
+		for b in _trans_buttons:
+			b.disabled = true
+			b.set_pressed_no_signal(false)
+		_dur_label.text = ""
+		_dur_minus.disabled = true
+		_dur_plus.disabled = true
+		return
+
+	var s := shots[idx]
+	var title := "Shot %d/%d   %s   at %s" % [idx + 1, shots.size(), s.image_path.get_file(), _fmt_time(s.start)]
+	var from := player.transition_from_index(idx, player.get_time())
+	if from >= 0:
+		title += "   (transitioning from %s)" % shots[from].image_path.get_file()
+	_box_title.text = title
+
+	if s.auto_fit:
+		_box_camera.text = "Camera: Full frame"
+	elif s.cam_start.is_equal_approx(s.cam_end):
+		_box_camera.text = "Camera: Framed, no move"
+	else:
+		_box_camera.text = "Camera: Move"
+
+	var editable := _has_transition(idx)
+	for i in _trans_buttons.size():
+		_trans_buttons[i].disabled = not editable
+		_trans_buttons[i].set_pressed_no_signal(i == s.transition)
+	var is_cut := s.transition == Shot.Transition.CUT
+	_dur_label.text = "-" if is_cut else "%.2f s" % s.transition_duration
+	_dur_minus.disabled = not editable or is_cut or s.transition_duration <= DUR_STEP
+	_dur_plus.disabled = not editable or is_cut or s.transition_duration >= DUR_MAX
+
+	# Next marker after this shot (by time), to catch transitions that overrun it.
+	var next_start := INF
+	for o in shots:
+		if o.is_assigned() and o.start > s.start:
+			next_start = minf(next_start, o.start)
+	var note := ""
+	var warn := false
+	if not editable:
+		note = "First shot: there is nothing to transition from."
+	elif not is_cut and s.start + s.transition_duration > next_start:
+		note = "Warning: the transition is longer than the shot (%.2f s until the next marker)." % (next_start - s.start)
+		warn = true
+	_box_note.text = note
+	_box_note.modulate = Color(1, 0.75, 0.3) if warn else Color(0.7, 0.7, 0.75)
 
 
 # ---------------------------------------------------------------- scaffold offer
@@ -277,10 +470,14 @@ func _to_end() -> void:
 
 
 func _process(_delta: float) -> void:
-	var editing := cam_editor.visible
-	info.modulate.a = 0.0 if editing else 1.0  # editor draws its own help line
-	buttons.visible = not editing and info.visible
-	if info.visible:
+	# The camera editor draws its own help line over the top bar.
+	var ui_on := _ui_visible and not cam_editor.visible
+	info.visible = ui_on
+	hints.visible = ui_on
+	shot_box.visible = ui_on
+	buttons.visible = ui_on
+	if ui_on:
+		_update_shot_box()
 		var nxt := _next_unmarked()
 		var nxt_name := "-"
 		if nxt < player.data.shots.size():
@@ -295,9 +492,9 @@ func _process(_delta: float) -> void:
 			line1 += "   PRESS %s AGAIN TO %s" % [
 				OS.get_keycode_string(_armed_key),
 				"CLEAR ALL MARKS"]
-		info.text = player.image_label_at(player.get_time()) + "\n" + line1 + "\nSpace play  M mark  C camera  R clear marks  Home/End  Tab hide  |  wheel zoom, drag markers"
 		if player.last_error != "":
-			info.text += "\n" + player.last_error
+			line1 += "   " + player.last_error
+		info.text = line1
 
 
 func _on_camera_closed(shot_index: int, preview: bool) -> void:
@@ -333,8 +530,8 @@ func _unhandled_key_input(e: InputEvent) -> void:
 		KEY_M:
 			_tap()
 		KEY_TAB:
-			wave.visible = not wave.visible
-			info.visible = wave.visible
+			_ui_visible = not _ui_visible
+			wave.visible = _ui_visible
 		KEY_S:
 			_dirty = true
 			_flush_save()

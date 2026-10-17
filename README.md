@@ -21,15 +21,22 @@ Developed and tested with Godot 4.7 using the Compatibility renderer (set in
 
 ## The window
 
-The window is 1280 x 1024:
+The window is 1280 x 1052:
 
-- **Black bar (top, 72 px):** status text, plus the **Rewind** and **End** buttons.
+- **Top bar (216 px):**
+  - **Status line:** play/pause, time, the next shot `M` will mark, save status, and
+    notices. The **Rewind** and **End** buttons sit to its right.
+  - **Shot info box:** the shot on screen at the playhead: its number, file name and
+    marker time, whether it has a camera move (`Full frame`, `Framed, no move`, or
+    `Move`), and the **transition into it**, which you can change here (see
+    "Transitions").
+  - **Key hints:** the main shortcuts.
 - **Presentation view (1280 x 720):** exactly what the audience sees. Letterbox bars
   inside it are black.
-- **Timeline strip (bottom):** the audio waveform (when available), a time ruler,
-  your shot markers (yellow, numbered), and the red playhead.
+- **Timeline strip (bottom, 116 px):** the audio waveform (when available), a time
+  ruler, your shot markers (yellow, numbered), and the red playhead.
 
-`Tab` hides the status text, buttons, and timeline.
+`Tab` hides everything except the presentation view.
 
 ## Starting a new presentation
 
@@ -67,7 +74,7 @@ can overwrite it, and the status line says so.
    like; it stops just short of its neighbours so shots stay in order.
 5. **Frame the camera.** Move the playhead onto a shot and press `C` (see "Camera and
    fit modes").
-6. **Choose transitions.** See "Transitions" below.
+6. **Choose transitions.** Park the playhead on a shot and pick its transition and duration in the shot info box (see "Transitions").
 7. **Preview.** Press `Home` (or the Rewind button), then `Space`.
 
 Every edit is saved automatically (see "Saving").
@@ -86,7 +93,7 @@ Every edit is saved automatically (see "Saving").
 | `Left` / `Right` | Seek 1 second (hold `Shift` for 5 seconds) |
 | `R`, `R` | Clear all marks. Press `R` twice within 3 seconds; the status line asks you to confirm. |
 | `S` | Save immediately (not normally needed) |
-| `Tab` | Show / hide the authoring UI |
+| `Tab` | Show / hide everything except the presentation view |
 
 ### Buttons (top right)
 
@@ -206,24 +213,23 @@ setting does nothing.
 | `3` | `IRIS` | The new image opens outward from the center of the frame. |
 | `4` | `MASK_DISSOLVE` | A dissolve through a cloud-like noise pattern. |
 
-A new presentation gives shot 2 onward a rotating sequence (crossfade, wipe, iris,
-mask dissolve, repeating) with a duration of `1.0` second, so you can see each one.
+Every shot starts as a cut: scaffolded presentations, empty ones, and images added
+later. (Only the generated demo, used when `images/` is empty, cycles through the
+styles.)
 
-Transitions are currently edited in `presentation.json` (there is no on-screen control
-for them yet):
+**Changing a transition:** move the playhead onto the shot (click the timeline, or
+seek with the arrow keys), then use the shot info box:
 
-1. Close the player first. The player rewrites the file on every edit, so changes made
-   while it is running will be overwritten.
-2. Open `presentation.json`, find the shot (the list is in shot order, and the
-   `image_path` shows which image it is), and edit its two fields:
+- Click **Cut**, **Crossfade**, **Wipe**, **Iris**, or **Mask Dissolve**. The selected
+  one is highlighted.
+- Use **-** and **+** next to **Duration** to change the length in 0.25 s steps
+  (0.25 to 10 s). Duration does not apply to a cut.
+- The change is saved automatically and shows immediately in the view.
+- The box warns you if the transition is longer than the time until the next marker.
+- The first shot has nothing to transition from, so its controls are disabled.
 
-   ```json
-   "transition": 1,
-   "transition_duration": 1.5
-   ```
-
-3. Save the file, reopen the project, and preview by seeking to a few seconds before
-   the shot's marker and pressing `Space`.
+You can also edit `transition` and `transition_duration` in `presentation.json`
+(close the player first, since it rewrites the file on every edit).
 
 Things to know:
 
@@ -313,7 +319,7 @@ afterwards. A pending save is also written when you close the window.
 
 ## Known limitations
 
-- Transitions, easing, and `move_duration` have no on-screen controls yet; edit the JSON.
+- Easing and `move_duration` have no on-screen controls yet; edit the JSON.
 - There is no on-screen way to move a marked shot or to drag shots into a custom order;
   edit the order in `presentation.json` if you need that.
 - The waveform needs an uncompressed WAV.

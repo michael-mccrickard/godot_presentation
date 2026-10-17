@@ -19,7 +19,7 @@ var _scrubbing := false
 
 
 func _ready() -> void:
-	custom_minimum_size.y = 200
+	custom_minimum_size.y = 80
 	mouse_filter = Control.MOUSE_FILTER_STOP
 
 
