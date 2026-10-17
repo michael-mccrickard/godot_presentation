@@ -25,7 +25,7 @@ The window is 1280 x 1032:
 
 - **Top bar (196 px):**
   - **Status line:** play/pause, time, the next shot `M` will mark, save status, and
-	notices. The **Rewind** and **End** buttons sit to its right.
+	notices. The **Rewind**, **End** and **Trash** buttons sit to its right.
   - **Shot info box:** the shot on screen at the playhead: its number, file name and
 	marker time, whether it has a camera move (`Full frame`, `Framed, no move`, or
 	`Move`), and the **transition into it**, which you can change here (see
@@ -125,6 +125,15 @@ Every edit is saved automatically (see "Saving").
 - If you are late or early when tapping `M`, change `TAP_OFFSET` in `scripts/main.gd`
   (seconds; negative means earlier), or just drag the marker afterwards.
 
+## Starting over (Trash)
+
+The **Trash** button (top right) deletes the whole presentation: every marker, camera
+framing and transition. It asks for confirmation first. The current
+`presentation.json` is copied to `presentation.json.bak`, the file is emptied, and the
+first-run sequence starts again (the scaffold question, if `images/` has images). To
+get the old presentation back, close the player and rename the `.bak` file to
+`presentation.json`.
+
 ## Naming and order
 
 Shots are ordered by image file name, and **numbers inside names are compared as
@@ -185,6 +194,7 @@ and **END** (red). The rectangle is exactly the part of the image the audience w
 | `1` / `2` | Choose the START or END rectangle to edit |
 | Drag | Move the rectangle (click anywhere to jump it there) |
 | Mouse wheel | Zoom the rectangle (`Shift` for fine steps) |
+| `Up` / `Down` | Crop in / out in 0.5% steps (`Shift` = 2%); hold to repeat |
 | `F` | **Full** – the whole image is visible (bars on whichever sides are short) |
 | `V` | **Full vertical** – the image height fills the frame (bars at the sides, or the sides are clipped) |
 | `W` | **Full horizontal** – the image width fills the frame (bars top and bottom, or the top and bottom are clipped) |
@@ -195,6 +205,13 @@ and **END** (red). The rectangle is exactly the part of the image the audience w
 | `Esc` | Cancel the changes made to the shot you are editing |
 
 The timeline is hidden while the camera editor is open.
+
+**Cropping a still image:** to trim a little off an image (a scanned border, say),
+press `Up` a few times on the START frame, drag it into place, then press `H` so END
+matches. The header shows how much is trimmed from each side (`trim L … R … T … B …`).
+The frame is always 16:9, so both axes scale together; on an image that is not 16:9
+only the axis that fills the frame is actually trimmed, and the other just loses some
+of its black bars.
 
 **Very wide or very tall images:** the frame is always 16:9. On an image much wider
 than that (a 2.4:1 panel, say), a frame showing most of the width is taller than the
