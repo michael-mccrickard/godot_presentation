@@ -273,9 +273,11 @@ func _get_texture(path: String) -> Texture2D:
 	var tex: Texture2D = null
 	if path.begins_with("demo://"):
 		tex = _make_demo_texture(int(path.get_slice("//", 1)))
-	elif path.begins_with("res://"):
+	elif path.begins_with("res://") and ResourceLoader.exists(path):
 		tex = load(path)  # import as Lossless + mipmaps for best quality
 	else:
+		# Plain file, or a res:// image the editor has not imported yet (e.g. the
+		# black bookends copied in on first run): read the pixels directly.
 		var img := Image.load_from_file(path)
 		if img:
 			img.generate_mipmaps()

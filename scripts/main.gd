@@ -84,13 +84,14 @@ func _ready() -> void:
 	add_child(wave)
 	wave.anchor_left = 0.0
 	wave.anchor_right = 1.0
-	wave.anchor_top = 1.0
-	wave.anchor_bottom = 1.0
+	# Pinned directly under the presentation view (not to the window bottom), so the
+	# strip, and the scroll bar along its bottom edge, stay where they belong.
+	wave.anchor_top = 0.0
+	wave.anchor_bottom = 0.0
 	wave.offset_left = 0.0
 	wave.offset_right = 0.0
-	wave.offset_top = -WAVE_H
-	wave.offset_bottom = 0.0
-	wave.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	wave.offset_top = TOP_BAR + VIEW_SIZE.y
+	wave.offset_bottom = TOP_BAR + VIEW_SIZE.y + WAVE_H
 	wave.rebuild()
 	wave.changed.connect(_queue_save)
 
@@ -211,6 +212,7 @@ func _load_or_demo() -> PresentationData:
 			_show_notice("%s was not valid JSON; kept a copy as %s.broken" % [p.get_file(), p.get_file()], 30.0)
 			push_warning(_notice)
 	# No usable presentation: start from the images, and offer to scaffold them.
+	PresentationData.add_black_bookends("res://images")
 	_scaffold_images = PresentationData.image_count("res://images")
 	return PresentationData.make_demo()
 
@@ -492,6 +494,7 @@ func _do_trash() -> void:
 	f = null
 	_save_status = ""
 	# Re-run the first-run sequence.
+	PresentationData.add_black_bookends("res://images")
 	player.set_data(PresentationData.make_demo())
 	wave.rebuild()
 	player.seek(0.0)

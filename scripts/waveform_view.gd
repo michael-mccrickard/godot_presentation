@@ -1,13 +1,15 @@
 class_name WaveformView
 extends Control
 ## Zoomable waveform + shot markers. Wheel = zoom at cursor, Shift+wheel = pan,
-## click = seek (drag to scrub), drag a marker to retime that shot.
+## click = seek (drag to scrub), drag a marker to retime that shot. A horizontal
+## scroll bar along the bottom edge pans the zoomed view.
 
 ## Emitted when a marker was moved (so the presentation can be saved).
 signal changed
 
 const PEAKS_PER_SEC := 100
 const GRAB_PX := 8.0
+const SCROLL_H := 14.0  # height of the scroll bar under the waveform
 
 var player: PresentationPlayer
 var peaks := PackedFloat32Array()
@@ -16,11 +18,48 @@ var view_len := 30.0
 
 var _drag_idx := -1
 var _scrubbing := false
+var _scroll: HScrollBar
+var _syncing := false  # true while the code (not the user) moves the scroll bar
 
 
 func _ready() -> void:
 	custom_minimum_size.y = 80
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	clip_contents = true
+	_scroll = HScrollBar.new()
+	_scroll.focus_mode = Control.FOCUS_NONE  # so Space keeps meaning play/pause
+	_scroll.step = 0.0  # smooth, not snapped to whole seconds
+	add_child(_scroll)
+	_scroll.anchor_left = 0.0
+	_scroll.anchor_right = 1.0
+	_scroll.anchor_top = 1.0
+	_scroll.anchor_bottom = 1.0
+	_scroll.offset_top = -SCROLL_H
+	_scroll.offset_bottom = 0.0
+	_scroll.value_changed.connect(_on_scroll)
+
+
+## Height of the waveform area (everything above the scroll bar).
+func wave_h() -> float:
+	return size.y - SCROLL_H
+
+
+func _on_scroll(v: float) -> void:
+	if _syncing or player == null:
+		return
+	view_start = v
+	_clamp_view()
+
+
+## Keeps the scroll bar's thumb matching the visible part of the timeline.
+func _sync_scroll() -> void:
+	if _scroll == null:
+		return
+	_syncing = true
+	_scroll.max_value = maxf(player.total_length(), view_len)
+	_scroll.page = view_len
+	_scroll.value = view_start
+	_syncing = false
 
 
 func rebuild() -> void:
@@ -91,6 +130,7 @@ func _process(_delta: float) -> void:
 		if t > view_start + view_len or t < view_start:
 			view_start = t - view_len * 0.1
 	_clamp_view()
+	_sync_scroll()
 	queue_redraw()
 
 
@@ -104,7 +144,8 @@ func _draw() -> void:
 	if player == null or player.data == null:
 		return
 	draw_rect(Rect2(Vector2.ZERO, size), Color(0.07, 0.07, 0.09))
-	var mid := size.y * 0.5
+	var h := wave_h()
+	var mid := h * 0.5
 
 	# Time ruler: pick a tick spacing that is at least ~80px apart.
 	var tick := 1.0
@@ -115,8 +156,8 @@ func _draw() -> void:
 	var t_tick := ceilf(view_start / tick) * tick
 	while t_tick < view_start + view_len:
 		var tx := time_to_x(t_tick)
-		draw_line(Vector2(tx, 0), Vector2(tx, size.y), Color(1, 1, 1, 0.08))
-		draw_string(ThemeDB.fallback_font, Vector2(tx + 3, size.y - 6), "%d:%02d" % [int(t_tick) / 60, int(t_tick) % 60],
+		draw_line(Vector2(tx, 0), Vector2(tx, h), Color(1, 1, 1, 0.08))
+		draw_string(ThemeDB.fallback_font, Vector2(tx + 3, h - 6), "%d:%02d" % [int(t_tick) / 60, int(t_tick) % 60],
 				HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color(0.6, 0.6, 0.65))
 		t_tick += tick
 
@@ -146,11 +187,11 @@ func _draw() -> void:
 		if x < -2 or x > size.x + 2:
 			continue
 		var col := Color(1.0, 0.8, 0.25) if i != _drag_idx else Color(1, 1, 1)
-		draw_line(Vector2(x, 0), Vector2(x, size.y), col, 2.0)
+		draw_line(Vector2(x, 0), Vector2(x, h), col, 2.0)
 		draw_string(font, Vector2(x + 4, 16), str(i + 1), HORIZONTAL_ALIGNMENT_LEFT, -1, 14, col)
 
 	var px := time_to_x(player.get_time())
-	draw_line(Vector2(px, 0), Vector2(px, size.y), Color(1, 0.3, 0.3), 2.0)
+	draw_line(Vector2(px, 0), Vector2(px, h), Color(1, 0.3, 0.3), 2.0)
 
 
 func _marker_at(x: float) -> int:

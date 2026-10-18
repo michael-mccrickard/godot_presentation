@@ -115,6 +115,39 @@ static func name_key(path: String) -> String:
 const SCAFFOLD_SECONDS := 2.0
 
 
+## Black frame copied in to bookend the images, so a presentation can fade in from
+## and out to black. p0_f0 sorts before every other image, zzz after all of them.
+const BLACK_SOURCE := "res://images/common/black.png"
+const BLACK_BOOKENDS := ["p0_f0.png", "zzz.png"]
+
+
+## Copies BLACK_SOURCE into `dir` as each of BLACK_BOOKENDS (overwriting). Called by
+## the first-run setup, before the images are scanned. Returns how many were written.
+static func add_black_bookends(dir: String = "res://images") -> int:
+	var bytes := PackedByteArray()
+	if FileAccess.file_exists(BLACK_SOURCE):
+		bytes = FileAccess.get_file_as_bytes(BLACK_SOURCE)
+	if bytes.is_empty() and ResourceLoader.exists(BLACK_SOURCE):
+		# Exported build: only the imported texture is packed, so re-encode it.
+		var tex: Texture2D = load(BLACK_SOURCE)
+		if tex:
+			bytes = tex.get_image().save_png_to_buffer()
+	if bytes.is_empty():
+		push_warning("Black bookends: could not read " + BLACK_SOURCE)
+		return 0
+	var written := 0
+	for name in BLACK_BOOKENDS:
+		var path: String = dir + "/" + name
+		var f := FileAccess.open(path, FileAccess.WRITE)
+		if f == null:
+			push_warning("Black bookends: could not write %s (error %d)" % [path, FileAccess.get_open_error()])
+			continue
+		f.store_buffer(bytes)
+		f.close()
+		written += 1
+	return written
+
+
 ## How many images `dir` holds.
 static func image_count(dir: String) -> int:
 	return _scan_images(dir).size()
