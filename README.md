@@ -19,6 +19,7 @@ Developed and tested with Godot 4.7 using the Compatibility renderer (set in
 | `cartoons/<name>/cartoon.json` | The saved cartoon: shot order, timings, camera framing, transitions. |
 | `common/black.png` | The black frame copied into a new cartoon's images as `p0_f0.png` and `zzz.png`, so it can fade in from and out to black. |
 | `audio/effects/` | Sound effects (not used by the player). |
+| `tools/panel_cropper.tscn` | The panel cropper (see "Panel cropper"). |
 | `tools/migrate_to_cartoons.gd` | The one-time move from the old single-presentation layout. Run it once (see the script header). |
 | `scripts/` | The code. `shot.gd` is the data for one shot; `presentation_player.gd` plays it back. |
 | `shaders/transition.gdshader` | The transition shader. |
@@ -54,6 +55,45 @@ make the folders in Finder. Creating cartoons only works when running from the e
 
 **Command line.** `--cartoon=<name>` opens that cartoon without the picker. For an
 exported build, put it after `--` (`PresentationPlayer.app/Contents/MacOS/PresentationPlayer -- --cartoon=<name>`).
+
+## Panel cropper
+
+`tools/panel_cropper.tscn` cuts comic pages into the panel images a cartoon plays. Open
+it in the editor and press **F6** (Run Current Scene).
+
+1. **Cartoon** (top left): the panels are written to that cartoon's `images/` folder.
+   Create a new cartoon in the player first (Cartoon... > Create).
+2. **Pages folder...**: the folder of pages with the word balloons already removed.
+   It can be anywhere on disk and is remembered per cartoon.
+3. **Draw a rectangle around each panel in reading order.** The number in the corner is
+   the frame number. Select a rectangle and press `,` / `.` to move it earlier or later.
+4. **Page number:** taken from the last number in the file name (`CMA 042 page 07.png`
+   gives 7). Change it in the **Page** box if the file name is different.
+5. **Export (E)** writes `p<page>_f1.png`, `p<page>_f2.png` ... as lossless PNGs at
+   the page's full resolution, replacing files with the same names. The status line
+   lists any other files for that page that the export did not replace (an older
+   `p3_f7.png` after you deleted a panel, or a `p3_f1.jpeg`); delete those yourself.
+   If another page already uses the same page number, `E` must be pressed twice.
+
+The rectangles are saved as you draw them, in `cartoons/<name>/crops.json`. Going back
+to a page shows its rectangles again, so after touching up a page you can export it
+again with identical crops. New panels show up in the player the next time the cartoon
+is opened (unmarked, placed by name).
+
+| Key / mouse | Action |
+| --- | --- |
+| Drag on empty space | New rectangle |
+| Click / drag inside | Select / move |
+| Drag an edge or corner | Resize the selected rectangle |
+| Arrows | Nudge 1 px (`Shift` 10 px) |
+| `,` / `.` | Move the selected panel earlier / later in frame order |
+| `Tab` / `Esc` | Select the next panel / deselect |
+| `Delete` | Delete the selected rectangle |
+| `Cmd+Z` | Undo |
+| `[` / `]` | Previous / next page |
+| `E` | Export this page |
+| Wheel or pinch / `F` | Zoom around the cursor / fit the page |
+| Middle-drag or `Alt`-drag | Pan |
 
 ## The window
 

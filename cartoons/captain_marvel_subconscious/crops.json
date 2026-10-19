@@ -1,0 +1,41 @@
+{
+	"last_page": "CMA009_01.jpg",
+	"pages": {
+		"CMA009_00-COV-01.jpg": {
+			"page": 1,
+			"rects": []
+		},
+		"CMA009_00-COV-02.jpg": {
+			"page": 2,
+			"rects": []
+		},
+		"CMA009_00-IFC.jpg": {
+			"page": 0,
+			"rects": []
+		},
+		"CMA009_01.jpg": {
+			"page": 1,
+			"rects": [
+				[
+					138,
+					168,
+					2525,
+					2318
+				],
+				[
+					167,
+					2644,
+					1277,
+					1051
+				],
+				[
+					1554,
+					2648,
+					1119,
+					1042
+				]
+			]
+		}
+	},
+	"source_dir": "/Users/michaelmccrickard/Comix/Captain_Marvel_9"
+}

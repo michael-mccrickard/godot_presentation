@@ -1,0 +1,47 @@
+{
+	"audio_path": "",
+	"shots": [
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p0_f0.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "zzz.png",
+			"move_duration": 0.0,
+			"start": -1.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		}
+	]
+}
