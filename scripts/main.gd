@@ -6,12 +6,17 @@ extends Control
 ##   R (twice) clear all marks
 ##   S save now (the Save button does the same)
 ##   C frame the camera move for the current shot (see camera_editor.gd)
-## Edits are written to presentation.json with S / the Save button. With the Autosave
-## box ticked, every edit is also written shortly after it is made. Autosave is off by
-## default: run from the editor, each write makes Godot ask to reload the file.
+## Edits are written to the cartoon's cartoon.json with S / the Save button. With the
+## Autosave box ticked, every edit is also written shortly after it is made. Autosave is
+## off by default: run from the editor, each write makes Godot ask to reload the file.
+##
+## Which cartoon: a picker opens at startup (the last one opened is preselected), or
+## pass --cartoon=<name> on the command line. Switching cartoons reloads this scene.
+## Files and paths: see cartoon.gd.
 
-const SAVE_RES := "res://presentation.json"    # written when running from the editor
-const SAVE_USER := "user://presentation.json"  # written from an exported build
+## Cartoon to open after a scene reload (set by the picker). Static, so it survives
+## reload_current_scene().
+static var _pending := ""
 ## Seconds added to a tap to compensate for your own reaction lag (negative = earlier).
 const TAP_OFFSET := 0.0
 
@@ -28,6 +33,7 @@ const DUR_MAX := 10.0
 const SAVE_COL_W := 140.0      # Save button + Autosave box, right of the shot box
 const HINTS := "Space - play/pause  |  M - mark next shot  |  C - camera  |  R R - clear marks  |  Tab - hide/show  |  wheel zoom - zoom timeline"
 
+var cartoon := ""              # folder name under res://cartoons
 var player: PresentationPlayer
 var wave: WaveformView
 var info: Label                # status line
@@ -52,6 +58,10 @@ var _scaffold_images := 0      # > 0 when there was no presentation: offer to sc
 var _offer: Control
 var _trash_confirm: Control
 var _ui_visible := true
+var _picker: Control
+var _picker_list: ItemList
+var _picker_new: LineEdit
+var _picker_names: PackedStringArray
 
 # Shot info box widgets.
 var _box_title: Label
@@ -70,6 +80,19 @@ func _ready() -> void:
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
+
+	# Closing the window with unsaved edits asks first (see _notification).
+	get_tree().set_auto_accept_quit(false)
+
+	cartoon = _pending if _pending != "" else Cartoon.from_command_line()
+	_pending = ""
+	if not Cartoon.exists(cartoon):
+		cartoon = ""
+		get_window().title = "Cartoon Player"
+		_build_picker()  # nothing else is built until a cartoon is chosen
+		return
+	Cartoon.remember(cartoon)
+	get_window().title = "Cartoon Player - " + cartoon
 
 	player = PresentationPlayer.new()
 	player.set_anchors_preset(Control.PRESET_TOP_LEFT)
@@ -109,14 +132,15 @@ func _ready() -> void:
 	add_child(buttons)
 	buttons.anchor_left = 1.0
 	buttons.anchor_right = 1.0
-	buttons.offset_left = -390.0
+	buttons.offset_left = -520.0
 	buttons.offset_right = -12.0
 	buttons.offset_top = 4.0
 	buttons.offset_bottom = 34.0
 	buttons.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	buttons.add_child(_make_button("Cartoon...", "Open or create another cartoon", _build_picker))
 	buttons.add_child(_make_button("|<  Rewind", "Rewind to the beginning (Home)", _rewind))
 	buttons.add_child(_make_button("End  >|", "Jump to the end (End)", _to_end))
-	var trash := _make_button("Trash", "Delete the whole presentation and start over (asks first)", _ask_trash)
+	var trash := _make_button("Trash", "Delete the whole cartoon timeline and start over (asks first)", _ask_trash)
 	trash.add_theme_color_override("font_color", Color(1, 0.5, 0.45))
 	trash.add_theme_color_override("font_hover_color", Color(1, 0.6, 0.55))
 	buttons.add_child(trash)
@@ -152,9 +176,6 @@ func _ready() -> void:
 	hints.text = HINTS
 	add_child(hints)
 
-	# Closing the window with unsaved edits asks first (see _notification).
-	get_tree().set_auto_accept_quit(false)
-
 	if _scaffold_images > 0:
 		_build_offer()  # last, so it sits on top of everything
 
@@ -166,13 +187,13 @@ func _build_save_panel() -> void:
 	_save_panel.position = Vector2(VIEW_SIZE.x - 12.0 - SAVE_COL_W, 40.0)
 	_save_panel.custom_minimum_size = Vector2(SAVE_COL_W, 0)
 	add_child(_save_panel)
-	var save := _make_button("Save  (S)", "Write presentation.json now", _save_now)
+	var save := _make_button("Save  (S)", "Write cartoon.json now", _save_now)
 	save.custom_minimum_size = Vector2(SAVE_COL_W, 32)
 	_save_panel.add_child(save)
 	var auto := CheckBox.new()
 	auto.text = "Autosave"
 	auto.tooltip_text = ("Save every edit automatically. Leave off when running from the editor, "
-			+ "or Godot asks to reload presentation.json each time you switch back to it.")
+			+ "or Godot asks to reload cartoon.json each time you switch back to it.")
 	auto.focus_mode = Control.FOCUS_NONE  # so Space keeps meaning play/pause
 	auto.button_pressed = _autosave
 	auto.toggled.connect(_set_autosave)
@@ -191,17 +212,19 @@ func _save_now() -> void:
 
 
 func _load_or_demo() -> PresentationData:
-	var paths := [SAVE_RES, SAVE_USER] if OS.has_feature("editor") else [SAVE_USER, SAVE_RES]
+	var res := Cartoon.json_res(cartoon)
+	var usr := Cartoon.json_user(cartoon)
+	var paths := [res, usr] if OS.has_feature("editor") else [usr, res]
 	for p in paths:
 		if not FileAccess.file_exists(p):
 			continue
 		var text := FileAccess.get_file_as_string(p)
 		if text.strip_edges() == "":
 			continue  # an empty file counts as no file
-		var d := PresentationData.from_json(text)
+		var d := PresentationData.from_json(text, Cartoon.dir(cartoon))
 		if d:
 			# Images added to / renamed in the folder since the file was saved.
-			var r := d.add_new_images("res://images")
+			var r := d.add_new_images(Cartoon.images_dir(cartoon))
 			_new_images = r.added
 			_relinked_images = r.relinked
 			return d
@@ -211,10 +234,10 @@ func _load_or_demo() -> PresentationData:
 			bak.store_string(text)
 			_show_notice("%s was not valid JSON; kept a copy as %s.broken" % [p.get_file(), p.get_file()], 30.0)
 			push_warning(_notice)
-	# No usable presentation: start from the images, and offer to scaffold them.
-	PresentationData.add_black_bookends("res://images")
-	_scaffold_images = PresentationData.image_count("res://images")
-	return PresentationData.make_demo()
+	# No usable cartoon.json: start from the images, and offer to scaffold them.
+	PresentationData.add_black_bookends(Cartoon.images_dir(cartoon))
+	_scaffold_images = PresentationData.image_count(Cartoon.images_dir(cartoon))
+	return PresentationData.make_demo(cartoon)
 
 
 # ---------------------------------------------------------------- shot info box
@@ -448,19 +471,124 @@ func _modal_row(box: VBoxContainer) -> HBoxContainer:
 	return row
 
 
+# ---------------------------------------------------------------- cartoon picker
+
+## Lists the folders in res://cartoons. Shown at startup, and by the Cartoon... button
+## to switch. Opening a cartoon reloads the scene with it (see _pending).
+func _build_picker() -> void:
+	if _picker:
+		return
+	if player:
+		player.pause()
+	var m := _make_modal("Open a cartoon", Color(0.45, 0.6, 0.85))
+	_picker = m[0]
+	var box: VBoxContainer = m[1]
+	_picker_names = Cartoon.list()
+
+	if _picker_names.is_empty():
+		_modal_body(box, "There are no cartoons yet. Each cartoon is a folder in "
+				+ Cartoon.ROOT + "/ holding cartoon.json, audio.wav and an images/ folder.")
+	else:
+		_picker_list = ItemList.new()
+		_picker_list.custom_minimum_size = Vector2(596, mini(_picker_names.size(), 10) * 30 + 12)
+		_picker_list.add_theme_font_size_override("font_size", 18)
+		for n in _picker_names:
+			var has_json := FileAccess.file_exists(Cartoon.json_res(n)) or FileAccess.file_exists(Cartoon.json_user(n))
+			var i := _picker_list.add_item(n if has_json else n + "   (new, no cartoon.json yet)")
+			_picker_list.set_item_tooltip(i, Cartoon.dir(n))
+		var sel := _picker_names.find(cartoon if cartoon != "" else Cartoon.last_opened())
+		_picker_list.select(maxi(sel, 0))
+		_picker_list.ensure_current_is_visible()
+		_picker_list.item_activated.connect(func(i): _open_cartoon(_picker_names[i]))  # double-click / Enter
+		box.add_child(_picker_list)
+		_picker_list.grab_focus.call_deferred()
+
+	if OS.has_feature("editor"):  # res:// is read-only in an exported build
+		var new_row := HBoxContainer.new()
+		new_row.add_theme_constant_override("separation", 10)
+		box.add_child(new_row)
+		_picker_new = LineEdit.new()
+		_picker_new.placeholder_text = "New cartoon folder name"
+		_picker_new.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_picker_new.text_submitted.connect(func(_t): _create_cartoon())
+		new_row.add_child(_picker_new)
+		var create := _make_button("Create", "Make " + Cartoon.ROOT + "/<name>/images/ and open it", _create_cartoon)
+		create.custom_minimum_size = Vector2(110, 32)
+		new_row.add_child(create)
+		if _picker_names.is_empty():
+			_picker_new.grab_focus.call_deferred()
+
+	if player and _dirty:
+		_modal_body(box, "Unsaved edits to %s will be saved before switching." % cartoon)
+
+	var row := _modal_row(box)
+	if player:
+		var cancel := _make_button("Cancel  (Esc)", "Stay on " + cartoon, _close_picker)
+		cancel.custom_minimum_size = Vector2(150, 36)
+		row.add_child(cancel)
+	if not _picker_names.is_empty():
+		var open := _make_button("Open  (Enter)", "Open the selected cartoon", _open_selected)
+		open.custom_minimum_size = Vector2(150, 36)
+		row.add_child(open)
+
+
+func _close_picker() -> void:
+	if _picker:
+		_picker.queue_free()
+	_picker = null
+	_picker_list = null
+	_picker_new = null
+
+
+func _open_selected() -> void:
+	var sel := _picker_list.get_selected_items()
+	if not sel.is_empty():
+		_open_cartoon(_picker_names[sel[0]])
+
+
+func _create_cartoon() -> void:
+	var n := _picker_new.text.strip_edges()
+	if not Cartoon.valid_name(n):
+		_picker_new.placeholder_text = "Not a usable folder name"
+		_picker_new.text = ""
+		return
+	if not Cartoon.exists(n):
+		var err := Cartoon.create(n)
+		if err != OK:
+			_picker_new.text = ""
+			_picker_new.placeholder_text = "Could not create the folder (error %d)" % err
+			return
+		print("Created ", ProjectSettings.globalize_path(Cartoon.dir(n)))
+	_open_cartoon(n)
+
+
+func _open_cartoon(n: String) -> void:
+	if player and n == cartoon:
+		_close_picker()
+		return
+	if player and _dirty:
+		_flush_save()
+		if _save_status == "SAVE FAILED":
+			_close_picker()
+			_show_notice("save failed - staying on " + cartoon, 15.0)
+			return
+	_pending = n
+	get_tree().reload_current_scene.call_deferred()
+
+
 # ---------------------------------------------------------------- trash
 
 func _ask_trash() -> void:
 	if _trash_confirm:
 		_trash_confirm.queue_free()
-	var m := _make_modal("Trash this presentation?", Color(0.85, 0.35, 0.3))
+	var m := _make_modal("Trash this cartoon's timeline?", Color(0.85, 0.35, 0.3))
 	_trash_confirm = m[0]
 	var box: VBoxContainer = m[1]
 	_modal_body(box, "This deletes every marker, camera framing and transition, and starts over "
-			+ "from the images in images/, exactly as on first run.\n\n"
-			+ "A copy of the current file is kept as presentation.json.bak.")
+			+ "from the cartoon's images, exactly as on first run. The images and audio are not touched.\n\n"
+			+ "A copy of the current file is kept as cartoon.json.bak.")
 	var row := _modal_row(box)
-	var no := _make_button("Cancel  (Esc)", "Keep the presentation", _cancel_trash)
+	var no := _make_button("Cancel  (Esc)", "Keep the cartoon as it is", _cancel_trash)
 	no.custom_minimum_size = Vector2(170, 36)
 	row.add_child(no)
 	var yes := _make_button("Delete and start over", "Cannot be undone (except from the .bak copy)", _do_trash)
@@ -480,7 +608,7 @@ func _do_trash() -> void:
 	# Drop any pending autosave of the old presentation.
 	_save_timer.stop()
 	_dirty = false
-	var path := SAVE_RES if OS.has_feature("editor") else SAVE_USER
+	var path := Cartoon.save_path(cartoon)
 	if FileAccess.file_exists(path):
 		var old := FileAccess.get_file_as_string(path)
 		if old.strip_edges() != "":
@@ -494,29 +622,29 @@ func _do_trash() -> void:
 	f = null
 	_save_status = ""
 	# Re-run the first-run sequence.
-	PresentationData.add_black_bookends("res://images")
-	player.set_data(PresentationData.make_demo())
+	PresentationData.add_black_bookends(Cartoon.images_dir(cartoon))
+	player.set_data(PresentationData.make_demo(cartoon))
 	wave.rebuild()
 	player.seek(0.0)
 	wave.reveal(0.0)
-	_scaffold_images = PresentationData.image_count("res://images")
+	_scaffold_images = PresentationData.image_count(Cartoon.images_dir(cartoon))
 	if _offer:
 		_offer.queue_free()
 		_offer = null
 	if _scaffold_images > 0:
 		_build_offer()
-	_show_notice("presentation trashed (old copy in %s.bak)" % path.get_file(), 15.0)
+	_show_notice("cartoon timeline trashed (old copy in %s.bak)" % path.get_file(), 15.0)
 
 
 # ---------------------------------------------------------------- scaffold offer
 
 ## Modal question shown when there was no saved presentation but there are images.
 func _build_offer() -> void:
-	var m := _make_modal("New presentation", Color(0.45, 0.45, 0.5))
+	var m := _make_modal("New cartoon: " + cartoon, Color(0.45, 0.45, 0.5))
 	_offer = m[0]
 	var box: VBoxContainer = m[1]
-	_modal_body(box, ("No saved presentation was found, and images/ has %d images.\n\n"
-			+ "Scaffold a presentation from them? Every image becomes a shot, in name order, "
+	_modal_body(box, ("No cartoon.json was found, and the cartoon's images folder has %d images.\n\n"
+			+ "Scaffold a timeline from them? Every image becomes a shot, in name order, "
 			+ "%s seconds each, joined by cuts. You can retime shots afterwards by dragging "
 			+ "their markers.\n\n"
 			+ "Or start empty: every shot is unmarked, and you tap M to mark each one, starting with the first.") % [
@@ -532,7 +660,7 @@ func _build_offer() -> void:
 
 func _accept_scaffold() -> void:
 	_offer.hide()
-	player.set_data(PresentationData.make_scaffold())
+	player.set_data(PresentationData.make_scaffold(cartoon))
 	wave.rebuild()
 	player.seek(0.0)
 	_show_notice("scaffolded %d shots, %s s each, cuts" % [
@@ -596,6 +724,8 @@ func _to_end() -> void:
 
 
 func _process(_delta: float) -> void:
+	if player == null:  # only the cartoon picker is up
+		return
 	# The camera editor draws its own help line over the top bar.
 	var ui_on := _ui_visible and not cam_editor.visible
 	info.visible = ui_on
@@ -635,6 +765,11 @@ func _on_camera_closed(shot_index: int, preview: bool) -> void:
 func _unhandled_key_input(e: InputEvent) -> void:
 	var k := e as InputEventKey
 	if k == null or not k.pressed:
+		return
+	if _picker:  # the cartoon picker owns the keyboard; its list and field handle Enter
+		if k.keycode == KEY_ESCAPE and not k.echo and player != null:
+			_close_picker()
+		get_viewport().set_input_as_handled()
 		return
 	if _trash_confirm:  # the trash question owns the keyboard; only Esc does anything
 		if k.keycode == KEY_ESCAPE and not k.echo:
@@ -716,7 +851,7 @@ func _flush_save() -> void:
 	if not _dirty:
 		return
 	_dirty = false
-	var path := SAVE_RES if OS.has_feature("editor") else SAVE_USER
+	var path := Cartoon.save_path(cartoon)
 	if player.data.save_json(path):
 		_save_status = "saved " + Time.get_time_string_from_system()
 		print("Saved ", ProjectSettings.globalize_path(path))
@@ -726,7 +861,9 @@ func _flush_save() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		if _autosave or not _dirty:
+		if player == null:  # still choosing a cartoon
+			get_tree().quit()
+		elif _autosave or not _dirty:
 			_flush_save()  # don't lose an edit made in the last 0.4s
 			get_tree().quit()
 		else:
@@ -741,7 +878,7 @@ func _ask_quit() -> void:
 	var m := _make_modal("Save changes before quitting?", Color(0.85, 0.7, 0.3))
 	_quit_confirm = m[0]
 	var box: VBoxContainer = m[1]
-	_modal_body(box, "This presentation has edits that have not been saved to presentation.json.")
+	_modal_body(box, "This cartoon has edits that have not been saved to cartoon.json.")
 	var row := _modal_row(box)
 	var cancel := _make_button("Cancel  (Esc)", "Keep working", _cancel_quit)
 	cancel.custom_minimum_size = Vector2(150, 36)
@@ -750,7 +887,7 @@ func _ask_quit() -> void:
 	discard.custom_minimum_size = Vector2(190, 36)
 	discard.add_theme_color_override("font_color", Color(1, 0.5, 0.45))
 	row.add_child(discard)
-	var save := _make_button("Save and quit  (Enter)", "Write presentation.json, then quit", _save_and_quit)
+	var save := _make_button("Save and quit  (Enter)", "Write cartoon.json, then quit", _save_and_quit)
 	save.custom_minimum_size = Vector2(200, 36)
 	row.add_child(save)
 	player.pause()

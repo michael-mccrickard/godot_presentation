@@ -1,33 +1,69 @@
 class_name PresentationData
 extends Resource
-## The whole presentation: an audio track plus an ordered list of shots.
+## The whole cartoon: an audio track plus an ordered list of shots.
 ## Shot order = list order; start times are assigned by tap-to-mark or dragging.
+##
+## In memory every path is complete (res://cartoons/<name>/images/p1_f1.png). In the
+## JSON, paths inside the cartoon folder are stored relative to it: image paths
+## relative to images/, the audio path relative to the folder itself. Any path that
+## is already absolute (res://, user://, /...) is kept as written.
 
 const IMAGE_EXTS := ["png", "jpg", "jpeg", "webp", "bmp", "tga"]
 
 @export var audio_path := ""
 @export var shots: Array[Shot] = []
+## The cartoon folder (res://cartoons/<name>). Relative paths in the JSON are read
+## and written against it. Empty: paths are stored as they are.
+var base_dir := ""
 
 
 func to_json() -> String:
 	var arr := []
 	for s in shots:
-		arr.append(s.to_dict())
-	return JSON.stringify({"audio_path": audio_path, "shots": arr}, "\t")
+		var sd := s.to_dict()
+		sd["image_path"] = _relative(s.image_path, _images_prefix())
+		arr.append(sd)
+	return JSON.stringify({"audio_path": _relative(audio_path, _base_prefix()), "shots": arr}, "\t")
 
 
-static func from_json(text: String) -> PresentationData:
+static func from_json(text: String, base: String = "") -> PresentationData:
 	var parsed = JSON.parse_string(text)
 	if typeof(parsed) != TYPE_DICTIONARY:
 		return null
 	var d := PresentationData.new()
-	d.audio_path = parsed.get("audio_path", "")
+	d.base_dir = base
+	d.audio_path = d._resolve(parsed.get("audio_path", ""), d._base_prefix())
 	for sd in parsed.get("shots", []):
-		d.shots.append(Shot.from_dict(sd))
+		var s := Shot.from_dict(sd)
+		s.image_path = d._resolve(s.image_path, d._images_prefix())
+		d.shots.append(s)
 	return d
 
 
+func _base_prefix() -> String:
+	return base_dir + "/" if base_dir != "" else ""
+
+
+func _images_prefix() -> String:
+	return base_dir + "/" + Cartoon.IMAGES + "/" if base_dir != "" else ""
+
+
+## Complete path -> what is stored in the JSON.
+static func _relative(path: String, prefix: String) -> String:
+	if prefix != "" and path.begins_with(prefix):
+		return path.trim_prefix(prefix)
+	return path
+
+
+## Stored path -> complete path. Absolute paths (and the demo's demo://) pass through.
+static func _resolve(path: String, prefix: String) -> String:
+	if path == "" or prefix == "" or path.contains("://") or path.begins_with("/"):
+		return path
+	return prefix + path
+
+
 func save_json(path: String) -> bool:
+	DirAccess.make_dir_recursive_absolute(path.get_base_dir())  # user://cartoons/<name>/
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f == null:
 		push_warning("Could not write %s (error %d)" % [path, FileAccess.get_open_error()])
@@ -36,21 +72,21 @@ func save_json(path: String) -> bool:
 	return true
 
 
-static func load_json(path: String) -> PresentationData:
+static func load_json(path: String, base: String = "") -> PresentationData:
 	var f := FileAccess.open(path, FileAccess.READ)
 	if f == null:
 		return null
-	return from_json(f.get_as_text())
+	return from_json(f.get_as_text(), base)
 
 
-## Builds a runnable demo: images from res://images (or generated test images),
-## audio from res://audio/track.wav if present, evenly spaced starts.
-static func make_demo() -> PresentationData:
+## Builds a runnable starting point for a cartoon with no cartoon.json: its images
+## (or generated test images when it has none), its soundtrack if present.
+static func make_demo(cartoon: String) -> PresentationData:
 	var d := PresentationData.new()
-	if ResourceLoader.exists("res://audio/track.wav"):
-		d.audio_path = "res://audio/track.wav"
+	d.base_dir = Cartoon.dir(cartoon)
+	d.audio_path = Cartoon.default_audio(cartoon)
 
-	var paths := _scan_images("res://images")
+	var paths := _scan_images(Cartoon.images_dir(cartoon))
 	if paths.is_empty():
 		for n in 4:
 			paths.append("demo://%d" % n)
@@ -117,13 +153,13 @@ const SCAFFOLD_SECONDS := 2.0
 
 ## Black frame copied in to bookend the images, so a presentation can fade in from
 ## and out to black. p0_f0 sorts before every other image, zzz after all of them.
-const BLACK_SOURCE := "res://images/common/black.png"
+const BLACK_SOURCE := Cartoon.COMMON + "/black.png"
 const BLACK_BOOKENDS := ["p0_f0.png", "zzz.png"]
 
 
 ## Copies BLACK_SOURCE into `dir` as each of BLACK_BOOKENDS (overwriting). Called by
 ## the first-run setup, before the images are scanned. Returns how many were written.
-static func add_black_bookends(dir: String = "res://images") -> int:
+static func add_black_bookends(dir: String) -> int:
 	var bytes := PackedByteArray()
 	if FileAccess.file_exists(BLACK_SOURCE):
 		bytes = FileAccess.get_file_as_bytes(BLACK_SOURCE)
@@ -153,14 +189,14 @@ static func image_count(dir: String) -> int:
 	return _scan_images(dir).size()
 
 
-## A complete starting point: every image in `dir`, in name order, one shot each,
-## SCAFFOLD_SECONDS long, joined by hard cuts, framed Full. Retime by dragging markers.
-static func make_scaffold(dir: String = "res://images", seconds: float = SCAFFOLD_SECONDS) -> PresentationData:
+## A complete starting point: every image of the cartoon, in name order, one shot
+## each, SCAFFOLD_SECONDS long, joined by hard cuts, framed Full. Retime by dragging markers.
+static func make_scaffold(cartoon: String, seconds: float = SCAFFOLD_SECONDS) -> PresentationData:
 	var d := PresentationData.new()
-	if ResourceLoader.exists("res://audio/track.wav"):
-		d.audio_path = "res://audio/track.wav"
+	d.base_dir = Cartoon.dir(cartoon)
+	d.audio_path = Cartoon.default_audio(cartoon)
 	var i := 0
-	for p in _scan_images(dir):
+	for p in _scan_images(Cartoon.images_dir(cartoon)):
 		var s := Shot.new()
 		s.image_path = p
 		s.start = i * seconds
@@ -222,6 +258,8 @@ func add_new_images(dir: String) -> Dictionary:
 
 static func _scan_images(dir: String) -> Array[String]:
 	var out: Array[String] = []
+	if not DirAccess.dir_exists_absolute(dir):
+		return out
 	for f in DirAccess.get_files_at(dir):
 		# Exported builds list "foo.png.import"; the editor lists both.
 		var name := f.trim_suffix(".import")

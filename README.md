@@ -1,10 +1,10 @@
-# Presentation Player
+# Cartoon Player
 
-A Godot 4 tool for building and playing back still-image presentations with camera
+A Godot 4 tool for building and playing back still-image cartoons with camera
 moves (zoom and pan), transitions, and audio sync. The picture is drawn in real time
 from the original image pixels, so there is no video compression or rescaling of your
-stills. Everything you author is stored in one file, `presentation.json`, and the
-player is generic: the presentation is data.
+stills. Each cartoon is one folder holding its images, its soundtrack and one file,
+`cartoon.json`, with everything you author. The player is generic: the cartoon is data.
 
 Developed and tested with Godot 4.7 using the Compatibility renderer (set in
 `project.godot`).
@@ -13,11 +13,47 @@ Developed and tested with Godot 4.7 using the Compatibility renderer (set in
 
 | Path | What it is |
 | --- | --- |
-| `images/` | Your still images (png, jpg, jpeg, webp, bmp, tga). Shots are created in file-name order, with numbers compared as numbers (see "Naming and order"). |
-| `audio/track.wav` | Optional soundtrack, used when a new presentation is first created. |
-| `presentation.json` | The saved presentation: shot order, timings, camera framing, transitions. |
+| `cartoons/<name>/` | One folder per cartoon (see "Cartoons"). |
+| `cartoons/<name>/images/` | The cartoon's still images (png, jpg, jpeg, webp, bmp, tga). Shots are created in file-name order, with numbers compared as numbers (see "Naming and order"). |
+| `cartoons/<name>/audio.wav` | The soundtrack. Any `.wav` in the folder works; `audio.wav` is preferred if there are several. |
+| `cartoons/<name>/cartoon.json` | The saved cartoon: shot order, timings, camera framing, transitions. |
+| `common/black.png` | The black frame copied into a new cartoon's images as `p0_f0.png` and `zzz.png`, so it can fade in from and out to black. |
+| `audio/effects/` | Sound effects (not used by the player). |
+| `tools/migrate_to_cartoons.gd` | The one-time move from the old single-presentation layout. Run it once (see the script header). |
 | `scripts/` | The code. `shot.gd` is the data for one shot; `presentation_player.gd` plays it back. |
 | `shaders/transition.gdshader` | The transition shader. |
+
+## Cartoons
+
+Each cartoon is a folder in `cartoons/`:
+
+```
+cartoons/
+	captain_marvel_blood_bank_robbers/
+		cartoon.json
+		audio.wav
+		images/
+			p1_f1.png
+			p1_f2.png
+			...
+```
+
+Paths in `cartoon.json` are relative to the folder (`"p1_f1.png"`, `"audio.wav"`), so a
+cartoon folder can be renamed, copied or moved as a unit without editing the file.
+
+**Choosing a cartoon.** When the project starts, a picker lists the folders in
+`cartoons/`, with the last one you opened selected. Use `Up`/`Down` and `Enter`, or
+double-click. The **Cartoon...** button (top right) brings the picker back to switch;
+unsaved edits are saved first. `Esc` closes it without switching.
+
+**Making a new cartoon.** In the picker, type a folder name and press **Create**
+(or `Enter` in the field). This makes `cartoons/<name>/images/` and opens it. Put the
+images in `images/` and a WAV in the cartoon folder, then reopen it from the picker; the
+first-run sequence (see "Starting a new cartoon") takes it from there. You can also just
+make the folders in Finder. Creating cartoons only works when running from the editor.
+
+**Command line.** `--cartoon=<name>` opens that cartoon without the picker. For an
+exported build, put it after `--` (`PresentationPlayer.app/Contents/MacOS/PresentationPlayer -- --cartoon=<name>`).
 
 ## The window
 
@@ -31,21 +67,21 @@ The window is 1280 x 1032:
 	`Move`), and the **transition into it**, which you can change here (see
 	"Transitions").
   - **Key hints:** the main shortcuts.
-- **Presentation view (1280 x 720):** exactly what the audience sees. Letterbox bars
+- **Cartoon view (1280 x 720):** exactly what the audience sees. Letterbox bars
   inside it are black.
 - **Timeline strip (bottom, 116 px):** the audio waveform (when available), a time
   ruler, your shot markers (yellow, numbered), and the red playhead.
 
-`Tab` hides everything except the presentation view.
+`Tab` hides everything except the cartoon view.
 
-## Starting a new presentation
+## Starting a new cartoon
 
-When the project starts and there is **no `presentation.json`** (or it is empty, or
-cannot be read) and `images/` has images, a dialog offers to **scaffold** one:
+When a cartoon is opened and its folder has **no `cartoon.json`** (or it is empty, or
+cannot be read) and its `images/` folder has images, a dialog offers to **scaffold** one:
 
 - **Scaffold (Enter):** every image becomes a shot, in name order, **2 seconds each**,
   joined by **cuts** (no transitions), each framed Full. For 76 images that is a
-  152-second presentation with a marker every 2 seconds. It is saved immediately.
+  152-second cartoon with a marker every 2 seconds. It is saved immediately.
   From there you adjust: drag markers to retime, press `C` to frame moves, and edit
   `transition` in the JSON where you want something other than a cut.
 - **Start empty (Esc):** the old behaviour. Shot 1 is placed at 0:00 and the other
@@ -55,17 +91,17 @@ cannot be read) and `images/` has images, a dialog offers to **scaffold** one:
 The length and transition of a scaffold are set in `scripts/presentation_data.gd`
 (`SCAFFOLD_SECONDS`, and `make_scaffold`).
 
-If a `presentation.json` exists but is not valid JSON (for example a typo from editing
-it by hand), a copy is saved next to it as `presentation.json.broken` before anything
+If a `cartoon.json` exists but is not valid JSON (for example a typo from editing
+it by hand), a copy is saved next to it as `cartoon.json.broken` before anything
 can overwrite it, and the status line says so.
 
 ## Authoring workflow
 
-1. **Add images.** Put them in `images/`. On first run, one shot is created per image,
+1. **Add images.** Put them in the cartoon's `images/` folder. On first run, one shot is created per image,
    in file-name order. Shot 1 starts at 0:00; the rest are waiting to be marked.
    Images you add later are picked up the next time the project starts and placed by
    name (see "Naming and order" and "Adding or replacing images").
-2. **Add audio (optional).** Put a WAV at `audio/track.wav` *before the first run*
+2. **Add audio (optional).** Put a WAV in the cartoon folder *before the first run*
    (see "Audio" below). With no audio you can still author against a free-running clock.
 3. **Mark the cuts.** Press `Space` to start playback and press `M` at the moment each
    next image should appear. Each tap assigns the next unmarked shot. The status line
@@ -93,10 +129,11 @@ Every edit is saved automatically (see "Saving").
 | `Left` / `Right` | Seek 1 second (hold `Shift` for 5 seconds) |
 | `R`, `R` | Clear all marks. Press `R` twice within 3 seconds; the status line asks you to confirm. |
 | `S` | Save immediately (not normally needed) |
-| `Tab` | Show / hide everything except the presentation view |
+| `Tab` | Show / hide everything except the cartoon view |
 
 ### Buttons (top right)
 
+- **Cartoon...** – open or create another cartoon (see "Cartoons").
 - **|< Rewind** – back to 0:00 (same as `Home`).
 - **End >|** – jump to the end of the content (same as `End`). With audio this is the
   end of the audio; without audio it is the end of the last marked shot, which is
@@ -127,12 +164,12 @@ Every edit is saved automatically (see "Saving").
 
 ## Starting over (Trash)
 
-The **Trash** button (top right) deletes the whole presentation: every marker, camera
-framing and transition. It asks for confirmation first. The current
-`presentation.json` is copied to `presentation.json.bak`, the file is emptied, and the
-first-run sequence starts again (the scaffold question, if `images/` has images). To
-get the old presentation back, close the player and rename the `.bak` file to
-`presentation.json`.
+The **Trash** button (top right) deletes the cartoon's whole timeline: every marker,
+camera framing and transition. Its images and audio are not touched. It asks for
+confirmation first. The current `cartoon.json` is copied to `cartoon.json.bak`, the
+file is emptied, and the first-run sequence starts again (the scaffold question, if the
+cartoon has images). To get the old timeline back, close the player and rename the
+`.bak` file to `cartoon.json`.
 
 ## Naming and order
 
@@ -153,7 +190,7 @@ Two things decide where a shot sits in the list:
 
 ## Adding or replacing images
 
-- **New images.** Drop them into `images/`, let Godot import them (it does this when
+- **New images.** Drop them into the cartoon's `images/` folder, let Godot import them (it does this when
   the editor window regains focus), and start the project. Any image that no shot uses
   yet becomes a new, unmarked shot **placed by name**: right after the last shot whose
   name sorts at or before it. For example, a new `p3_f10` lands after `p3_f9`, and a new
@@ -171,7 +208,7 @@ Two things decide where a shot sits in the list:
   other rename looks like a new image, and the shot with the old name stays behind.
 - **Removed images.** A shot whose file is gone stays in the list and shows
   `Could not load image: ...` in the status line. Edit that shot's `image_path` in
-  `presentation.json`.
+  `cartoon.json`.
 - **Changing the order by hand.** Shot order is the order in the JSON. There is no
   on-screen way to move a marked shot.
 
@@ -239,8 +276,8 @@ setting does nothing.
 | `3` | `IRIS` | The new image opens outward from the center of the frame. |
 | `4` | `MASK_DISSOLVE` | A dissolve through a cloud-like noise pattern. |
 
-Every shot starts as a cut: scaffolded presentations, empty ones, and images added
-later. (Only the generated demo, used when `images/` is empty, cycles through the
+Every shot starts as a cut: scaffolded cartoons, empty ones, and images added
+later. (Only the generated demo, used when a cartoon has no images, cycles through the
 styles.)
 
 **Changing a transition:** move the playhead onto the shot (click the timeline, or
@@ -254,7 +291,7 @@ seek with the arrow keys), then use the shot info box:
 - The box warns you if the transition is longer than the time until the next marker.
 - The first shot has nothing to transition from, so its controls are disabled.
 
-You can also edit `transition` and `transition_duration` in `presentation.json`
+You can also edit `transition` and `transition_duration` in `cartoon.json`
 (close the player first, since it rewrites the file on every edit).
 
 Things to know:
@@ -278,33 +315,33 @@ Things to know:
 | `2` | `EASE_IN` | Starts slowly, speeds up |
 | `3` | `EASE_OUT` | Starts quickly, slows down |
 
-Like transitions, easing is set in `presentation.json` for now.
+Like transitions, easing is set in `cartoon.json` for now.
 
 ## Saving
 
-Every edit is written to `presentation.json` automatically about 0.4 seconds after you
+Every edit is written to `cartoon.json` automatically about 0.4 seconds after you
 make it: marking a shot, dragging a marker, any change in the camera editor, and clearing
 marks. The status line shows `unsaved` while a save is pending and `saved HH:MM:SS`
 afterwards. A pending save is also written when you close the window.
 
-- Running from the Godot editor, the file is `res://presentation.json` (the project
+- Running from the Godot editor, the file is `res://cartoons/<name>/cartoon.json` (in the project
   folder), so it can be committed to git.
-- In an exported build the player reads and writes `user://presentation.json`. On macOS
-  that is `~/Library/Application Support/Godot/app_userdata/PresentationPlayer/`. If
-  that file does not exist, it falls back to a `presentation.json` packed into the
+- In an exported build the player reads and writes `user://cartoons/<name>/cartoon.json`.
+  On macOS `user://` is `~/Library/Application Support/Godot/app_userdata/PresentationPlayer/`.
+  If that file does not exist, it falls back to the `cartoon.json` packed into the
   export (add `*.json` to the export's resource filters to include it).
 - Because saving is automatic, `R` (clear all marks) cannot be undone from the app. It
-  asks for a second press for that reason. Committing `presentation.json` to git gives
+  asks for a second press for that reason. Committing `cartoon.json` to git gives
   you an undo.
 
-## `presentation.json` reference
+## `cartoon.json` reference
 
 ```json
 {
-  "audio_path": "res://audio/track.wav",
+  "audio_path": "audio.wav",
   "shots": [
 	{
-	  "image_path": "res://images/p1_f1.png",
+	  "image_path": "p1_f1.png",
 	  "auto_fit": true,
 	  "start": 0.0,
 	  "move_duration": 0.0,
@@ -320,8 +357,8 @@ afterwards. A pending save is also written when you close the window.
 
 | Field | Meaning |
 | --- | --- |
-| `audio_path` | Soundtrack. Empty for none. |
-| `image_path` | The image. `res://...` paths use Godot's import; other paths are loaded directly. |
+| `audio_path` | Soundtrack, relative to the cartoon folder (`audio.wav`). Empty for none. |
+| `image_path` | The image, relative to the cartoon's `images/` folder. A full `res://...` path (an image shared from elsewhere in the project) is also accepted and kept as written; any other absolute path is loaded directly. |
 | `auto_fit` | `true`: the shot is simply Full and the two rectangles are ignored. Becomes `false` as soon as you change the framing in the camera editor. |
 | `start` | Marker time in seconds. `-1` means not marked yet. |
 | `move_duration` | Camera move length in seconds. `0` means "until the next marker". |
@@ -334,9 +371,9 @@ afterwards. A pending save is also written when you close the window.
 - **Waveform:** shown only for uncompressed WAV files. In Godot's Import tab, leave the
   WAV's compress mode set to Disabled. MP3 and Ogg files still play but show no
   waveform; convert them to WAV for authoring.
-- **Choosing the file:** a new presentation uses `audio/track.wav` if it exists. Once
-  `presentation.json` exists, edit its `audio_path` to change the soundtrack (with the
-  player closed).
+- **Choosing the file:** a new cartoon uses `audio.wav` in its folder, or else the first
+  `.wav` there. Once `cartoon.json` exists, edit its `audio_path` to change the
+  soundtrack (with the player closed).
 - **No audio:** the timeline runs on a free-running clock and keeps extending as you
   play, so you can keep tapping marks. Timings are plain seconds, so they remain valid
   when you add audio later (they will only line up if the audio is timed the same way).
@@ -347,7 +384,7 @@ afterwards. A pending save is also written when you close the window.
 
 - Easing and `move_duration` have no on-screen controls yet; edit the JSON.
 - There is no on-screen way to move a marked shot or to drag shots into a custom order;
-  edit the order in `presentation.json` if you need that.
+  edit the order in `cartoon.json` if you need that.
 - The waveform needs an uncompressed WAV.
 
 ## Image quality
