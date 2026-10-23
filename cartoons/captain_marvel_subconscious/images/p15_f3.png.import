@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jlibrmwjlaof"
-path="res://.godot/imported/p15_f3.png-e8fd8cd050fc48e7ab602f50f88fe778.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://cartoons/captain_marvel_subconscious/images/p15_f3.png"
-dest_files=["res://.godot/imported/p15_f3.png-e8fd8cd050fc48e7ab602f50f88fe778.ctex"]
 
 [params]
 
