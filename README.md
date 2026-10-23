@@ -100,7 +100,7 @@ is opened (unmarked, placed by name).
 The window is 1280 x 1032:
 
 - **Top bar (196 px):**
-  - **Status line:** play/pause, time, the next shot `M` will mark, save status, and
+  - **Status line:** play/pause, time (`m:ss.ss`), the next shot `M` will mark, save status, and
 	notices. The **Rewind**, **End** and **Trash** buttons sit to its right.
   - **Shot info box:** the shot on screen at the playhead: its number, file name and
 	marker time, whether it has a camera move (`Full frame`, `Framed, no move`, or
@@ -319,6 +319,11 @@ setting does nothing.
 Every shot starts as a cut: scaffolded cartoons, empty ones, and images added
 later. (Only the generated demo, used when a cartoon has no images, cycles through the
 styles.)
+
+**Sticky transitions:** when you press `M`, the newly marked shot takes the transition
+and duration shown in the shot info box (the shot on screen at that moment). Set a
+crossfade once and every shot you mark after it gets the same crossfade until you
+change the selection.
 
 **Changing a transition:** move the playhead onto the shot (click the timeline, or
 seek with the arrow keys), then use the shot info box:

@@ -740,8 +740,8 @@ func _process(_delta: float) -> void:
 		var nxt_name := "-"
 		if nxt < player.data.shots.size():
 			nxt_name = player.data.shots[nxt].image_path.get_file().get_basename()
-		var line1 := "%s  t=%.2f   next mark: %s (%d/%d)   %s" % [
-			"PLAY" if player.is_playing else "PAUSE", player.get_time(),
+		var line1 := "%s  t=%s   next mark: %s (%d/%d)   %s" % [
+			"PLAY" if player.is_playing else "PAUSE", _fmt_time(player.get_time()),
 			nxt_name, mini(nxt + 1, player.data.shots.size()), player.data.shots.size(), _save_status]
 		var now := Time.get_ticks_msec() / 1000.0
 		if now < _notice_until:
@@ -830,11 +830,19 @@ func _unhandled_key_input(e: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 
+## Marks the next unmarked shot at the playhead. The transition is "sticky": the new
+## shot takes the transition and duration the shot box is showing (the shot on
+## screen), so a choice made once carries forward to every shot marked after it.
 func _tap() -> void:
 	var i := _next_unmarked()
 	if i >= player.data.shots.size():
 		return
-	player.data.shots[i].start = maxf(player.get_time() + TAP_OFFSET, 0.0)
+	var shots := player.data.shots
+	var shown := _box_shot()  # read before marking: afterwards the box shows the new shot
+	if shown >= 0 and shown != i:
+		shots[i].transition = shots[shown].transition
+		shots[i].transition_duration = shots[shown].transition_duration
+	shots[i].start = maxf(player.get_time() + TAP_OFFSET, 0.0)
 	_queue_save()
 
 
