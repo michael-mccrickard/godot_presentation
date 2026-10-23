@@ -1,0 +1,132 @@
+scene_file,id,character,start_in_scene,end_in_scene,text
+clips/_scenes/p01_t1.mp3,p1_f1_01,NARRATOR,0,15.16,"Captain Marvel and Billy Batson find themselves mysteriously projected into a topsy-turvy world where everything is backwards, upside-down, inside out and distorted— THE FANTASTICALLY UNBELIEVABLE REALM OF THE SUBCONSCIOUS!"
+clips/_scenes/p01_t1.mp3,p1_f2_01,BILLY BATSON,15.16,34.16,"Folks, sometimes I've been asked what was the MOST AMAZING adventure Captain Marvel ever had. Well— you know, Captain Marvel's been just about everywhere and done almost everything— but I think the most amazing thing that ever happened to him was— BUT WAIT! Here's how it all began."
+clips/_scenes/p01_t1.mp3,p1_f3_01,BILLY BATSON,34.16,38.8,"I was walking home from the broadcasting studios rather late one night, when—"
+clips/_scenes/p01_t1.mp3,p1_f3_02,PROFESSOR SMITH,38.8,41.68,HELP! HELP! SAVE ME!
+clips/_scenes/p01_t1.mp3,p1_f3_03,BILLY BATSON,41.68,42.72,WH-WHAT'S THAT?
+clips/_scenes/p02_t2.mp3,p2_f1_01,BILLY BATSON,0,2.2,HEY! What are you doing down there?
+clips/_scenes/p02_t2.mp3,p2_f1_02,PROFESSOR SMITH,2.2,3.36,HELP! HELP!
+clips/_scenes/p02_t2.mp3,p2_f2_01,PROFESSOR SMITH,3.36,5.52,HELP! I'm falling!
+clips/_scenes/p02_t2.mp3,p2_f3_01,BILLY BATSON,5.52,6.56,SHAZAM!!
+clips/_scenes/p02_t2.mp3,p2_f4_01,NARRATOR,6.56,8.96,Lightning splits the air and—
+clips/_scenes/p02_t2.mp3,p2_f5_01,NARRATOR,8.96,11.28,—it's Captain Marvel to the rescue!
+clips/_scenes/p02_t2.mp3,p2_f5_02,PROFESSOR SMITH,11.28,13.686,HELP! Help! Help!
+clips/_scenes/p02_t2.mp3,p2_f5_03,CAPTAIN MARVEL,13.686,14.667,Coming!
+clips/_scenes/p02_t2.mp3,p2_f6_01,PROFESSOR SMITH,14.667,15.7,HELP!
+clips/_scenes/p02_t2.mp3,p2_f6_02,CAPTAIN MARVEL,15.7,17.12,Take it easy!
+clips/_scenes/p03_t1.mp3,p3_f1_01,CAPTAIN MARVEL,0,2.84,You ought to know better than to try a stunt like that!
+clips/_scenes/p03_t1.mp3,p3_f2_01,CAPTAIN MARVEL,2.84,4.12,Back we go!
+clips/_scenes/p03_t1.mp3,p3_f3_01,PROFESSOR SMITH,4.12,7.611,I'm falling! I'm dizzy! HALP!
+clips/_scenes/p03_t1.mp3,p3_f3_02,CAPTAIN MARVEL,7.611,13.287,"DIZZY!? Brother, you're in no condition to be out on the streets. I'd better take you home!"
+clips/_scenes/p03_t1.mp3,p3_f4_01,PROFESSOR SMITH,13.287,15.851,H-here— here's where I live!
+clips/_scenes/p03_t1.mp3,p3_f4_02,CAPTAIN MARVEL,15.851,17.783,"WELL, let's go up the stairs!"
+clips/_scenes/p03_t1.mp3,p3_f5_01,PROFESSOR SMITH,17.783,24.28,Stairs! STAIRS? That's what started the whole thing! STAIRS! I can't get up them!
+clips/_scenes/p03_t1.mp3,p3_f5_02,PROFESSOR SMITH,24.28,25.72,I'M FALLING!
+clips/_scenes/p03_t1.mp3,p3_f5_03,PROFESSOR SMITH,25.72,27.36,H-HELP!!
+clips/_scenes/p03_t1.mp3,p3_f6_01,CAPTAIN MARVEL,27.36,32.24,He's passed out. Might as well carry him in and put him to bed.
+clips/_scenes/p04_t1.mp3,p4_f1_01,CAPTAIN MARVEL,0,4.24,I've done about all I can. And now— SHAZAM!
+clips/_scenes/p04_t1.mp3,p4_f3_01,PROFESSOR SMITH,4.24,7.367,W-what was that? And WHO are you?
+clips/_scenes/p04_t1.mp3,p4_f3_02,BILLY BATSON,7.367,11.693,"It's all right, mister, just lie back and you'll be all right in the morning!"
+clips/_scenes/p04_t1.mp3,p4_f4_01,PROFESSOR SMITH,11.693,19.573,NO! NO! Nothing will ever be right again! NOTHING! OOOOOOH! AH-HAH-HAH-HAH-HA!
+clips/_scenes/p04_t1.mp3,p4_f5_01,PROFESSOR SMITH,19.573,25.531,HAH! HAA! HAA! Stairs! Stairs! Haaa!
+clips/_scenes/p04_t1.mp3,p4_f5_02,BILLY BATSON,25.531,28.56,HOLY MOLEY! The old fellow's throwing a fit!
+clips/_scenes/p04_t1.mp3,p4_f6_01,PROFESSOR SMITH,28.56,30.8,I— I'm all right now!
+clips/_scenes/p04_t1.mp3,p4_f6_02,BILLY BATSON,30.8,33.36,WHEW! I'm glad THAT'S over.
+clips/_scenes/p04_t1.mp3,p4_f7_01,BILLY BATSON,33.36,37.548,Now suppose you tell me what this is all about— Mister— er—
+clips/_scenes/p04_t1.mp3,p4_f7_02,PROFESSOR SMITH,37.548,41.6,"Smith— PROFESSOR EDGEWOOD SMITH is my name, sonny."
+clips/_scenes/p05_t1.mp3,p5_f1_01,PROFESSOR SMITH,0,11.2,"Sometimes people call me ""EDGEWISE"" Smith. They think— they think I'm QUEER— and they're right— mostly. Look at this room of mine, for instance!"
+clips/_scenes/p05_t1.mp3,p5_f2_01,BILLY BATSON,11.2,14.72,WOW! It makes me dizzy just to look at it!
+clips/_scenes/p05_t1.mp3,p5_f2_02,PROFESSOR SMITH,14.72,18.16,Precisely! But now I'll show you a trick!
+clips/_scenes/p05_t1.mp3,p5_f3_01,PROFESSOR SMITH,18.16,20.6,See? From this position it looks right!
+clips/_scenes/p05_t1.mp3,p5_f3_02,BILLY BATSON,20.6,23.367,"We-ell, ALMOST right, anyhow!"
+clips/_scenes/p05_t1.mp3,p5_f4_01,PROFESSOR SMITH,23.367,30.009,See? When you first look— the stairs go UP. Then when you look again— they seem to go DOWN!
+clips/_scenes/p05_t1.mp3,p5_f4_02,BILLY BATSON,30.009,33.125,HMMM! So they do! Amazing!
+clips/_scenes/p05_t1.mp3,p5_f5_01,PROFESSOR SMITH,33.125,38.76,Now here are SIX cubes! But turn the drawing upside down and there are SEVEN!
+clips/_scenes/p05_t1.mp3,p5_f6_01,PROFESSOR SMITH,38.76,46.013,"Now of course you can comb your hair in front of an ordinary mirror, can't you? Even though your reflection is really left-handed?"
+clips/_scenes/p05_t1.mp3,p5_f6_02,BILLY BATSON,46.013,48.093,"Why, sure— anybody can!"
+clips/_scenes/p05_t1.mp3,p5_f7_01,PROFESSOR SMITH,48.093,53.53,"But when a SECOND mirror shows you as you REALLY are, you're all confused, aren't you?"
+clips/_scenes/p06_t1.mp3,p6_f1_01,PROFESSOR SMITH,0,14.567,See? It's all in your subconscious mind— HERE! You can't even read ordinary writing held to a mirror because it's backwards! And yet you comb your hair backwards and can't do it frontwards when the extra mirror shows you how you really are!
+clips/_scenes/p06_t1.mp3,p6_f1_02,BILLY BATSON,14.567,18.521,It's— it's all very confusing— I think I'd better go!
+clips/_scenes/p06_t1.mp3,p6_f2_01,BILLY BATSON,18.521,20.171,"G-GOOD NIGHT, Professor."
+clips/_scenes/p06_t1.mp3,p6_f2_02,PROFESSOR SMITH,20.171,22.921,"Good night, sonny— watch those stairs!"
+clips/_scenes/p06_t1.mp3,p6_f3_01,BILLY BATSON,22.921,33.281,"WOW! What a crackpot that Professor ""Edgewise"" Smith is! And to think it's all in his SUBCONSCIOUS mind! I'm glad MY subconscious mind doesn't bother ME!"
+clips/_scenes/p06_t1.mp3,p6_f3_02,NARRATOR,33.281,36.481,Little does Billy realize what is about to happen to him!
+clips/_scenes/p06_t1.mp3,p6_f4_01,NARRATOR,36.481,38.881,Some hours later—
+clips/_scenes/p06_t1.mp3,p6_f5_01,BILLY BATSON,38.881,43.601,"HMMPH! I must have fallen out of bed! Well, it's time to get up anyway!"
+clips/_scenes/p06_t1.mp3,p6_f6_01,BILLY BATSON,43.601,48.241,OW! What's that lighting fixture doing here in the middle of the floor?
+clips/_scenes/p06_t1.mp3,p6_f7_01,BILLY BATSON,48.241,55.051,HOLY MOLEY! Maybe it's happened to me like it did to Professor Smith! I'M— I'M UPSIDE DOWN!
+clips/_scenes/p07_t1.mp3,p7_f1_01,BILLY BATSON,0,3.2,YEEOW! I'd better get dressed and get out of here!
+clips/_scenes/p07_t1.mp3,p7_f2_01,BILLY BATSON,3.2,7.2,Omigosh! I can't even see my own face in the mirror any more!
+clips/_scenes/p07_t1.mp3,p7_f3_01,BILLY BATSON,7.2,12.24,Things certainly look queer! I don't blame old Professor Smith for getting dizzy!
+clips/_scenes/p07_t1.mp3,p7_f4_01,BILLY BATSON,12.24,16.011,AND THE PEOPLE! I wonder if I look like THAT to THEM!
+clips/_scenes/p07_t1.mp3,p7_f5_01,BILLY BATSON,16.011,18.8,THAT'S FUNNY! This elevator's going DOWN!
+clips/_scenes/p07_t1.mp3,p7_f5_02,ELEVATOR OPERATOR,18.8,23.04,SIXTY-FIFTH FLOOR! SIXTY-FIVE! Let 'em out!
+clips/_scenes/p07_t1.mp3,p7_f6_01,BILLY BATSON,23.04,28.08,"Why, good morning, Miss Dalshaw! How— er— NICE you look this morning!"
+clips/_scenes/p07_t1.mp3,p7_f6_02,MISS DALSHAW,28.08,32.0,"Good morning, Billy. Mr. Morris wants to see you right away."
+clips/_scenes/p08_t3.mp3,p8_f1_01,MR. MORRIS,0,5.046,"Good morning, Billy! All set for a good hard day's work at Amalgamated Broadcasting?"
+clips/_scenes/p08_t3.mp3,p8_f1_02,BILLY BATSON,5.046,10.8,GOSH! What a costume! I must look funny in my plain old blue pants and red sweater!
+clips/_scenes/p08_t3.mp3,p8_f1_03,BILLY BATSON,10.8,13.32,"Good morning, Mr. Morris."
+clips/_scenes/p08_t3.mp3,p8_f2_01,NARRATOR,13.32,14.88,Back in Billy's office...
+clips/_scenes/p08_t3.mp3,p8_f2_02,BILLY BATSON,14.88,19.28,ULP! I forgot I can't even see myself anymore!
+clips/_scenes/p08_t3.mp3,p8_f3_01,BILLY BATSON,19.28,24.0,"GOSH! How am I gonna read these news reports? THEY'RE all mixed up, too!"
+clips/_scenes/p08_t3.mp3,p8_f4_01,BILLY BATSON,24.0,27.92,IT'S NO USE! I can see it— but I still can't read it!
+clips/_scenes/p08_t3.mp3,p8_f5_01,MR. MORRIS,27.92,30.251,"Come on, Billy— WE'RE OFF TO THE FRONT!"
+clips/_scenes/p08_t3.mp3,p8_f5_02,BILLY BATSON,30.251,31.687,Wh— what front?
+clips/_scenes/p08_t3.mp3,p8_f6_01,MR. MORRIS,31.687,36.253,"Why, the WAR FRONT, of course! The invasion and all! TO THE ROOF!"
+clips/_scenes/p08_t3.mp3,p8_f6_02,BILLY BATSON,36.253,38.57,The INVASION? Here?
+clips/_scenes/p09_t1.mp3,p9_f1_01,MR. MORRIS,0,2.088,"CLIMB IN, BILLY! HURRY!"
+clips/_scenes/p09_t1.mp3,p9_f2_01,BILLY BATSON,2.088,9.76,"But— but, Mr. Morris, if we're going to the FRONT, wouldn't it really be the BACK? Er— I mean— oh, I'M ALL TWISTED UP!"
+clips/_scenes/p09_t1.mp3,p9_f3_01,MR. MORRIS,9.76,11.92,LOOK OUT! We're being attacked!
+clips/_scenes/p09_t1.mp3,p9_f5_01,NARRATOR,11.92,19.84,"Even in this weird, twisted, upside-down-and-backward world, Billy finds men whose only thought is to kill without mercy!"
+clips/_scenes/p10_t3.mp3,p10_f1_01,MR. MORRIS,0,2.44,We're out of control!! WE'RE FALLING!
+clips/_scenes/p10_t3.mp3,p10_f1_02,BILLY BATSON,2.44,4.04,SHAZAM!
+clips/_scenes/p10_t3.mp3,p10_f2_01,NARRATOR,4.04,12.0,"In answer to Billy's desperate shout, the familiar flash of yellow lightning splits the air with a deafening report... and..."
+clips/_scenes/p10_t3.mp3,p10_f3_01,NARRATOR,12.0,14.56,...good old Captain Marvel takes over!
+clips/_scenes/p10_t3.mp3,p10_f3_02,CAPTAIN MARVEL,14.56,19.0,"Come on, Mr. Morris! I can handle the situation— if Billy can't!!"
+clips/_scenes/p10_t3.mp3,p10_f4_01,CAPTAIN MARVEL,19.0,28.24,"Here we are, safe— WUP! I'm STILL a little twisted! But after all, I'M more able to take this sort of thing than Billy Batson is!"
+clips/_scenes/p10_t3.mp3,p10_f5_01,CAPTAIN MARVEL,28.24,30.487,"Just where are we now, Mr. Morris?"
+clips/_scenes/p10_t3.mp3,p10_f5_02,MR. MORRIS,30.487,32.005,Why— ah—
+clips/_scenes/p10_t3.mp3,p10_f5_03,SOLDIER 1,32.005,34.361,"Surrender or be killed, dogs!"
+clips/_scenes/p10_t3.mp3,p10_f6_01,SOLDIER 1,34.361,38.88,"Come quietly and you will not be harmed, but I warn you...."
+clips/_scenes/p11_t1.mp3,p11_f1_01,CAPTAIN MARVEL,0,2.64,SAVE YOUR WARNINGS FOR SOMEONE WHO NEEDS 'EM!
+clips/_scenes/p11_t1.mp3,p11_f2_01,SOLDIER 1,2.64,4.24,OH!
+clips/_scenes/p11_t1.mp3,p11_f2_02,MR. MORRIS,4.24,7.28,"Bravo, Captain Marvel! We'll show 'em!"
+clips/_scenes/p11_t1.mp3,p11_f2_03,SOLDIER 2,7.28,8.88,OW!
+clips/_scenes/p11_t1.mp3,p11_f2_04,SOLDIER 3,8.88,9.92,HELP!
+clips/_scenes/p12_t1.mp3,p12_f1_01,CAPTAIN MARVEL,0,3.84,"Pull a gun on Captain Marvel, will you? NEXT TIME YOU'LL KNOW BETTER!"
+clips/_scenes/p12_t1.mp3,p12_f2_01,CAPTAIN MARVEL,3.84,5.68,AND AS FOR YOU...
+clips/_scenes/p12_t1.mp3,p12_f2_02,MR. MORRIS,5.68,7.609,"Wait, Captain Marvel... DON'T..."
+clips/_scenes/p12_t1.mp3,p12_f3_01,CAPTAIN MARVEL,7.609,10.816,GREAT JUMPIN' JUPITER... A GIRL!
+clips/_scenes/p12_t1.mp3,p12_f3_02,MR. MORRIS,10.816,13.76,"Yes, their leaders are all women!!"
+clips/_scenes/p12_t1.mp3,p12_f4_01,CAPTAIN MARVEL,13.76,19.6,"Come on, sister! YOU'RE going to take us to your leader! I'll soon put a stop to this female invasion!"
+clips/_scenes/p12_t1.mp3,p12_f5_01,THE GIRL,19.6,20.813,FOLLOW ME!
+clips/_scenes/p12_t1.mp3,p12_f5_02,CAPTAIN MARVEL,20.813,22.42,You bet we'll follow you!
+clips/_scenes/p12_t1.mp3,p12_f5_03,MR. MORRIS,22.42,24.72,And don't try any tricks on US!
+clips/_scenes/p12_t1.mp3,p12_f6_01,CAPTAIN MARVEL,24.72,26.727,Hey! It's black in here!
+clips/_scenes/p12_t1.mp3,p12_f6_02,MR. MORRIS,26.727,30.01,Where'd that girl get to? SHE'S GIVEN US THE SLIP.
+clips/_scenes/p13_t3.mp3,p13_f1_01,NARRATOR,0,1.76,When the lights flash on again—
+clips/_scenes/p13_t3.mp3,p13_f1_02,CAPTAIN MARVEL,1.76,4.4,Wha— who— how...?
+clips/_scenes/p13_t3.mp3,p13_f1_03,MR. MORRIS,4.4,7.72,That girl! SHE IS the leader of the invasion!
+clips/_scenes/p13_t3.mp3,p13_f2_01,THE GIRL,7.72,8.814,SEIZE THEM!
+clips/_scenes/p13_t3.mp3,p13_f2_02,CAPTAIN MARVEL,8.814,11.281,Eh...? What the? HELP!
+clips/_scenes/p13_t3.mp3,p13_f3_01,MR. MORRIS,11.281,13.641,Captain Marvel! Do something!!
+clips/_scenes/p13_t3.mp3,p13_f3_02,MR. MORRIS,13.641,14.576,FIGHT!
+clips/_scenes/p13_t3.mp3,p13_f4_01,CAPTAIN MARVEL,14.576,19.781,"It's no use, Mr. Morris! I can't... fight... WOMEN!"
+clips/_scenes/p13_t3.mp3,p13_f5_01,THE GIRL,19.781,27.68,"THEN THROW HIM INTO THE PIT!! We shall see if he's any braver when he FACES, and FIGHTS, the monster FLESMIH!"
+clips/_scenes/p14_t4.mp3,p14_f1_01,CAPTAIN MARVEL,0,4.72,I don't know what's come over me! I don't usually let anyone toss me around like this!
+clips/_scenes/p14_t4.mp3,p14_f2_01,CAPTAIN MARVEL,4.72,10.17,"Well, at least I'm getting used to this topsy-turvy world enough so that I can land right-side up again!"
+clips/_scenes/p14_t4.mp3,p14_f3_01,CROWD,10.17,12.24,WE WANT FLESMIH!
+clips/_scenes/p14_t4.mp3,p14_f3_02,CROWD1,12.24,14.24,Turn loose the monster!
+clips/_scenes/p14_t4.mp3,p14_f3_03,CROWD2,14.24,16.72,FIGHT! He'll fight FLESMIH!
+clips/_scenes/p14_t4.mp3,p14_f3_04,CROWD3,16.72,18.0,FLESMIH!
+clips/_scenes/p14_t4.mp3,p14_f3_05,CAPTAIN MARVEL,18.0,26.08,Ah! Maybe this FLESMIH fellow will be something I can really let myself go at! Wonder what he looks like?
+clips/_scenes/p14_t4.mp3,p14_f4_01,CAPTAIN MARVEL,26.08,32.0,NO! NO! It— it CAN'T be! Why— this is... UTTERLY IMPOSSIBLE!
+clips/_scenes/p14_t4.mp3,p14_f5_01,NARRATOR,32.0,38.16,Even the indomitable Captain Marvel pales at the first sight of the horrible monster turned loose on him!
+clips/_scenes/p14_t4.mp3,p14_f6_01,CAPTAIN MARVEL,38.16,42.0,"Come on, you overgrown nightmare! I'M READY FOR YOU!"
+clips/_scenes/p15_t1.mp3,p15_f1_01,CAPTAIN MARVEL,0,3.8,Now I've got you...! OOPS! Where did he go?
+clips/_scenes/p15_t1.mp3,p15_f2_01,CAPTAIN MARVEL,3.8,8.2,"OH! Now you're all swelled up! Think you're too smart for me, do you?"
+clips/_scenes/p15_t1.mp3,p15_f3_01,CAPTAIN MARVEL,8.2,12.0,BLAST YOU! Why don't you keep one shape till I can catch you?
+clips/_scenes/p15_t1.mp3,p15_f4_01,CAPTAIN MARVEL,12.0,18.64,Ah! THAT'S IT! HOLD THAT POSE! Chin just a little higher— HERE IT COMES—
+clips/_scenes/p15_t1.mp3,p15_f5_01,NARRATOR,18.64,27.12,The whole universe seems to explode in one mighty blast of energy as Captain Marvel finally connects with the jaw of Flesmih!
+clips/_scenes/p15_t1.mp3,p15_f6_01,BILLY BATSON,27.12,32.4,H-Holy Moley! I've overslept! I've just got five minutes to dress and get to the office!
+clips/_scenes/p15_t1.mp3,p15_f6_02,NARRATOR,32.4,36.4,Follow CAPTAIN MARVEL'S adventures every month in WHIZ COMICS!

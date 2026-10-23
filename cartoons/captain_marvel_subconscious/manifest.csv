@@ -1,0 +1,132 @@
+id,chunk,character,voice,status,take,duration,file,performed
+p1_f1_01,p01,NARRATOR,Peter,ok,3,42.72,,"Captain Marvel and Billy Batson find themselves mysteriously projected into a topsy-turvy world where everything is backwards, upside-down, inside out and distorted— THE FANTASTICALLY UNBELIEVABLE REALM OF THE SUBCONSCIOUS!"
+p1_f2_01,p01,BILLY BATSON,Tate Dalton,ok,4,42.72,,"[warm, confiding, to the audience] Folks, sometimes I've been asked what was the MOST AMAZING adventure Captain Marvel ever had. [thoughtful] Well— you know, Captain Marvel's been just about everywhere and done almost everything— but I think the most amazing thing that ever happened to him was— [suddenly catching himself] BUT WAIT! [conspiratorial] Here's how it all began."
+p1_f3_01,p01,BILLY BATSON,Tate Dalton,ok,5,42.72,,"[storytelling, quiet] I was walking home from the broadcasting studios rather late one night, when—"
+p1_f3_02,p01,PROFESSOR SMITH,Grampa Werthers,ok,2,42.72,,"[distant, terrified shouting] HELP! HELP! SAVE ME!"
+p1_f3_03,p01,BILLY BATSON,Tate Dalton,ok,4,42.72,,[startled] WH-WHAT'S THAT?
+p2_f1_01,p02,BILLY BATSON,Tate Dalton,ok,7,17.12,,[shouting up at someone] HEY! What are you doing down there?
+p2_f1_02,p02,PROFESSOR SMITH,Grampa Werthers,ok,4,17.12,,HELP! HELP!
+p2_f2_01,p02,PROFESSOR SMITH,Grampa Werthers,ok,4,17.12,,HELP! I'm falling!
+p2_f3_01,p02,BILLY BATSON,Tate Dalton,ok,7,17.12,,SHAZAM!!
+p2_f4_01,p02,NARRATOR,Peter,ok,4,17.12,,Lightning splits the air and—
+p2_f5_01,p02,NARRATOR,Peter,ok,5,17.12,,—it's Captain Marvel to the rescue!
+p2_f5_02,p02,PROFESSOR SMITH,Grampa Werthers,ok,5,17.12,,"[desperate, breathless] HELP! Help! Help!"
+p2_f5_03,p02,CAPTAIN MARVEL,Kory,ok,4,17.12,,"[heroic, confident shout] Coming!"
+p2_f6_01,p02,PROFESSOR SMITH,Grampa Werthers,ok,4,17.12,,[panicked yell] HELP!
+p2_f6_02,p02,CAPTAIN MARVEL,Kory,ok,4,17.12,,"[calm, reassuring] Take it easy!"
+p3_f1_01,p03,CAPTAIN MARVEL,Kory,ok,2,32.24,,[stern but friendly scolding] You ought to know better than to try a stunt like that!
+p3_f2_01,p03,CAPTAIN MARVEL,Kory,ok,2,32.24,,[cheerful] Back we go!
+p3_f3_01,p03,PROFESSOR SMITH,Grampa Werthers,ok,2,32.24,,"[dizzy, whimpering] I'm falling! I'm dizzy! HALP!"
+p3_f3_02,p03,CAPTAIN MARVEL,Kory,ok,2,32.24,,"[concerned] DIZZY!? [kindly] Brother, you're in no condition to be out on the streets. I'd better take you home!"
+p3_f4_01,p03,PROFESSOR SMITH,Grampa Werthers,ok,2,32.24,,"[shaky, out of breath] H-here— here's where I live!"
+p3_f4_02,p03,CAPTAIN MARVEL,Kory,ok,2,32.24,,"[encouraging] WELL, let's go up the stairs!"
+p3_f5_01,p03,PROFESSOR SMITH,Grampa Werthers,ok,2,32.24,,[rising panic] Stairs! STAIRS? That's what started the whole thing! STAIRS! I can't get up them!
+p3_f5_02,p03,PROFESSOR SMITH,Grampa Werthers,ok,2,32.24,,[screaming] I'M FALLING!
+p3_f5_03,p03,PROFESSOR SMITH,Grampa Werthers,ok,2,32.24,,"[weak, fading] H-HELP!!"
+p3_f6_01,p03,CAPTAIN MARVEL,Kory,ok,2,32.24,,"[sighs, matter-of-fact] He's passed out. Might as well carry him in and put him to bed."
+p4_f1_01,p04,CAPTAIN MARVEL,Kory,ok,2,41.6,,[quietly satisfied] I've done about all I can. [lowered voice] And now— SHAZAM!
+p4_f3_01,p04,PROFESSOR SMITH,Grampa Werthers,ok,2,41.6,,"[groggy, alarmed] W-what was that? And WHO are you?"
+p4_f3_02,p04,BILLY BATSON,Tate Dalton,ok,3,41.6,,"[gentle, soothing] It's all right, mister, just lie back and you'll be all right in the morning!"
+p4_f4_01,p04,PROFESSOR SMITH,Grampa Werthers,ok,2,41.6,,[frantic] NO! NO! Nothing will ever be right again! NOTHING! [moaning] OOOOOOH! [laughing hysterically] AH-HAH-HAH-HAH-HA!
+p4_f5_01,p04,PROFESSOR SMITH,Grampa Werthers,ok,2,41.6,,[hysterical laughter] HAH! HAA! HAA! [raving] Stairs! Stairs! [cackling] Haaa!
+p4_f5_02,p04,BILLY BATSON,Tate Dalton,ok,3,41.6,,[alarmed] HOLY MOLEY! The old fellow's throwing a fit!
+p4_f6_01,p04,PROFESSOR SMITH,Grampa Werthers,ok,2,41.6,,"[exhausted, calming down] I— I'm all right now!"
+p4_f6_02,p04,BILLY BATSON,Tate Dalton,ok,3,41.6,,[relieved exhale] WHEW! I'm glad THAT'S over.
+p4_f7_01,p04,BILLY BATSON,Tate Dalton,ok,3,41.6,,"[curious, a little awkward] Now suppose you tell me what this is all about— Mister— er—"
+p4_f7_02,p04,PROFESSOR SMITH,Grampa Werthers,ok,2,41.6,,"[recovering his dignity, proud] Smith— PROFESSOR EDGEWOOD SMITH is my name, sonny."
+p5_f1_01,p05,PROFESSOR SMITH,Grampa Werthers,ok,2,53.76,,"[wry, self-aware] Sometimes people call me ""EDGEWISE"" Smith. [hesitant] They think— they think I'm QUEER— [chuckles] and they're right— mostly. [proudly] Look at this room of mine, for instance!"
+p5_f2_01,p05,BILLY BATSON,Tate Dalton,ok,3,53.76,,"[amazed, woozy] WOW! It makes me dizzy just to look at it!"
+p5_f2_02,p05,PROFESSOR SMITH,Grampa Werthers,ok,2,53.76,,"[delighted, showman] Precisely! But now I'll show you a trick!"
+p5_f3_01,p05,PROFESSOR SMITH,Grampa Werthers,ok,2,53.76,,[pleased] See? From this position it looks right!
+p5_f3_02,p05,BILLY BATSON,Tate Dalton,ok,3,53.76,,"[unconvinced, polite] We-ell, ALMOST right, anyhow!"
+p5_f4_01,p05,PROFESSOR SMITH,Grampa Werthers,ok,2,53.76,,"[lecturing, enthusiastic] See? When you first look— the stairs go UP. Then when you look again— they seem to go DOWN!"
+p5_f4_02,p05,BILLY BATSON,Tate Dalton,ok,3,53.76,,[genuinely impressed] HMMM! So they do! Amazing!
+p5_f5_01,p05,PROFESSOR SMITH,Grampa Werthers,ok,2,53.76,,"[gleeful, like a magic trick] Now here are SIX cubes! But turn the drawing upside down and there are SEVEN!"
+p5_f6_01,p05,PROFESSOR SMITH,Grampa Werthers,ok,2,53.76,,"[sly, leading question] Now of course you can comb your hair in front of an ordinary mirror, can't you? Even though your reflection is really left-handed?"
+p5_f6_02,p05,BILLY BATSON,Tate Dalton,ok,3,53.76,,"[confident] Why, sure— anybody can!"
+p5_f7_01,p05,PROFESSOR SMITH,Grampa Werthers,ok,2,53.76,,"[triumphant, pointed] But when a SECOND mirror shows you as you REALLY are, you're all confused, aren't you?"
+p6_f1_01,p06,PROFESSOR SMITH,Grampa Werthers,ok,2,55.28,,"[intense, tapping his head] See? It's all in your subconscious mind— HERE! [rapid, building excitement] You can't even read ordinary writing held to a mirror because it's backwards! And yet you comb your hair backwards and can't do it frontwards when the extra mirror shows you how you really are!"
+p6_f1_02,p06,BILLY BATSON,Tate Dalton,ok,6,55.28,,"[flustered, edging away] It's— it's all very confusing— I think I'd better go!"
+p6_f2_01,p06,BILLY BATSON,Tate Dalton,ok,6,55.28,,"[nervous, polite] G-GOOD NIGHT, Professor."
+p6_f2_02,p06,PROFESSOR SMITH,Grampa Werthers,ok,2,55.28,,"[cheerful, a little ominous] Good night, sonny— watch those stairs!"
+p6_f3_01,p06,BILLY BATSON,Tate Dalton,ok,6,55.28,,"[to himself, amused] WOW! What a crackpot that Professor ""Edgewise"" Smith is! [chuckling] And to think it's all in his SUBCONSCIOUS mind! [smug] I'm glad MY subconscious mind doesn't bother ME!"
+p6_f3_02,p06,NARRATOR,Peter,ok,2,55.28,,Little does Billy realize what is about to happen to him!
+p6_f4_01,p06,NARRATOR,Peter,ok,2,55.28,,Some hours later—
+p6_f5_01,p06,BILLY BATSON,Tate Dalton,ok,6,55.28,,"[groggy, grumbling] HMMPH! I must have fallen out of bed! Well, it's time to get up anyway!"
+p6_f6_01,p06,BILLY BATSON,Tate Dalton,ok,6,55.28,,[yelps in pain] OW! [confused] What's that lighting fixture doing here in the middle of the floor?
+p6_f7_01,p06,BILLY BATSON,Tate Dalton,ok,6,55.28,,[horrified realization] HOLY MOLEY! Maybe it's happened to me like it did to Professor Smith! I'M— I'M UPSIDE DOWN!
+p7_f1_01,p07,BILLY BATSON,Tate Dalton,ok,3,32.0,,[panicked] YEEOW! I'd better get dressed and get out of here!
+p7_f2_01,p07,BILLY BATSON,Tate Dalton,ok,3,32.0,,[dismayed] Omigosh! I can't even see my own face in the mirror any more!
+p7_f3_01,p07,BILLY BATSON,Tate Dalton,ok,3,32.0,,"[uneasy, muttering] Things certainly look queer! I don't blame old Professor Smith for getting dizzy!"
+p7_f4_01,p07,BILLY BATSON,Tate Dalton,ok,3,32.0,,[aghast] AND THE PEOPLE! I wonder if I look like THAT to THEM!
+p7_f5_01,p07,BILLY BATSON,Tate Dalton,ok,3,32.0,,[puzzled] THAT'S FUNNY! This elevator's going DOWN!
+p7_f5_02,p07,ELEVATOR OPERATOR,Brian,ok,2,32.0,,"[bored, sing-song announcing] SIXTY-FIFTH FLOOR! SIXTY-FIVE! Let 'em out!"
+p7_f6_01,p07,BILLY BATSON,Tate Dalton,ok,3,32.0,,"[forced politeness, stammering] Why, good morning, Miss Dalshaw! How— er— NICE you look this morning!"
+p7_f6_02,p07,MISS DALSHAW,Vanessa,ok,2,32.0,,"[pleasant, businesslike] Good morning, Billy. Mr. Morris wants to see you right away."
+p8_f1_01,p08,MR. MORRIS,Baker,ok,3,38.88,,"[hearty, jovial boss] Good morning, Billy! All set for a good hard day's work at Amalgamated Broadcasting?"
+p8_f1_02,p08,BILLY BATSON,Tate Dalton,ok,4,38.88,,"[under his breath, astonished] GOSH! What a costume! I must look funny in my plain old blue pants and red sweater!"
+p8_f1_03,p08,BILLY BATSON,Tate Dalton,ok,4,38.88,,"[trying to sound normal] Good morning, Mr. Morris."
+p8_f2_01,p08,NARRATOR,Peter,ok,5,38.88,,Back in Billy's office...
+p8_f2_02,p08,BILLY BATSON,Tate Dalton,ok,3,38.88,,"[gulps, embarrassed] ULP! I forgot I can't even see myself anymore!"
+p8_f3_01,p08,BILLY BATSON,Tate Dalton,ok,4,38.88,,"[frustrated] GOSH! How am I gonna read these news reports? THEY'RE all mixed up, too!"
+p8_f4_01,p08,BILLY BATSON,Tate Dalton,ok,4,38.88,,[exasperated] IT'S NO USE! I can see it— but I still can't read it!
+p8_f5_01,p08,MR. MORRIS,Baker,ok,3,38.88,,"[urgent, excited] Come on, Billy— WE'RE OFF TO THE FRONT!"
+p8_f5_02,p08,BILLY BATSON,Tate Dalton,ok,4,38.88,,[confused] Wh— what front?
+p8_f6_01,p08,MR. MORRIS,Baker,ok,3,38.88,,"[impatient, rallying] Why, the WAR FRONT, of course! The invasion and all! TO THE ROOF!"
+p8_f6_02,p08,BILLY BATSON,Tate Dalton,ok,4,38.88,,[shocked] The INVASION? Here?
+p9_f1_01,p09,MR. MORRIS,Baker,ok,2,19.84,,"[shouting over engine noise] CLIMB IN, BILLY! HURRY!"
+p9_f2_01,p09,BILLY BATSON,Tate Dalton,ok,3,19.84,,"[shouting, confused] But— but, Mr. Morris, if we're going to the FRONT, wouldn't it really be the BACK? [flustered] Er— I mean— oh, I'M ALL TWISTED UP!"
+p9_f3_01,p09,MR. MORRIS,Baker,ok,2,19.84,,[alarmed shout] LOOK OUT! We're being attacked!
+p9_f5_01,p09,NARRATOR,Peter,ok,2,19.84,,"Even in this weird, twisted, upside-down-and-backward world, Billy finds men whose only thought is to kill without mercy!"
+p10_f1_01,p10,MR. MORRIS,Baker,ok,3,38.88,,"[screaming, panicked] We're out of control!! WE'RE FALLING!"
+p10_f1_02,p10,BILLY BATSON,Tate Dalton,ok,4,38.88,,[shouting with all his might] SHAZAM!
+p10_f2_01,p10,NARRATOR,Peter,ok,3,38.88,,"In answer to Billy's desperate shout, the familiar flash of yellow lightning splits the air with a deafening report... and..."
+p10_f3_01,p10,NARRATOR,Peter,ok,4,38.88,,...good old Captain Marvel takes over!
+p10_f3_02,p10,CAPTAIN MARVEL,Kory,ok,3,38.88,,"[commanding, confident] Come on, Mr. Morris! I can handle the situation— if Billy can't!!"
+p10_f4_01,p10,CAPTAIN MARVEL,Kory,ok,3,38.88,,"[relieved] Here we are, safe— [stumbles] WUP! [laughs at himself] I'm STILL a little twisted! [confident] But after all, I'M more able to take this sort of thing than Billy Batson is!"
+p10_f5_01,p10,CAPTAIN MARVEL,Kory,ok,3,38.88,,"[alert, looking around] Just where are we now, Mr. Morris?"
+p10_f5_02,p10,MR. MORRIS,Baker,ok,3,38.88,,"[uncertain, stammering] Why— ah—"
+p10_f5_03,p10,SOLDIER 1,John Morgan,ok,3,38.88,,"[menacing, barking, from off] Surrender or be killed, dogs!"
+p10_f6_01,p10,SOLDIER 1,John Morgan,ok,3,38.88,,"[cold, threatening] Come quietly and you will not be harmed, but I warn you...."
+p11_f1_01,p11,CAPTAIN MARVEL,Kory,ok,2,9.92,,"[defiant, booming] SAVE YOUR WARNINGS FOR SOMEONE WHO NEEDS 'EM!"
+p11_f2_01,p11,SOLDIER 1,John Morgan,ok,2,9.92,,"[grunts, knocked down] OH!"
+p11_f2_02,p11,MR. MORRIS,Baker,ok,2,9.92,,"[cheering] Bravo, Captain Marvel! We'll show 'em!"
+p11_f2_03,p11,SOLDIER 2,Deadpan Cynic,ok,2,9.92,,[yelps] OW!
+p11_f2_04,p11,SOLDIER 3,Vane,ok,2,9.92,,[panicked yell] HELP!
+p12_f1_01,p12,CAPTAIN MARVEL,Kory,ok,2,30.08,,"[righteous, punching] Pull a gun on Captain Marvel, will you? NEXT TIME YOU'LL KNOW BETTER!"
+p12_f2_01,p12,CAPTAIN MARVEL,Kory,ok,2,30.08,,"[turning, menacing] AND AS FOR YOU..."
+p12_f2_02,p12,MR. MORRIS,Baker,ok,2,30.08,,"[urgent, pleading] Wait, Captain Marvel... DON'T..."
+p12_f3_01,p12,CAPTAIN MARVEL,Kory,ok,2,30.08,,[stunned disbelief] GREAT JUMPIN' JUPITER... A GIRL!
+p12_f3_02,p12,MR. MORRIS,Baker,ok,2,30.08,,"[grave] Yes, their leaders are all women!!"
+p12_f4_01,p12,CAPTAIN MARVEL,Kory,ok,2,30.08,,"[firm, a bit cocky] Come on, sister! YOU'RE going to take us to your leader! I'll soon put a stop to this female invasion!"
+p12_f5_01,p12,THE GIRL,Amanda Beans,ok,2,30.08,,"[haughty, commanding] FOLLOW ME!"
+p12_f5_02,p12,CAPTAIN MARVEL,Kory,ok,2,30.08,,[confident] You bet we'll follow you!
+p12_f5_03,p12,MR. MORRIS,Baker,ok,2,30.08,,"[gruff, suspicious] And don't try any tricks on US!"
+p12_f6_01,p12,CAPTAIN MARVEL,Kory,ok,2,30.08,,"[startled, in the dark] Hey! It's black in here!"
+p12_f6_02,p12,MR. MORRIS,Baker,ok,2,30.08,,"[angry, frustrated] Where'd that girl get to? SHE'S GIVEN US THE SLIP."
+p13_f1_01,p13,NARRATOR,Peter,ok,4,27.68,,When the lights flash on again—
+p13_f1_02,p13,CAPTAIN MARVEL,Kory,ok,4,27.68,,"[dazed, stammering] Wha— who— how...?"
+p13_f1_03,p13,MR. MORRIS,Baker,ok,3,27.68,,"[pointing, alarmed] That girl! SHE IS the leader of the invasion!"
+p13_f2_01,p13,THE GIRL,Amanda Beans,ok,3,27.68,,"[imperious command, from off] SEIZE THEM!"
+p13_f2_02,p13,CAPTAIN MARVEL,Kory,ok,3,27.68,,[confused] Eh...? What the? [alarmed] HELP!
+p13_f3_01,p13,MR. MORRIS,Baker,ok,3,27.68,,[desperate] Captain Marvel! Do something!!
+p13_f3_02,p13,MR. MORRIS,Baker,ok,3,27.68,,[shouting] FIGHT!
+p13_f4_01,p13,CAPTAIN MARVEL,Kory,ok,3,27.68,,"[anguished, struggling] It's no use, Mr. Morris! I can't... fight... WOMEN!"
+p13_f5_01,p13,THE GIRL,Amanda Beans,ok,3,27.68,,"[cruel, triumphant] THEN THROW HIM INTO THE PIT!! We shall see if he's any braver when he FACES, and FIGHTS, the monster FLESMIH!"
+p14_f1_01,p14,CAPTAIN MARVEL,Kory,ok,4,42.0,,"[bewildered, frustrated] I don't know what's come over me! I don't usually let anyone toss me around like this!"
+p14_f2_01,p14,CAPTAIN MARVEL,Kory,ok,4,42.0,,"[wry, regaining composure] Well, at least I'm getting used to this topsy-turvy world enough so that I can land right-side up again!"
+p14_f3_01,p14,CROWD,Edward,ok,6,42.0,,[crowd chanting] WE WANT FLESMIH!
+p14_f3_02,p14,CROWD1,Austin,ok,6,42.0,,[jeering] Turn loose the monster!
+p14_f3_03,p14,CROWD2,Ellen,ok,6,42.0,,[bloodthirsty shouting] FIGHT! He'll fight FLESMIH!
+p14_f3_04,p14,CROWD3,Horatius,ok,6,42.0,,[chanting] FLESMIH!
+p14_f3_05,p14,CAPTAIN MARVEL,Kory,ok,4,42.0,,"[eager, rubbing his hands] Ah! Maybe this FLESMIH fellow will be something I can really let myself go at! Wonder what he looks like?"
+p14_f4_01,p14,CAPTAIN MARVEL,Kory,ok,4,42.0,,[horrified disbelief] NO! NO! It— it CAN'T be! Why— this is... UTTERLY IMPOSSIBLE!
+p14_f5_01,p14,NARRATOR,Peter,ok,5,42.0,,Even the indomitable Captain Marvel pales at the first sight of the horrible monster turned loose on him!
+p14_f6_01,p14,CAPTAIN MARVEL,Kory,ok,2,42.0,,"[taunting, fists up] Come on, you overgrown nightmare! I'M READY FOR YOU!"
+p15_f1_01,p15,CAPTAIN MARVEL,Kory,ok,2,36.4,,[lunging] Now I've got you...! [surprised] OOPS! [baffled] Where did he go?
+p15_f2_01,p15,CAPTAIN MARVEL,Kory,ok,2,36.4,,"[startled] OH! [annoyed] Now you're all swelled up! Think you're too smart for me, do you?"
+p15_f3_01,p15,CAPTAIN MARVEL,Kory,ok,2,36.4,,[furious] BLAST YOU! Why don't you keep one shape till I can catch you?
+p15_f4_01,p15,CAPTAIN MARVEL,Kory,ok,2,36.4,,[eureka] Ah! THAT'S IT! [mock photographer] HOLD THAT POSE! Chin just a little higher— [winding up] HERE IT COMES—
+p15_f5_01,p15,NARRATOR,Peter,ok,2,36.4,,The whole universe seems to explode in one mighty blast of energy as Captain Marvel finally connects with the jaw of Flesmih!
+p15_f6_01,p15,BILLY BATSON,Tate Dalton,ok,3,36.4,,"[waking with a start, panicked] H-Holy Moley! I've overslept! I've just got five minutes to dress and get to the office!"
+p15_f6_02,p15,NARRATOR,Peter,ok,2,36.4,,Follow CAPTAIN MARVEL'S adventures every month in WHIZ COMICS!

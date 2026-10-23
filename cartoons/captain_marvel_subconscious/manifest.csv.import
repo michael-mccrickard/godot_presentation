@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bgdb0mvjmv81"
+
+[deps]
+
+files=["res://cartoons/captain_marvel_subconscious/manifest.chunk.translation", "res://cartoons/captain_marvel_subconscious/manifest.character.translation", "res://cartoons/captain_marvel_subconscious/manifest.voice.translation", "res://cartoons/captain_marvel_subconscious/manifest.status.translation", "res://cartoons/captain_marvel_subconscious/manifest.take.translation", "res://cartoons/captain_marvel_subconscious/manifest.duration.translation", "res://cartoons/captain_marvel_subconscious/manifest.performed.translation"]
+
+source_file="res://cartoons/captain_marvel_subconscious/manifest.csv"
+dest_files=["res://cartoons/captain_marvel_subconscious/manifest.chunk.translation", "res://cartoons/captain_marvel_subconscious/manifest.character.translation", "res://cartoons/captain_marvel_subconscious/manifest.voice.translation", "res://cartoons/captain_marvel_subconscious/manifest.status.translation", "res://cartoons/captain_marvel_subconscious/manifest.take.translation", "res://cartoons/captain_marvel_subconscious/manifest.duration.translation", "res://cartoons/captain_marvel_subconscious/manifest.performed.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

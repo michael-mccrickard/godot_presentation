@@ -10,9 +10,13 @@ export_credentials.cfg
 # Imported translations (automatically generated from CSV files)
 *.translation
 
+.clips/
+
 # Mono-specific ignores
 .mono/
 data_*/
 mono_crash.*.json
 
 audio.wav
+clips/
+logic/

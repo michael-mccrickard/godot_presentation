@@ -1,0 +1,604 @@
+{
+  "_notes": [
+    "Tagged copy of script.txt for ElevenLabs v4. Edit 'performed' freely: tags in [brackets] direct delivery and are not spoken.",
+    "'text' must match the script line; if you edit the script, the line falls back to untagged until you update it here.",
+    "Character sketch (for choosing voices): BILLY BATSON - teenage boy radio announcer, eager, earnest, easily flustered. CAPTAIN MARVEL - adult hero, big warm baritone, confident and good-humoured. PROFESSOR SMITH - elderly eccentric scientist, reedy, swings between lecturing and hysteria. MR. MORRIS - Billy's boss, hearty middle-aged bluster. MISS DALSHAW - brisk receptionist. THE GIRL - imperious invasion leader. SOLDIERS - gruff heavies. ELEVATOR OPERATOR - bored announcer."
+  ],
+  "lines": {
+    "p1_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "How did I get here? And where AM I, anyway?",
+      "performed": "[bewildered, looking around] How did I get here? [puzzled] And where AM I, anyway?"
+    },
+    "p1_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "Folks, sometimes I've been asked what was the MOST AMAZING adventure Captain Marvel ever had. Well— you know, Captain Marvel's been just about everywhere and done almost everything— but I think the most amazing thing that ever happened to him was— BUT WAIT! Here's how it all began.",
+      "performed": "[warm, confiding, to the audience] Folks, sometimes I've been asked what was the MOST AMAZING adventure Captain Marvel ever had. [thoughtful] Well— you know, Captain Marvel's been just about everywhere and done almost everything— but I think the most amazing thing that ever happened to him was— [suddenly catching himself] BUT WAIT! [conspiratorial] Here's how it all began."
+    },
+    "p1_f3_01": {
+      "character": "BILLY BATSON",
+      "text": "I was walking home from the broadcasting studios rather late one night, when—",
+      "performed": "[storytelling, quiet] I was walking home from the broadcasting studios rather late one night, when—"
+    },
+    "p1_f3_02": {
+      "character": "PROFESSOR SMITH",
+      "text": "HELP! HELP! SAVE ME!",
+      "performed": "[distant, terrified shouting] HELP! HELP! SAVE ME!"
+    },
+    "p1_f3_03": {
+      "character": "BILLY BATSON",
+      "text": "WH-WHAT'S THAT?",
+      "performed": "[startled] WH-WHAT'S THAT?"
+    },
+    "p2_f1_01": {
+      "character": "BILLY BATSON",
+      "text": "HEY! What are you doing down there?",
+      "performed": "[shouting up at someone] HEY! What are you doing down there?"
+    },
+    "p2_f1_02": {
+      "character": "PROFESSOR SMITH",
+      "text": "HE-ELP! HELP!",
+      "performed": "[wailing, terrified] HE-ELP! HELP!"
+    },
+    "p2_f2_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "HE-EEELP! I'm falling!",
+      "performed": "[screaming, panicked] HE-EEELP! I'm falling!"
+    },
+    "p2_f3_01": {
+      "character": "BILLY BATSON",
+      "text": "SHAZAM!",
+      "performed": "[shouting with all his might] SHAZAM!"
+    },
+    "p2_f5_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "HELP! Help! Help!",
+      "performed": "[desperate, breathless] HELP! Help! Help!"
+    },
+    "p2_f5_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Coming!",
+      "performed": "[heroic, confident shout] Coming!"
+    },
+    "p2_f6_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "HALP!",
+      "performed": "[terrified wail] HALP!"
+    },
+    "p2_f6_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Take it easy!",
+      "performed": "[calm, reassuring] Take it easy!"
+    },
+    "p3_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "You ought to know better than to try a stunt like that!",
+      "performed": "[stern but friendly scolding] You ought to know better than to try a stunt like that!"
+    },
+    "p3_f2_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Back we go!",
+      "performed": "[cheerful] Back we go!"
+    },
+    "p3_f3_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "I'm falling! I'm dizzy! HALP!",
+      "performed": "[dizzy, whimpering] I'm falling! I'm dizzy! HALP!"
+    },
+    "p3_f3_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "DIZZY!? Brother, you're in no condition to be out on the streets. I'd better take you home!",
+      "performed": "[concerned] DIZZY!? [kindly] Brother, you're in no condition to be out on the streets. I'd better take you home!"
+    },
+    "p3_f4_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "H-here— here's where I live!",
+      "performed": "[shaky, out of breath] H-here— here's where I live!"
+    },
+    "p3_f4_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "WELL, let's go up the stairs!",
+      "performed": "[encouraging] WELL, let's go up the stairs!"
+    },
+    "p3_f5_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "Stairs! STAIRS? That's what started the whole thing! STAIRS! I can't get up them!",
+      "performed": "[rising panic] Stairs! STAIRS? That's what started the whole thing! STAIRS! I can't get up them!"
+    },
+    "p3_f5_02": {
+      "character": "PROFESSOR SMITH",
+      "text": "I'M FALLING!",
+      "performed": "[screaming] I'M FALLING!"
+    },
+    "p3_f5_03": {
+      "character": "PROFESSOR SMITH",
+      "text": "H-HELP!!",
+      "performed": "[weak, fading] H-HELP!!"
+    },
+    "p3_f6_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "He's passed out. Might as well carry him in and put him to bed.",
+      "performed": "[sighs, matter-of-fact] He's passed out. Might as well carry him in and put him to bed."
+    },
+    "p4_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "I've done about all I can. And now— SHAZAM!",
+      "performed": "[quietly satisfied] I've done about all I can. [lowered voice] And now— SHAZAM!"
+    },
+    "p4_f3_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "W-what was that? And WHO are you?",
+      "performed": "[groggy, alarmed] W-what was that? And WHO are you?"
+    },
+    "p4_f3_02": {
+      "character": "BILLY BATSON",
+      "text": "It's all right, mister, just lie back and you'll be all right in the morning!",
+      "performed": "[gentle, soothing] It's all right, mister, just lie back and you'll be all right in the morning!"
+    },
+    "p4_f4_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "NO! NO! Nothing will ever be right again! NOTHING! OOOOOOH! AH-HAH-HAH-HAH-HA!",
+      "performed": "[frantic] NO! NO! Nothing will ever be right again! NOTHING! [moaning] OOOOOOH! [laughing hysterically] AH-HAH-HAH-HAH-HA!"
+    },
+    "p4_f5_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "HAH! HAA! HAA! Stairs! Stairs! Haaa!",
+      "performed": "[hysterical laughter] HAH! HAA! HAA! [raving] Stairs! Stairs! [cackling] Haaa!"
+    },
+    "p4_f5_02": {
+      "character": "BILLY BATSON",
+      "text": "HOLY MOLEY! The old fellow's throwing a fit!",
+      "performed": "[alarmed] HOLY MOLEY! The old fellow's throwing a fit!"
+    },
+    "p4_f6_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "I— I'm all right now!",
+      "performed": "[exhausted, calming down] I— I'm all right now!"
+    },
+    "p4_f6_02": {
+      "character": "BILLY BATSON",
+      "text": "WHEW! I'm glad THAT'S over.",
+      "performed": "[relieved exhale] WHEW! I'm glad THAT'S over."
+    },
+    "p4_f7_01": {
+      "character": "BILLY BATSON",
+      "text": "Now suppose you tell me what this is all about— Mister— er—",
+      "performed": "[curious, a little awkward] Now suppose you tell me what this is all about— Mister— er—"
+    },
+    "p4_f7_02": {
+      "character": "PROFESSOR SMITH",
+      "text": "Smith— PROFESSOR EDGEWOOD SMITH is my name, sonny.",
+      "performed": "[recovering his dignity, proud] Smith— PROFESSOR EDGEWOOD SMITH is my name, sonny."
+    },
+    "p5_f1_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "Sometimes people call me \"EDGEWISE\" Smith. They think— they think I'm QUEER— and they're right— mostly. Look at this room of mine, for instance!",
+      "performed": "[wry, self-aware] Sometimes people call me \"EDGEWISE\" Smith. [hesitant] They think— they think I'm QUEER— [chuckles] and they're right— mostly. [proudly] Look at this room of mine, for instance!"
+    },
+    "p5_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "WOW! It makes me dizzy just to look at it!",
+      "performed": "[amazed, woozy] WOW! It makes me dizzy just to look at it!"
+    },
+    "p5_f2_02": {
+      "character": "PROFESSOR SMITH",
+      "text": "Precisely! But now I'll show you a trick!",
+      "performed": "[delighted, showman] Precisely! But now I'll show you a trick!"
+    },
+    "p5_f3_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "See? From this position it looks right!",
+      "performed": "[pleased] See? From this position it looks right!"
+    },
+    "p5_f3_02": {
+      "character": "BILLY BATSON",
+      "text": "We-ell, ALMOST right, anyhow!",
+      "performed": "[unconvinced, polite] We-ell, ALMOST right, anyhow!"
+    },
+    "p5_f4_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "See? When you first look— the stairs go UP. Then when you look again— they seem to go DOWN!",
+      "performed": "[lecturing, enthusiastic] See? When you first look— the stairs go UP. Then when you look again— they seem to go DOWN!"
+    },
+    "p5_f4_02": {
+      "character": "BILLY BATSON",
+      "text": "HMMM! So they do! Amazing!",
+      "performed": "[genuinely impressed] HMMM! So they do! Amazing!"
+    },
+    "p5_f5_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "Now here are SIX cubes! But turn the drawing upside down and there are SEVEN!",
+      "performed": "[gleeful, like a magic trick] Now here are SIX cubes! But turn the drawing upside down and there are SEVEN!"
+    },
+    "p5_f6_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "Now of course you can comb your hair in front of an ordinary mirror, can't you? Even though your reflection is really left-handed?",
+      "performed": "[sly, leading question] Now of course you can comb your hair in front of an ordinary mirror, can't you? Even though your reflection is really left-handed?"
+    },
+    "p5_f6_02": {
+      "character": "BILLY BATSON",
+      "text": "Why, sure— anybody can!",
+      "performed": "[confident] Why, sure— anybody can!"
+    },
+    "p5_f7_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "But when a SECOND mirror shows you as you REALLY are, you're all confused, aren't you?",
+      "performed": "[triumphant, pointed] But when a SECOND mirror shows you as you REALLY are, you're all confused, aren't you?"
+    },
+    "p6_f1_01": {
+      "character": "PROFESSOR SMITH",
+      "text": "See? It's all in your subconscious mind— HERE! You can't even read ordinary writing held to a mirror because it's backwards! And yet you comb your hair backwards and can't do it frontwards when the extra mirror shows you how you really are!",
+      "performed": "[intense, tapping his head] See? It's all in your subconscious mind— HERE! [rapid, building excitement] You can't even read ordinary writing held to a mirror because it's backwards! And yet you comb your hair backwards and can't do it frontwards when the extra mirror shows you how you really are!"
+    },
+    "p6_f1_02": {
+      "character": "BILLY BATSON",
+      "text": "It's— it's all very confusing— I think I'd better go!",
+      "performed": "[flustered, edging away] It's— it's all very confusing— I think I'd better go!"
+    },
+    "p6_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "G-GOOD NIGHT, Professor.",
+      "performed": "[nervous, polite] G-GOOD NIGHT, Professor."
+    },
+    "p6_f2_02": {
+      "character": "PROFESSOR SMITH",
+      "text": "Good night, sonny— watch those stairs!",
+      "performed": "[cheerful, a little ominous] Good night, sonny— watch those stairs!"
+    },
+    "p6_f3_01": {
+      "character": "BILLY BATSON",
+      "text": "WOW! What a crackpot that Professor \"Edgewise\" Smith is! And to think it's all in his SUBCONSCIOUS mind! I'm glad MY subconscious mind doesn't bother ME!",
+      "performed": "[to himself, amused] WOW! What a crackpot that Professor \"Edgewise\" Smith is! [chuckling] And to think it's all in his SUBCONSCIOUS mind! [smug] I'm glad MY subconscious mind doesn't bother ME!"
+    },
+    "p6_f5_01": {
+      "character": "BILLY BATSON",
+      "text": "HMMPH! I must have fallen out of bed! Well, it's time to get up anyway!",
+      "performed": "[groggy, grumbling] HMMPH! I must have fallen out of bed! Well, it's time to get up anyway!"
+    },
+    "p6_f6_01": {
+      "character": "BILLY BATSON",
+      "text": "OW! What's that lighting fixture doing here in the middle of the floor?",
+      "performed": "[yelps in pain] OW! [confused] What's that lighting fixture doing here in the middle of the floor?"
+    },
+    "p6_f7_01": {
+      "character": "BILLY BATSON",
+      "text": "HOLY MOLEY! Maybe it's happened to me like it did to Professor Smith! I'M— I'M UPSIDE DOWN!",
+      "performed": "[horrified realization] HOLY MOLEY! Maybe it's happened to me like it did to Professor Smith! I'M— I'M UPSIDE DOWN!"
+    },
+    "p7_f1_01": {
+      "character": "BILLY BATSON",
+      "text": "YEEOW! I'd better get dressed and get out of here!",
+      "performed": "[panicked] YEEOW! I'd better get dressed and get out of here!"
+    },
+    "p7_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "Omigosh! I can't even see my own face in the mirror any more!",
+      "performed": "[dismayed] Omigosh! I can't even see my own face in the mirror any more!"
+    },
+    "p7_f3_01": {
+      "character": "BILLY BATSON",
+      "text": "Things certainly look queer! I don't blame old Professor Smith for getting dizzy!",
+      "performed": "[uneasy, muttering] Things certainly look queer! I don't blame old Professor Smith for getting dizzy!"
+    },
+    "p7_f4_01": {
+      "character": "BILLY BATSON",
+      "text": "AND THE PEOPLE! I wonder if I look like THAT to THEM!",
+      "performed": "[aghast] AND THE PEOPLE! I wonder if I look like THAT to THEM!"
+    },
+    "p7_f5_01": {
+      "character": "BILLY BATSON",
+      "text": "THAT'S FUNNY! This elevator's going DOWN!",
+      "performed": "[puzzled] THAT'S FUNNY! This elevator's going DOWN!"
+    },
+    "p7_f5_02": {
+      "character": "ELEVATOR OPERATOR",
+      "text": "SIXTY-FIFTH FLOOR! SIXTY-FIVE! Let 'em out!",
+      "performed": "[bored, sing-song announcing] SIXTY-FIFTH FLOOR! SIXTY-FIVE! Let 'em out!"
+    },
+    "p7_f6_01": {
+      "character": "BILLY BATSON",
+      "text": "Why, good morning, Miss Dalshaw! How— er— NICE you look this morning!",
+      "performed": "[forced politeness, stammering] Why, good morning, Miss Dalshaw! How— er— NICE you look this morning!"
+    },
+    "p7_f6_02": {
+      "character": "MISS DALSHAW",
+      "text": "Good morning, Billy. Mr. Morris wants to see you right away.",
+      "performed": "[pleasant, businesslike] Good morning, Billy. Mr. Morris wants to see you right away."
+    },
+    "p8_f1_01": {
+      "character": "MR. MORRIS",
+      "text": "Good morning, Billy! All set for a good hard day's work at Amalgamated Broadcasting?",
+      "performed": "[hearty, jovial boss] Good morning, Billy! All set for a good hard day's work at Amalgamated Broadcasting?"
+    },
+    "p8_f1_02": {
+      "character": "BILLY BATSON",
+      "text": "GOSH! What a costume! I must look funny in my plain old blue pants and red sweater!",
+      "performed": "[under his breath, astonished] GOSH! What a costume! I must look funny in my plain old blue pants and red sweater!"
+    },
+    "p8_f1_03": {
+      "character": "BILLY BATSON",
+      "text": "Good morning, Mr. Morris.",
+      "performed": "[trying to sound normal] Good morning, Mr. Morris."
+    },
+    "p8_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "ULP! I forgot I can't even see myself anymore!",
+      "performed": "[gulps, embarrassed] ULP! I forgot I can't even see myself anymore!"
+    },
+    "p8_f3_01": {
+      "character": "BILLY BATSON",
+      "text": "GOSH! How am I gonna read these news reports? THEY'RE all mixed up, too!",
+      "performed": "[frustrated] GOSH! How am I gonna read these news reports? THEY'RE all mixed up, too!"
+    },
+    "p8_f4_01": {
+      "character": "BILLY BATSON",
+      "text": "IT'S NO USE! I can see it— but I still can't read it!",
+      "performed": "[exasperated] IT'S NO USE! I can see it— but I still can't read it!"
+    },
+    "p8_f5_01": {
+      "character": "MR. MORRIS",
+      "text": "Come on, Billy— WE'RE OFF TO THE FRONT!",
+      "performed": "[urgent, excited] Come on, Billy— WE'RE OFF TO THE FRONT!"
+    },
+    "p8_f5_02": {
+      "character": "BILLY BATSON",
+      "text": "Wh— what front?",
+      "performed": "[confused] Wh— what front?"
+    },
+    "p8_f6_01": {
+      "character": "MR. MORRIS",
+      "text": "Why, the WAR FRONT, of course! The invasion and all! TO THE ROOF!",
+      "performed": "[impatient, rallying] Why, the WAR FRONT, of course! The invasion and all! TO THE ROOF!"
+    },
+    "p8_f6_02": {
+      "character": "BILLY BATSON",
+      "text": "The INVASION? Here?",
+      "performed": "[shocked] The INVASION? Here?"
+    },
+    "p9_f1_01": {
+      "character": "MR. MORRIS",
+      "text": "CLIMB IN, BILLY! HURRY!",
+      "performed": "[shouting over engine noise] CLIMB IN, BILLY! HURRY!"
+    },
+    "p9_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "But— but, Mr. Morris, if we're going to the FRONT, wouldn't it really be the BACK? Er— I mean— oh, I'M ALL TWISTED UP!",
+      "performed": "[shouting, confused] But— but, Mr. Morris, if we're going to the FRONT, wouldn't it really be the BACK? [flustered] Er— I mean— oh, I'M ALL TWISTED UP!"
+    },
+    "p9_f3_01": {
+      "character": "MR. MORRIS",
+      "text": "LOOK OUT! We're being attacked!",
+      "performed": "[alarmed shout] LOOK OUT! We're being attacked!"
+    },
+    "p10_f1_01": {
+      "character": "MR. MORRIS",
+      "text": "We're out of control!! WE'RE FALLING!",
+      "performed": "[screaming, panicked] We're out of control!! WE'RE FALLING!"
+    },
+    "p10_f1_02": {
+      "character": "BILLY BATSON",
+      "text": "SHAZAM!",
+      "performed": "[shouting with all his might] SHAZAM!"
+    },
+    "p10_f3_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Come on, Mr. Morris! I can handle the situation— if Billy can't!!",
+      "performed": "[commanding, confident] Come on, Mr. Morris! I can handle the situation— if Billy can't!!"
+    },
+    "p10_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Here we are, safe— WUP! I'm STILL a little twisted! But after all, I'M more able to take this sort of thing than Billy Batson is!",
+      "performed": "[relieved] Here we are, safe— [stumbles] WUP! [laughs at himself] I'm STILL a little twisted! [confident] But after all, I'M more able to take this sort of thing than Billy Batson is!"
+    },
+    "p10_f5_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Just where are we now, Mr. Morris?",
+      "performed": "[alert, looking around] Just where are we now, Mr. Morris?"
+    },
+    "p10_f5_02": {
+      "character": "MR. MORRIS",
+      "text": "Why— ah—",
+      "performed": "[uncertain, stammering] Why— ah—"
+    },
+    "p10_f5_03": {
+      "character": "SOLDIER 1",
+      "text": "Surrender or be killed, dogs!",
+      "performed": "[menacing, barking, from off] Surrender or be killed, dogs!"
+    },
+    "p10_f6_01": {
+      "character": "SOLDIER 1",
+      "text": "Come quietly and you will not be harmed, but I warn you....",
+      "performed": "[cold, threatening] Come quietly and you will not be harmed, but I warn you...."
+    },
+    "p11_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "SAVE YOUR WARNINGS FOR SOMEONE WHO NEEDS 'EM!",
+      "performed": "[defiant, booming] SAVE YOUR WARNINGS FOR SOMEONE WHO NEEDS 'EM!"
+    },
+    "p11_f2_01": {
+      "character": "SOLDIER 1",
+      "text": "OH!",
+      "performed": "[grunts, knocked down] OH!"
+    },
+    "p11_f2_02": {
+      "character": "MR. MORRIS",
+      "text": "Bravo, Captain Marvel! We'll show 'em!",
+      "performed": "[cheering] Bravo, Captain Marvel! We'll show 'em!"
+    },
+    "p11_f2_03": {
+      "character": "SOLDIER 2",
+      "text": "OW!",
+      "performed": "[yelps] OW!"
+    },
+    "p11_f2_04": {
+      "character": "SOLDIER 3",
+      "text": "HELP!",
+      "performed": "[panicked yell] HELP!"
+    },
+    "p12_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Pull a gun on Captain Marvel, will you? NEXT TIME YOU'LL KNOW BETTER!",
+      "performed": "[righteous, punching] Pull a gun on Captain Marvel, will you? NEXT TIME YOU'LL KNOW BETTER!"
+    },
+    "p12_f2_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "AND AS FOR YOU...",
+      "performed": "[turning, menacing] AND AS FOR YOU..."
+    },
+    "p12_f2_02": {
+      "character": "MR. MORRIS",
+      "text": "Wait, Captain Marvel... DON'T...",
+      "performed": "[urgent, pleading] Wait, Captain Marvel... DON'T..."
+    },
+    "p12_f3_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "GREAT JUMPIN' JUPITER... A GIRL!",
+      "performed": "[stunned disbelief] GREAT JUMPIN' JUPITER... A GIRL!"
+    },
+    "p12_f3_02": {
+      "character": "MR. MORRIS",
+      "text": "Yes, their leaders are all women!!",
+      "performed": "[grave] Yes, their leaders are all women!!"
+    },
+    "p12_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Come on, sister! YOU'RE going to take us to your leader! I'll soon put a stop to this female invasion!",
+      "performed": "[firm, a bit cocky] Come on, sister! YOU'RE going to take us to your leader! I'll soon put a stop to this female invasion!"
+    },
+    "p12_f5_01": {
+      "character": "THE GIRL",
+      "text": "FOLLOW ME!",
+      "performed": "[haughty, commanding] FOLLOW ME!"
+    },
+    "p12_f5_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "You bet we'll follow you!",
+      "performed": "[confident] You bet we'll follow you!"
+    },
+    "p12_f5_03": {
+      "character": "MR. MORRIS",
+      "text": "And don't try any tricks on US!",
+      "performed": "[gruff, suspicious] And don't try any tricks on US!"
+    },
+    "p12_f6_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Hey! It's black in here!",
+      "performed": "[startled, in the dark] Hey! It's black in here!"
+    },
+    "p12_f6_02": {
+      "character": "MR. MORRIS",
+      "text": "Where'd that girl get to? SHE'S GIVEN US THE SLIP.",
+      "performed": "[angry, frustrated] Where'd that girl get to? SHE'S GIVEN US THE SLIP."
+    },
+    "p13_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Wha— who— how...?",
+      "performed": "[dazed, stammering] Wha— who— how...?"
+    },
+    "p13_f1_02": {
+      "character": "MR. MORRIS",
+      "text": "That girl! SHE IS the leader of the invasion!",
+      "performed": "[pointing, alarmed] That girl! SHE IS the leader of the invasion!"
+    },
+    "p13_f2_01": {
+      "character": "THE GIRL",
+      "text": "SEIZE THEM!",
+      "performed": "[imperious command, from off] SEIZE THEM!"
+    },
+    "p13_f2_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Eh...? What the? HELP!",
+      "performed": "[confused] Eh...? What the? [alarmed] HELP!"
+    },
+    "p13_f3_01": {
+      "character": "MR. MORRIS",
+      "text": "Captain Marvel! Do something!!",
+      "performed": "[desperate] Captain Marvel! Do something!!"
+    },
+    "p13_f3_02": {
+      "character": "MR. MORRIS",
+      "text": "FIGHT!",
+      "performed": "[shouting] FIGHT!"
+    },
+    "p13_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "It's no use, Mr. Morris! I can't... fight... WOMEN!",
+      "performed": "[anguished, struggling] It's no use, Mr. Morris! I can't... fight... WOMEN!"
+    },
+    "p13_f5_01": {
+      "character": "THE GIRL",
+      "text": "THEN THROW HIM INTO THE PIT!! We shall see if he's any braver when he FACES, and FIGHTS, the monster FLESMIH!",
+      "performed": "[cruel, triumphant] THEN THROW HIM INTO THE PIT!! We shall see if he's any braver when he FACES, and FIGHTS, the monster FLESMIH!"
+    },
+    "p14_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "I don't know what's come over me! I don't usually let anyone toss me around like this!",
+      "performed": "[bewildered, frustrated] I don't know what's come over me! I don't usually let anyone toss me around like this!"
+    },
+    "p14_f2_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Well, at least I'm getting used to this topsy-turvy world enough so that I can land right-side up again!",
+      "performed": "[wry, regaining composure] Well, at least I'm getting used to this topsy-turvy world enough so that I can land right-side up again!"
+    },
+    "p14_f3_01": {
+      "character": "CROWD",
+      "text": "WE WANT FLESMIH!",
+      "performed": "[crowd chanting] WE WANT FLESMIH!"
+    },
+    "p14_f3_02": {
+      "character": "CROWD",
+      "text": "Turn loose the monster!",
+      "performed": "[jeering] Turn loose the monster!"
+    },
+    "p14_f3_03": {
+      "character": "CROWD",
+      "text": "FIGHT! He'll fight FLESMIH!",
+      "performed": "[bloodthirsty shouting] FIGHT! He'll fight FLESMIH!"
+    },
+    "p14_f3_04": {
+      "character": "CROWD",
+      "text": "FLESMIH!",
+      "performed": "[chanting] FLESMIH!"
+    },
+    "p14_f3_05": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Ah! Maybe this FLESMIH fellow will be something I can really let myself go at! Wonder what he looks like?",
+      "performed": "[eager, rubbing his hands] Ah! Maybe this FLESMIH fellow will be something I can really let myself go at! Wonder what he looks like?"
+    },
+    "p14_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Come on, you overgrown nightmare! I'M READY FOR YOU!",
+      "performed": "[taunting, fists up] Come on, you overgrown nightmare! I'M READY FOR YOU!"
+    },
+    "p14_f5_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "NO! NO! It— it CAN'T be! Why— this is... UTTERLY IMPOSSIBLE!",
+      "performed": "[horrified disbelief] NO! NO! It— it CAN'T be! Why— this is... UTTERLY IMPOSSIBLE!"
+    },
+    "p15_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Now I've got you...! OOPS! Where did he go?",
+      "performed": "[lunging] Now I've got you...! [surprised] OOPS! [baffled] Where did he go?"
+    },
+    "p15_f2_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "OH! Now you're all swelled up! Think you're too smart for me, do you?",
+      "performed": "[startled] OH! [annoyed] Now you're all swelled up! Think you're too smart for me, do you?"
+    },
+    "p15_f3_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "BLAST YOU! Why don't you keep one shape till I can catch you?",
+      "performed": "[furious] BLAST YOU! Why don't you keep one shape till I can catch you?"
+    },
+    "p15_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Ah! THAT'S IT! HOLD THAT POSE! Chin just a little higher— HERE IT COMES—",
+      "performed": "[eureka] Ah! THAT'S IT! [mock photographer] HOLD THAT POSE! Chin just a little higher— [winding up] HERE IT COMES—"
+    },
+    "p15_f6_01": {
+      "character": "BILLY BATSON",
+      "text": "H-Holy Moley! I've overslept! I've just got five minutes to dress and get to the office!",
+      "performed": "[waking with a start, panicked] H-Holy Moley! I've overslept! I've just got five minutes to dress and get to the office!"
+    }
+  }
+}

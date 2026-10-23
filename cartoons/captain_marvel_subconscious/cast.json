@@ -1,0 +1,24 @@
+{
+  "_defaults": {
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "voice_settings": { "stability": 0.45, "similarity_boost": 0.8, "style": 0.25, "use_speaker_boost": true }
+  },
+
+  "NARRATOR":      	 { "voice_id": "EapdDtSsMC291mjfSNe7", "voice_name": "Peter"},
+  "BILLY BATSON":      { "voice_id": "QZ1okeFI43NQd6lXAzQ5", "voice_name": "Tate Dalton",
+                         "qualifiers": { "thinking": { "stability": 0.7, "style": 0.1 } } },
+  "CAPTAIN MARVEL":    { "voice_id": "d8PSLVicWEH7zbII5JEI", "voice_name": "Kory" },
+  "PROFESSOR SMITH":   { "voice_id": "MKlLqCItoCkvdhrxgtLv", "voice_name": "Grampa Werthers" },
+  "MISS DALSHAW":      { "voice_id": "TpIle0udG1y9a8xmjXsn", "voice_name": "Vanessa" },
+  "MR. MORRIS":        { "voice_id": "h372Rv78MD9O6ayDwZfQ", "voice_name": "Baker" },
+  "ELEVATOR OPERATOR": { "voice_id": "oOxgWK7hYRcDqjiZMSoX", "voice_name": "Brian" },
+  "SOLDIER 1":         { "voice_id": "ruirxsoakN0GWmGNIo04", "voice_name": "John Morgan" },
+  "SOLDIER 2":         { "voice_id": "RIxlkEgVTlW2XuYWyYjL", "voice_name": "Deadpan Cynic" },
+  "SOLDIER 3":         { "voice_id": "cymHWdiF8WjUCg6vvFxx", "voice_name": "Vane" },
+  "THE GIRL":          { "voice_id": "QzgYVYSNBgksoEWDkpKt", "voice_name": "Amanda Beans" },
+  "CROWD":             { "voice_id": "zYcjlYFOd3taleS0gkk3", "voice_name": "Edward" },
+  "CROWD1":             { "voice_id": "Bj9UqZbhQsanLzgalpEG", "voice_name": "Austin" },
+  "CROWD2":             { "voice_id": "BIvP0GN1cAtSRTxNHnWS", "voice_name": "Ellen" },
+  "CROWD3":             { "voice_id": "qXpMhyvQqiRxWQs4qSSB", "voice_name": "Horatius" }
+}

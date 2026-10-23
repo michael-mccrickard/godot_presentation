@@ -1,0 +1,1544 @@
+{
+  "fps": 30,
+  "mode": "scenes",
+  "lines": [
+    {
+      "id": "p1_f1_01",
+      "panel": "p1_f1",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p01_t1.mp3",
+      "start": 1.0,
+      "end": 16.16
+    },
+    {
+      "id": "p1_f2_01",
+      "panel": "p1_f2",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p01_t1.mp3",
+      "start": 16.16,
+      "end": 35.16
+    },
+    {
+      "id": "p1_f3_01",
+      "panel": "p1_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p01_t1.mp3",
+      "start": 35.16,
+      "end": 39.8
+    },
+    {
+      "id": "p1_f3_02",
+      "panel": "p1_f3",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p01_t1.mp3",
+      "start": 39.8,
+      "end": 42.68
+    },
+    {
+      "id": "p1_f3_03",
+      "panel": "p1_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p01_t1.mp3",
+      "start": 42.68,
+      "end": 43.72
+    },
+    {
+      "id": "p2_f1_01",
+      "panel": "p2_f1",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 44.2,
+      "end": 46.4
+    },
+    {
+      "id": "p2_f1_02",
+      "panel": "p2_f1",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 46.4,
+      "end": 47.56
+    },
+    {
+      "id": "p2_f2_01",
+      "panel": "p2_f2",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 47.56,
+      "end": 49.72
+    },
+    {
+      "id": "p2_f3_01",
+      "panel": "p2_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 49.72,
+      "end": 50.76
+    },
+    {
+      "id": "p2_f4_01",
+      "panel": "p2_f4",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 50.76,
+      "end": 53.16
+    },
+    {
+      "id": "p2_f5_01",
+      "panel": "p2_f5",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 53.16,
+      "end": 55.48
+    },
+    {
+      "id": "p2_f5_02",
+      "panel": "p2_f5",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 55.48,
+      "end": 57.886
+    },
+    {
+      "id": "p2_f5_03",
+      "panel": "p2_f5",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 57.886,
+      "end": 58.867
+    },
+    {
+      "id": "p2_f6_01",
+      "panel": "p2_f6",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 58.867,
+      "end": 59.9
+    },
+    {
+      "id": "p2_f6_02",
+      "panel": "p2_f6",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p02_t2.mp3",
+      "start": 59.9,
+      "end": 61.32
+    },
+    {
+      "id": "p3_f1_01",
+      "panel": "p3_f1",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 61.8,
+      "end": 64.64
+    },
+    {
+      "id": "p3_f2_01",
+      "panel": "p3_f2",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 64.64,
+      "end": 65.92
+    },
+    {
+      "id": "p3_f3_01",
+      "panel": "p3_f3",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 65.92,
+      "end": 69.411
+    },
+    {
+      "id": "p3_f3_02",
+      "panel": "p3_f3",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 69.411,
+      "end": 75.087
+    },
+    {
+      "id": "p3_f4_01",
+      "panel": "p3_f4",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 75.087,
+      "end": 77.651
+    },
+    {
+      "id": "p3_f4_02",
+      "panel": "p3_f4",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 77.651,
+      "end": 79.583
+    },
+    {
+      "id": "p3_f5_01",
+      "panel": "p3_f5",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 79.583,
+      "end": 86.08
+    },
+    {
+      "id": "p3_f5_02",
+      "panel": "p3_f5",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 86.08,
+      "end": 87.52
+    },
+    {
+      "id": "p3_f5_03",
+      "panel": "p3_f5",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 87.52,
+      "end": 89.16
+    },
+    {
+      "id": "p3_f6_01",
+      "panel": "p3_f6",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p03_t1.mp3",
+      "start": 89.16,
+      "end": 94.04
+    },
+    {
+      "id": "p4_f1_01",
+      "panel": "p4_f1",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 94.533,
+      "end": 98.773
+    },
+    {
+      "id": "p4_f3_01",
+      "panel": "p4_f3",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 98.773,
+      "end": 101.9
+    },
+    {
+      "id": "p4_f3_02",
+      "panel": "p4_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 101.9,
+      "end": 106.226
+    },
+    {
+      "id": "p4_f4_01",
+      "panel": "p4_f4",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 106.226,
+      "end": 114.106
+    },
+    {
+      "id": "p4_f5_01",
+      "panel": "p4_f5",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 114.106,
+      "end": 120.064
+    },
+    {
+      "id": "p4_f5_02",
+      "panel": "p4_f5",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 120.064,
+      "end": 123.093
+    },
+    {
+      "id": "p4_f6_01",
+      "panel": "p4_f6",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 123.093,
+      "end": 125.333
+    },
+    {
+      "id": "p4_f6_02",
+      "panel": "p4_f6",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 125.333,
+      "end": 127.893
+    },
+    {
+      "id": "p4_f7_01",
+      "panel": "p4_f7",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 127.893,
+      "end": 132.081
+    },
+    {
+      "id": "p4_f7_02",
+      "panel": "p4_f7",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p04_t1.mp3",
+      "start": 132.081,
+      "end": 136.133
+    },
+    {
+      "id": "p5_f1_01",
+      "panel": "p5_f1",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 136.633,
+      "end": 147.833
+    },
+    {
+      "id": "p5_f2_01",
+      "panel": "p5_f2",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 147.833,
+      "end": 151.353
+    },
+    {
+      "id": "p5_f2_02",
+      "panel": "p5_f2",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 151.353,
+      "end": 154.793
+    },
+    {
+      "id": "p5_f3_01",
+      "panel": "p5_f3",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 154.793,
+      "end": 157.233
+    },
+    {
+      "id": "p5_f3_02",
+      "panel": "p5_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 157.233,
+      "end": 160.0
+    },
+    {
+      "id": "p5_f4_01",
+      "panel": "p5_f4",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 160.0,
+      "end": 166.642
+    },
+    {
+      "id": "p5_f4_02",
+      "panel": "p5_f4",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 166.642,
+      "end": 169.758
+    },
+    {
+      "id": "p5_f5_01",
+      "panel": "p5_f5",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 169.758,
+      "end": 175.393
+    },
+    {
+      "id": "p5_f6_01",
+      "panel": "p5_f6",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 175.393,
+      "end": 182.646
+    },
+    {
+      "id": "p5_f6_02",
+      "panel": "p5_f6",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 182.646,
+      "end": 184.726
+    },
+    {
+      "id": "p5_f7_01",
+      "panel": "p5_f7",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p05_t1.mp3",
+      "start": 184.726,
+      "end": 190.163
+    },
+    {
+      "id": "p6_f1_01",
+      "panel": "p6_f1",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 190.867,
+      "end": 205.434
+    },
+    {
+      "id": "p6_f1_02",
+      "panel": "p6_f1",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 205.434,
+      "end": 209.388
+    },
+    {
+      "id": "p6_f2_01",
+      "panel": "p6_f2",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 209.388,
+      "end": 211.038
+    },
+    {
+      "id": "p6_f2_02",
+      "panel": "p6_f2",
+      "character": "PROFESSOR SMITH",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 211.038,
+      "end": 213.788
+    },
+    {
+      "id": "p6_f3_01",
+      "panel": "p6_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 213.788,
+      "end": 224.148
+    },
+    {
+      "id": "p6_f3_02",
+      "panel": "p6_f3",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 224.148,
+      "end": 227.348
+    },
+    {
+      "id": "p6_f4_01",
+      "panel": "p6_f4",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 227.348,
+      "end": 229.748
+    },
+    {
+      "id": "p6_f5_01",
+      "panel": "p6_f5",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 229.748,
+      "end": 234.468
+    },
+    {
+      "id": "p6_f6_01",
+      "panel": "p6_f6",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 234.468,
+      "end": 239.108
+    },
+    {
+      "id": "p6_f7_01",
+      "panel": "p6_f7",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p06_t1.mp3",
+      "start": 239.108,
+      "end": 245.918
+    },
+    {
+      "id": "p7_f1_01",
+      "panel": "p7_f1",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 246.633,
+      "end": 249.833
+    },
+    {
+      "id": "p7_f2_01",
+      "panel": "p7_f2",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 249.833,
+      "end": 253.833
+    },
+    {
+      "id": "p7_f3_01",
+      "panel": "p7_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 253.833,
+      "end": 258.873
+    },
+    {
+      "id": "p7_f4_01",
+      "panel": "p7_f4",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 258.873,
+      "end": 262.644
+    },
+    {
+      "id": "p7_f5_01",
+      "panel": "p7_f5",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 262.644,
+      "end": 265.433
+    },
+    {
+      "id": "p7_f5_02",
+      "panel": "p7_f5",
+      "character": "ELEVATOR OPERATOR",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 265.433,
+      "end": 269.673
+    },
+    {
+      "id": "p7_f6_01",
+      "panel": "p7_f6",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 269.673,
+      "end": 274.713
+    },
+    {
+      "id": "p7_f6_02",
+      "panel": "p7_f6",
+      "character": "MISS DALSHAW",
+      "scene": "clips/_scenes/p07_t1.mp3",
+      "start": 274.713,
+      "end": 278.633
+    },
+    {
+      "id": "p8_f1_01",
+      "panel": "p8_f1",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 279.133,
+      "end": 284.179
+    },
+    {
+      "id": "p8_f1_02",
+      "panel": "p8_f1",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 284.179,
+      "end": 289.933
+    },
+    {
+      "id": "p8_f1_03",
+      "panel": "p8_f1",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 289.933,
+      "end": 292.453
+    },
+    {
+      "id": "p8_f2_01",
+      "panel": "p8_f2",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 292.453,
+      "end": 294.013
+    },
+    {
+      "id": "p8_f2_02",
+      "panel": "p8_f2",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 294.013,
+      "end": 298.413
+    },
+    {
+      "id": "p8_f3_01",
+      "panel": "p8_f3",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 298.413,
+      "end": 303.133
+    },
+    {
+      "id": "p8_f4_01",
+      "panel": "p8_f4",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 303.133,
+      "end": 307.053
+    },
+    {
+      "id": "p8_f5_01",
+      "panel": "p8_f5",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 307.053,
+      "end": 309.384
+    },
+    {
+      "id": "p8_f5_02",
+      "panel": "p8_f5",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 309.384,
+      "end": 310.82
+    },
+    {
+      "id": "p8_f6_01",
+      "panel": "p8_f6",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 310.82,
+      "end": 315.386
+    },
+    {
+      "id": "p8_f6_02",
+      "panel": "p8_f6",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p08_t3.mp3",
+      "start": 315.386,
+      "end": 317.703
+    },
+    {
+      "id": "p9_f1_01",
+      "panel": "p9_f1",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p09_t1.mp3",
+      "start": 318.5,
+      "end": 320.588
+    },
+    {
+      "id": "p9_f2_01",
+      "panel": "p9_f2",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p09_t1.mp3",
+      "start": 320.588,
+      "end": 328.26
+    },
+    {
+      "id": "p9_f3_01",
+      "panel": "p9_f3",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p09_t1.mp3",
+      "start": 328.26,
+      "end": 330.42
+    },
+    {
+      "id": "p9_f5_01",
+      "panel": "p9_f5",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p09_t1.mp3",
+      "start": 330.42,
+      "end": 338.34
+    },
+    {
+      "id": "p10_f1_01",
+      "panel": "p10_f1",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 338.833,
+      "end": 341.273
+    },
+    {
+      "id": "p10_f1_02",
+      "panel": "p10_f1",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 341.273,
+      "end": 342.873
+    },
+    {
+      "id": "p10_f2_01",
+      "panel": "p10_f2",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 342.873,
+      "end": 350.833
+    },
+    {
+      "id": "p10_f3_01",
+      "panel": "p10_f3",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 350.833,
+      "end": 353.393
+    },
+    {
+      "id": "p10_f3_02",
+      "panel": "p10_f3",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 353.393,
+      "end": 357.833
+    },
+    {
+      "id": "p10_f4_01",
+      "panel": "p10_f4",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 357.833,
+      "end": 367.073
+    },
+    {
+      "id": "p10_f5_01",
+      "panel": "p10_f5",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 367.073,
+      "end": 369.32
+    },
+    {
+      "id": "p10_f5_02",
+      "panel": "p10_f5",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 369.32,
+      "end": 370.838
+    },
+    {
+      "id": "p10_f5_03",
+      "panel": "p10_f5",
+      "character": "SOLDIER 1",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 370.838,
+      "end": 373.194
+    },
+    {
+      "id": "p10_f6_01",
+      "panel": "p10_f6",
+      "character": "SOLDIER 1",
+      "scene": "clips/_scenes/p10_t3.mp3",
+      "start": 373.194,
+      "end": 377.713
+    },
+    {
+      "id": "p11_f1_01",
+      "panel": "p11_f1",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p11_t1.mp3",
+      "start": 378.2,
+      "end": 380.84
+    },
+    {
+      "id": "p11_f2_01",
+      "panel": "p11_f2",
+      "character": "SOLDIER 1",
+      "scene": "clips/_scenes/p11_t1.mp3",
+      "start": 380.84,
+      "end": 382.44
+    },
+    {
+      "id": "p11_f2_02",
+      "panel": "p11_f2",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p11_t1.mp3",
+      "start": 382.44,
+      "end": 385.48
+    },
+    {
+      "id": "p11_f2_03",
+      "panel": "p11_f2",
+      "character": "SOLDIER 2",
+      "scene": "clips/_scenes/p11_t1.mp3",
+      "start": 385.48,
+      "end": 387.08
+    },
+    {
+      "id": "p11_f2_04",
+      "panel": "p11_f2",
+      "character": "SOLDIER 3",
+      "scene": "clips/_scenes/p11_t1.mp3",
+      "start": 387.08,
+      "end": 388.12
+    },
+    {
+      "id": "p12_f1_01",
+      "panel": "p12_f1",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 388.6,
+      "end": 392.44
+    },
+    {
+      "id": "p12_f2_01",
+      "panel": "p12_f2",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 392.44,
+      "end": 394.28
+    },
+    {
+      "id": "p12_f2_02",
+      "panel": "p12_f2",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 394.28,
+      "end": 396.209
+    },
+    {
+      "id": "p12_f3_01",
+      "panel": "p12_f3",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 396.209,
+      "end": 399.416
+    },
+    {
+      "id": "p12_f3_02",
+      "panel": "p12_f3",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 399.416,
+      "end": 402.36
+    },
+    {
+      "id": "p12_f4_01",
+      "panel": "p12_f4",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 402.36,
+      "end": 408.2
+    },
+    {
+      "id": "p12_f5_01",
+      "panel": "p12_f5",
+      "character": "THE GIRL",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 408.2,
+      "end": 409.413
+    },
+    {
+      "id": "p12_f5_02",
+      "panel": "p12_f5",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 409.413,
+      "end": 411.02
+    },
+    {
+      "id": "p12_f5_03",
+      "panel": "p12_f5",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 411.02,
+      "end": 413.32
+    },
+    {
+      "id": "p12_f6_01",
+      "panel": "p12_f6",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 413.32,
+      "end": 415.327
+    },
+    {
+      "id": "p12_f6_02",
+      "panel": "p12_f6",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p12_t1.mp3",
+      "start": 415.327,
+      "end": 418.61
+    },
+    {
+      "id": "p13_f1_01",
+      "panel": "p13_f1",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 419.167,
+      "end": 420.927
+    },
+    {
+      "id": "p13_f1_02",
+      "panel": "p13_f1",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 420.927,
+      "end": 423.567
+    },
+    {
+      "id": "p13_f1_03",
+      "panel": "p13_f1",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 423.567,
+      "end": 426.887
+    },
+    {
+      "id": "p13_f2_01",
+      "panel": "p13_f2",
+      "character": "THE GIRL",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 426.887,
+      "end": 427.981
+    },
+    {
+      "id": "p13_f2_02",
+      "panel": "p13_f2",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 427.981,
+      "end": 430.448
+    },
+    {
+      "id": "p13_f3_01",
+      "panel": "p13_f3",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 430.448,
+      "end": 432.808
+    },
+    {
+      "id": "p13_f3_02",
+      "panel": "p13_f3",
+      "character": "MR. MORRIS",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 432.808,
+      "end": 433.743
+    },
+    {
+      "id": "p13_f4_01",
+      "panel": "p13_f4",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 433.743,
+      "end": 438.948
+    },
+    {
+      "id": "p13_f5_01",
+      "panel": "p13_f5",
+      "character": "THE GIRL",
+      "scene": "clips/_scenes/p13_t3.mp3",
+      "start": 438.948,
+      "end": 446.847
+    },
+    {
+      "id": "p14_f1_01",
+      "panel": "p14_f1",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 447.333,
+      "end": 452.053
+    },
+    {
+      "id": "p14_f2_01",
+      "panel": "p14_f2",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 452.053,
+      "end": 457.503
+    },
+    {
+      "id": "p14_f3_01",
+      "panel": "p14_f3",
+      "character": "CROWD",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 457.503,
+      "end": 459.573
+    },
+    {
+      "id": "p14_f3_02",
+      "panel": "p14_f3",
+      "character": "CROWD1",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 459.573,
+      "end": 461.573
+    },
+    {
+      "id": "p14_f3_03",
+      "panel": "p14_f3",
+      "character": "CROWD2",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 461.573,
+      "end": 464.053
+    },
+    {
+      "id": "p14_f3_04",
+      "panel": "p14_f3",
+      "character": "CROWD3",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 464.053,
+      "end": 465.333
+    },
+    {
+      "id": "p14_f3_05",
+      "panel": "p14_f3",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 465.333,
+      "end": 473.413
+    },
+    {
+      "id": "p14_f4_01",
+      "panel": "p14_f4",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 473.413,
+      "end": 479.333
+    },
+    {
+      "id": "p14_f5_01",
+      "panel": "p14_f5",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 479.333,
+      "end": 485.493
+    },
+    {
+      "id": "p14_f6_01",
+      "panel": "p14_f6",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p14_t4.mp3",
+      "start": 485.493,
+      "end": 489.333
+    },
+    {
+      "id": "p15_f1_01",
+      "panel": "p15_f1",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p15_t1.mp3",
+      "start": 489.833,
+      "end": 493.633
+    },
+    {
+      "id": "p15_f2_01",
+      "panel": "p15_f2",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p15_t1.mp3",
+      "start": 493.633,
+      "end": 498.033
+    },
+    {
+      "id": "p15_f3_01",
+      "panel": "p15_f3",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p15_t1.mp3",
+      "start": 498.033,
+      "end": 501.833
+    },
+    {
+      "id": "p15_f4_01",
+      "panel": "p15_f4",
+      "character": "CAPTAIN MARVEL",
+      "scene": "clips/_scenes/p15_t1.mp3",
+      "start": 501.833,
+      "end": 508.473
+    },
+    {
+      "id": "p15_f5_01",
+      "panel": "p15_f5",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p15_t1.mp3",
+      "start": 508.473,
+      "end": 516.953
+    },
+    {
+      "id": "p15_f6_01",
+      "panel": "p15_f6",
+      "character": "BILLY BATSON",
+      "scene": "clips/_scenes/p15_t1.mp3",
+      "start": 516.953,
+      "end": 522.233
+    },
+    {
+      "id": "p15_f6_02",
+      "panel": "p15_f6",
+      "character": "NARRATOR",
+      "scene": "clips/_scenes/p15_t1.mp3",
+      "start": 522.233,
+      "end": 526.233
+    }
+  ],
+  "panels": [
+    {
+      "panel": "p1_f1",
+      "start": 1.0,
+      "end": 16.16
+    },
+    {
+      "panel": "p1_f2",
+      "start": 16.16,
+      "end": 35.16
+    },
+    {
+      "panel": "p1_f3",
+      "start": 35.16,
+      "end": 43.72
+    },
+    {
+      "panel": "p2_f1",
+      "start": 44.2,
+      "end": 47.56
+    },
+    {
+      "panel": "p2_f2",
+      "start": 47.56,
+      "end": 49.72
+    },
+    {
+      "panel": "p2_f3",
+      "start": 49.72,
+      "end": 50.76
+    },
+    {
+      "panel": "p2_f4",
+      "start": 50.76,
+      "end": 53.16
+    },
+    {
+      "panel": "p2_f5",
+      "start": 53.16,
+      "end": 58.867
+    },
+    {
+      "panel": "p2_f6",
+      "start": 58.867,
+      "end": 61.32
+    },
+    {
+      "panel": "p3_f1",
+      "start": 61.8,
+      "end": 64.64
+    },
+    {
+      "panel": "p3_f2",
+      "start": 64.64,
+      "end": 65.92
+    },
+    {
+      "panel": "p3_f3",
+      "start": 65.92,
+      "end": 75.087
+    },
+    {
+      "panel": "p3_f4",
+      "start": 75.087,
+      "end": 79.583
+    },
+    {
+      "panel": "p3_f5",
+      "start": 79.583,
+      "end": 89.16
+    },
+    {
+      "panel": "p3_f6",
+      "start": 89.16,
+      "end": 94.04
+    },
+    {
+      "panel": "p4_f1",
+      "start": 94.533,
+      "end": 98.773
+    },
+    {
+      "panel": "p4_f3",
+      "start": 98.773,
+      "end": 106.226
+    },
+    {
+      "panel": "p4_f4",
+      "start": 106.226,
+      "end": 114.106
+    },
+    {
+      "panel": "p4_f5",
+      "start": 114.106,
+      "end": 123.093
+    },
+    {
+      "panel": "p4_f6",
+      "start": 123.093,
+      "end": 127.893
+    },
+    {
+      "panel": "p4_f7",
+      "start": 127.893,
+      "end": 136.133
+    },
+    {
+      "panel": "p5_f1",
+      "start": 136.633,
+      "end": 147.833
+    },
+    {
+      "panel": "p5_f2",
+      "start": 147.833,
+      "end": 154.793
+    },
+    {
+      "panel": "p5_f3",
+      "start": 154.793,
+      "end": 160.0
+    },
+    {
+      "panel": "p5_f4",
+      "start": 160.0,
+      "end": 169.758
+    },
+    {
+      "panel": "p5_f5",
+      "start": 169.758,
+      "end": 175.393
+    },
+    {
+      "panel": "p5_f6",
+      "start": 175.393,
+      "end": 184.726
+    },
+    {
+      "panel": "p5_f7",
+      "start": 184.726,
+      "end": 190.163
+    },
+    {
+      "panel": "p6_f1",
+      "start": 190.867,
+      "end": 209.388
+    },
+    {
+      "panel": "p6_f2",
+      "start": 209.388,
+      "end": 213.788
+    },
+    {
+      "panel": "p6_f3",
+      "start": 213.788,
+      "end": 227.348
+    },
+    {
+      "panel": "p6_f4",
+      "start": 227.348,
+      "end": 229.748
+    },
+    {
+      "panel": "p6_f5",
+      "start": 229.748,
+      "end": 234.468
+    },
+    {
+      "panel": "p6_f6",
+      "start": 234.468,
+      "end": 239.108
+    },
+    {
+      "panel": "p6_f7",
+      "start": 239.108,
+      "end": 245.918
+    },
+    {
+      "panel": "p7_f1",
+      "start": 246.633,
+      "end": 249.833
+    },
+    {
+      "panel": "p7_f2",
+      "start": 249.833,
+      "end": 253.833
+    },
+    {
+      "panel": "p7_f3",
+      "start": 253.833,
+      "end": 258.873
+    },
+    {
+      "panel": "p7_f4",
+      "start": 258.873,
+      "end": 262.644
+    },
+    {
+      "panel": "p7_f5",
+      "start": 262.644,
+      "end": 269.673
+    },
+    {
+      "panel": "p7_f6",
+      "start": 269.673,
+      "end": 278.633
+    },
+    {
+      "panel": "p8_f1",
+      "start": 279.133,
+      "end": 292.453
+    },
+    {
+      "panel": "p8_f2",
+      "start": 292.453,
+      "end": 298.413
+    },
+    {
+      "panel": "p8_f3",
+      "start": 298.413,
+      "end": 303.133
+    },
+    {
+      "panel": "p8_f4",
+      "start": 303.133,
+      "end": 307.053
+    },
+    {
+      "panel": "p8_f5",
+      "start": 307.053,
+      "end": 310.82
+    },
+    {
+      "panel": "p8_f6",
+      "start": 310.82,
+      "end": 317.703
+    },
+    {
+      "panel": "p9_f1",
+      "start": 318.5,
+      "end": 320.588
+    },
+    {
+      "panel": "p9_f2",
+      "start": 320.588,
+      "end": 328.26
+    },
+    {
+      "panel": "p9_f3",
+      "start": 328.26,
+      "end": 330.42
+    },
+    {
+      "panel": "p9_f5",
+      "start": 330.42,
+      "end": 338.34
+    },
+    {
+      "panel": "p10_f1",
+      "start": 338.833,
+      "end": 342.873
+    },
+    {
+      "panel": "p10_f2",
+      "start": 342.873,
+      "end": 350.833
+    },
+    {
+      "panel": "p10_f3",
+      "start": 350.833,
+      "end": 357.833
+    },
+    {
+      "panel": "p10_f4",
+      "start": 357.833,
+      "end": 367.073
+    },
+    {
+      "panel": "p10_f5",
+      "start": 367.073,
+      "end": 373.194
+    },
+    {
+      "panel": "p10_f6",
+      "start": 373.194,
+      "end": 377.713
+    },
+    {
+      "panel": "p11_f1",
+      "start": 378.2,
+      "end": 380.84
+    },
+    {
+      "panel": "p11_f2",
+      "start": 380.84,
+      "end": 388.12
+    },
+    {
+      "panel": "p12_f1",
+      "start": 388.6,
+      "end": 392.44
+    },
+    {
+      "panel": "p12_f2",
+      "start": 392.44,
+      "end": 396.209
+    },
+    {
+      "panel": "p12_f3",
+      "start": 396.209,
+      "end": 402.36
+    },
+    {
+      "panel": "p12_f4",
+      "start": 402.36,
+      "end": 408.2
+    },
+    {
+      "panel": "p12_f5",
+      "start": 408.2,
+      "end": 413.32
+    },
+    {
+      "panel": "p12_f6",
+      "start": 413.32,
+      "end": 418.61
+    },
+    {
+      "panel": "p13_f1",
+      "start": 419.167,
+      "end": 426.887
+    },
+    {
+      "panel": "p13_f2",
+      "start": 426.887,
+      "end": 430.448
+    },
+    {
+      "panel": "p13_f3",
+      "start": 430.448,
+      "end": 433.743
+    },
+    {
+      "panel": "p13_f4",
+      "start": 433.743,
+      "end": 438.948
+    },
+    {
+      "panel": "p13_f5",
+      "start": 438.948,
+      "end": 446.847
+    },
+    {
+      "panel": "p14_f1",
+      "start": 447.333,
+      "end": 452.053
+    },
+    {
+      "panel": "p14_f2",
+      "start": 452.053,
+      "end": 457.503
+    },
+    {
+      "panel": "p14_f3",
+      "start": 457.503,
+      "end": 473.413
+    },
+    {
+      "panel": "p14_f4",
+      "start": 473.413,
+      "end": 479.333
+    },
+    {
+      "panel": "p14_f5",
+      "start": 479.333,
+      "end": 485.493
+    },
+    {
+      "panel": "p14_f6",
+      "start": 485.493,
+      "end": 489.333
+    },
+    {
+      "panel": "p15_f1",
+      "start": 489.833,
+      "end": 493.633
+    },
+    {
+      "panel": "p15_f2",
+      "start": 493.633,
+      "end": 498.033
+    },
+    {
+      "panel": "p15_f3",
+      "start": 498.033,
+      "end": 501.833
+    },
+    {
+      "panel": "p15_f4",
+      "start": 501.833,
+      "end": 508.473
+    },
+    {
+      "panel": "p15_f5",
+      "start": 508.473,
+      "end": 516.953
+    },
+    {
+      "panel": "p15_f6",
+      "start": 516.953,
+      "end": 526.233
+    }
+  ],
+  "scenes": [
+    {
+      "file": "clips/_scenes/p01_t1.mp3",
+      "start": 1.0,
+      "end": 43.7
+    },
+    {
+      "file": "clips/_scenes/p02_t2.mp3",
+      "start": 44.2,
+      "end": 61.3
+    },
+    {
+      "file": "clips/_scenes/p03_t1.mp3",
+      "start": 61.8,
+      "end": 94.033
+    },
+    {
+      "file": "clips/_scenes/p04_t1.mp3",
+      "start": 94.533,
+      "end": 136.133
+    },
+    {
+      "file": "clips/_scenes/p05_t1.mp3",
+      "start": 136.633,
+      "end": 190.367
+    },
+    {
+      "file": "clips/_scenes/p06_t1.mp3",
+      "start": 190.867,
+      "end": 246.133
+    },
+    {
+      "file": "clips/_scenes/p07_t1.mp3",
+      "start": 246.633,
+      "end": 278.633
+    },
+    {
+      "file": "clips/_scenes/p08_t3.mp3",
+      "start": 279.133,
+      "end": 318.0
+    },
+    {
+      "file": "clips/_scenes/p09_t1.mp3",
+      "start": 318.5,
+      "end": 338.333
+    },
+    {
+      "file": "clips/_scenes/p10_t3.mp3",
+      "start": 338.833,
+      "end": 377.7
+    },
+    {
+      "file": "clips/_scenes/p11_t1.mp3",
+      "start": 378.2,
+      "end": 388.1
+    },
+    {
+      "file": "clips/_scenes/p12_t1.mp3",
+      "start": 388.6,
+      "end": 418.667
+    },
+    {
+      "file": "clips/_scenes/p13_t3.mp3",
+      "start": 419.167,
+      "end": 446.833
+    },
+    {
+      "file": "clips/_scenes/p14_t4.mp3",
+      "start": 447.333,
+      "end": 489.333
+    },
+    {
+      "file": "clips/_scenes/p15_t1.mp3",
+      "start": 489.833,
+      "end": 526.233
+    }
+  ],
+  "duration": 528.233
+}

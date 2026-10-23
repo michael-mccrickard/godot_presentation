@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dhhy7sygce8it"
+
+[deps]
+
+files=["res://cartoons/captain_marvel_subconscious/timeline.panel.translation", "res://cartoons/captain_marvel_subconscious/timeline.character.translation", "res://cartoons/captain_marvel_subconscious/timeline.start.translation", "res://cartoons/captain_marvel_subconscious/timeline.end.translation"]
+
+source_file="res://cartoons/captain_marvel_subconscious/timeline.csv"
+dest_files=["res://cartoons/captain_marvel_subconscious/timeline.panel.translation", "res://cartoons/captain_marvel_subconscious/timeline.character.translation", "res://cartoons/captain_marvel_subconscious/timeline.start.translation", "res://cartoons/captain_marvel_subconscious/timeline.end.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

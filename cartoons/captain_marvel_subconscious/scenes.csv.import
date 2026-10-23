@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cigpnjom5787b"
+
+[deps]
+
+files=["res://cartoons/captain_marvel_subconscious/scenes.id.translation", "res://cartoons/captain_marvel_subconscious/scenes.character.translation", "res://cartoons/captain_marvel_subconscious/scenes.start.translation", "res://cartoons/captain_marvel_subconscious/scenes.end.translation", "res://cartoons/captain_marvel_subconscious/scenes.text.translation"]
+
+source_file="res://cartoons/captain_marvel_subconscious/scenes.csv"
+dest_files=["res://cartoons/captain_marvel_subconscious/scenes.id.translation", "res://cartoons/captain_marvel_subconscious/scenes.character.translation", "res://cartoons/captain_marvel_subconscious/scenes.start.translation", "res://cartoons/captain_marvel_subconscious/scenes.end.translation", "res://cartoons/captain_marvel_subconscious/scenes.text.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
