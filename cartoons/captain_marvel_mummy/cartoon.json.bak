@@ -1,0 +1,1727 @@
+{
+	"audio_path": "",
+	"shots": [
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p0_f0.png",
+			"move_duration": 0.0,
+			"start": 0.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p1_f1.png",
+			"move_duration": 0.0,
+			"start": 2.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p1_f2.png",
+			"move_duration": 0.0,
+			"start": 4.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p1_f3.png",
+			"move_duration": 0.0,
+			"start": 6.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p2_f1.png",
+			"move_duration": 0.0,
+			"start": 8.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p2_f2.png",
+			"move_duration": 0.0,
+			"start": 10.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p2_f3.png",
+			"move_duration": 0.0,
+			"start": 12.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p2_f4.png",
+			"move_duration": 0.0,
+			"start": 14.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p2_f5.png",
+			"move_duration": 0.0,
+			"start": 16.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p2_f6.png",
+			"move_duration": 0.0,
+			"start": 18.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p3_f1.png",
+			"move_duration": 0.0,
+			"start": 20.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p3_f2.png",
+			"move_duration": 0.0,
+			"start": 22.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p3_f3.png",
+			"move_duration": 0.0,
+			"start": 24.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p3_f4.png",
+			"move_duration": 0.0,
+			"start": 26.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p3_f5.png",
+			"move_duration": 0.0,
+			"start": 28.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p3_f6.png",
+			"move_duration": 0.0,
+			"start": 30.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p3_f7.png",
+			"move_duration": 0.0,
+			"start": 32.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p4_f1.png",
+			"move_duration": 0.0,
+			"start": 34.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p4_f2.png",
+			"move_duration": 0.0,
+			"start": 36.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p4_f3.png",
+			"move_duration": 0.0,
+			"start": 38.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p4_f4.png",
+			"move_duration": 0.0,
+			"start": 40.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p4_f5.png",
+			"move_duration": 0.0,
+			"start": 42.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p4_f6.png",
+			"move_duration": 0.0,
+			"start": 44.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p5_f1.png",
+			"move_duration": 0.0,
+			"start": 46.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p5_f2.png",
+			"move_duration": 0.0,
+			"start": 48.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p5_f3.png",
+			"move_duration": 0.0,
+			"start": 50.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p5_f4.png",
+			"move_duration": 0.0,
+			"start": 52.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p5_f5.png",
+			"move_duration": 0.0,
+			"start": 54.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p5_f6.png",
+			"move_duration": 0.0,
+			"start": 56.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p5_f7.png",
+			"move_duration": 0.0,
+			"start": 58.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p6_f1.png",
+			"move_duration": 0.0,
+			"start": 60.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p6_f2.png",
+			"move_duration": 0.0,
+			"start": 62.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p6_f3.png",
+			"move_duration": 0.0,
+			"start": 64.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p6_f4.png",
+			"move_duration": 0.0,
+			"start": 66.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p6_f5.png",
+			"move_duration": 0.0,
+			"start": 68.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p6_f6.png",
+			"move_duration": 0.0,
+			"start": 70.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f1.png",
+			"move_duration": 0.0,
+			"start": 72.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f2.png",
+			"move_duration": 0.0,
+			"start": 74.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f3.png",
+			"move_duration": 0.0,
+			"start": 76.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f4.png",
+			"move_duration": 0.0,
+			"start": 78.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f5.png",
+			"move_duration": 0.0,
+			"start": 80.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f6.png",
+			"move_duration": 0.0,
+			"start": 82.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f7.png",
+			"move_duration": 0.0,
+			"start": 84.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p7_f8.png",
+			"move_duration": 0.0,
+			"start": 86.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p8_f1.png",
+			"move_duration": 0.0,
+			"start": 88.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p8_f2.png",
+			"move_duration": 0.0,
+			"start": 90.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p8_f3.png",
+			"move_duration": 0.0,
+			"start": 92.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p8_f4.png",
+			"move_duration": 0.0,
+			"start": 94.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p8_f5.png",
+			"move_duration": 0.0,
+			"start": 96.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p8_f6.png",
+			"move_duration": 0.0,
+			"start": 98.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p8_f7.png",
+			"move_duration": 0.0,
+			"start": 100.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p9_f1.png",
+			"move_duration": 0.0,
+			"start": 102.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p9_f2.png",
+			"move_duration": 0.0,
+			"start": 104.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p9_f3.png",
+			"move_duration": 0.0,
+			"start": 106.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p9_f4.png",
+			"move_duration": 0.0,
+			"start": 108.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p9_f5.png",
+			"move_duration": 0.0,
+			"start": 110.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p9_f6.png",
+			"move_duration": 0.0,
+			"start": 112.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p10_f1.png",
+			"move_duration": 0.0,
+			"start": 114.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p10_f2.png",
+			"move_duration": 0.0,
+			"start": 116.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p10_f3.png",
+			"move_duration": 0.0,
+			"start": 118.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p10_f4.png",
+			"move_duration": 0.0,
+			"start": 120.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p10_f5.png",
+			"move_duration": 0.0,
+			"start": 122.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p10_f6.png",
+			"move_duration": 0.0,
+			"start": 124.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p11_f1.png",
+			"move_duration": 0.0,
+			"start": 126.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p11_f2.png",
+			"move_duration": 0.0,
+			"start": 128.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p11_f3.png",
+			"move_duration": 0.0,
+			"start": 130.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p11_f4.png",
+			"move_duration": 0.0,
+			"start": 132.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p11_f5.png",
+			"move_duration": 0.0,
+			"start": 134.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p11_f6.png",
+			"move_duration": 0.0,
+			"start": 136.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p12_f1.png",
+			"move_duration": 0.0,
+			"start": 138.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p12_f2.png",
+			"move_duration": 0.0,
+			"start": 140.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p12_f3.png",
+			"move_duration": 0.0,
+			"start": 142.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p12_f4.png",
+			"move_duration": 0.0,
+			"start": 144.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p12_f5.png",
+			"move_duration": 0.0,
+			"start": 146.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p12_f6.png",
+			"move_duration": 0.0,
+			"start": 148.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p13_f1.png",
+			"move_duration": 0.0,
+			"start": 150.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p13_f2.png",
+			"move_duration": 0.0,
+			"start": 152.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p13_f3.png",
+			"move_duration": 0.0,
+			"start": 154.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p13_f4.png",
+			"move_duration": 0.0,
+			"start": 156.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p13_f5.png",
+			"move_duration": 0.0,
+			"start": 158.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "p13_f6.png",
+			"move_duration": 0.0,
+			"start": 160.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		},
+		{
+			"auto_fit": true,
+			"cam_end": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"cam_start": [
+				0.0,
+				0.0,
+				1.0,
+				1.0
+			],
+			"easing": 1,
+			"image_path": "zzz.png",
+			"move_duration": 0.0,
+			"start": 162.0,
+			"transition": 0,
+			"transition_duration": 1.0
+		}
+	]
+}

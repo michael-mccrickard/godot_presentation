@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8w677kp4bnjf"
+path="res://.godot/imported/p05_t2.wav-85645528e92f18d4da92fa2ad1b69bb3.sample"
+
+[deps]
+
+source_file="res://cartoons/captain_marvel_mummy/logic/Project.logicx/Media/Audio Files/p05_t2.wav"
+dest_files=["res://.godot/imported/p05_t2.wav-85645528e92f18d4da92fa2ad1b69bb3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

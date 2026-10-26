@@ -1234,7 +1234,7 @@
 				1.0
 			],
 			"easing": 1,
-			"image_path": "p10_f5.png",
+			"image_path": "p10_f5.jpeg",
 			"move_duration": 0.0,
 			"start": 367.338839046875,
 			"transition": 1,
@@ -1255,7 +1255,7 @@
 				1.0
 			],
 			"easing": 1,
-			"image_path": "p10_f6.png",
+			"image_path": "p10_f6.jpeg",
 			"move_duration": 0.0,
 			"start": 370.579999758387,
 			"transition": 1,

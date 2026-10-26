@@ -1,0 +1,232 @@
+# CAPTAIN MARVEL AND THE MUMMY MYSTERY
+# Pages: p1 = printed page 4 ... p13 = printed page 16 (p{n} = printed page n+3)
+#
+# CHARACTERS
+# NARRATOR        — caption boxes
+# CAPTAIN MARVEL  — the World's Mightiest Mortal; adult, booming, jaunty
+# BILLY BATSON    — boy radio reporter; Captain Marvel's alter ego
+# AMES            — Professor Ames, elderly bearded archaeologist, president of the museum board
+# WILSON          — Professor Wilson, bespectacled board member; secretly the Mummy
+# MUMMY           — Wilson in disguise as the mummy (Nazi agent); menacing, theatrical
+# DOTTIE          — Dottie Tengallon, plucky syndicated girl columnist
+# MISS DALSHAW    — secretary at Billy's office
+# BOARD MEMBER 1  — bald museum board member
+# GUIDE           — local camel guide
+# NAZI 1          — disguised Nazi in bird mask and robe
+# NAZI 2          — disguised Nazi in crocodile helmet
+#
+# TITLE (p1_f1): CAPT. MARVEL AND THE MUMMY MYSTERY
+
+PAGE 1
+
+[p1_f1] CAPTAIN MARVEL: Beg pardon? Did you say something?
+[p1_f2] NARRATOR: The PHOENIX MUSEUM! Tonight, a solitary light burns within its secluded walls...
+[p1_f3] NARRATOR: ...for here, the museum board is about to open a mummy case from far away, mysterious, old EGYPT!
+[p1_f3] AMES: I discovered this mummy case a year ago. But because of the war, there was a delay in shipping. Legend states this case is full of gold and jewels!
+[p1_f3] WILSON: Or perhaps it is.. er.. ACCURSED, eh? Heh heh!
+
+PAGE 2
+
+[p2_f1] NARRATOR: The chilling thought of a CURSE has arisen...
+[p2_f1] BOARD MEMBER 1: ACCURSED! Er— who will open it?
+[p2_f1] WILSON: I'll open it. I'm not afraid. Heh, heh!
+# SFX p2_f1: SQUEE SQUEAK
+[p2_f2] WILSON: PROFESSOR AMES, you discovered the case—it is your privilege to look in first...
+[p2_f2] AMES: Er... I will extend you that honor, WILSON... along with me. C-come on!
+[p2_f3] AMES: ???? No mummy! No jewels!
+[p2_f3] WILSON: Just an old piece of papyrus!
+[p2_f4] WILSON: It says... "A curse of death on all who disturb the tomb of SHAD-RU-KHEL! BEWARE!"
+[p2_f4] AMES: A CURSE! Just as you predicted, Wilson!
+[p2_f5] AMES: But pshaw! This is a practical joke! There's been a mistake in shipment. I'm going to Africa and bring back the REAL Shad-ru-Khel case. Good night, gentlemen!
+[p2_f6] WILSON: Gentlemen, I protest against Ames's rash decision! It's DANGEROUS to defy this curse! I move that he should be forced to stay!
+[p2_f6] BOARD MEMBER 1: Sorry, Wilson. There's NOTHING we can do about it. Ames is president of the board, you know.
+
+PAGE 3
+
+[p3_f1] NARRATOR: Professor Ames wearily makes his way home, to find waiting for him DOTTIE TENGALLON, famed girl columnist.
+[p3_f1] AMES: DOTTIE TENGALLON! What a pleasant surprise! I know your father, JIMMY TENGALLON, well!
+[p3_f1] DOTTIE: Hullo, Prof! Say, what's the news on this mummy case? I need an item for my syndicated column!
+[p3_f2] AMES: The mummy case was empty! Big disappointment. All we found was a worthless note that said something about a CURSE. Just a prank, I'm sure!
+[p3_f2] DOTTIE: CURSE! Prank? Br-r-r it gives me goose-pimples!
+[p3_f3] AMES: Then I don't suppose you'd care to go to Africa with me, Dottie... after the real mummy case?
+[p3_f3] DOTTIE: What? Africa? GO WITH YOU?
+[p3_f4] DOTTIE: YIPPEE! A trip to Africa! I'll say I'll go! Just wait'll I tell BILLY BATSON about this!
+[p3_f4] AMES: Just like her father, Jimmy, lots of spirit. A fine girl.
+[p3_f5] DOTTIE: Better yet! I'll PHONE Billy... this is news that can't wait!
+[p3_f5] BILLY BATSON: Why hello, Dottie! What's cooking? Where are you calling from?
+[p3_f6] DOTTIE: I'm in a booth at Fourth and Main. But listen, Billy. I've just been talking with Professor Ames, and guess what? I'M GOING TO AFRICA WITH HIM! We're going to search for—
+[p3_f6] NARRATOR: Dottie is excited. Too excited to notice a bandaged hand that creeps from the shadows... a MUMMY'S HAND!
+
+PAGE 4
+
+[p4_f1] DOTTIE (off): ...to search for the REAL mummy... ugh gulp! (click)!
+[p4_f1] MISS DALSHAW: OOH!
+[p4_f1] BILLY BATSON: Dottie's in trouble! I'm hurrying down to Fourth and Main to look into this, Miss Dalshaw!
+[p4_f2] BILLY BATSON: SHAZAM!
+[p4_f2] NARRATOR: BILLY BATSON says the magic word—
+[p4_f3] CAPTAIN MARVEL: Here I go to Fourth and Main at—FULL SPEED AHEAD!
+[p4_f3] NARRATOR: —and in a flash he becomes the WORLD'S MIGHTIEST MORTAL—CAPTAIN MARVEL!
+# SFX p4_f3: BOOM
+[p4_f4] NARRATOR: Brief seconds pass, as with the speed of light itself, CAPTAIN MARVEL zooms to his destination.
+[p4_f4] CAPTAIN MARVEL: Where Dottie called from!
+[p4_f5] NARRATOR: But suddenly, as he nears the spot, he sees...
+[p4_f5] CAPTAIN MARVEL: For the love of mud!... A MUMMY!
+[p4_f6] CAPTAIN MARVEL: Hold on there, bud!
+[p4_f6] MUMMY: Is it Captain Marvel? You may get me, O wonder of wonders, BUT THE GIRL DIES!
+
+PAGE 5
+
+[p5_f1] MUMMY: Ha, ha, ha! The curse of Shad-ru-Khel—strikes!
+[p5_f1] CAPTAIN MARVEL: (Gulp)! I can't let Dottie fall!
+[p5_f2] CAPTAIN MARVEL: Got her!
+[p5_f3] CAPTAIN MARVEL: The mummy escaped, but Dottie's okay, so... SHAZAM!
+# SFX p5_f4: BOOM!
+[p5_f5] DOTTIE: BILLY! But I thought a mummy...
+[p5_f5] BILLY BATSON: I'll take you home now, Dottie. We'd both better get some sleep. WE'VE GOT TO MAKE A TRIP TOMORROW!
+[p5_f6] DOTTIE: Did you say "WE," Billy? You're going too?
+[p5_f6] BILLY BATSON: Yes.. er.. for the adventure!
+[p5_f6] BILLY BATSON (thinking): But really because I think that mummy will show up again! And when he does..
+[p5_f7] NARRATOR: Next day, the party meets at the dock in preparation for the trip... a dark trail to the DARK CONTINENT.
+[p5_f7] WILSON: Ames, old man—I implore you not to go! Think of the terrible curse!
+[p5_f7] AMES: NOTHING will stop me, Wilson. I'm going...
+[p5_f8] WILSON: Well... then I'm going too, Ames! I'll... er... take my chances with the curse!
+[p5_f8] AMES: Good, Wilson! Glad you're coming with us!
+
+PAGE 6
+
+[p6_f1] NARRATOR: Far out to sea...
+[p6_f1] AMES: Ahh! A deck chair! You kids run along and play. I'm going to take it easy!
+[p6_f1] BILLY BATSON: See you later, Professor Ames!
+[p6_f1] WILSON: I'm sea sick! I'm going to my cabin!
+[p6_f2] NARRATOR: WHAT'S THIS!??? Two piercing eyes glare from a port hole, and a clutching mummy's hand glides forth toward Professor Ames!
+[p6_f2] AMES: Such a lovely trip. And no mummy to worry about!
+[p6_f3] AMES: Oh well, guess I'll take a short stroll around deck after all.
+# p6_f3: MUMMY balloon "????" (no spoken words)
+[p6_f4] MUMMY: You got away by accident, Ames! But next time I won't fail! The curse of Shad-ru-Khel will fall on ALL OF YOU! YOU WILL NEVER REACH THE SACRED PYRAMID!
+[p6_f5] NARRATOR: Professor Ames idly strolls into the churning engine room.
+[p6_f5] AMES: Fascinating! Machinery is almost as interesting as mummies...
+[p6_f5] MUMMY: This time you will NOT escape, Professor Ames!
+[p6_f6] NARRATOR: But on the other side of the machinery Billy and Dottie arrive....
+[p6_f6] BILLY BATSON: Now that piston, Dottie... HEY!
+[p6_f6] AMES (off): UGG! HELP!
+[p6_f6] DOTTIE: Why that sounds like the Professor!
+
+PAGE 7
+
+[p7_f1] MUMMY: The curse of Shad-ru-Khel is upon you, foolish one!
+[p7_f1] BILLY BATSON: The mummy! SHAZAM!
+# SFX p7_f2: BOOM!
+[p7_f3] CAPTAIN MARVEL: Let's you and me get chummy, MUMMY!
+[p7_f3] AMES: AWK! I lost my balance! I'M FALLING!
+# SFX p7_f3: WOP
+[p7_f4] NARRATOR: Into the very jaws of the rumbling, crunching machinery dives Captain Marvel! Something has to give way... and it isn't Marvel!
+[p7_f4] CAPTAIN MARVEL: The only way to save the Professor is to STOP THE MACHINERY!
+[p7_f5] AMES: Whew! I-I'm confused! What all happened?
+[p7_f5] DOTTIE: That mummy threw you into the engines! Luckily Captain Marvel saved you.—But the mummy escaped again!
+[p7_f5] CAPTAIN MARVEL: SHAZAM!
+[p7_f6] NARRATOR: The mummy's murderous trail is lost. They search every inch of the VESSEL—WITHOUT RESULTS...
+[p7_f7] WILSON: No, not a sign of the mummy, anywhere! I haven't seen this mummy!—er—are you SURE you didn't IMAGINE it?
+[p7_f7] DOTTIE: Professor Ames and I couldn't BOTH have imagined our narrow escapes, Professor Wilson! HMMFF!
+[p7_f8] NARRATOR: At last, days later, their boat drops anchor at an Egyptian port....
+[p7_f8] BILLY BATSON: British soldiers! Hmm—I'd almost forgotten this is a theater of war!
+[p7_f8] AMES: We're not concerned with that Billy... only with the scientific aspects of the mummy mystery!
+
+PAGE 8
+
+[p8_f1] WILSON: There's the CAMEL HOTEL! I suggest we stay there overnight.
+[p8_f1] AMES: Good idea, Wilson.
+[p8_f2] BILLY BATSON: You sure go for—er—large head-gear, Dottie!
+[p8_f2] DOTTIE: Well, Billy, after you get used to wearing a ten-gallon hat, everything else seems trivial. Like it?
+[p8_f3] BILLY BATSON: Very—er—lovely, Dottie. But I'm going to drop in on Professor Ames for a minute!
+[p8_f4] AMES: I keep thinking we're being watched! I wish Captain Marvel had caught that mummy.
+[p8_f4] DOTTIE (off): EEEEK! HELP!
+[p8_f4] BILLY BATSON: Listen! A scream!
+[p8_f5] NARRATOR: The scream has come from Dottie's room, where....
+[p8_f5] MUMMY: Ha ha ha! The curse has struck again! I will get the others through this girl! Ha ha!
+[p8_f6] AMES: DOTTIE! She's gone! Do you suppose the mummy...??
+[p8_f6] BILLY BATSON (thinking): That's my guess too. So—
+[p8_f6] BILLY BATSON: SHAZAM!
+[p8_f7] AMES: CAPTAIN MARVEL! Are we glad to see you!
+[p8_f7] CAPTAIN MARVEL: Someone else is going to see me soon too—A MUMMY!
+
+PAGE 9
+
+[p9_f1] NARRATOR: Meanwhile, the mummy has raced through winding streets, and reaches an ancient stone building....
+[p9_f1] MUMMY: ??? CURSES! Here comes that flying wonder again! But I'll foil him!
+[p9_f2] MUMMY (off): Just try and break through THAT door, my friend!
+# SFX p9_f2: SLAM!
+[p9_f3] NARRATOR: EARTH'S MIGHTIEST MORTAL smashes through the massive door as though it were made of flimsy paper, not solid iron!
+[p9_f4] CAPTAIN MARVEL: There he goes, down that sewer!
+[p9_f5] MUMMY: I dare him to pull THIS up—I JUST DARE HIM!
+[p9_f6] CAPTAIN MARVEL: Test number two, eh? Well, here goes—WOOPS!
+# SFX p9_f6: SNAP!
+
+PAGE 10
+
+[p10_f1] NARRATOR: Hurriedly, the MIGHTY MARVEL digs his fingers into the stone and—
+[p10_f1] CAPTAIN MARVEL: THAT'S BETTER!
+[p10_f2] CAPTAIN MARVEL: Several tunnels! Which one did the mummy—??
+[p10_f2] MUMMY (off): You are strong—
+[p10_f2] MUMMY (off): O mighty mortal!
+[p10_f2] MUMMY (off): But you can't be—in two places at once—
+[p10_f2] MUMMY (off): And these echoes—
+[p10_f2] MUMMY (off): Have you bewildered!
+[p10_f3] CAPTAIN MARVEL: Looks like that confounded mummy HAS got me stumped! I can't go chasing through ALL these tunnels... HEY! What's that on the floor?
+[p10_f4] CAPTAIN MARVEL: A lipstick message from Dottie! Hmm—"Tomorrow" eh? Sure is a lucky thing that girl knows the CAPTAIN MARVEL CODE!
+# p10_f4 lipstick note: ZN HZUV ULOOLD NZK GLNLIILD  (reversed-alphabet code = "AM SAFE FOLLOW MAP TOMORROW")
+[p10_f4] NARRATOR: For only the privileged members of the famed CAPTAIN MARVEL CLUB can decipher—or write—this kind of code.
+[p10_f5] NARRATOR: Later, back at the hotel—
+[p10_f5] AMES: Wilson is gone too, Billy. I'm afraid he was murdered first by the mummy. And what about poor Dottie—?
+[p10_f5] BILLY BATSON: Easy, Professor Ames, I just had a tip from Captain Marvel. He says Dottie is safe for the time being—and that we're to follow your map tomorrow.
+[p10_f6] NARRATOR: Next day, and the search party sets out.
+[p10_f6] AMES: According to my map, that pyramid is the tomb of Shad-ru-Khel!
+[p10_f6] GUIDE: Go slowly, effendi! It is ACCURSED!
+
+PAGE 11
+
+[p11_f1] NARRATOR: Meanwhile, deep within the hoary, old pyramid where the mummy has arrived through his underground passages...
+[p11_f1] MUMMY: So! Professor Ames and Billy Batson still dare the CURSE! The fools! I'll show them!
+[p11_f2] DOTTIE: Now I know the truth! You're a Nazi agent, Mummy! And this treasure is the stolen wealth of Shad-ru-Khel!
+[p11_f2] NAZI 2: JA!
+[p11_f2] MUMMY: Of course, my dear, and now my men will go out and scare the daylights out of your friends! Hurry, men!
+[p11_f3] NAZI 1: Back, brainless ones! Back—or the curse falls upon you!
+[p11_f3] AMES: Gulp!
+[p11_f3] BILLY BATSON: Gulp! SHAZAM!
+[p11_f4] AMES: Captain Marvel!
+[p11_f4] CAPTAIN MARVEL: Stay here, Professor—while I rip this place wide open!
+[p11_f4] NAZI 1: HIMMEL!
+[p11_f5] MUMMY: Don't run, fools! ATTACK! In the name of Shad-ru-Khel—ATTACK!
+[p11_f6] CAPTAIN MARVEL: Such horrible faces! I'm SO frightened!
+
+PAGE 12
+
+[p12_f1] CAPTAIN MARVEL: But what's underneath the disguises is even more horrible—NAZIS!
+[p12_f1] DOTTIE: Yes, Captain Marvel! The mummy is a Nazi agent! He planned to turn the stolen treasure of Shad-ru-Khel over to Hitler!
+[p12_f2] CAPTAIN MARVEL: Tie those Nazis up, Dottie—and watch that treasure! I'm going after Herr Mummy! I think I know who he is!
+[p12_f3] NARRATOR: Deeper into the pyramid's winding mazes, Marvel pursues the mummy!
+[p12_f3] MUMMY (off): Ha ha—! This stone door is TEN FEET THICK!
+[p12_f4] CAPTAIN MARVEL: So what?
+[p12_f5] CAPTAIN MARVEL: What's this—?—Hmm, I get it all now! A secret Nazi supply base, BACK OF THE BRITISH LINES! Hidden in an innocent pyramid!
+[p12_f5] MUMMY: RIGHT! And the curse of Shad-ru-Khel was to keep meddlers like you and Ames away!
+[p12_f6] MUMMY: Take that you—
+# p12_f6: MUMMY balloon "????" (no spoken words)
+[p12_f6] CAPTAIN MARVEL: Get ready to fly—WILSON!
+
+PAGE 13
+
+[p13_f1] NARRATOR: Propelled by Marvel's mighty blow, the mummy, now revealed as Wilson, flies back—but his broken sword strikes a spark, igniting a tin of gasoline!
+[p13_f2] WILSON: AAAAAGH!
+[p13_f2] CAPTAIN MARVEL: FIRE! When it reaches the gun powder—! I've got to save Dottie and Ames! IN THE SHORTEST POSSIBLE TIME!
+[p13_f3] NARRATOR: Right through solid stone cleaves mighty Captain Marvel.... to where he left Dottie...
+[p13_f3] DOTTIE: CAPTAIN MARVEL! WHA—!
+[p13_f3] CAPTAIN MARVEL: Brace yourselves! I'm going to grab you two up!
+[p13_f4] CAPTAIN MARVEL: —And out we go!
+[p13_f5] DOTTIE: Just in time! The pyramid blew to smithereens!
+[p13_f5] CAPTAIN MARVEL: And that's the end of a Nazi secret base! Now back to our ship—and America!
+[p13_f6] NARRATOR: Out at sea—and heading home!
+[p13_f6] AMES: So Wilson was the mummy all the time—a secret Nazi agent! But I'm disappointed! NO REAL MUMMY! NO TREASURE! Not even a REAL curse!
+[p13_f6] BILLY BATSON: No REAL curse? Wasn't Wilson the first to molest the mummy case? AND DIDN'T HE DIE? That's curse enough!
+[p13_f7] NARRATOR: One more surprise!
+[p13_f7] DOTTIE: No treasure? What do you mean? I didn't bring this BIG HELMET along for nothing!
+[p13_f7] BILLY BATSON: HOLY MOLEY!
+[p13_f7] NARRATOR: See CAPTAIN MARVEL every month in WHIZ COMICS!

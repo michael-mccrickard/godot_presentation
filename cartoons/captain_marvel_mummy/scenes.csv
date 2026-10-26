@@ -1,0 +1,166 @@
+scene_file,id,character,start_in_scene,end_in_scene,text
+clips/_scenes/p01_t2.mp3,p1_f1_01,CAPTAIN MARVEL,0,2.016,Beg pardon? Did you say something?
+clips/_scenes/p01_t2.mp3,p1_f2_01,NARRATOR,2.016,8.64,"The PHOENIX MUSEUM! Tonight, a solitary light burns within its secluded walls..."
+clips/_scenes/p01_t2.mp3,p1_f3_01,NARRATOR,8.64,16.497,"...for here, the museum board is about to open a mummy case from far away, mysterious, old EGYPT!"
+clips/_scenes/p01_t2.mp3,p1_f3_02,AMES,16.497,26.481,"I discovered this mummy case a year ago. But because of the war, there was a delay in shipping. Legend states this case is full of gold and jewels!"
+clips/_scenes/p01_t2.mp3,p1_f3_03,WILSON,26.481,31.851,"Or perhaps it is.. er.. ACCURSED, eh? Heh heh!"
+clips/_scenes/p02_t2.mp3,p2_f1_01,NARRATOR,0,3.222,The chilling thought of a CURSE has arisen...
+clips/_scenes/p02_t2.mp3,p2_f1_02,BOARD MEMBER 1,3.222,5.926,ACCURSED! Er— who will open it?
+clips/_scenes/p02_t2.mp3,p2_f1_03,WILSON,5.926,8.853,"I'll open it. I'm not afraid. Heh, heh!"
+clips/_scenes/p02_t2.mp3,p2_f2_01,WILSON,8.853,14.887,"PROFESSOR AMES, you discovered the case—it is your privilege to look in first..."
+clips/_scenes/p02_t2.mp3,p2_f2_02,AMES,14.887,21.04,"Er... I will extend you that honor, WILSON... along with me. C-come on!"
+clips/_scenes/p02_t2.mp3,p2_f3_01,AMES,21.04,23.947,???? No mummy! No jewels!
+clips/_scenes/p02_t2.mp3,p2_f3_02,WILSON,23.947,26.48,Just an old piece of papyrus!
+clips/_scenes/p02_t2.mp3,p2_f4_01,WILSON,26.48,35.296,"It says... ""A curse of death on all who disturb the tomb of SHAD-RU-KHEL! BEWARE!"""
+clips/_scenes/p02_t2.mp3,p2_f4_02,AMES,35.296,38.64,"A CURSE! Just as you predicted, Wilson!"
+clips/_scenes/p02_t2.mp3,p2_f5_01,AMES,38.64,49.45,"But pshaw! This is a practical joke! There's been a mistake in shipment. I'm going to Africa and bring back the REAL Shad-ru-Khel case. Good night, gentlemen!"
+clips/_scenes/p02_t2.mp3,p2_f6_01,WILSON,49.45,58.486,"Gentlemen, I protest against Ames's rash decision! It's DANGEROUS to defy this curse! I move that he should be forced to stay!"
+clips/_scenes/p02_t2.mp3,p2_f6_02,BOARD MEMBER 1,58.486,63.44,"Sorry, Wilson. There's NOTHING we can do about it. Ames is president of the board, you know."
+clips/_scenes/p03_t2.mp3,p3_f1_01,NARRATOR,0,7.44,"Professor Ames wearily makes his way home, to find waiting for him DOTTIE TENGALLON, famed girl columnist."
+clips/_scenes/p03_t2.mp3,p3_f1_02,AMES,7.44,14.08,"DOTTIE TENGALLON! What a pleasant surprise! I know your father, JIMMY TENGALLON, well!"
+clips/_scenes/p03_t2.mp3,p3_f1_03,DOTTIE,14.08,20.24,"Hullo, Prof! Say, what's the news on this mummy case? I need an item for my syndicated column!"
+clips/_scenes/p03_t2.mp3,p3_f2_01,AMES,20.24,30.16,"The mummy case was empty! Big disappointment. All we found was a worthless note that said something about a CURSE. Just a prank, I'm sure!"
+clips/_scenes/p03_t2.mp3,p3_f2_02,DOTTIE,30.16,34.976,CURSE! Prank? Br-r-r it gives me goose-pimples!
+clips/_scenes/p03_t2.mp3,p3_f3_01,AMES,34.976,41.36,"Then I don't suppose you'd care to go to Africa with me, Dottie... after the real mummy case?"
+clips/_scenes/p03_t2.mp3,p3_f3_02,DOTTIE,41.36,44.72,What? Africa? GO WITH YOU?
+clips/_scenes/p03_t2.mp3,p3_f4_01,DOTTIE,44.72,51.6,YIPPEE! A trip to Africa! I'll say I'll go! Just wait'll I tell BILLY BATSON about this!
+clips/_scenes/p03_t2.mp3,p3_f4_02,AMES,51.6,56.24,"Just like her father, Jimmy, lots of spirit. A fine girl."
+clips/_scenes/p03_t2.mp3,p3_f5_01,DOTTIE,56.24,60.4,Better yet! I'll PHONE Billy... this is news that can't wait!
+clips/_scenes/p03_t2.mp3,p3_f5_02,BILLY BATSON,60.4,63.84,"Why hello, Dottie! What's cooking? Where are you calling from?"
+clips/_scenes/p03_t2.mp3,p3_f6_01,DOTTIE,63.84,74.001,"I'm in a booth at Fourth and Main. But listen, Billy. I've just been talking with Professor Ames, and guess what? I'M GOING TO AFRICA WITH HIM! We're going to search for—"
+clips/_scenes/p03_t2.mp3,p3_f6_02,NARRATOR,74.001,81.76,Dottie is excited. Too excited to notice a bandaged hand that creeps from the shadows... a MUMMY'S HAND!
+clips/_scenes/p04_t1.mp3,p4_f1_01,DOTTIE,0,3.685,...to search for the REAL mummy... ugh gulp! (click)!
+clips/_scenes/p04_t1.mp3,p4_f1_02,MISS DALSHAW,3.685,4.965,OOH!
+clips/_scenes/p04_t1.mp3,p4_f1_03,BILLY BATSON,4.965,9.445,"Dottie's in trouble! I'm hurrying down to Fourth and Main to look into this, Miss Dalshaw!"
+clips/_scenes/p04_t1.mp3,p4_f2_01,BILLY BATSON,9.445,10.413,SHAZAM!
+clips/_scenes/p04_t1.mp3,p4_f2_02,NARRATOR,10.413,12.576,BILLY BATSON says the magic word—
+clips/_scenes/p04_t1.mp3,p4_f3_01,CAPTAIN MARVEL,12.576,15.858,Here I go to Fourth and Main at—FULL SPEED AHEAD!
+clips/_scenes/p04_t1.mp3,p4_f3_02,NARRATOR,15.858,21.165,—and in a flash he becomes the WORLD'S MIGHTIEST MORTAL—CAPTAIN MARVEL!
+clips/_scenes/p04_t1.mp3,p4_f4_01,NARRATOR,21.165,27.632,"Brief seconds pass, as with the speed of light itself, CAPTAIN MARVEL zooms to his destination."
+clips/_scenes/p04_t1.mp3,p4_f4_02,CAPTAIN MARVEL,27.632,29.218,Where Dottie called from!
+clips/_scenes/p04_t1.mp3,p4_f5_01,NARRATOR,29.218,32.565,"But suddenly, as he nears the spot, he sees..."
+clips/_scenes/p04_t1.mp3,p4_f5_02,CAPTAIN MARVEL,32.565,35.365,For the love of mud!... A MUMMY!
+clips/_scenes/p04_t1.mp3,p4_f6_01,CAPTAIN MARVEL,35.365,37.125,"Hold on there, bud!"
+clips/_scenes/p04_t1.mp3,p4_f6_02,MUMMY,37.125,45.935,"Is it Captain Marvel? You may get me, O wonder of wonders, BUT THE GIRL DIES!"
+clips/_scenes/p05_t2.mp3,p5_f1_01,MUMMY,0,6.52,"Ha, ha, ha! The curse of Shad-ru-Khel—strikes!"
+clips/_scenes/p05_t2.mp3,p5_f1_02,CAPTAIN MARVEL,6.52,9.4,(Gulp)! I can't let Dottie fall!
+clips/_scenes/p05_t2.mp3,p5_f2_01,CAPTAIN MARVEL,9.4,10.64,Got her!
+clips/_scenes/p05_t2.mp3,p5_f3_01,CAPTAIN MARVEL,10.64,14.727,"The mummy escaped, but Dottie's okay, so... SHAZAM!"
+clips/_scenes/p05_t2.mp3,p5_f5_01,DOTTIE,14.727,17.447,BILLY! But I thought a mummy...
+clips/_scenes/p05_t2.mp3,p5_f5_02,BILLY BATSON,17.447,22.967,"I'll take you home now, Dottie. We'd both better get some sleep. WE'VE GOT TO MAKE A TRIP TOMORROW!"
+clips/_scenes/p05_t2.mp3,p5_f6_01,DOTTIE,22.967,26.578,"Did you say ""WE,"" Billy? You're going too?"
+clips/_scenes/p05_t2.mp3,p5_f6_02,BILLY BATSON,26.578,29.4,Yes.. er.. for the adventure!
+clips/_scenes/p05_t2.mp3,p5_f6_03,BILLY BATSON,29.4,34.262,But really because I think that mummy will show up again! And when he does..
+clips/_scenes/p05_t2.mp3,p5_f7_01,NARRATOR,34.262,42.008,"Next day, the party meets at the dock in preparation for the trip... a dark trail to the DARK CONTINENT."
+clips/_scenes/p05_t2.mp3,p5_f7_02,WILSON,42.008,48.08,"Ames, old man—I implore you not to go! Think of the terrible curse!"
+clips/_scenes/p05_t2.mp3,p5_f7_03,AMES,48.08,51.213,"NOTHING will stop me, Wilson. I'm going..."
+clips/_scenes/p05_t2.mp3,p5_f8_01,WILSON,51.213,57.2,"Well... then I'm going too, Ames! I'll... er... take my chances with the curse!"
+clips/_scenes/p05_t2.mp3,p5_f8_02,AMES,57.2,59.84,"Good, Wilson! Glad you're coming with us!"
+clips/_scenes/p06_t2.mp3,p6_f1_01,NARRATOR,0,1.693,Far out to sea...
+clips/_scenes/p06_t2.mp3,p6_f1_02,AMES,1.693,8.56,Ahh! A deck chair! You kids run along and play. I'm going to take it easy!
+clips/_scenes/p06_t2.mp3,p6_f1_03,BILLY BATSON,8.56,10.24,"See you later, Professor Ames!"
+clips/_scenes/p06_t2.mp3,p6_f1_04,WILSON,10.24,14.24,I'm sea sick! I'm going to my cabin!
+clips/_scenes/p06_t2.mp3,p6_f2_01,NARRATOR,14.24,22.72,"WHAT'S THIS!??? Two piercing eyes glare from a port hole, and a clutching mummy's hand glides forth toward Professor Ames!"
+clips/_scenes/p06_t2.mp3,p6_f2_02,AMES,22.72,27.16,Such a lovely trip. And no mummy to worry about!
+clips/_scenes/p06_t2.mp3,p6_f3_01,AMES,27.16,30.888,"Oh well, guess I'll take a short stroll around deck after all."
+clips/_scenes/p06_t2.mp3,p6_f4_01,MUMMY,30.888,44.24,"You got away by accident, Ames! But next time I won't fail! The curse of Shad-ru-Khel will fall on ALL OF YOU! YOU WILL NEVER REACH THE SACRED PYRAMID!"
+clips/_scenes/p06_t2.mp3,p6_f5_01,NARRATOR,44.24,48.32,Professor Ames idly strolls into the churning engine room.
+clips/_scenes/p06_t2.mp3,p6_f5_02,AMES,48.32,52.88,Fascinating! Machinery is almost as interesting as mummies...
+clips/_scenes/p06_t2.mp3,p6_f5_03,MUMMY,52.88,56.72,"This time you will NOT escape, Professor Ames!"
+clips/_scenes/p06_t2.mp3,p6_f6_01,NARRATOR,56.72,60.8,But on the other side of the machinery Billy and Dottie arrive....
+clips/_scenes/p06_t2.mp3,p6_f6_02,BILLY BATSON,60.8,63.2,"Now that piston, Dottie... HEY!"
+clips/_scenes/p06_t2.mp3,p6_f6_03,AMES,63.2,65.52,UGG! HELP!
+clips/_scenes/p06_t2.mp3,p6_f6_04,DOTTIE,65.52,67.84,Why that sounds like the Professor!
+clips/_scenes/p07_t2.mp3,p7_f1_01,MUMMY,0,4.493,"The curse of Shad-ru-Khel is upon you, foolish one!"
+clips/_scenes/p07_t2.mp3,p7_f1_02,BILLY BATSON,4.493,6.495,The mummy! SHAZAM!
+clips/_scenes/p07_t2.mp3,p7_f3_01,CAPTAIN MARVEL,6.495,8.984,"Let's you and me get chummy, MUMMY!"
+clips/_scenes/p07_t2.mp3,p7_f3_02,AMES,8.984,12.422,AWK! I lost my balance! I'M FALLING!
+clips/_scenes/p07_t2.mp3,p7_f4_01,NARRATOR,12.422,21.12,"Into the very jaws of the rumbling, crunching machinery dives Captain Marvel! Something has to give way... and it isn't Marvel!"
+clips/_scenes/p07_t2.mp3,p7_f4_02,CAPTAIN MARVEL,21.12,24.888,The only way to save the Professor is to STOP THE MACHINERY!
+clips/_scenes/p07_t2.mp3,p7_f5_01,AMES,24.888,28.968,Whew! I-I'm confused! What all happened?
+clips/_scenes/p07_t2.mp3,p7_f5_02,DOTTIE,28.968,36.41,That mummy threw you into the engines! Luckily Captain Marvel saved you.—But the mummy escaped again!
+clips/_scenes/p07_t2.mp3,p7_f5_03,CAPTAIN MARVEL,36.41,37.527,SHAZAM!
+clips/_scenes/p07_t2.mp3,p7_f6_01,NARRATOR,37.527,44.176,The mummy's murderous trail is lost. They search every inch of the VESSEL—WITHOUT RESULTS...
+clips/_scenes/p07_t2.mp3,p7_f7_01,WILSON,44.176,53.36,"No, not a sign of the mummy, anywhere! I haven't seen this mummy!—er—are you SURE you didn't IMAGINE it?"
+clips/_scenes/p07_t2.mp3,p7_f7_02,DOTTIE,53.36,59.06,"Professor Ames and I couldn't BOTH have imagined our narrow escapes, Professor Wilson! HMMFF!"
+clips/_scenes/p07_t2.mp3,p7_f8_01,NARRATOR,59.06,64.0,"At last, days later, their boat drops anchor at an Egyptian port...."
+clips/_scenes/p07_t2.mp3,p7_f8_02,BILLY BATSON,64.0,68.487,British soldiers! Hmm—I'd almost forgotten this is a theater of war!
+clips/_scenes/p07_t2.mp3,p7_f8_03,AMES,68.487,74.8,We're not concerned with that Billy... only with the scientific aspects of the mummy mystery!
+clips/_scenes/p08_t2.mp3,p8_f1_01,WILSON,0,3.943,There's the CAMEL HOTEL! I suggest we stay there overnight.
+clips/_scenes/p08_t2.mp3,p8_f1_02,AMES,3.943,5.147,"Good idea, Wilson."
+clips/_scenes/p08_t2.mp3,p8_f2_01,BILLY BATSON,5.147,9.36,"You sure go for—er—large head-gear, Dottie!"
+clips/_scenes/p08_t2.mp3,p8_f2_02,DOTTIE,9.36,16.651,"Well, Billy, after you get used to wearing a ten-gallon hat, everything else seems trivial. Like it?"
+clips/_scenes/p08_t2.mp3,p8_f3_01,BILLY BATSON,16.651,22.5,"Very—er—lovely, Dottie. But I'm going to drop in on Professor Ames for a minute!"
+clips/_scenes/p08_t2.mp3,p8_f4_01,AMES,22.5,27.844,I keep thinking we're being watched! I wish Captain Marvel had caught that mummy.
+clips/_scenes/p08_t2.mp3,p8_f4_02,DOTTIE,27.844,29.566,EEEEK! HELP!
+clips/_scenes/p08_t2.mp3,p8_f4_03,BILLY BATSON,29.566,31.049,Listen! A scream!
+clips/_scenes/p08_t2.mp3,p8_f5_01,NARRATOR,31.049,34.082,"The scream has come from Dottie's room, where...."
+clips/_scenes/p08_t2.mp3,p8_f5_02,MUMMY,34.082,44.242,Ha ha ha! The curse has struck again! I will get the others through this girl! Ha ha!
+clips/_scenes/p08_t2.mp3,p8_f6_01,AMES,44.242,47.768,DOTTIE! She's gone! Do you suppose the mummy...??
+clips/_scenes/p08_t2.mp3,p8_f6_02,BILLY BATSON,47.768,50.082,That's my guess too. So—
+clips/_scenes/p08_t2.mp3,p8_f6_03,BILLY BATSON,50.082,51.051,SHAZAM!
+clips/_scenes/p08_t2.mp3,p8_f7_01,AMES,51.051,54.962,CAPTAIN MARVEL! Are we glad to see you!
+clips/_scenes/p08_t2.mp3,p8_f7_02,CAPTAIN MARVEL,54.962,58.812,Someone else is going to see me soon too—A MUMMY!
+clips/_scenes/p09_t1.mp3,p9_f1_01,NARRATOR,0,5.76,"Meanwhile, the mummy has raced through winding streets, and reaches an ancient stone building...."
+clips/_scenes/p09_t1.mp3,p9_f1_02,MUMMY,5.76,12.24,??? CURSES! Here comes that flying wonder again! But I'll foil him!
+clips/_scenes/p09_t1.mp3,p9_f2_01,MUMMY,12.24,15.762,"Just try and break through THAT door, my friend!"
+clips/_scenes/p09_t1.mp3,p9_f3_01,NARRATOR,15.762,22.642,"EARTH'S MIGHTIEST MORTAL smashes through the massive door as though it were made of flimsy paper, not solid iron!"
+clips/_scenes/p09_t1.mp3,p9_f4_01,CAPTAIN MARVEL,22.642,24.962,"There he goes, down that sewer!"
+clips/_scenes/p09_t1.mp3,p9_f5_01,MUMMY,24.962,29.442,I dare him to pull THIS up—I JUST DARE HIM!
+clips/_scenes/p09_t1.mp3,p9_f6_01,CAPTAIN MARVEL,29.442,33.68,"Test number two, eh? Well, here goes—WOOPS!"
+clips/_scenes/p10_t2.mp3,p10_f1_01,NARRATOR,0,4.4,"Hurriedly, the MIGHTY MARVEL digs his fingers into the stone and—"
+clips/_scenes/p10_t2.mp3,p10_f1_02,CAPTAIN MARVEL,4.4,5.76,THAT'S BETTER!
+clips/_scenes/p10_t2.mp3,p10_f2_01,CAPTAIN MARVEL,5.76,8.88,Several tunnels! Which one did the mummy—??
+clips/_scenes/p10_t2.mp3,p10_f2_02,MUMMY,8.88,10.72,You are strong—
+clips/_scenes/p10_t2.mp3,p10_f2_03,MUMMY,10.72,12.881,O mighty mortal!
+clips/_scenes/p10_t2.mp3,p10_f2_04,MUMMY,12.881,16.321,But you can't be—in two places at once—
+clips/_scenes/p10_t2.mp3,p10_f2_05,MUMMY,16.321,18.202,And these echoes—
+clips/_scenes/p10_t2.mp3,p10_f2_06,MUMMY,18.202,20.365,Have you bewildered!
+clips/_scenes/p10_t2.mp3,p10_f3_01,CAPTAIN MARVEL,20.365,28.645,Looks like that confounded mummy HAS got me stumped! I can't go chasing through ALL these tunnels... HEY! What's that on the floor?
+clips/_scenes/p10_t2.mp3,p10_f4_01,CAPTAIN MARVEL,28.645,36.816,"A lipstick message from Dottie! Hmm—""Tomorrow"" eh? Sure is a lucky thing that girl knows the CAPTAIN MARVEL CODE!"
+clips/_scenes/p10_t2.mp3,p10_f4_02,NARRATOR,36.816,44.165,For only the privileged members of the famed CAPTAIN MARVEL CLUB can decipher—or write—this kind of code.
+clips/_scenes/p10_t2.mp3,p10_f5_01,NARRATOR,44.165,46.165,"Later, back at the hotel—"
+clips/_scenes/p10_t2.mp3,p10_f5_02,AMES,46.165,53.62,"Wilson is gone too, Billy. I'm afraid he was murdered first by the mummy. And what about poor Dottie—?"
+clips/_scenes/p10_t2.mp3,p10_f5_03,BILLY BATSON,53.62,62.485,"Easy, Professor Ames, I just had a tip from Captain Marvel. He says Dottie is safe for the time being—and that we're to follow your map tomorrow."
+clips/_scenes/p10_t2.mp3,p10_f6_01,NARRATOR,62.485,65.365,"Next day, and the search party sets out."
+clips/_scenes/p10_t2.mp3,p10_f6_02,AMES,65.365,69.845,"According to my map, that pyramid is the tomb of Shad-ru-Khel!"
+clips/_scenes/p10_t2.mp3,p10_f6_03,GUIDE,69.845,72.64,"Go slowly, effendi! It is ACCURSED!"
+clips/_scenes/p11_t2.mp3,p11_f1_01,NARRATOR,0,7.52,"Meanwhile, deep within the hoary, old pyramid where the mummy has arrived through his underground passages..."
+clips/_scenes/p11_t2.mp3,p11_f1_02,MUMMY,7.52,15.92,So! Professor Ames and Billy Batson still dare the CURSE! The fools! I'll show them!
+clips/_scenes/p11_t2.mp3,p11_f2_01,DOTTIE,15.92,22.8,"Now I know the truth! You're a Nazi agent, Mummy! And this treasure is the stolen wealth of Shad-ru-Khel!"
+clips/_scenes/p11_t2.mp3,p11_f2_02,NAZI 2,22.8,23.52,JA!
+clips/_scenes/p11_t2.mp3,p11_f2_03,MUMMY,23.52,31.28,"Of course, my dear, and now my men will go out and scare the daylights out of your friends! Hurry, men!"
+clips/_scenes/p11_t2.mp3,p11_f3_01,NAZI 1,31.28,36.16,"Back, brainless ones! Back—or the curse falls upon you!"
+clips/_scenes/p11_t2.mp3,p11_f3_02,AMES,36.16,36.88,Gulp!
+clips/_scenes/p11_t2.mp3,p11_f3_03,BILLY BATSON,36.88,38.8,Gulp! SHAZAM!
+clips/_scenes/p11_t2.mp3,p11_f4_01,AMES,38.8,40.32,Captain Marvel!
+clips/_scenes/p11_t2.mp3,p11_f4_02,CAPTAIN MARVEL,40.32,43.92,"Stay here, Professor—while I rip this place wide open!"
+clips/_scenes/p11_t2.mp3,p11_f4_03,NAZI 1,43.92,44.8,HIMMEL!
+clips/_scenes/p11_t2.mp3,p11_f5_01,MUMMY,44.8,50.64,"Don't run, fools! ATTACK! In the name of Shad-ru-Khel—ATTACK!"
+clips/_scenes/p11_t2.mp3,p11_f6_01,CAPTAIN MARVEL,50.64,54.4,Such horrible faces! I'm SO frightened!
+clips/_scenes/p12_t1.mp3,p12_f1_01,CAPTAIN MARVEL,0,4.72,But what's underneath the disguises is even more horrible—NAZIS!
+clips/_scenes/p12_t1.mp3,p12_f1_02,DOTTIE,4.72,12.48,"Yes, Captain Marvel! The mummy is a Nazi agent! He planned to turn the stolen treasure of Shad-ru-Khel over to Hitler!"
+clips/_scenes/p12_t1.mp3,p12_f2_01,CAPTAIN MARVEL,12.48,19.44,"Tie those Nazis up, Dottie—and watch that treasure! I'm going after Herr Mummy! I think I know who he is!"
+clips/_scenes/p12_t1.mp3,p12_f3_01,NARRATOR,19.44,24.08,"Deeper into the pyramid's winding mazes, Marvel pursues the mummy!"
+clips/_scenes/p12_t1.mp3,p12_f3_02,MUMMY,24.08,28.48,Ha ha—! This stone door is TEN FEET THICK!
+clips/_scenes/p12_t1.mp3,p12_f4_01,CAPTAIN MARVEL,28.48,29.4,So what?
+clips/_scenes/p12_t1.mp3,p12_f5_01,CAPTAIN MARVEL,29.4,39.04,"What's this—?—Hmm, I get it all now! A secret Nazi supply base, BACK OF THE BRITISH LINES! Hidden in an innocent pyramid!"
+clips/_scenes/p12_t1.mp3,p12_f5_02,MUMMY,39.04,46.16,RIGHT! And the curse of Shad-ru-Khel was to keep meddlers like you and Ames away!
+clips/_scenes/p12_t1.mp3,p12_f6_01,MUMMY,46.16,47.68,Take that you—
+clips/_scenes/p12_t1.mp3,p12_f6_02,CAPTAIN MARVEL,47.68,49.76,Get ready to fly—WILSON!
+clips/_scenes/p13_t2.mp3,p13_f1_01,NARRATOR,0,10.0,"Propelled by Marvel's mighty blow, the mummy, now revealed as Wilson, flies back—but his broken sword strikes a spark, igniting a tin of gasoline!"
+clips/_scenes/p13_t2.mp3,p13_f2_01,WILSON,10.0,11.36,AAAAAGH!
+clips/_scenes/p13_t2.mp3,p13_f2_02,CAPTAIN MARVEL,11.36,17.68,FIRE! When it reaches the gun powder—! I've got to save Dottie and Ames! IN THE SHORTEST POSSIBLE TIME!
+clips/_scenes/p13_t2.mp3,p13_f3_01,NARRATOR,17.68,22.72,Right through solid stone cleaves mighty Captain Marvel.... to where he left Dottie...
+clips/_scenes/p13_t2.mp3,p13_f3_02,DOTTIE,22.72,24.488,CAPTAIN MARVEL! WHA—!
+clips/_scenes/p13_t2.mp3,p13_f3_03,CAPTAIN MARVEL,24.488,26.8,Brace yourselves! I'm going to grab you two up!
+clips/_scenes/p13_t2.mp3,p13_f4_01,CAPTAIN MARVEL,26.8,28.36,—And out we go!
+clips/_scenes/p13_t2.mp3,p13_f5_01,DOTTIE,28.36,31.849,Just in time! The pyramid blew to smithereens!
+clips/_scenes/p13_t2.mp3,p13_f5_02,CAPTAIN MARVEL,31.849,37.36,And that's the end of a Nazi secret base! Now back to our ship—and America!
+clips/_scenes/p13_t2.mp3,p13_f6_01,NARRATOR,37.36,39.84,Out at sea—and heading home!
+clips/_scenes/p13_t2.mp3,p13_f6_02,AMES,39.84,50.8,So Wilson was the mummy all the time—a secret Nazi agent! But I'm disappointed! NO REAL MUMMY! NO TREASURE! Not even a REAL curse!
+clips/_scenes/p13_t2.mp3,p13_f6_03,BILLY BATSON,50.8,58.4,No REAL curse? Wasn't Wilson the first to molest the mummy case? AND DIDN'T HE DIE? That's curse enough!
+clips/_scenes/p13_t2.mp3,p13_f7_01,NARRATOR,58.4,60.0,One more surprise!
+clips/_scenes/p13_t2.mp3,p13_f7_02,DOTTIE,60.0,66.08,No treasure? What do you mean? I didn't bring this BIG HELMET along for nothing!
+clips/_scenes/p13_t2.mp3,p13_f7_03,BILLY BATSON,66.08,67.92,HOLY MOLEY!
+clips/_scenes/p13_t2.mp3,p13_f7_04,NARRATOR,67.92,71.52,See CAPTAIN MARVEL every month in WHIZ COMICS!

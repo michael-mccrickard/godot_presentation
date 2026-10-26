@@ -19,10 +19,14 @@ Usage:
   python3 export_logic.py --line-gap 0.3 --panel-gap 1.2 --page-gap 2.5 --relayout
   python3 export_logic.py --lead-in 2           # seconds of silence before the first line
   python3 export_logic.py --scenes --page-gap 1.5   # per-page scene files end to end on one track
+  python3 export_logic.py --scenes --panel-pause 0.4  # + extra breath at every panel change
+
+Pauses: put a line like  [pause 1.5]  in script.txt before the line that should wait.
+generate.py ignores it (no regeneration); export_logic.py --scenes opens a gap there.
 
 Requires ffmpeg / ffprobe on PATH.
 """
-import argparse, csv, json, math, subprocess, sys
+import argparse, csv, json, math, re, subprocess, sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -56,49 +60,90 @@ def to_bwf(src, dst, start_sec, line):
                     str(dst)], check=True)
 
 
+PAUSE_RE = re.compile(r"^\[pause\s+([\d.]+)\s*s?\]\s*$", re.I)
+
+
+def read_pauses(script_path):
+    """Lines like [pause 1.5] in script.txt -> {index of the following dialogue line: seconds}.
+    generate.py ignores these lines, so adding/removing pauses never costs credits."""
+    sys.path.insert(0, str(script_path.parent))
+    from generate import LINE_RE
+    pauses, n = {}, 0
+    for raw in script_path.read_text(encoding="utf-8").splitlines():
+        t = raw.strip()
+        m = PAUSE_RE.match(t)
+        if m:
+            pauses[n] = pauses.get(n, 0) + float(m.group(1))
+        elif LINE_RE.match(t):
+            n += 1
+    return pauses
+
+
 def export_scenes(a, root, name, all_lines):
-    """One track: each page's scene file end to end, page-gap apart, markers at every panel."""
+    """One track: each page's scene end to end. Scenes are split between lines wherever a
+    pause is wanted ([pause N] in the script, or --panel-pause), and the gap is opened there."""
+    script = root / json.loads(Path(a.manifest).read_text()).get("script", "script.txt")
+    pauses = read_pauses(script) if script.exists() else {}
+
     scenes = {}
-    for l in all_lines:
+    for idx, l in enumerate(all_lines):
         sf = l.get("scene_file")
         sel = next((t for t in l.get("takes", []) if t["take"] == l.get("selected_take")), {})
         if not sf:
             sys.exit(f'{l["id"]} has no scene take — run generate.py --scenes-only first')
         scenes.setdefault(sf, {"file": sf, "page": l["page"], "lines": []})["lines"].append(
-            {**l, "in_start": sel.get("scene_start", 0), "in_end": sel.get("scene_end", 0)})
+            {**l, "idx": idx, "in_start": sel.get("scene_start", 0), "in_end": sel.get("scene_end", 0)})
     scenes = sorted(scenes.values(), key=lambda s: (s["page"], s["file"]))
 
     wav_dir = root / "logic" / "scenes"
     wav_dir.mkdir(parents=True, exist_ok=True)
-    cursor, placed = frames(a.lead_in), []
+    cursor, placed, segs, tl_lines, panels, n_pauses = frames(a.lead_in), [], [], [], {}, 0
     for i, sc in enumerate(scenes):
+        L = sc["lines"]
         if i:
             cursor += frames(a.page_gap)
+        cursor += frames(pauses.get(L[0]["idx"], 0))           # [pause] right at a page start
         src, dst = root / sc["file"], wav_dir / (Path(sc["file"]).stem + ".wav")
-        start = cursor
-        stamp = f'{start}|{src.stat().st_mtime_ns}'
+        stamp = f'{cursor}|{src.stat().st_mtime_ns}'
         sf = dst.with_suffix(".stamp")
         if not dst.exists() or not sf.exists() or sf.read_text() != stamp:
-            to_bwf(src, dst, start / FPS, {"id": Path(sc["file"]).stem, "character": "scene",
-                                           "text": f'page {sc["page"]}'})
+            to_bwf(src, dst, cursor / FPS, {"id": Path(sc["file"]).stem, "character": "scene",
+                                            "text": f'page {sc["page"]}'})
             sf.write_text(stamp)
         samples, ch = probe_samples(dst)
-        dur = max(1, math.floor(samples * FPS / SR))
-        placed.append({**sc, "wav": dst, "samples": samples, "channels": ch,
-                       "start_frame": start, "end_frame": start + dur})
-        cursor = start + dur
+        scene_len = max(1, math.floor(samples * FPS / SR))
+        sc.update(wav=dst, samples=samples, channels=ch, start_frame=cursor)
+        placed.append(sc)
+
+        # split points between lines k-1 and k, with the silence to insert there
+        cuts = []
+        for k in range(1, len(L)):
+            extra = pauses.get(L[k]["idx"], 0)
+            if L[k]["panel"] != L[k - 1]["panel"]:
+                extra += a.panel_pause
+            if extra > 0:
+                c = frames((L[k - 1]["in_end"] + L[k]["in_start"]) / 2)
+                cuts.append((k, min(max(c, 1), scene_len - 1), frames(extra)))
+        bounds = [(0, 0, 0)] + cuts                              # (first line, in-point, pause before)
+        shift = 0
+        for j, (k0, cin, pause) in enumerate(bounds):
+            shift += pause
+            n_pauses += 1 if pause else 0
+            cout = bounds[j + 1][1] if j + 1 < len(bounds) else scene_len
+            segs.append({"scene": sc, "in": cin, "dur": cout - cin, "offset": cursor + shift + cin,
+                         "part": j + 1, "parts": len(bounds)})
+            k1 = bounds[j + 1][0] if j + 1 < len(bounds) else len(L)
+            for l in L[k0:k1]:
+                s = round((cursor + shift) / FPS + l["in_start"], 3)
+                e = round((cursor + shift) / FPS + l["in_end"], 3)
+                tl_lines.append({"id": l["id"], "panel": l["panel"], "character": l["character"],
+                                 "scene": sc["file"], "start": s, "end": e})
+                pn = panels.setdefault(l["panel"], {"panel": l["panel"], "start": s, "end": e})
+                pn["start"], pn["end"] = min(pn["start"], s), max(pn["end"], e)
+        cursor += shift + scene_len
+        sc["end_frame"] = cursor
     total = cursor + frames(2.0)
 
-    # absolute times for every line / panel (for Godot)
-    tl_lines, panels = [], {}
-    for sc in placed:
-        t0 = sc["start_frame"] / FPS
-        for l in sc["lines"]:
-            s, e = round(t0 + l["in_start"], 3), round(t0 + l["in_end"], 3)
-            tl_lines.append({"id": l["id"], "panel": l["panel"], "character": l["character"],
-                             "scene": sc["file"], "start": s, "end": e})
-            p = panels.setdefault(l["panel"], {"panel": l["panel"], "start": s, "end": e})
-            p["start"], p["end"] = min(p["start"], s), max(p["end"], e)
     (root / "timeline.json").write_text(json.dumps(
         {"fps": FPS, "mode": "scenes", "lines": tl_lines, "panels": list(panels.values()),
          "scenes": [{"file": sc["file"], "start": round(sc["start_frame"] / FPS, 3),
@@ -128,16 +173,17 @@ def export_scenes(a, root, name, all_lines):
                         offset="0s", start="0s", duration=ft(total))
     for p in panels.values():
         ET.SubElement(gap, "marker", start=ft(frames(p["start"])), duration=ft(1), value=p["panel"])
-    for sc in placed:
-        ET.SubElement(gap, "asset-clip", ref=sc["ref"], lane="-1", offset=ft(sc["start_frame"]),
-                      start="0s", duration=ft(sc["end_frame"] - sc["start_frame"]),
-                      name=f'Page {sc["page"]}', audioRole="Dialogue")
+    for g in segs:
+        sc = g["scene"]
+        nm = f'Page {sc["page"]}' + (f' ({g["part"]}/{g["parts"]})' if g["parts"] > 1 else "")
+        ET.SubElement(gap, "asset-clip", ref=sc["ref"], lane="-1", offset=ft(g["offset"]),
+                      start=ft(g["in"]), duration=ft(g["dur"]), name=nm, audioRole="Dialogue")
     ET.indent(fcp)
     out = root / "logic" / "dialogue_scenes.fcpxml"
     out.write_text('<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE fcpxml>\n\n'
                    + ET.tostring(fcp, encoding="unicode") + "\n", encoding="utf-8")
-    print(f"{len(placed)} scenes on one track, {len(panels)} panel markers, "
-          f"length {total / FPS / 60:.0f}:{total / FPS % 60:04.1f}")
+    print(f"{len(placed)} scenes / {len(segs)} regions on one track, {n_pauses} pauses inserted, "
+          f"{len(panels)} panel markers, length {total / FPS / 60:.0f}:{total / FPS % 60:04.1f}")
     print(f"→ {out.relative_to(root)}\n→ logic/scenes/ (BWF)\n→ timeline.json / timeline.csv")
 
 
@@ -146,7 +192,7 @@ def main():
     ap.add_argument("--manifest", default="manifest.json")
     ap.add_argument("--line-gap", type=float, default=0.35, help="pause between lines in the same panel")
     ap.add_argument("--panel-gap", type=float, default=1.0, help="pause before a new panel")
-    ap.add_argument("--page-gap", type=float, default=0.5, help="pause before a new page")
+    ap.add_argument("--page-gap", type=float, default=2.0, help="pause before a new page")
     ap.add_argument("--lead-in", type=float, default=1.0)
     ap.add_argument("--relayout", action="store_true", help="ignore locked positions in timeline.json")
     ap.add_argument("--name", help="project name (default: folder name)")
@@ -156,6 +202,8 @@ def main():
                     help="also write logic/stems/<CHARACTER>.wav, one full-length file per character")
     ap.add_argument("--scenes", action="store_true",
                     help="place the per-page scene files (from --scenes-only) end to end on ONE track")
+    ap.add_argument("--panel-pause", type=float, default=0.0,
+                    help="--scenes: extra silence inserted at every panel change inside a page")
     a = ap.parse_args()
 
     root = Path(a.manifest).resolve().parent

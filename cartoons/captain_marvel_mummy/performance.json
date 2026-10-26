@@ -1,0 +1,844 @@
+{
+  "_notes": [
+    "Tags are ElevenLabs v4 audio tags; removing every [...] and collapsing whitespace reproduces 'text' exactly.",
+    "Voice brief — NARRATOR: warm, punchy 1940s radio-serial announcer; mid-Atlantic; relishes cliffhangers.",
+    "Voice brief — CAPTAIN MARVEL: adult man, 30s, deep and booming but good-natured; big-brother confidence, jaunty wisecracks.",
+    "Voice brief — BILLY BATSON: boy, about 12-14; bright, quick, earnest American kid reporter.",
+    "Voice brief — AMES: elderly professor, 70s; bookish, absent-minded, slightly creaky, easily startled but stubborn.",
+    "Voice brief — WILSON: middle-aged, 50s; smooth, oily, faintly nasal; fake politeness hiding contempt. Should be recognisably related to MUMMY but not obviously the same.",
+    "Voice brief — MUMMY: Wilson in disguise; low, rasping, theatrical villain; booming curses and cackles. Could share Wilson's voice pitched/processed lower.",
+    "Voice brief — DOTTIE: young woman, late teens/20; spunky, fast-talking, wisecracking 1940s girl reporter.",
+    "Voice brief — MISS DALSHAW: middle-aged secretary; one startled gasp.",
+    "Voice brief — BOARD MEMBER 1: older man, nervous, fussy.",
+    "Voice brief — GUIDE: middle-aged Egyptian man; grave, fearful warning.",
+    "Voice brief — NAZI 1: gruff German-accented man, putting on a spooky voice.",
+    "Voice brief — NAZI 2: gruff German-accented man; one word."
+  ],
+  "lines": {
+    "p1_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Beg pardon? Did you say something?",
+      "performed": "[puzzled, friendly] Beg pardon? Did you say something?"
+    },
+    "p1_f2_01": {
+      "character": "NARRATOR",
+      "text": "The PHOENIX MUSEUM! Tonight, a solitary light burns within its secluded walls...",
+      "performed": "[ominous storytelling, hushed] The PHOENIX MUSEUM! Tonight, a solitary light burns within its secluded walls..."
+    },
+    "p1_f3_01": {
+      "character": "NARRATOR",
+      "text": "...for here, the museum board is about to open a mummy case from far away, mysterious, old EGYPT!",
+      "performed": "[mysterious storytelling] ...for here, the museum board is about to open a mummy case from far away, mysterious, old EGYPT!"
+    },
+    "p1_f3_02": {
+      "character": "AMES",
+      "text": "I discovered this mummy case a year ago. But because of the war, there was a delay in shipping. Legend states this case is full of gold and jewels!",
+      "performed": "[proud, scholarly] I discovered this mummy case a year ago. But because of the war, there was a delay in shipping. [excited] Legend states this case is full of gold and jewels!"
+    },
+    "p1_f3_03": {
+      "character": "WILSON",
+      "text": "Or perhaps it is.. er.. ACCURSED, eh? Heh heh!",
+      "performed": "[sly, insinuating] Or perhaps it is.. er.. ACCURSED, eh? [sinister chuckle] Heh heh!"
+    },
+    "p2_f1_01": {
+      "character": "NARRATOR",
+      "text": "The chilling thought of a CURSE has arisen...",
+      "performed": "[ominous storytelling] The chilling thought of a CURSE has arisen..."
+    },
+    "p2_f1_02": {
+      "character": "BOARD MEMBER 1",
+      "text": "ACCURSED! Er— who will open it?",
+      "performed": "[nervous, alarmed] ACCURSED! Er— who will open it?"
+    },
+    "p2_f1_03": {
+      "character": "WILSON",
+      "text": "I'll open it. I'm not afraid. Heh, heh!",
+      "performed": "[smug, falsely brave] I'll open it. I'm not afraid. [sly chuckle] Heh, heh!"
+    },
+    "p2_f2_01": {
+      "character": "WILSON",
+      "text": "PROFESSOR AMES, you discovered the case—it is your privilege to look in first...",
+      "performed": "[overly polite, sly] PROFESSOR AMES, you discovered the case—it is your privilege to look in first..."
+    },
+    "p2_f2_02": {
+      "character": "AMES",
+      "text": "Er... I will extend you that honor, WILSON... along with me. C-come on!",
+      "performed": "[hesitant, nervous] Er... I will extend you that honor, WILSON... along with me. [shaky] C-come on!"
+    },
+    "p2_f3_01": {
+      "character": "AMES",
+      "text": "???? No mummy! No jewels!",
+      "performed": "[shocked, disappointed] ???? No mummy! No jewels!"
+    },
+    "p2_f3_02": {
+      "character": "WILSON",
+      "text": "Just an old piece of papyrus!",
+      "performed": "[puzzled] Just an old piece of papyrus!"
+    },
+    "p2_f4_01": {
+      "character": "WILSON",
+      "text": "It says... \"A curse of death on all who disturb the tomb of SHAD-RU-KHEL! BEWARE!\"",
+      "performed": "[reading aloud, slow and ominous] It says... \"A curse of death on all who disturb the tomb of SHAD-RU-KHEL! BEWARE!\""
+    },
+    "p2_f4_02": {
+      "character": "AMES",
+      "text": "A CURSE! Just as you predicted, Wilson!",
+      "performed": "[startled] A CURSE! Just as you predicted, Wilson!"
+    },
+    "p2_f5_01": {
+      "character": "AMES",
+      "text": "But pshaw! This is a practical joke! There's been a mistake in shipment. I'm going to Africa and bring back the REAL Shad-ru-Khel case. Good night, gentlemen!",
+      "performed": "[dismissive, scoffing] But pshaw! This is a practical joke! There's been a mistake in shipment. [determined] I'm going to Africa and bring back the REAL Shad-ru-Khel case. [brisk] Good night, gentlemen!"
+    },
+    "p2_f6_01": {
+      "character": "WILSON",
+      "text": "Gentlemen, I protest against Ames's rash decision! It's DANGEROUS to defy this curse! I move that he should be forced to stay!",
+      "performed": "[indignant, urgent] Gentlemen, I protest against Ames's rash decision! It's DANGEROUS to defy this curse! I move that he should be forced to stay!"
+    },
+    "p2_f6_02": {
+      "character": "BOARD MEMBER 1",
+      "text": "Sorry, Wilson. There's NOTHING we can do about it. Ames is president of the board, you know.",
+      "performed": "[apologetic, matter-of-fact] Sorry, Wilson. There's NOTHING we can do about it. Ames is president of the board, you know."
+    },
+    "p3_f1_01": {
+      "character": "NARRATOR",
+      "text": "Professor Ames wearily makes his way home, to find waiting for him DOTTIE TENGALLON, famed girl columnist.",
+      "performed": "[storytelling] Professor Ames wearily makes his way home, to find waiting for him DOTTIE TENGALLON, famed girl columnist."
+    },
+    "p3_f1_02": {
+      "character": "AMES",
+      "text": "DOTTIE TENGALLON! What a pleasant surprise! I know your father, JIMMY TENGALLON, well!",
+      "performed": "[warm, delighted] DOTTIE TENGALLON! What a pleasant surprise! I know your father, JIMMY TENGALLON, well!"
+    },
+    "p3_f1_03": {
+      "character": "DOTTIE",
+      "text": "Hullo, Prof! Say, what's the news on this mummy case? I need an item for my syndicated column!",
+      "performed": "[breezy, eager] Hullo, Prof! Say, what's the news on this mummy case? I need an item for my syndicated column!"
+    },
+    "p3_f2_01": {
+      "character": "AMES",
+      "text": "The mummy case was empty! Big disappointment. All we found was a worthless note that said something about a CURSE. Just a prank, I'm sure!",
+      "performed": "[weary, dismissive] The mummy case was empty! Big disappointment. All we found was a worthless note that said something about a CURSE. Just a prank, I'm sure!"
+    },
+    "p3_f2_02": {
+      "character": "DOTTIE",
+      "text": "CURSE! Prank? Br-r-r it gives me goose-pimples!",
+      "performed": "[playfully spooked, shivering] CURSE! Prank? Br-r-r it gives me goose-pimples!"
+    },
+    "p3_f3_01": {
+      "character": "AMES",
+      "text": "Then I don't suppose you'd care to go to Africa with me, Dottie... after the real mummy case?",
+      "performed": "[teasing, offhand] Then I don't suppose you'd care to go to Africa with me, Dottie... after the real mummy case?"
+    },
+    "p3_f3_02": {
+      "character": "DOTTIE",
+      "text": "What? Africa? GO WITH YOU?",
+      "performed": "[stunned disbelief] What? Africa? GO WITH YOU?"
+    },
+    "p3_f4_01": {
+      "character": "DOTTIE",
+      "text": "YIPPEE! A trip to Africa! I'll say I'll go! Just wait'll I tell BILLY BATSON about this!",
+      "performed": "[ecstatic, squealing] YIPPEE! A trip to Africa! I'll say I'll go! Just wait'll I tell BILLY BATSON about this!"
+    },
+    "p3_f4_02": {
+      "character": "AMES",
+      "text": "Just like her father, Jimmy, lots of spirit. A fine girl.",
+      "performed": "[fond, chuckling to himself] Just like her father, Jimmy, lots of spirit. A fine girl."
+    },
+    "p3_f5_01": {
+      "character": "DOTTIE",
+      "text": "Better yet! I'll PHONE Billy... this is news that can't wait!",
+      "performed": "[excited, hurried] Better yet! I'll PHONE Billy... this is news that can't wait!"
+    },
+    "p3_f5_02": {
+      "character": "BILLY BATSON",
+      "text": "Why hello, Dottie! What's cooking? Where are you calling from?",
+      "performed": "[cheerful, on the phone] Why hello, Dottie! What's cooking? Where are you calling from?"
+    },
+    "p3_f6_01": {
+      "character": "DOTTIE",
+      "text": "I'm in a booth at Fourth and Main. But listen, Billy. I've just been talking with Professor Ames, and guess what? I'M GOING TO AFRICA WITH HIM! We're going to search for—",
+      "performed": "[breathless, gushing, on the phone] I'm in a booth at Fourth and Main. But listen, Billy. I've just been talking with Professor Ames, and guess what? I'M GOING TO AFRICA WITH HIM! We're going to search for—"
+    },
+    "p3_f6_02": {
+      "character": "NARRATOR",
+      "text": "Dottie is excited. Too excited to notice a bandaged hand that creeps from the shadows... a MUMMY'S HAND!",
+      "performed": "[suspenseful storytelling] Dottie is excited. Too excited to notice a bandaged hand that creeps from the shadows... [dramatic reveal] a MUMMY'S HAND!"
+    },
+    "p4_f1_01": {
+      "character": "DOTTIE",
+      "text": "...to search for the REAL mummy... ugh gulp! (click)!",
+      "performed": "[distant, from off] [muffled over the phone] ...to search for the REAL mummy... [choking, cut off] ugh gulp! (click)!"
+    },
+    "p4_f1_02": {
+      "character": "MISS DALSHAW",
+      "text": "OOH!",
+      "performed": "[startled gasp] OOH!"
+    },
+    "p4_f1_03": {
+      "character": "BILLY BATSON",
+      "text": "Dottie's in trouble! I'm hurrying down to Fourth and Main to look into this, Miss Dalshaw!",
+      "performed": "[alarmed, urgent] Dottie's in trouble! I'm hurrying down to Fourth and Main to look into this, Miss Dalshaw!"
+    },
+    "p4_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "SHAZAM!",
+      "performed": "[shouting the magic word] SHAZAM!"
+    },
+    "p4_f2_02": {
+      "character": "NARRATOR",
+      "text": "BILLY BATSON says the magic word—",
+      "performed": "[dramatic storytelling] BILLY BATSON says the magic word—"
+    },
+    "p4_f3_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Here I go to Fourth and Main at—FULL SPEED AHEAD!",
+      "performed": "[heroic, confident shout] Here I go to Fourth and Main at—FULL SPEED AHEAD!"
+    },
+    "p4_f3_02": {
+      "character": "NARRATOR",
+      "text": "—and in a flash he becomes the WORLD'S MIGHTIEST MORTAL—CAPTAIN MARVEL!",
+      "performed": "[triumphant storytelling] —and in a flash he becomes the WORLD'S MIGHTIEST MORTAL—CAPTAIN MARVEL!"
+    },
+    "p4_f4_01": {
+      "character": "NARRATOR",
+      "text": "Brief seconds pass, as with the speed of light itself, CAPTAIN MARVEL zooms to his destination.",
+      "performed": "[fast-paced storytelling] Brief seconds pass, as with the speed of light itself, CAPTAIN MARVEL zooms to his destination."
+    },
+    "p4_f4_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Where Dottie called from!",
+      "performed": "[determined] Where Dottie called from!"
+    },
+    "p4_f5_01": {
+      "character": "NARRATOR",
+      "text": "But suddenly, as he nears the spot, he sees...",
+      "performed": "[suspenseful storytelling] But suddenly, as he nears the spot, he sees..."
+    },
+    "p4_f5_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "For the love of mud!... A MUMMY!",
+      "performed": "[astonished] For the love of mud!... A MUMMY!"
+    },
+    "p4_f6_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Hold on there, bud!",
+      "performed": "[commanding] Hold on there, bud!"
+    },
+    "p4_f6_02": {
+      "character": "MUMMY",
+      "text": "Is it Captain Marvel? You may get me, O wonder of wonders, BUT THE GIRL DIES!",
+      "performed": "[menacing, theatrical] Is it Captain Marvel? You may get me, O wonder of wonders, [cruel triumph] BUT THE GIRL DIES!"
+    },
+    "p5_f1_01": {
+      "character": "MUMMY",
+      "text": "Ha, ha, ha! The curse of Shad-ru-Khel—strikes!",
+      "performed": "[maniacal laughter] Ha, ha, ha! [menacing] The curse of Shad-ru-Khel—strikes!"
+    },
+    "p5_f1_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "(Gulp)! I can't let Dottie fall!",
+      "performed": "[gulps, alarmed] (Gulp)! I can't let Dottie fall!"
+    },
+    "p5_f2_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Got her!",
+      "performed": "[relieved, triumphant] Got her!"
+    },
+    "p5_f3_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "The mummy escaped, but Dottie's okay, so... SHAZAM!",
+      "performed": "[thoughtful] The mummy escaped, but Dottie's okay, so... [calling out] SHAZAM!"
+    },
+    "p5_f5_01": {
+      "character": "DOTTIE",
+      "text": "BILLY! But I thought a mummy...",
+      "performed": "[confused, dazed] BILLY! But I thought a mummy..."
+    },
+    "p5_f5_02": {
+      "character": "BILLY BATSON",
+      "text": "I'll take you home now, Dottie. We'd both better get some sleep. WE'VE GOT TO MAKE A TRIP TOMORROW!",
+      "performed": "[reassuring, brisk] I'll take you home now, Dottie. We'd both better get some sleep. [excited] WE'VE GOT TO MAKE A TRIP TOMORROW!"
+    },
+    "p5_f6_01": {
+      "character": "DOTTIE",
+      "text": "Did you say \"WE,\" Billy? You're going too?",
+      "performed": "[surprised, pleased] Did you say \"WE,\" Billy? You're going too?"
+    },
+    "p5_f6_02": {
+      "character": "BILLY BATSON",
+      "text": "Yes.. er.. for the adventure!",
+      "performed": "[awkward, covering] Yes.. er.. for the adventure!"
+    },
+    "p5_f6_03": {
+      "character": "BILLY BATSON",
+      "text": "But really because I think that mummy will show up again! And when he does..",
+      "performed": "[under his breath] [determined] But really because I think that mummy will show up again! And when he does.."
+    },
+    "p5_f7_01": {
+      "character": "NARRATOR",
+      "text": "Next day, the party meets at the dock in preparation for the trip... a dark trail to the DARK CONTINENT.",
+      "performed": "[ominous storytelling] Next day, the party meets at the dock in preparation for the trip... a dark trail to the DARK CONTINENT."
+    },
+    "p5_f7_02": {
+      "character": "WILSON",
+      "text": "Ames, old man—I implore you not to go! Think of the terrible curse!",
+      "performed": "[pleading, anxious] Ames, old man—I implore you not to go! Think of the terrible curse!"
+    },
+    "p5_f7_03": {
+      "character": "AMES",
+      "text": "NOTHING will stop me, Wilson. I'm going...",
+      "performed": "[stubborn, resolute] NOTHING will stop me, Wilson. I'm going..."
+    },
+    "p5_f8_01": {
+      "character": "WILSON",
+      "text": "Well... then I'm going too, Ames! I'll... er... take my chances with the curse!",
+      "performed": "[hesitant] Well... then I'm going too, Ames! [nervously resolved] I'll... er... take my chances with the curse!"
+    },
+    "p5_f8_02": {
+      "character": "AMES",
+      "text": "Good, Wilson! Glad you're coming with us!",
+      "performed": "[hearty, pleased] Good, Wilson! Glad you're coming with us!"
+    },
+    "p6_f1_01": {
+      "character": "NARRATOR",
+      "text": "Far out to sea...",
+      "performed": "[breezy storytelling] Far out to sea..."
+    },
+    "p6_f1_02": {
+      "character": "AMES",
+      "text": "Ahh! A deck chair! You kids run along and play. I'm going to take it easy!",
+      "performed": "[contented sigh] Ahh! A deck chair! [genial] You kids run along and play. I'm going to take it easy!"
+    },
+    "p6_f1_03": {
+      "character": "BILLY BATSON",
+      "text": "See you later, Professor Ames!",
+      "performed": "[cheerful] See you later, Professor Ames!"
+    },
+    "p6_f1_04": {
+      "character": "WILSON",
+      "text": "I'm sea sick! I'm going to my cabin!",
+      "performed": "[queasy, groaning] I'm sea sick! I'm going to my cabin!"
+    },
+    "p6_f2_01": {
+      "character": "NARRATOR",
+      "text": "WHAT'S THIS!??? Two piercing eyes glare from a port hole, and a clutching mummy's hand glides forth toward Professor Ames!",
+      "performed": "[suspenseful storytelling] WHAT'S THIS!??? Two piercing eyes glare from a port hole, and a clutching mummy's hand glides forth toward Professor Ames!"
+    },
+    "p6_f2_02": {
+      "character": "AMES",
+      "text": "Such a lovely trip. And no mummy to worry about!",
+      "performed": "[blissfully relaxed] Such a lovely trip. And no mummy to worry about!"
+    },
+    "p6_f3_01": {
+      "character": "AMES",
+      "text": "Oh well, guess I'll take a short stroll around deck after all.",
+      "performed": "[mild, absent-minded] Oh well, guess I'll take a short stroll around deck after all."
+    },
+    "p6_f4_01": {
+      "character": "MUMMY",
+      "text": "You got away by accident, Ames! But next time I won't fail! The curse of Shad-ru-Khel will fall on ALL OF YOU! YOU WILL NEVER REACH THE SACRED PYRAMID!",
+      "performed": "[seething, menacing] You got away by accident, Ames! But next time I won't fail! [rising, theatrical] The curse of Shad-ru-Khel will fall on ALL OF YOU! YOU WILL NEVER REACH THE SACRED PYRAMID!"
+    },
+    "p6_f5_01": {
+      "character": "NARRATOR",
+      "text": "Professor Ames idly strolls into the churning engine room.",
+      "performed": "[storytelling] Professor Ames idly strolls into the churning engine room."
+    },
+    "p6_f5_02": {
+      "character": "AMES",
+      "text": "Fascinating! Machinery is almost as interesting as mummies...",
+      "performed": "[fascinated, absent-minded] Fascinating! Machinery is almost as interesting as mummies..."
+    },
+    "p6_f5_03": {
+      "character": "MUMMY",
+      "text": "This time you will NOT escape, Professor Ames!",
+      "performed": "[sinister, gloating] This time you will NOT escape, Professor Ames!"
+    },
+    "p6_f6_01": {
+      "character": "NARRATOR",
+      "text": "But on the other side of the machinery Billy and Dottie arrive....",
+      "performed": "[storytelling] But on the other side of the machinery Billy and Dottie arrive...."
+    },
+    "p6_f6_02": {
+      "character": "BILLY BATSON",
+      "text": "Now that piston, Dottie... HEY!",
+      "performed": "[explaining] Now that piston, Dottie... [startled] HEY!"
+    },
+    "p6_f6_03": {
+      "character": "AMES",
+      "text": "UGG! HELP!",
+      "performed": "[distant, from off] [strangled cry] UGG! HELP!"
+    },
+    "p6_f6_04": {
+      "character": "DOTTIE",
+      "text": "Why that sounds like the Professor!",
+      "performed": "[alarmed] Why that sounds like the Professor!"
+    },
+    "p7_f1_01": {
+      "character": "MUMMY",
+      "text": "The curse of Shad-ru-Khel is upon you, foolish one!",
+      "performed": "[snarling, menacing] The curse of Shad-ru-Khel is upon you, foolish one!"
+    },
+    "p7_f1_02": {
+      "character": "BILLY BATSON",
+      "text": "The mummy! SHAZAM!",
+      "performed": "[alarmed] The mummy! [shouting the magic word] SHAZAM!"
+    },
+    "p7_f3_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Let's you and me get chummy, MUMMY!",
+      "performed": "[playful, heroic] Let's you and me get chummy, MUMMY!"
+    },
+    "p7_f3_02": {
+      "character": "AMES",
+      "text": "AWK! I lost my balance! I'M FALLING!",
+      "performed": "[panicked yelp] AWK! I lost my balance! [terrified] I'M FALLING!"
+    },
+    "p7_f4_01": {
+      "character": "NARRATOR",
+      "text": "Into the very jaws of the rumbling, crunching machinery dives Captain Marvel! Something has to give way... and it isn't Marvel!",
+      "performed": "[dramatic storytelling] Into the very jaws of the rumbling, crunching machinery dives Captain Marvel! Something has to give way... [wry] and it isn't Marvel!"
+    },
+    "p7_f4_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "The only way to save the Professor is to STOP THE MACHINERY!",
+      "performed": "[straining, determined] The only way to save the Professor is to STOP THE MACHINERY!"
+    },
+    "p7_f5_01": {
+      "character": "AMES",
+      "text": "Whew! I-I'm confused! What all happened?",
+      "performed": "[dazed, shaky] Whew! I-I'm confused! What all happened?"
+    },
+    "p7_f5_02": {
+      "character": "DOTTIE",
+      "text": "That mummy threw you into the engines! Luckily Captain Marvel saved you.—But the mummy escaped again!",
+      "performed": "[excited, relieved] That mummy threw you into the engines! Luckily Captain Marvel saved you.—[frustrated]But the mummy escaped again!"
+    },
+    "p7_f5_03": {
+      "character": "CAPTAIN MARVEL",
+      "text": "SHAZAM!",
+      "performed": "[calling out] SHAZAM!"
+    },
+    "p7_f6_01": {
+      "character": "NARRATOR",
+      "text": "The mummy's murderous trail is lost. They search every inch of the VESSEL—WITHOUT RESULTS...",
+      "performed": "[somber storytelling] The mummy's murderous trail is lost. They search every inch of the VESSEL—WITHOUT RESULTS..."
+    },
+    "p7_f7_01": {
+      "character": "WILSON",
+      "text": "No, not a sign of the mummy, anywhere! I haven't seen this mummy!—er—are you SURE you didn't IMAGINE it?",
+      "performed": "[dismissive, smug] No, not a sign of the mummy, anywhere! I haven't seen this mummy!—er—[condescending]are you SURE you didn't IMAGINE it?"
+    },
+    "p7_f7_02": {
+      "character": "DOTTIE",
+      "text": "Professor Ames and I couldn't BOTH have imagined our narrow escapes, Professor Wilson! HMMFF!",
+      "performed": "[indignant] Professor Ames and I couldn't BOTH have imagined our narrow escapes, Professor Wilson! [huffy] HMMFF!"
+    },
+    "p7_f8_01": {
+      "character": "NARRATOR",
+      "text": "At last, days later, their boat drops anchor at an Egyptian port....",
+      "performed": "[storytelling] At last, days later, their boat drops anchor at an Egyptian port...."
+    },
+    "p7_f8_02": {
+      "character": "BILLY BATSON",
+      "text": "British soldiers! Hmm—I'd almost forgotten this is a theater of war!",
+      "performed": "[surprised, thoughtful] British soldiers! Hmm—I'd almost forgotten this is a theater of war!"
+    },
+    "p7_f8_03": {
+      "character": "AMES",
+      "text": "We're not concerned with that Billy... only with the scientific aspects of the mummy mystery!",
+      "performed": "[lofty, dismissive] We're not concerned with that Billy... only with the scientific aspects of the mummy mystery!"
+    },
+    "p8_f1_01": {
+      "character": "WILSON",
+      "text": "There's the CAMEL HOTEL! I suggest we stay there overnight.",
+      "performed": "[helpful, smooth] There's the CAMEL HOTEL! I suggest we stay there overnight."
+    },
+    "p8_f1_02": {
+      "character": "AMES",
+      "text": "Good idea, Wilson.",
+      "performed": "[agreeable] Good idea, Wilson."
+    },
+    "p8_f2_01": {
+      "character": "BILLY BATSON",
+      "text": "You sure go for—er—large head-gear, Dottie!",
+      "performed": "[teasing] You sure go for—er—large head-gear, Dottie!"
+    },
+    "p8_f2_02": {
+      "character": "DOTTIE",
+      "text": "Well, Billy, after you get used to wearing a ten-gallon hat, everything else seems trivial. Like it?",
+      "performed": "[witty, proud] Well, Billy, after you get used to wearing a ten-gallon hat, everything else seems trivial. [fishing for a compliment] Like it?"
+    },
+    "p8_f3_01": {
+      "character": "BILLY BATSON",
+      "text": "Very—er—lovely, Dottie. But I'm going to drop in on Professor Ames for a minute!",
+      "performed": "[awkwardly polite, suppressing a laugh] Very—er—lovely, Dottie. But I'm going to drop in on Professor Ames for a minute!"
+    },
+    "p8_f4_01": {
+      "character": "AMES",
+      "text": "I keep thinking we're being watched! I wish Captain Marvel had caught that mummy.",
+      "performed": "[uneasy, nervous] I keep thinking we're being watched! I wish Captain Marvel had caught that mummy."
+    },
+    "p8_f4_02": {
+      "character": "DOTTIE",
+      "text": "EEEEK! HELP!",
+      "performed": "[distant, from off] [terrified scream] EEEEK! HELP!"
+    },
+    "p8_f4_03": {
+      "character": "BILLY BATSON",
+      "text": "Listen! A scream!",
+      "performed": "[alert, urgent] Listen! A scream!"
+    },
+    "p8_f5_01": {
+      "character": "NARRATOR",
+      "text": "The scream has come from Dottie's room, where....",
+      "performed": "[suspenseful storytelling] The scream has come from Dottie's room, where...."
+    },
+    "p8_f5_02": {
+      "character": "MUMMY",
+      "text": "Ha ha ha! The curse has struck again! I will get the others through this girl! Ha ha!",
+      "performed": "[gloating laughter] Ha ha ha! The curse has struck again! [scheming] I will get the others through this girl! [cackling] Ha ha!"
+    },
+    "p8_f6_01": {
+      "character": "AMES",
+      "text": "DOTTIE! She's gone! Do you suppose the mummy...??",
+      "performed": "[panicked] DOTTIE! She's gone! Do you suppose the mummy...??"
+    },
+    "p8_f6_02": {
+      "character": "BILLY BATSON",
+      "text": "That's my guess too. So—",
+      "performed": "[under his breath] [grim] That's my guess too. So—"
+    },
+    "p8_f6_03": {
+      "character": "BILLY BATSON",
+      "text": "SHAZAM!",
+      "performed": "[shouting the magic word] SHAZAM!"
+    },
+    "p8_f7_01": {
+      "character": "AMES",
+      "text": "CAPTAIN MARVEL! Are we glad to see you!",
+      "performed": "[hugely relieved] CAPTAIN MARVEL! Are we glad to see you!"
+    },
+    "p8_f7_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Someone else is going to see me soon too—A MUMMY!",
+      "performed": "[confident, grim resolve] Someone else is going to see me soon too—A MUMMY!"
+    },
+    "p9_f1_01": {
+      "character": "NARRATOR",
+      "text": "Meanwhile, the mummy has raced through winding streets, and reaches an ancient stone building....",
+      "performed": "[fast-paced storytelling] Meanwhile, the mummy has raced through winding streets, and reaches an ancient stone building...."
+    },
+    "p9_f1_02": {
+      "character": "MUMMY",
+      "text": "??? CURSES! Here comes that flying wonder again! But I'll foil him!",
+      "performed": "[startled] ??? [snarling] CURSES! Here comes that flying wonder again! But I'll foil him!"
+    },
+    "p9_f2_01": {
+      "character": "MUMMY",
+      "text": "Just try and break through THAT door, my friend!",
+      "performed": "[distant, from off] [taunting] Just try and break through THAT door, my friend!"
+    },
+    "p9_f3_01": {
+      "character": "NARRATOR",
+      "text": "EARTH'S MIGHTIEST MORTAL smashes through the massive door as though it were made of flimsy paper, not solid iron!",
+      "performed": "[triumphant storytelling] EARTH'S MIGHTIEST MORTAL smashes through the massive door as though it were made of flimsy paper, not solid iron!"
+    },
+    "p9_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "There he goes, down that sewer!",
+      "performed": "[alert] There he goes, down that sewer!"
+    },
+    "p9_f5_01": {
+      "character": "MUMMY",
+      "text": "I dare him to pull THIS up—I JUST DARE HIM!",
+      "performed": "[smug, taunting] I dare him to pull THIS up—I JUST DARE HIM!"
+    },
+    "p9_f6_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Test number two, eh? Well, here goes—WOOPS!",
+      "performed": "[amused, confident] Test number two, eh? Well, here goes—[surprised]WOOPS!"
+    },
+    "p10_f1_01": {
+      "character": "NARRATOR",
+      "text": "Hurriedly, the MIGHTY MARVEL digs his fingers into the stone and—",
+      "performed": "[dramatic storytelling] Hurriedly, the MIGHTY MARVEL digs his fingers into the stone and—"
+    },
+    "p10_f1_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "THAT'S BETTER!",
+      "performed": "[satisfied] THAT'S BETTER!"
+    },
+    "p10_f2_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Several tunnels! Which one did the mummy—??",
+      "performed": "[puzzled] Several tunnels! Which one did the mummy—??"
+    },
+    "p10_f2_02": {
+      "character": "MUMMY",
+      "text": "You are strong—",
+      "performed": "[distant, from off] [echoing, mocking] You are strong—"
+    },
+    "p10_f2_03": {
+      "character": "MUMMY",
+      "text": "O mighty mortal!",
+      "performed": "[distant, from off] [echoing, mocking] O mighty mortal!"
+    },
+    "p10_f2_04": {
+      "character": "MUMMY",
+      "text": "But you can't be—in two places at once—",
+      "performed": "[distant, from off] [echoing, sly] But you can't be—in two places at once—"
+    },
+    "p10_f2_05": {
+      "character": "MUMMY",
+      "text": "And these echoes—",
+      "performed": "[distant, from off] [echoing, amused] And these echoes—"
+    },
+    "p10_f2_06": {
+      "character": "MUMMY",
+      "text": "Have you bewildered!",
+      "performed": "[distant, from off] [echoing, gloating] Have you bewildered!"
+    },
+    "p10_f3_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Looks like that confounded mummy HAS got me stumped! I can't go chasing through ALL these tunnels... HEY! What's that on the floor?",
+      "performed": "[frustrated] Looks like that confounded mummy HAS got me stumped! I can't go chasing through ALL these tunnels... [noticing something] HEY! What's that on the floor?"
+    },
+    "p10_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "A lipstick message from Dottie! Hmm—\"Tomorrow\" eh? Sure is a lucky thing that girl knows the CAPTAIN MARVEL CODE!",
+      "performed": "[reading, intrigued] A lipstick message from Dottie! Hmm—\"Tomorrow\" eh? [pleased] Sure is a lucky thing that girl knows the CAPTAIN MARVEL CODE!"
+    },
+    "p10_f4_02": {
+      "character": "NARRATOR",
+      "text": "For only the privileged members of the famed CAPTAIN MARVEL CLUB can decipher—or write—this kind of code.",
+      "performed": "[proud, conspiratorial storytelling] For only the privileged members of the famed CAPTAIN MARVEL CLUB can decipher—or write—this kind of code."
+    },
+    "p10_f5_01": {
+      "character": "NARRATOR",
+      "text": "Later, back at the hotel—",
+      "performed": "[storytelling] Later, back at the hotel—"
+    },
+    "p10_f5_02": {
+      "character": "AMES",
+      "text": "Wilson is gone too, Billy. I'm afraid he was murdered first by the mummy. And what about poor Dottie—?",
+      "performed": "[grief-stricken, worried] Wilson is gone too, Billy. I'm afraid he was murdered first by the mummy. And what about poor Dottie—?"
+    },
+    "p10_f5_03": {
+      "character": "BILLY BATSON",
+      "text": "Easy, Professor Ames, I just had a tip from Captain Marvel. He says Dottie is safe for the time being—and that we're to follow your map tomorrow.",
+      "performed": "[calm, reassuring] Easy, Professor Ames, I just had a tip from Captain Marvel. He says Dottie is safe for the time being—and that we're to follow your map tomorrow."
+    },
+    "p10_f6_01": {
+      "character": "NARRATOR",
+      "text": "Next day, and the search party sets out.",
+      "performed": "[adventurous storytelling] Next day, and the search party sets out."
+    },
+    "p10_f6_02": {
+      "character": "AMES",
+      "text": "According to my map, that pyramid is the tomb of Shad-ru-Khel!",
+      "performed": "[eager, scholarly] According to my map, that pyramid is the tomb of Shad-ru-Khel!"
+    },
+    "p10_f6_03": {
+      "character": "GUIDE",
+      "text": "Go slowly, effendi! It is ACCURSED!",
+      "performed": "[fearful warning] Go slowly, effendi! It is ACCURSED!"
+    },
+    "p11_f1_01": {
+      "character": "NARRATOR",
+      "text": "Meanwhile, deep within the hoary, old pyramid where the mummy has arrived through his underground passages...",
+      "performed": "[ominous storytelling] Meanwhile, deep within the hoary, old pyramid where the mummy has arrived through his underground passages..."
+    },
+    "p11_f1_02": {
+      "character": "MUMMY",
+      "text": "So! Professor Ames and Billy Batson still dare the CURSE! The fools! I'll show them!",
+      "performed": "[contemptuous, menacing] So! Professor Ames and Billy Batson still dare the CURSE! The fools! I'll show them!"
+    },
+    "p11_f2_01": {
+      "character": "DOTTIE",
+      "text": "Now I know the truth! You're a Nazi agent, Mummy! And this treasure is the stolen wealth of Shad-ru-Khel!",
+      "performed": "[defiant, accusing] Now I know the truth! You're a Nazi agent, Mummy! And this treasure is the stolen wealth of Shad-ru-Khel!"
+    },
+    "p11_f2_02": {
+      "character": "NAZI 2",
+      "text": "JA!",
+      "performed": "[gruff] JA!"
+    },
+    "p11_f2_03": {
+      "character": "MUMMY",
+      "text": "Of course, my dear, and now my men will go out and scare the daylights out of your friends! Hurry, men!",
+      "performed": "[smug, mocking] Of course, my dear, and now my men will go out and scare the daylights out of your friends! [barking orders] Hurry, men!"
+    },
+    "p11_f3_01": {
+      "character": "NAZI 1",
+      "text": "Back, brainless ones! Back—or the curse falls upon you!",
+      "performed": "[spooky, theatrical moaning] Back, brainless ones! Back—or the curse falls upon you!"
+    },
+    "p11_f3_02": {
+      "character": "AMES",
+      "text": "Gulp!",
+      "performed": "[frightened] Gulp!"
+    },
+    "p11_f3_03": {
+      "character": "BILLY BATSON",
+      "text": "Gulp! SHAZAM!",
+      "performed": "[frightened] Gulp! [shouting the magic word] SHAZAM!"
+    },
+    "p11_f4_01": {
+      "character": "AMES",
+      "text": "Captain Marvel!",
+      "performed": "[overjoyed] Captain Marvel!"
+    },
+    "p11_f4_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Stay here, Professor—while I rip this place wide open!",
+      "performed": "[heroic, confident] Stay here, Professor—while I rip this place wide open!"
+    },
+    "p11_f4_03": {
+      "character": "NAZI 1",
+      "text": "HIMMEL!",
+      "performed": "[panicked] HIMMEL!"
+    },
+    "p11_f5_01": {
+      "character": "MUMMY",
+      "text": "Don't run, fools! ATTACK! In the name of Shad-ru-Khel—ATTACK!",
+      "performed": "[furious, shouting] Don't run, fools! ATTACK! In the name of Shad-ru-Khel—ATTACK!"
+    },
+    "p11_f6_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Such horrible faces! I'm SO frightened!",
+      "performed": "[sarcastic, mock fear] Such horrible faces! I'm SO frightened!"
+    },
+    "p12_f1_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "But what's underneath the disguises is even more horrible—NAZIS!",
+      "performed": "[wry, disgusted] But what's underneath the disguises is even more horrible—NAZIS!"
+    },
+    "p12_f1_02": {
+      "character": "DOTTIE",
+      "text": "Yes, Captain Marvel! The mummy is a Nazi agent! He planned to turn the stolen treasure of Shad-ru-Khel over to Hitler!",
+      "performed": "[urgent, indignant] Yes, Captain Marvel! The mummy is a Nazi agent! He planned to turn the stolen treasure of Shad-ru-Khel over to Hitler!"
+    },
+    "p12_f2_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Tie those Nazis up, Dottie—and watch that treasure! I'm going after Herr Mummy! I think I know who he is!",
+      "performed": "[commanding] Tie those Nazis up, Dottie—and watch that treasure! [determined] I'm going after Herr Mummy! [knowing] I think I know who he is!"
+    },
+    "p12_f3_01": {
+      "character": "NARRATOR",
+      "text": "Deeper into the pyramid's winding mazes, Marvel pursues the mummy!",
+      "performed": "[suspenseful storytelling] Deeper into the pyramid's winding mazes, Marvel pursues the mummy!"
+    },
+    "p12_f3_02": {
+      "character": "MUMMY",
+      "text": "Ha ha—! This stone door is TEN FEET THICK!",
+      "performed": "[distant, from off] [gloating laughter] Ha ha—! This stone door is TEN FEET THICK!"
+    },
+    "p12_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "So what?",
+      "performed": "[nonchalant] So what?"
+    },
+    "p12_f5_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "What's this—?—Hmm, I get it all now! A secret Nazi supply base, BACK OF THE BRITISH LINES! Hidden in an innocent pyramid!",
+      "performed": "[suspicious] What's this—?—[realizing]Hmm, I get it all now! A secret Nazi supply base, BACK OF THE BRITISH LINES! Hidden in an innocent pyramid!"
+    },
+    "p12_f5_02": {
+      "character": "MUMMY",
+      "text": "RIGHT! And the curse of Shad-ru-Khel was to keep meddlers like you and Ames away!",
+      "performed": "[snarling, gloating] RIGHT! And the curse of Shad-ru-Khel was to keep meddlers like you and Ames away!"
+    },
+    "p12_f6_01": {
+      "character": "MUMMY",
+      "text": "Take that you—",
+      "performed": "[furious] Take that you—"
+    },
+    "p12_f6_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Get ready to fly—WILSON!",
+      "performed": "[triumphant, heroic shout] Get ready to fly—WILSON!"
+    },
+    "p13_f1_01": {
+      "character": "NARRATOR",
+      "text": "Propelled by Marvel's mighty blow, the mummy, now revealed as Wilson, flies back—but his broken sword strikes a spark, igniting a tin of gasoline!",
+      "performed": "[dramatic storytelling] Propelled by Marvel's mighty blow, the mummy, now revealed as Wilson, flies back—but his broken sword strikes a spark, igniting a tin of gasoline!"
+    },
+    "p13_f2_01": {
+      "character": "WILSON",
+      "text": "AAAAAGH!",
+      "performed": "[agonized scream] AAAAAGH!"
+    },
+    "p13_f2_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "FIRE! When it reaches the gun powder—! I've got to save Dottie and Ames! IN THE SHORTEST POSSIBLE TIME!",
+      "performed": "[alarmed, urgent] FIRE! When it reaches the gun powder—! I've got to save Dottie and Ames! IN THE SHORTEST POSSIBLE TIME!"
+    },
+    "p13_f3_01": {
+      "character": "NARRATOR",
+      "text": "Right through solid stone cleaves mighty Captain Marvel.... to where he left Dottie...",
+      "performed": "[action-packed storytelling] Right through solid stone cleaves mighty Captain Marvel.... to where he left Dottie..."
+    },
+    "p13_f3_02": {
+      "character": "DOTTIE",
+      "text": "CAPTAIN MARVEL! WHA—!",
+      "performed": "[startled] CAPTAIN MARVEL! WHA—!"
+    },
+    "p13_f3_03": {
+      "character": "CAPTAIN MARVEL",
+      "text": "Brace yourselves! I'm going to grab you two up!",
+      "performed": "[urgent, heroic] Brace yourselves! I'm going to grab you two up!"
+    },
+    "p13_f4_01": {
+      "character": "CAPTAIN MARVEL",
+      "text": "—And out we go!",
+      "performed": "[exhilarated] —And out we go!"
+    },
+    "p13_f5_01": {
+      "character": "DOTTIE",
+      "text": "Just in time! The pyramid blew to smithereens!",
+      "performed": "[breathless, relieved] Just in time! The pyramid blew to smithereens!"
+    },
+    "p13_f5_02": {
+      "character": "CAPTAIN MARVEL",
+      "text": "And that's the end of a Nazi secret base! Now back to our ship—and America!",
+      "performed": "[satisfied, heroic] And that's the end of a Nazi secret base! Now back to our ship—and America!"
+    },
+    "p13_f6_01": {
+      "character": "NARRATOR",
+      "text": "Out at sea—and heading home!",
+      "performed": "[warm storytelling] Out at sea—and heading home!"
+    },
+    "p13_f6_02": {
+      "character": "AMES",
+      "text": "So Wilson was the mummy all the time—a secret Nazi agent! But I'm disappointed! NO REAL MUMMY! NO TREASURE! Not even a REAL curse!",
+      "performed": "[rueful] So Wilson was the mummy all the time—a secret Nazi agent! [grumbling] But I'm disappointed! NO REAL MUMMY! NO TREASURE! Not even a REAL curse!"
+    },
+    "p13_f6_03": {
+      "character": "BILLY BATSON",
+      "text": "No REAL curse? Wasn't Wilson the first to molest the mummy case? AND DIDN'T HE DIE? That's curse enough!",
+      "performed": "[knowing, wry] No REAL curse? Wasn't Wilson the first to molest the mummy case? AND DIDN'T HE DIE? That's curse enough!"
+    },
+    "p13_f7_01": {
+      "character": "NARRATOR",
+      "text": "One more surprise!",
+      "performed": "[playful storytelling] One more surprise!"
+    },
+    "p13_f7_02": {
+      "character": "DOTTIE",
+      "text": "No treasure? What do you mean? I didn't bring this BIG HELMET along for nothing!",
+      "performed": "[sly, triumphant] No treasure? What do you mean? I didn't bring this BIG HELMET along for nothing!"
+    },
+    "p13_f7_03": {
+      "character": "BILLY BATSON",
+      "text": "HOLY MOLEY!",
+      "performed": "[amazed exclamation] HOLY MOLEY!"
+    },
+    "p13_f7_04": {
+      "character": "NARRATOR",
+      "text": "See CAPTAIN MARVEL every month in WHIZ COMICS!",
+      "performed": "[upbeat announcer storytelling] See CAPTAIN MARVEL every month in WHIZ COMICS!"
+    }
+  }
+}

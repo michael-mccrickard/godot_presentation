@@ -1,0 +1,57 @@
+{
+  "_defaults": {
+    "mode": "dialogue",
+    "output_format": "mp3_44100_128",
+    "dialogue": {
+      "model_id": "eleven_v4",
+      "stability": 0.5
+    }
+  },
+  "CAPTAIN MARVEL": {
+    "voice_id": "d8PSLVicWEH7zbII5JEI",
+    "voice_name": "Kory"
+  },
+  "NARRATOR": { 
+	"voice_id": "EapdDtSsMC291mjfSNe7", 
+	"voice_name": "Peter"},
+  "AMES": {
+    "voice_id": "MKlLqCItoCkvdhrxgtLv",
+    "voice_name": "Grandpa Werthers"
+  },
+  "WILSON": {
+    "voice_id": "NOpBlnGInO9m6vDvFkFC",
+    "voice_name": "Spuds Oxley"
+  },
+  "BOARD MEMBER 1": {
+    "voice_id": "PIGsltMj3gFMR34aFDI3",
+    "voice_name": "Jonathan"
+  },
+  "DOTTIE": {
+    "voice_id": "DODLEQrClDo8wCz460ld",
+    "voice_name": "Lauren"
+  },
+  "BILLY BATSON": {
+    "voice_id": "yl2ZDV1MzN4HbQJbMihG",
+    "voice_name": "Alex"
+  },
+  "MISS DALSHAW": {
+    "voice_id": "TpIle0udG1y9a8xmjXsn",
+    "voice_name": "Vanessa"
+  },
+  "MUMMY": {
+    "voice_id": "YOq2y2Up4RgXP2HyXjE5",
+    "voice_name": "Xavier"
+  },
+  "GUIDE": {
+    "voice_id": "NxPXEXVI7y6ODRmHIUt3",
+    "voice_name": "Kursat"
+  },
+  "NAZI 2": {
+    "voice_id": "5GM4aByyJu1ecbL4rKms",
+    "voice_name": "Aldric"
+  },
+  "NAZI 1": {
+    "voice_id": "RuBa4qzQ26xwgva6lxFZ",
+    "voice_name": "Marc"
+  }
+}

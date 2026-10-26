@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://3scwf3hfn2ep"
+
+[deps]
+
+files=["res://cartoons/captain_marvel_mummy/manifest.chunk.translation", "res://cartoons/captain_marvel_mummy/manifest.character.translation", "res://cartoons/captain_marvel_mummy/manifest.voice.translation", "res://cartoons/captain_marvel_mummy/manifest.status.translation", "res://cartoons/captain_marvel_mummy/manifest.take.translation", "res://cartoons/captain_marvel_mummy/manifest.duration.translation", "res://cartoons/captain_marvel_mummy/manifest.performed.translation"]
+
+source_file="res://cartoons/captain_marvel_mummy/manifest.csv"
+dest_files=["res://cartoons/captain_marvel_mummy/manifest.chunk.translation", "res://cartoons/captain_marvel_mummy/manifest.character.translation", "res://cartoons/captain_marvel_mummy/manifest.voice.translation", "res://cartoons/captain_marvel_mummy/manifest.status.translation", "res://cartoons/captain_marvel_mummy/manifest.take.translation", "res://cartoons/captain_marvel_mummy/manifest.duration.translation", "res://cartoons/captain_marvel_mummy/manifest.performed.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

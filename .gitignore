@@ -11,6 +11,7 @@ export_credentials.cfg
 *.translation
 
 .clips/
+.logic/
 
 # Mono-specific ignores
 .mono/
@@ -18,3 +19,8 @@ data_*/
 mono_crash.*.json
 
 audio.wav
+audio_1.wav
+audio_2.wav
+audio_3.wav
+audio_4.wav
+audio_5.wav
