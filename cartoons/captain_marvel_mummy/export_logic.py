@@ -4,9 +4,9 @@ export_logic.py — lay out the dialogue clips from manifest.json on a timeline 
 export them for Logic Pro.
 
 Writes:
-  logic/wav/<clip>.wav      48 kHz / 24-bit Broadcast WAVs with the timeline position
+  ~/Comix/<cartoon>/logic/wav/<clip>.wav      48 kHz / 24-bit Broadcast WAVs with the timeline position
                             embedded (BWF time reference) -> "Move to Recorded Position"
-  logic/dialogue.fcpxml     File > Import > Final Cut Pro XML in Logic. One lane + role
+  ~/Comix/<cartoon>/logic/dialogue.fcpxml     File > Import > Final Cut Pro XML in Logic. One lane + role
                             per character, clips named by line ID, a marker at every panel.
   timeline.json / .csv      start/end of every line and every panel (reusable in Godot)
 
@@ -29,6 +29,8 @@ Requires ffmpeg / ffprobe on PATH.
 import argparse, csv, json, math, re, subprocess, sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+COMIX_ROOT = Path("/Users/michaelmccrickard/Comix")   # logic folder lives at COMIX_ROOT/<cartoon folder name>/logic
 
 FPS = 30            # sequence frame rate (audio-only, but FCPXML wants a video format)
 SR = 48000          # output sample rate
@@ -95,7 +97,7 @@ def export_scenes(a, root, name, all_lines):
             {**l, "idx": idx, "in_start": sel.get("scene_start", 0), "in_end": sel.get("scene_end", 0)})
     scenes = sorted(scenes.values(), key=lambda s: (s["page"], s["file"]))
 
-    wav_dir = root / "logic" / "scenes"
+    wav_dir = a.logic / "scenes"
     wav_dir.mkdir(parents=True, exist_ok=True)
     cursor, placed, segs, tl_lines, panels, n_pauses = frames(a.lead_in), [], [], [], {}, 0
     for i, sc in enumerate(scenes):
@@ -179,12 +181,12 @@ def export_scenes(a, root, name, all_lines):
         ET.SubElement(gap, "asset-clip", ref=sc["ref"], lane="-1", offset=ft(g["offset"]),
                       start=ft(g["in"]), duration=ft(g["dur"]), name=nm, audioRole="Dialogue")
     ET.indent(fcp)
-    out = root / "logic" / "dialogue_scenes.fcpxml"
+    out = a.logic / "dialogue_scenes.fcpxml"
     out.write_text('<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE fcpxml>\n\n'
                    + ET.tostring(fcp, encoding="unicode") + "\n", encoding="utf-8")
     print(f"{len(placed)} scenes / {len(segs)} regions on one track, {n_pauses} pauses inserted, "
           f"{len(panels)} panel markers, length {total / FPS / 60:.0f}:{total / FPS % 60:04.1f}")
-    print(f"→ {out.relative_to(root)}\n→ logic/scenes/ (BWF)\n→ timeline.json / timeline.csv")
+    print(f"→ {out}\n→ {a.logic / 'scenes'}/ (BWF)\n→ timeline.json / timeline.csv")
 
 
 def main():
@@ -204,9 +206,14 @@ def main():
                     help="place the per-page scene files (from --scenes-only) end to end on ONE track")
     ap.add_argument("--panel-pause", type=float, default=0.0,
                     help="--scenes: extra silence inserted at every panel change inside a page")
+    ap.add_argument("--logic-dir", help="override the logic folder (default: ~/Comix/<this folder name>/logic)")
     a = ap.parse_args()
 
     root = Path(a.manifest).resolve().parent
+    a.logic = Path(a.logic_dir).expanduser() if a.logic_dir else COMIX_ROOT / root.name / "logic"
+    if not a.logic.parent.is_dir():
+        sys.exit(f"Cartoon folder not found: {a.logic.parent}\n(it must match this folder's name: {root.name}; or pass --logic-dir)")
+    print(f"logic folder: {a.logic}")
     name = a.name or root.name
     all_lines = json.loads(Path(a.manifest).read_text())["lines"]
     if a.scenes or (not any(l.get("file") for l in all_lines) and any(l.get("scene_file") for l in all_lines)):
@@ -223,7 +230,7 @@ def main():
     if tl_path.exists() and not a.relayout:
         locked = {x["id"]: x for x in json.loads(tl_path.read_text())["lines"]}
 
-    wav_dir = root / "logic" / "wav"
+    wav_dir = a.logic / "wav"
     wav_dir.mkdir(parents=True, exist_ok=True)
 
     # ---- layout (in frames, so everything lands on FCPXML edit boundaries) ----
@@ -272,7 +279,7 @@ def main():
     tl = {
         "fps": FPS,
         "lines": [{"id": p["id"], "panel": p["panel"], "character": p["character"],
-                   "file": p["file"], "wav": str(p["wav"].relative_to(root)),
+                   "file": p["file"], "wav": str(p["wav"]),
                    "start_frame": p["start_frame"], "start": round(p["start_frame"] / FPS, 3),
                    "end": round(p["end_frame"] / FPS, 3)} for p in placed],
         "panels": [{"panel": v["panel"], "start": round(v["start"] / FPS, 3),
@@ -321,12 +328,12 @@ def main():
         ET.SubElement(clip, "note").text = p["text"]
 
     ET.indent(fcp)
-    out = root / "logic" / "dialogue.fcpxml"
+    out = a.logic / "dialogue.fcpxml"
     out.write_text('<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE fcpxml>\n\n'
                    + ET.tostring(fcp, encoding="unicode") + "\n", encoding="utf-8")
 
     if a.stems:
-        stem_dir = root / "logic" / "stems"
+        stem_dir = a.logic / "stems"
         stem_dir.mkdir(parents=True, exist_ok=True)
         for c in chars:
             mine = [p for p in placed if p["character"] == c]
@@ -341,11 +348,11 @@ def main():
                     "-write_bext", "1", "-metadata", "time_reference=0",
                     str(stem_dir / f"{rname[c]}.wav")]
             subprocess.run(cmd, check=True)
-        print(f"→ logic/stems/ ({len(chars)} character stems, all start at 0:00)")
+        print(f"→ {stem_dir}/ ({len(chars)} character stems, all start at 0:00)")
 
     print(f"{len(placed)} clips, {len(chars)} characters, {len(panels)} panels, "
           f"length {total / FPS / 60:.0f}:{total / FPS % 60:04.1f}")
-    print(f"→ {out.relative_to(root)}\n→ timeline.json / timeline.csv\n→ logic/wav/ (BWF)")
+    print(f"→ {out}\n→ timeline.json / timeline.csv\n→ {wav_dir}/ (BWF)")
 
 
 if __name__ == "__main__":
